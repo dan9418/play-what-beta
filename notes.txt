@@ -1,0 +1,23 @@
+NOTE: This entire project is a work in progress. Nothing is completely accurate or finished yet.
+
+start with keyboard with base_notes, degrees, diatonic pattern + semitones and base_intervals
+
+there are 12 any_notes, but only 7 scale degrees and 7 base_notes
+key maps degrees (I-VII) to base_notes (A-G)
+
+semitones (0-11) define base_intervals (PU-M7) [TT]
+	
+chord structures are defined by base_intervals stacked texturally [PU, m3, TT]
+scale structures are defined by base_intervals sequences temporally [PU, M2, M3, P4...]
+
+any_notes are assigned a base_note based on scale degree
+base_intervals are assigned a name based on scale degree
+
+accidentals are the distance in semitones between a given any_note's position relative to C and the natural position of its scale degree in the diatonic pattern relative to C
+
+interval qualifiers are the distance in semitones between a given base_interval and the natural position of a its scale degree in the diatonic pattern relative to C
+
+functional_notes/functional_intervals are base_notes/base_intervals with accidentals/interval qualifiers
+
+chords are defined structurally by base_intervals, but functionally by functional_intervals
+notes/scales are defined structurally by base_intervals, but functionally by functional_notes

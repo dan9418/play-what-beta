@@ -1,0 +1,861 @@
+============ Key of Cb ============
+[Ionian (Major)]
+Cb	Db	Eb	Fb	Gb	Ab	Bb	
+[Dorian]
+Db	Eb	Fb	Gb	Ab	Bb	Cb	
+[Phrygian]
+Eb	Fb	Gb	Ab	Bb	Cb	Db	
+[Lydian]
+Fb	Gb	Ab	Bb	Cb	Db	Eb	
+[Mixolydian]
+Gb	Ab	Bb	Cb	Db	Eb	Fb	
+[Aeolian (Natual Minor)]
+Ab	Bb	Cb	Db	Eb	Fb	Gb	
+[Locrian]
+Bb	Cb	Db	Eb	Fb	Gb	Ab	
+[Major Triad]
+Cb	Eb	Gb	
+[Major 6th]
+Cb	Eb	Gb	Ab	
+[Dominant "Major-Minor" 7th]
+Cb	Eb	Gb	Bbb	
+[Major 7th]
+Cb	Eb	Gb	Bb	
+[Augmented Triad]
+Cb	Eb	G	
+[Augmented Seventh]
+Cb	Eb	G	Bbb	
+[Minor Triad]
+Cb	Ebb	Gb	
+[Minor 6th]
+Cb	Ebb	Gb	Ab	
+[Minor 7th]
+Cb	Ebb	Gb	Bbb	
+[Minor-Major 7th]
+Cb	Ebb	Gb	Bb	
+[Diminished Triad]
+Cb	Ebb	Gbb	
+[Diminished 7th]
+Cb	Ebb	Gbb	B3b	
+[Half-Diminished 7th]
+Cb	Ebb	Gbb	Bbb	
+============ Key of C ============
+[Ionian (Major)]
+C	D	E	F	G	A	B	
+[Dorian]
+D	E	F	G	A	B	C	
+[Phrygian]
+E	F	G	A	B	C	D	
+[Lydian]
+F	G	A	B	C	D	E	
+[Mixolydian]
+G	A	B	C	D	E	F	
+[Aeolian (Natual Minor)]
+A	B	C	D	E	F	G	
+[Locrian]
+B	C	D	E	F	G	A	
+[Major Triad]
+C	E	G	
+[Major 6th]
+C	E	G	A	
+[Dominant "Major-Minor" 7th]
+C	E	G	Bb	
+[Major 7th]
+C	E	G	B	
+[Augmented Triad]
+C	E	G#	
+[Augmented Seventh]
+C	E	G#	Bb	
+[Minor Triad]
+C	Eb	G	
+[Minor 6th]
+C	Eb	G	A	
+[Minor 7th]
+C	Eb	G	Bb	
+[Minor-Major 7th]
+C	Eb	G	B	
+[Diminished Triad]
+C	Eb	Gb	
+[Diminished 7th]
+C	Eb	Gb	Bbb	
+[Half-Diminished 7th]
+C	Eb	Gb	Bb	
+============ Key of C# ============
+[Ionian (Major)]
+C#	D#	E#	F#	G#	A#	B#	
+[Dorian]
+D#	E#	F#	G#	A#	B#	C#	
+[Phrygian]
+E#	F#	G#	A#	B#	C#	D#	
+[Lydian]
+F#	G#	A#	B#	C#	D#	E#	
+[Mixolydian]
+G#	A#	B#	C#	D#	E#	F#	
+[Aeolian (Natual Minor)]
+A#	B#	C#	D#	E#	F#	G#	
+[Locrian]
+B#	C#	D#	E#	F#	G#	A#	
+[Major Triad]
+C#	E#	G#	
+[Major 6th]
+C#	E#	G#	A#	
+[Dominant "Major-Minor" 7th]
+C#	E#	G#	B	
+[Major 7th]
+C#	E#	G#	B#	
+[Augmented Triad]
+C#	E#	Gx	
+[Augmented Seventh]
+C#	E#	Gx	B	
+[Minor Triad]
+C#	E	G#	
+[Minor 6th]
+C#	E	G#	A#	
+[Minor 7th]
+C#	E	G#	B	
+[Minor-Major 7th]
+C#	E	G#	B#	
+[Diminished Triad]
+C#	E	G	
+[Diminished 7th]
+C#	E	G	Bb	
+[Half-Diminished 7th]
+C#	E	G	B	
+============ Key of Db ============
+[Ionian (Major)]
+Db	Eb	F	Gb	Ab	Bb	C	
+[Dorian]
+Eb	F	Gb	Ab	Bb	C	Db	
+[Phrygian]
+F	Gb	Ab	Bb	C	Db	Eb	
+[Lydian]
+Gb	Ab	Bb	C	Db	Eb	F	
+[Mixolydian]
+Ab	Bb	C	Db	Eb	F	Gb	
+[Aeolian (Natual Minor)]
+Bb	C	Db	Eb	F	Gb	Ab	
+[Locrian]
+C	Db	Eb	F	Gb	Ab	Bb	
+[Major Triad]
+Db	F	Ab	
+[Major 6th]
+Db	F	Ab	Bb	
+[Dominant "Major-Minor" 7th]
+Db	F	Ab	Cb	
+[Major 7th]
+Db	F	Ab	C	
+[Augmented Triad]
+Db	F	A	
+[Augmented Seventh]
+Db	F	A	Cb	
+[Minor Triad]
+Db	Fb	Ab	
+[Minor 6th]
+Db	Fb	Ab	Bb	
+[Minor 7th]
+Db	Fb	Ab	Cb	
+[Minor-Major 7th]
+Db	Fb	Ab	C	
+[Diminished Triad]
+Db	Fb	Abb	
+[Diminished 7th]
+Db	Fb	Abb	Cbb	
+[Half-Diminished 7th]
+Db	Fb	Abb	Cb	
+============ Key of D ============
+[Ionian (Major)]
+D	E	F#	G	A	B	C#	
+[Dorian]
+E	F#	G	A	B	C#	D	
+[Phrygian]
+F#	G	A	B	C#	D	E	
+[Lydian]
+G	A	B	C#	D	E	F#	
+[Mixolydian]
+A	B	C#	D	E	F#	G	
+[Aeolian (Natual Minor)]
+B	C#	D	E	F#	G	A	
+[Locrian]
+C#	D	E	F#	G	A	B	
+[Major Triad]
+D	F#	A	
+[Major 6th]
+D	F#	A	B	
+[Dominant "Major-Minor" 7th]
+D	F#	A	C	
+[Major 7th]
+D	F#	A	C#	
+[Augmented Triad]
+D	F#	A#	
+[Augmented Seventh]
+D	F#	A#	C	
+[Minor Triad]
+D	F	A	
+[Minor 6th]
+D	F	A	B	
+[Minor 7th]
+D	F	A	C	
+[Minor-Major 7th]
+D	F	A	C#	
+[Diminished Triad]
+D	F	Ab	
+[Diminished 7th]
+D	F	Ab	Cb	
+[Half-Diminished 7th]
+D	F	Ab	C	
+============ Key of D# ============
+[Ionian (Major)]
+D#	E#	Fx	G#	A#	B#	Cx	
+[Dorian]
+E#	Fx	G#	A#	B#	Cx	D#	
+[Phrygian]
+Fx	G#	A#	B#	Cx	D#	E#	
+[Lydian]
+G#	A#	B#	Cx	D#	E#	Fx	
+[Mixolydian]
+A#	B#	Cx	D#	E#	Fx	G#	
+[Aeolian (Natual Minor)]
+B#	Cx	D#	E#	Fx	G#	A#	
+[Locrian]
+Cx	D#	E#	Fx	G#	A#	B#	
+[Major Triad]
+D#	Fx	A#	
+[Major 6th]
+D#	Fx	A#	B#	
+[Dominant "Major-Minor" 7th]
+D#	Fx	A#	C#	
+[Major 7th]
+D#	Fx	A#	Cx	
+[Augmented Triad]
+D#	Fx	Ax	
+[Augmented Seventh]
+D#	Fx	Ax	C#	
+[Minor Triad]
+D#	F#	A#	
+[Minor 6th]
+D#	F#	A#	B#	
+[Minor 7th]
+D#	F#	A#	C#	
+[Minor-Major 7th]
+D#	F#	A#	Cx	
+[Diminished Triad]
+D#	F#	A	
+[Diminished 7th]
+D#	F#	A	C	
+[Half-Diminished 7th]
+D#	F#	A	C#	
+============ Key of Eb ============
+[Ionian (Major)]
+Eb	F	G	Ab	Bb	C	D	
+[Dorian]
+F	G	Ab	Bb	C	D	Eb	
+[Phrygian]
+G	Ab	Bb	C	D	Eb	F	
+[Lydian]
+Ab	Bb	C	D	Eb	F	G	
+[Mixolydian]
+Bb	C	D	Eb	F	G	Ab	
+[Aeolian (Natual Minor)]
+C	D	Eb	F	G	Ab	Bb	
+[Locrian]
+D	Eb	F	G	Ab	Bb	C	
+[Major Triad]
+Eb	G	Bb	
+[Major 6th]
+Eb	G	Bb	C	
+[Dominant "Major-Minor" 7th]
+Eb	G	Bb	Db	
+[Major 7th]
+Eb	G	Bb	D	
+[Augmented Triad]
+Eb	G	B	
+[Augmented Seventh]
+Eb	G	B	Db	
+[Minor Triad]
+Eb	Gb	Bb	
+[Minor 6th]
+Eb	Gb	Bb	C	
+[Minor 7th]
+Eb	Gb	Bb	Db	
+[Minor-Major 7th]
+Eb	Gb	Bb	D	
+[Diminished Triad]
+Eb	Gb	Bbb	
+[Diminished 7th]
+Eb	Gb	Bbb	Dbb	
+[Half-Diminished 7th]
+Eb	Gb	Bbb	Db	
+============ Key of E ============
+[Ionian (Major)]
+E	F#	G#	A	B	C#	D#	
+[Dorian]
+F#	G#	A	B	C#	D#	E	
+[Phrygian]
+G#	A	B	C#	D#	E	F#	
+[Lydian]
+A	B	C#	D#	E	F#	G#	
+[Mixolydian]
+B	C#	D#	E	F#	G#	A	
+[Aeolian (Natual Minor)]
+C#	D#	E	F#	G#	A	B	
+[Locrian]
+D#	E	F#	G#	A	B	C#	
+[Major Triad]
+E	G#	B	
+[Major 6th]
+E	G#	B	C#	
+[Dominant "Major-Minor" 7th]
+E	G#	B	D	
+[Major 7th]
+E	G#	B	D#	
+[Augmented Triad]
+E	G#	B#	
+[Augmented Seventh]
+E	G#	B#	D	
+[Minor Triad]
+E	G	B	
+[Minor 6th]
+E	G	B	C#	
+[Minor 7th]
+E	G	B	D	
+[Minor-Major 7th]
+E	G	B	D#	
+[Diminished Triad]
+E	G	Bb	
+[Diminished 7th]
+E	G	Bb	Db	
+[Half-Diminished 7th]
+E	G	Bb	D	
+============ Key of E# ============
+[Ionian (Major)]
+E#	Fx	Gx	A#	B#	Cx	Dx	
+[Dorian]
+Fx	Gx	A#	B#	Cx	Dx	E#	
+[Phrygian]
+Gx	A#	B#	Cx	Dx	E#	Fx	
+[Lydian]
+A#	B#	Cx	Dx	E#	Fx	Gx	
+[Mixolydian]
+B#	Cx	Dx	E#	Fx	Gx	A#	
+[Aeolian (Natual Minor)]
+Cx	Dx	E#	Fx	Gx	A#	B#	
+[Locrian]
+Dx	E#	Fx	Gx	A#	B#	Cx	
+[Major Triad]
+E#	Gx	B#	
+[Major 6th]
+E#	Gx	B#	Cx	
+[Dominant "Major-Minor" 7th]
+E#	Gx	B#	D#	
+[Major 7th]
+E#	Gx	B#	Dx	
+[Augmented Triad]
+E#	Gx	Bx	
+[Augmented Seventh]
+E#	Gx	Bx	D#	
+[Minor Triad]
+E#	G#	B#	
+[Minor 6th]
+E#	G#	B#	Cx	
+[Minor 7th]
+E#	G#	B#	D#	
+[Minor-Major 7th]
+E#	G#	B#	Dx	
+[Diminished Triad]
+E#	G#	B	
+[Diminished 7th]
+E#	G#	B	D	
+[Half-Diminished 7th]
+E#	G#	B	D#	
+============ Key of Fb ============
+[Ionian (Major)]
+Fb	Gb	Ab	Bbb	Cb	Db	Eb	
+[Dorian]
+Gb	Ab	Bbb	Cb	Db	Eb	Fb	
+[Phrygian]
+Ab	Bbb	Cb	Db	Eb	Fb	Gb	
+[Lydian]
+Bbb	Cb	Db	Eb	Fb	Gb	Ab	
+[Mixolydian]
+Cb	Db	Eb	Fb	Gb	Ab	Bbb	
+[Aeolian (Natual Minor)]
+Db	Eb	Fb	Gb	Ab	Bbb	Cb	
+[Locrian]
+Eb	Fb	Gb	Ab	Bbb	Cb	Db	
+[Major Triad]
+Fb	Ab	Cb	
+[Major 6th]
+Fb	Ab	Cb	Db	
+[Dominant "Major-Minor" 7th]
+Fb	Ab	Cb	Ebb	
+[Major 7th]
+Fb	Ab	Cb	Eb	
+[Augmented Triad]
+Fb	Ab	C	
+[Augmented Seventh]
+Fb	Ab	C	Ebb	
+[Minor Triad]
+Fb	Abb	Cb	
+[Minor 6th]
+Fb	Abb	Cb	Db	
+[Minor 7th]
+Fb	Abb	Cb	Ebb	
+[Minor-Major 7th]
+Fb	Abb	Cb	Eb	
+[Diminished Triad]
+Fb	Abb	Cbb	
+[Diminished 7th]
+Fb	Abb	Cbb	E3b	
+[Half-Diminished 7th]
+Fb	Abb	Cbb	Ebb	
+============ Key of F ============
+[Ionian (Major)]
+F	G	A	Bb	C	D	E	
+[Dorian]
+G	A	Bb	C	D	E	F	
+[Phrygian]
+A	Bb	C	D	E	F	G	
+[Lydian]
+Bb	C	D	E	F	G	A	
+[Mixolydian]
+C	D	E	F	G	A	Bb	
+[Aeolian (Natual Minor)]
+D	E	F	G	A	Bb	C	
+[Locrian]
+E	F	G	A	Bb	C	D	
+[Major Triad]
+F	A	C	
+[Major 6th]
+F	A	C	D	
+[Dominant "Major-Minor" 7th]
+F	A	C	Eb	
+[Major 7th]
+F	A	C	E	
+[Augmented Triad]
+F	A	C#	
+[Augmented Seventh]
+F	A	C#	Eb	
+[Minor Triad]
+F	Ab	C	
+[Minor 6th]
+F	Ab	C	D	
+[Minor 7th]
+F	Ab	C	Eb	
+[Minor-Major 7th]
+F	Ab	C	E	
+[Diminished Triad]
+F	Ab	Cb	
+[Diminished 7th]
+F	Ab	Cb	Ebb	
+[Half-Diminished 7th]
+F	Ab	Cb	Eb	
+============ Key of F# ============
+[Ionian (Major)]
+F#	G#	A#	B	C#	D#	E#	
+[Dorian]
+G#	A#	B	C#	D#	E#	F#	
+[Phrygian]
+A#	B	C#	D#	E#	F#	G#	
+[Lydian]
+B	C#	D#	E#	F#	G#	A#	
+[Mixolydian]
+C#	D#	E#	F#	G#	A#	B	
+[Aeolian (Natual Minor)]
+D#	E#	F#	G#	A#	B	C#	
+[Locrian]
+E#	F#	G#	A#	B	C#	D#	
+[Major Triad]
+F#	A#	C#	
+[Major 6th]
+F#	A#	C#	D#	
+[Dominant "Major-Minor" 7th]
+F#	A#	C#	E	
+[Major 7th]
+F#	A#	C#	E#	
+[Augmented Triad]
+F#	A#	Cx	
+[Augmented Seventh]
+F#	A#	Cx	E	
+[Minor Triad]
+F#	A	C#	
+[Minor 6th]
+F#	A	C#	D#	
+[Minor 7th]
+F#	A	C#	E	
+[Minor-Major 7th]
+F#	A	C#	E#	
+[Diminished Triad]
+F#	A	C	
+[Diminished 7th]
+F#	A	C	Eb	
+[Half-Diminished 7th]
+F#	A	C	E	
+============ Key of Gb ============
+[Ionian (Major)]
+Gb	Ab	Bb	Cb	Db	Eb	F	
+[Dorian]
+Ab	Bb	Cb	Db	Eb	F	Gb	
+[Phrygian]
+Bb	Cb	Db	Eb	F	Gb	Ab	
+[Lydian]
+Cb	Db	Eb	F	Gb	Ab	Bb	
+[Mixolydian]
+Db	Eb	F	Gb	Ab	Bb	Cb	
+[Aeolian (Natual Minor)]
+Eb	F	Gb	Ab	Bb	Cb	Db	
+[Locrian]
+F	Gb	Ab	Bb	Cb	Db	Eb	
+[Major Triad]
+Gb	Bb	Db	
+[Major 6th]
+Gb	Bb	Db	Eb	
+[Dominant "Major-Minor" 7th]
+Gb	Bb	Db	Fb	
+[Major 7th]
+Gb	Bb	Db	F	
+[Augmented Triad]
+Gb	Bb	D	
+[Augmented Seventh]
+Gb	Bb	D	Fb	
+[Minor Triad]
+Gb	Bbb	Db	
+[Minor 6th]
+Gb	Bbb	Db	Eb	
+[Minor 7th]
+Gb	Bbb	Db	Fb	
+[Minor-Major 7th]
+Gb	Bbb	Db	F	
+[Diminished Triad]
+Gb	Bbb	Dbb	
+[Diminished 7th]
+Gb	Bbb	Dbb	Fbb	
+[Half-Diminished 7th]
+Gb	Bbb	Dbb	Fb	
+============ Key of G ============
+[Ionian (Major)]
+G	A	B	C	D	E	F#	
+[Dorian]
+A	B	C	D	E	F#	G	
+[Phrygian]
+B	C	D	E	F#	G	A	
+[Lydian]
+C	D	E	F#	G	A	B	
+[Mixolydian]
+D	E	F#	G	A	B	C	
+[Aeolian (Natual Minor)]
+E	F#	G	A	B	C	D	
+[Locrian]
+F#	G	A	B	C	D	E	
+[Major Triad]
+G	B	D	
+[Major 6th]
+G	B	D	E	
+[Dominant "Major-Minor" 7th]
+G	B	D	F	
+[Major 7th]
+G	B	D	F#	
+[Augmented Triad]
+G	B	D#	
+[Augmented Seventh]
+G	B	D#	F	
+[Minor Triad]
+G	Bb	D	
+[Minor 6th]
+G	Bb	D	E	
+[Minor 7th]
+G	Bb	D	F	
+[Minor-Major 7th]
+G	Bb	D	F#	
+[Diminished Triad]
+G	Bb	Db	
+[Diminished 7th]
+G	Bb	Db	Fb	
+[Half-Diminished 7th]
+G	Bb	Db	F	
+============ Key of G# ============
+[Ionian (Major)]
+G#	A#	B#	C#	D#	E#	Fx	
+[Dorian]
+A#	B#	C#	D#	E#	Fx	G#	
+[Phrygian]
+B#	C#	D#	E#	Fx	G#	A#	
+[Lydian]
+C#	D#	E#	Fx	G#	A#	B#	
+[Mixolydian]
+D#	E#	Fx	G#	A#	B#	C#	
+[Aeolian (Natual Minor)]
+E#	Fx	G#	A#	B#	C#	D#	
+[Locrian]
+Fx	G#	A#	B#	C#	D#	E#	
+[Major Triad]
+G#	B#	D#	
+[Major 6th]
+G#	B#	D#	E#	
+[Dominant "Major-Minor" 7th]
+G#	B#	D#	F#	
+[Major 7th]
+G#	B#	D#	Fx	
+[Augmented Triad]
+G#	B#	Dx	
+[Augmented Seventh]
+G#	B#	Dx	F#	
+[Minor Triad]
+G#	B	D#	
+[Minor 6th]
+G#	B	D#	E#	
+[Minor 7th]
+G#	B	D#	F#	
+[Minor-Major 7th]
+G#	B	D#	Fx	
+[Diminished Triad]
+G#	B	D	
+[Diminished 7th]
+G#	B	D	F	
+[Half-Diminished 7th]
+G#	B	D	F#	
+============ Key of Ab ============
+[Ionian (Major)]
+Ab	Bb	C	Db	Eb	F	G	
+[Dorian]
+Bb	C	Db	Eb	F	G	Ab	
+[Phrygian]
+C	Db	Eb	F	G	Ab	Bb	
+[Lydian]
+Db	Eb	F	G	Ab	Bb	C	
+[Mixolydian]
+Eb	F	G	Ab	Bb	C	Db	
+[Aeolian (Natual Minor)]
+F	G	Ab	Bb	C	Db	Eb	
+[Locrian]
+G	Ab	Bb	C	Db	Eb	F	
+[Major Triad]
+Ab	C	Eb	
+[Major 6th]
+Ab	C	Eb	F	
+[Dominant "Major-Minor" 7th]
+Ab	C	Eb	Gb	
+[Major 7th]
+Ab	C	Eb	G	
+[Augmented Triad]
+Ab	C	E	
+[Augmented Seventh]
+Ab	C	E	Gb	
+[Minor Triad]
+Ab	Cb	Eb	
+[Minor 6th]
+Ab	Cb	Eb	F	
+[Minor 7th]
+Ab	Cb	Eb	Gb	
+[Minor-Major 7th]
+Ab	Cb	Eb	G	
+[Diminished Triad]
+Ab	Cb	Ebb	
+[Diminished 7th]
+Ab	Cb	Ebb	Gbb	
+[Half-Diminished 7th]
+Ab	Cb	Ebb	Gb	
+============ Key of A ============
+[Ionian (Major)]
+A	B	C#	D	E	F#	G#	
+[Dorian]
+B	C#	D	E	F#	G#	A	
+[Phrygian]
+C#	D	E	F#	G#	A	B	
+[Lydian]
+D	E	F#	G#	A	B	C#	
+[Mixolydian]
+E	F#	G#	A	B	C#	D	
+[Aeolian (Natual Minor)]
+F#	G#	A	B	C#	D	E	
+[Locrian]
+G#	A	B	C#	D	E	F#	
+[Major Triad]
+A	C#	E	
+[Major 6th]
+A	C#	E	F#	
+[Dominant "Major-Minor" 7th]
+A	C#	E	G	
+[Major 7th]
+A	C#	E	G#	
+[Augmented Triad]
+A	C#	E#	
+[Augmented Seventh]
+A	C#	E#	G	
+[Minor Triad]
+A	C	E	
+[Minor 6th]
+A	C	E	F#	
+[Minor 7th]
+A	C	E	G	
+[Minor-Major 7th]
+A	C	E	G#	
+[Diminished Triad]
+A	C	Eb	
+[Diminished 7th]
+A	C	Eb	Gb	
+[Half-Diminished 7th]
+A	C	Eb	G	
+============ Key of A# ============
+[Ionian (Major)]
+A#	B#	Cx	D#	E#	Fx	Gx	
+[Dorian]
+B#	Cx	D#	E#	Fx	Gx	A#	
+[Phrygian]
+Cx	D#	E#	Fx	Gx	A#	B#	
+[Lydian]
+D#	E#	Fx	Gx	A#	B#	Cx	
+[Mixolydian]
+E#	Fx	Gx	A#	B#	Cx	D#	
+[Aeolian (Natual Minor)]
+Fx	Gx	A#	B#	Cx	D#	E#	
+[Locrian]
+Gx	A#	B#	Cx	D#	E#	Fx	
+[Major Triad]
+A#	Cx	E#	
+[Major 6th]
+A#	Cx	E#	Fx	
+[Dominant "Major-Minor" 7th]
+A#	Cx	E#	G#	
+[Major 7th]
+A#	Cx	E#	Gx	
+[Augmented Triad]
+A#	Cx	Ex	
+[Augmented Seventh]
+A#	Cx	Ex	G#	
+[Minor Triad]
+A#	C#	E#	
+[Minor 6th]
+A#	C#	E#	Fx	
+[Minor 7th]
+A#	C#	E#	G#	
+[Minor-Major 7th]
+A#	C#	E#	Gx	
+[Diminished Triad]
+A#	C#	E	
+[Diminished 7th]
+A#	C#	E	G	
+[Half-Diminished 7th]
+A#	C#	E	G#	
+============ Key of Bb ============
+[Ionian (Major)]
+Bb	C	D	Eb	F	G	A	
+[Dorian]
+C	D	Eb	F	G	A	Bb	
+[Phrygian]
+D	Eb	F	G	A	Bb	C	
+[Lydian]
+Eb	F	G	A	Bb	C	D	
+[Mixolydian]
+F	G	A	Bb	C	D	Eb	
+[Aeolian (Natual Minor)]
+G	A	Bb	C	D	Eb	F	
+[Locrian]
+A	Bb	C	D	Eb	F	G	
+[Major Triad]
+Bb	D	F	
+[Major 6th]
+Bb	D	F	G	
+[Dominant "Major-Minor" 7th]
+Bb	D	F	Ab	
+[Major 7th]
+Bb	D	F	A	
+[Augmented Triad]
+Bb	D	F#	
+[Augmented Seventh]
+Bb	D	F#	Ab	
+[Minor Triad]
+Bb	Db	F	
+[Minor 6th]
+Bb	Db	F	G	
+[Minor 7th]
+Bb	Db	F	Ab	
+[Minor-Major 7th]
+Bb	Db	F	A	
+[Diminished Triad]
+Bb	Db	Fb	
+[Diminished 7th]
+Bb	Db	Fb	Abb	
+[Half-Diminished 7th]
+Bb	Db	Fb	Ab	
+============ Key of B ============
+[Ionian (Major)]
+B	C#	D#	E	F#	G#	A#	
+[Dorian]
+C#	D#	E	F#	G#	A#	B	
+[Phrygian]
+D#	E	F#	G#	A#	B	C#	
+[Lydian]
+E	F#	G#	A#	B	C#	D#	
+[Mixolydian]
+F#	G#	A#	B	C#	D#	E	
+[Aeolian (Natual Minor)]
+G#	A#	B	C#	D#	E	F#	
+[Locrian]
+A#	B	C#	D#	E	F#	G#	
+[Major Triad]
+B	D#	F#	
+[Major 6th]
+B	D#	F#	G#	
+[Dominant "Major-Minor" 7th]
+B	D#	F#	A	
+[Major 7th]
+B	D#	F#	A#	
+[Augmented Triad]
+B	D#	Fx	
+[Augmented Seventh]
+B	D#	Fx	A	
+[Minor Triad]
+B	D	F#	
+[Minor 6th]
+B	D	F#	G#	
+[Minor 7th]
+B	D	F#	A	
+[Minor-Major 7th]
+B	D	F#	A#	
+[Diminished Triad]
+B	D	F	
+[Diminished 7th]
+B	D	F	Ab	
+[Half-Diminished 7th]
+B	D	F	A	
+============ Key of B# ============
+[Ionian (Major)]
+B#	Cx	Dx	E#	Fx	Gx	Ax	
+[Dorian]
+Cx	Dx	E#	Fx	Gx	Ax	B#	
+[Phrygian]
+Dx	E#	Fx	Gx	Ax	B#	Cx	
+[Lydian]
+E#	Fx	Gx	Ax	B#	Cx	Dx	
+[Mixolydian]
+Fx	Gx	Ax	B#	Cx	Dx	E#	
+[Aeolian (Natual Minor)]
+Gx	Ax	B#	Cx	Dx	E#	Fx	
+[Locrian]
+Ax	B#	Cx	Dx	E#	Fx	Gx	
+[Major Triad]
+B#	Dx	Fx	
+[Major 6th]
+B#	Dx	Fx	Gx	
+[Dominant "Major-Minor" 7th]
+B#	Dx	Fx	A#	
+[Major 7th]
+B#	Dx	Fx	Ax	
+[Augmented Triad]
+B#	Dx	F3#	
+[Augmented Seventh]
+B#	Dx	F3#	A#	
+[Minor Triad]
+B#	D#	Fx	
+[Minor 6th]
+B#	D#	Fx	Gx	
+[Minor 7th]
+B#	D#	Fx	A#	
+[Minor-Major 7th]
+B#	D#	Fx	Ax	
+[Diminished Triad]
+B#	D#	F#	
+[Diminished 7th]
+B#	D#	F#	A	
+[Half-Diminished 7th]
+B#	D#	F#	A#	
