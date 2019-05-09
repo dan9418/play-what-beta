@@ -2,25 +2,52 @@
 |
 | Music Theory Toolkit
 | Author: Dan Bednarczyk
-| Date: 5/7/19
+| Date: 5/8/19
 |
 */
 
-// Define notes
+'use strict';
 
-let changeKey = () => {
-	var baseNoteElement = document.getElementById("base_note");
-	var baseNote = parseInt(baseNoteElement.value);
-	var accidentalElement = document.getElementById("accidental");
-	var accidental = parseInt(accidentalElement.value);
-	
-	console.log(baseNote, accidental);
-	
-	var str = analyzeKey(baseNote, accidental);
-	
-	var text = document.getElementById("text");
-	text.innerHTML = str;
+const e = React.createElement;
+
+class Container extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { test: false };
+  }
+
+  render() {
+    if (this.state.test) {
+      return 'You liked this.';
+    }
+
+    return e(
+      'button',
+      { onClick: () => this.changeKey() },
+      'Analyze'
+    );
+  }
+  
+  changeKey = () => {
+		var baseNoteElement = document.getElementById("base_note");
+		var baseNote = parseInt(baseNoteElement.value);
+		var accidentalElement = document.getElementById("accidental");
+		var accidental = parseInt(accidentalElement.value);
+
+		console.log(baseNote, accidental);
+
+		var str = analyzeKey(baseNote, accidental);
+
+		var text = document.getElementById("text");
+		text.innerHTML = str;
+	}
+  
 }
+
+const domContainer = document.querySelector('#container');
+ReactDOM.render(e(Container), domContainer);
+
+// Define notes
 
 let BASE_NOTES = [
 	{ name: 'C', degreeInC: 1, positionInC: 0 },
