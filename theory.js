@@ -13,15 +13,26 @@ const e = React.createElement;
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { test: false };
   }
+  
+  changeKey = () => {
+		var baseNoteElement = document.getElementById("base_note");
+		var baseNote = parseInt(baseNoteElement.value);
+		var accidentalElement = document.getElementById("accidental");
+		var accidental = parseInt(accidentalElement.value);
 
-  render() {
-    if (this.state.test) {
-      return 'You liked this.';
-    }
-	
-	
+		console.log(baseNote, accidental);
+
+		var str = analyzeKey(baseNote, accidental);
+
+		var text = document.getElementById("text");
+		text.innerHTML = str;
+		
+		var keyHeader = document.getElementById("keyHeader");
+		keyHeader.innerHTML = 'Key of ' + baseNoteElement.options[baseNoteElement.selectedIndex].text + accidentalElement.options[accidentalElement.selectedIndex].text;
+	};
+
+  render = () => {
 	return e('div', {id: 'inputContainer'},
 		e('select', 
 			{id: 'base_note'},
@@ -46,27 +57,23 @@ class Container extends React.Component {
 			{id: 'outputContainer'},
 			e('h2', {id: 'keyHeader'},),
 			e('pre', {id: 'text'})
-		)
+		),
+		e(Label, {header: 'TEST', text: 'test'})
     );
+  };
+}
+
+class Label extends React.Component {
+  constructor(props) {
+    super(props);
   }
-  
-  changeKey = () => {
-		var baseNoteElement = document.getElementById("base_note");
-		var baseNote = parseInt(baseNoteElement.value);
-		var accidentalElement = document.getElementById("accidental");
-		var accidental = parseInt(accidentalElement.value);
 
-		console.log(baseNote, accidental);
-
-		var str = analyzeKey(baseNote, accidental);
-
-		var text = document.getElementById("text");
-		text.innerHTML = str;
-		
-		var keyHeader = document.getElementById("keyHeader");
-		keyHeader.innerHTML = 'Key of ' + baseNoteElement.options[baseNoteElement.selectedIndex].text + accidentalElement.options[accidentalElement.selectedIndex].text;
-	}
-  
+  render = () => {
+	return e('div', {className: 'label'},
+		e('h2', {className: 'labelHeader'}, `${this.props.header}`),
+		e('pre', {className: 'labelText'}, `${this.props.text}`)
+    );
+  };
 }
 
 const domContainer = document.querySelector('#container');
