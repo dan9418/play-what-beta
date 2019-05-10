@@ -20,11 +20,33 @@ class Container extends React.Component {
     if (this.state.test) {
       return 'You liked this.';
     }
-
-    return e(
-      'button',
-      { onClick: () => this.changeKey() },
-      'Analyze'
+	
+	
+	return e('div',{},
+		e('select', 
+			{id: 'base_note'},
+			e('option', {value: '6'},'A'),
+			e('option', {value: '7'},'B'),
+			e('option', {value: '1'},'C'),
+			e('option', {value: '2'},'D'),
+			e('option', {value: '3'},'E'),
+			e('option', {value: '4'},'F'),
+			e('option', {value: '5'},'G')
+		),
+		e('select', 
+			{id: 'accidental', defaultValue: '0'},
+			e('option', {value: '1'},'#'),
+			e('option', {value: '0'},'♮'),
+			e('option', {value: '-1'},'b')
+		),
+		e('button', { onClick: () => this.changeKey() },
+			'Analyze'
+		),
+		e('div', 
+			{id: 'outputContainer'},
+			e('h2', {id: 'keyHeader'},),
+			e('pre', {id: 'text'})
+		)
     );
   }
   
@@ -40,6 +62,9 @@ class Container extends React.Component {
 
 		var text = document.getElementById("text");
 		text.innerHTML = str;
+		
+		var keyHeader = document.getElementById("keyHeader");
+		keyHeader.innerHTML = 'Key of ' + baseNoteElement.options[baseNoteElement.selectedIndex].text + accidentalElement.options[accidentalElement.selectedIndex].text;
 	}
   
 }
@@ -197,9 +222,7 @@ let getChordNotes = (chord, homeDegree, accidental) => {
 
 let analyzeKey = (degree, accidental) => {
 	let homeNote = BASE_NOTES[degree - 1];
-	
-	let keyName = getNote(homeNote.positionInC + accidental, degree, 0).name;
-	let str = '======================== Key of ' + keyName + ' ========================\n'
+	let str = '';
 	
 	// Modes
 	for(let x = 0; x < MODES.length; x++) {
