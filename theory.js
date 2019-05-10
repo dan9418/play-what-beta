@@ -22,7 +22,7 @@ class Container extends React.Component {
     }
 	
 	
-	return e('div',{},
+	return e('div', {id: 'inputContainer'},
 		e('select', 
 			{id: 'base_note'},
 			e('option', {value: '6'},'A'),
@@ -40,7 +40,7 @@ class Container extends React.Component {
 			e('option', {value: '-1'},'b')
 		),
 		e('button', { onClick: () => this.changeKey() },
-			'Analyze'
+			'Go!'
 		),
 		e('div', 
 			{id: 'outputContainer'},

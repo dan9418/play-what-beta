@@ -2,3 +2,35 @@
 	text-align: center;
 	font: 15px arial, sans-serif;
 }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+select {
+    color: black;
+	background-color: white;
+    padding: 5px;
+	margin: 5px;
+    width: 100px;
+    border: 1px solid black;
+	vertical-align: middle;
+}
+
+button {
+	color: white;
+	background-color: #339966;
+    padding: 5px;
+	margin: 5px;
+    width: 100px;
+    border: 1px solid black;
+	vertical-align: middle;
+}
+
+#inputContainer {
+	
+}
+
+html {
+	background-color: #e6f7ff
+}
