@@ -6,79 +6,6 @@
 |
 */
 
-'use strict';
-
-const e = React.createElement;
-
-class Container extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
-  changeKey = () => {
-		var baseNoteElement = document.getElementById("base_note");
-		var baseNote = parseInt(baseNoteElement.value);
-		var accidentalElement = document.getElementById("accidental");
-		var accidental = parseInt(accidentalElement.value);
-
-		console.log(baseNote, accidental);
-
-		var str = analyzeKey(baseNote, accidental);
-
-		var text = document.getElementById("text");
-		text.innerHTML = str;
-		
-		var keyHeader = document.getElementById("keyHeader");
-		keyHeader.innerHTML = 'Key of ' + baseNoteElement.options[baseNoteElement.selectedIndex].text + accidentalElement.options[accidentalElement.selectedIndex].text;
-	};
-
-  render = () => {
-	return e('div', {id: 'inputContainer'},
-		e('select', 
-			{id: 'base_note'},
-			e('option', {value: '6'},'A'),
-			e('option', {value: '7'},'B'),
-			e('option', {value: '1'},'C'),
-			e('option', {value: '2'},'D'),
-			e('option', {value: '3'},'E'),
-			e('option', {value: '4'},'F'),
-			e('option', {value: '5'},'G')
-		),
-		e('select', 
-			{id: 'accidental', defaultValue: '0'},
-			e('option', {value: '1'},'#'),
-			e('option', {value: '0'},'♮'),
-			e('option', {value: '-1'},'b')
-		),
-		e('button', { onClick: () => this.changeKey() },
-			'Go!'
-		),
-		e('div', 
-			{id: 'outputContainer'},
-			e('h2', {id: 'keyHeader'},),
-			e('pre', {id: 'text'})
-		),
-		e(Label, {header: 'TEST', text: 'test'})
-    );
-  };
-}
-
-class Label extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render = () => {
-	return e('div', {className: 'label'},
-		e('h2', {className: 'labelHeader'}, `${this.props.header}`),
-		e('pre', {className: 'labelText'}, `${this.props.text}`)
-    );
-  };
-}
-
-const domContainer = document.querySelector('#container');
-ReactDOM.render(e(Container), domContainer);
-
 // Define notes
 
 let BASE_NOTES = [
@@ -227,35 +154,101 @@ let getChordNotes = (chord, homeDegree, accidental) => {
 	return notes;
 };
 
-let analyzeKey = (degree, accidental) => {
-	let homeNote = BASE_NOTES[degree - 1];
-	let str = '';
+'use strict';
+
+const e = React.createElement;
+
+class Container extends React.Component {
+  constructor(props) {
+    super(props);
+	this.state = {
+		accidental: 0,
+		baseNote: 6
+	};
+  }
+  
+  changeKey = () => {
+		var baseNoteElement = document.getElementById("base_note");
+		var baseNote = parseInt(baseNoteElement.value);
+		var accidentalElement = document.getElementById("accidental");
+		var accidental = parseInt(accidentalElement.value);
+
+		this.setState({
+			accidental: accidental,
+			baseNote: baseNote
+		});
+		
+		/*console.log(baseNote, accidental);
+
+		var str = analyzeKey(baseNote, accidental);
+
+		var text = document.getElementById("text");
+		text.innerHTML = str;
+		
+		var keyHeader = document.getElementById("keyHeader");
+		keyHeader.innerHTML = 'Key of ' + baseNoteElement.options[baseNoteElement.selectedIndex].text + accidentalElement.options[accidentalElement.selectedIndex].text;*/
+	};
 	
-	// Modes
-	for(let x = 0; x < MODES.length; x++) {
-		let mode = MODES[x];
-		str += '\n' + mode.name + '\n';
-		str += notesToString(getModeNotes(mode, degree, accidental)) + '\n';
-	}
+  getChords = () => {
+	  let labels = [];
+	  for(let x = 0; x < CHORDS.length; x++) {
+			let chord = CHORDS[x];
+			labels.push(e(Label, {header: chord.name, text: notesToString(getChordNotes(chord, this.state.baseNote, this.state.accidental))}));
+		}
+	  return labels;
+  }
+  
+  getModes = () => {
+	  let labels = [];
+	  for(let x = 0; x < MODES.length; x++) {
+			let mode = MODES[x];
+			labels.push(e(Label, {header: mode.name, text: notesToString(getModeNotes(mode, this.state.baseNote, this.state.accidental))}));
+		}
+	  return labels;
+  }
 
-	// Chords
-	for(let x = 0; x < CHORDS.length; x++) {
-		let chord = CHORDS[x];
-		str += '\n' + chord.name + '\n';
-		str += notesToString(getChordNotes(chord, degree, accidental)) + '\n';
-	}
-	
-	return str;
-};
-
-
-/*
-// Full demo
-// Loop C - B
-for(let homeDegree = 1; homeDegree <= BASE_NOTES.length; homeDegree++) {
-	// Loop b - #
-	for(let accidental = -1; accidental <= 1; accidental++) {
-		console.log(analyzeKey(homeDegree, accidental));
-	}
+  render = () => {
+	return e('div', {id: 'inputContainer'},
+		e('select', 
+			{id: 'base_note'},
+			e('option', {value: '6'},'A'),
+			e('option', {value: '7'},'B'),
+			e('option', {value: '1'},'C'),
+			e('option', {value: '2'},'D'),
+			e('option', {value: '3'},'E'),
+			e('option', {value: '4'},'F'),
+			e('option', {value: '5'},'G')
+		),
+		e('select', 
+			{id: 'accidental', defaultValue: '0'},
+			e('option', {value: '1'},'#'),
+			e('option', {value: '0'},'♮'),
+			e('option', {value: '-1'},'b')
+		),
+		e('button', { onClick: () => this.changeKey() },
+			'Go!'
+		),
+		e(Label, {header: '========== Chords =========='}),
+		this.getChords(),
+		e(Label, {header: '========== Modes =========='}),
+		this.getModes()
+    );
+  };
 }
-*/
+
+class Label extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render = () => {
+	return e('div', {className: 'label'},
+		e('h2', {className: 'labelHeader'}, `${this.props.header}`),
+		e('pre', {className: 'labelText'}, `${(this.props.text) ? this.props.text : ''}`)
+    );
+  };
+}
+
+const domContainer = document.querySelector('#container');
+ReactDOM.render(e(Container), domContainer);
+
