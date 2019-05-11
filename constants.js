@@ -34,27 +34,27 @@ let MAJOR_INTERVALS = [PU, M2, M3, P4, P5, M6, M7];
 //let MAJOR_SCALE_TONES = [0,2,4,5,7,9,11];
 
 let CHORDS = [
-	{ name: 'Major Triad',					intervals: [PU, M3, P5]},
-	{ name: 'Major 6th',					intervals: [PU, M3, P5, M6]},
-	{ name: 'Dominant "Major-Minor" 7th',	intervals: [PU, M3, P5, m7]},
-	{ name: 'Major 7th',					intervals: [PU, M3, P5, M7]},
-	{ name: 'Augmented Triad',				intervals: [PU, M3, A5]},
-	{ name: 'Augmented Seventh',			intervals: [PU, M3, A5, m7]},
-	{ name: 'Minor Triad',					intervals: [PU, m3, P5]},
-	{ name: 'Minor 6th',					intervals: [PU, m3, P5, M6]},
-	{ name: 'Minor 7th',					intervals: [PU, m3, P5, m7]},
-	{ name: 'Minor-Major 7th',				intervals: [PU, m3, P5, M7]},
-	{ name: 'Diminished Triad',				intervals: [PU, m3, d5]},
-	{ name: 'Diminished 7th',				intervals: [PU, m3, d5, d7]},
-	{ name: 'Half-Diminished 7th',			intervals: [PU, m3, d5, m7]}
+	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [PU, M3, P5]},
+	{ id: 'MAJ_6',		name: 'Major 6th',					intervals: [PU, M3, P5, M6]},
+	{ id: 'DOM_7',		name: 'Dominant "Major-Minor" 7th',	intervals: [PU, M3, P5, m7]},
+	{ id: 'MAJ_7',		name: 'Major 7th',					intervals: [PU, M3, P5, M7]},
+	{ id: 'AUG_TRI',	name: 'Augmented Triad',			intervals: [PU, M3, A5]},
+	{ id: 'AUG_7',		name: 'Augmented Seventh',			intervals: [PU, M3, A5, m7]},
+	{ id: 'MIN_TRI',	name: 'Minor Triad',				intervals: [PU, m3, P5]},
+	{ id: 'MIN_6',		name: 'Minor 6th',					intervals: [PU, m3, P5, M6]},
+	{ id: 'MIN_7',		name: 'Minor 7th',					intervals: [PU, m3, P5, m7]},
+	{ id: 'MIN_MAJ_7',	name: 'Minor-Major 7th',			intervals: [PU, m3, P5, M7]},
+	{ id: 'DIM_TRI',	name: 'Diminished Triad',			intervals: [PU, m3, d5]},
+	{ id: 'DIM_7',		name: 'Diminished 7th',				intervals: [PU, m3, d5, d7]},
+	{ id: 'HALF_DIM_7',	name: 'Half-Diminished 7th',		intervals: [PU, m3, d5, m7]}
 ];
 
 let MODES = [
-	{ name: 'Ionian (Major)', 				degree: 1 },
-	{ name: 'Dorian', 						degree: 2 },
-	{ name: 'Phrygian', 					degree: 3 },
-	{ name: 'Lydian', 						degree: 4 },
-	{ name: 'Mixolydian', 					degree: 5 },
-	{ name: 'Aeolian (Natual Minor)', 		degree: 6 },
-	{ name: 'Locrian', 						degree: 7 }
+	{ id: 'IONIAN',		name: 'Ionian (Major)', 				degree: 1 },
+	{ id: 'DORIAN',		name: 'Dorian', 						degree: 2 },
+	{ id: 'PHRYGIAN',	name: 'Phrygian', 						degree: 3 },
+	{ id: 'LYDIAN',		name: 'Lydian', 						degree: 4 },
+	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 					degree: 5 },
+	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 		degree: 6 },
+	{ id: 'LOCRIAN',	name: 'Locrian', 						degree: 7 }
 ];

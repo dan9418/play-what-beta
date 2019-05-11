@@ -11,24 +11,46 @@
 const e = React.createElement;
 
 class Container extends React.Component {
-  constructor(props) {
-    super(props);
-	this.state = {
-		accidental: 0,
-		baseNote: 6
-	};
-  }
-  
-  changeKey = () => {
-		var baseNoteElement = document.getElementById("base_note");
-		var baseNote = parseInt(baseNoteElement.value);
-		var accidentalElement = document.getElementById("accidental");
-		var accidental = parseInt(accidentalElement.value);
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			accidental: 0,
+			degree: 6,
+			concept: 'CHORDS',
+			chord: 'MAJ_TRI',
+			mode: 'IONIAN'
+		};
+	}
 
-		this.setState({
-			accidental: accidental,
-			baseNote: baseNote
-		});
+	changeDegree = () => {
+		var element = document.getElementById("degree");
+		var value = parseInt(element.value);
+		this.setState({degree: value});
+	};
+	
+	changeAccidental = () => {
+		var element = document.getElementById("accidental");
+		var value = parseInt(element.value);
+		this.setState({accidental: value});
+	};
+	
+	changeConcept = () => {
+		var element = document.getElementById("concept");
+		var value = element.value;
+		this.setState({concept: value});
+	};
+	
+	changeChord = () => {
+		var element = document.getElementById("chord");
+		var value = element.value;
+		this.setState({chord: value});
+	};
+	
+	changeMode = () => {
+		var element = document.getElementById("mode");
+		var value = element.value;
+		this.setState({mode: value});
 	};
 	
 	getAccidentalString = (distance) => {
@@ -63,11 +85,11 @@ class Container extends React.Component {
 
 	getNote = (position, degree, octave) => {
 		//console.log(octave, degree, position);
-		let baseNoteOfEquivalentDegreeInC = BASE_NOTES.find((note) => { return note.degreeInC === degree; });
-		let accidental = position - (baseNoteOfEquivalentDegreeInC.positionInC + octave * 12);
+		let valueOfEquivalentDegreeInC = BASE_NOTES.find((note) => { return note.degreeInC === degree; });
+		let accidental = position - (valueOfEquivalentDegreeInC.positionInC + octave * 12);
 		//if(Math.abs(accidental > 1)) console.log('Theoretical key');
 		return {
-			name: baseNoteOfEquivalentDegreeInC.name + this.getAccidentalString(accidental),
+			name: valueOfEquivalentDegreeInC.name + this.getAccidentalString(accidental),
 			accidental: accidental,
 			position: position,
 			octave: octave,
@@ -104,28 +126,45 @@ class Container extends React.Component {
 		return notes;
 	};
 	
-  getChords = () => {
+	getNotesLabel = () => {
+		if(this.state.concept === 'CHORDS')
+			return this.getChord();
+		else if(this.state.concept === 'MODES')
+			return this.getMode();
+	}
+	
+	getChord = () => {
+		let chord = CHORDS.find((chord) => { return chord.id === this.state.chord });
+		return e('pre', {}, this.notesToString(this.getChordNotes(chord, this.state.degree, this.state.accidental)));
+	};
+
+	getMode = () => {
+		let mode = MODES.find((mode) => { return mode.id === this.state.mode });
+		return e('pre', {}, this.notesToString(this.getModeNotes(mode, this.state.degree, this.state.accidental)));
+	};
+	
+	getAllChords = () => {
 	  let labels = [];
 	  for(let x = 0; x < CHORDS.length; x++) {
 			let chord = CHORDS[x];
-			labels.push(e(Label, {header: chord.name, text: this.notesToString(this.getChordNotes(chord, this.state.baseNote, this.state.accidental))}));
+			labels.push(e(Label, {header: chord.name, text: this.notesToString(this.getChordNotes(chord, this.state.degree, this.state.accidental))}));
 		}
 	  return labels;
-  };
-  
-  getModes = () => {
+	};
+
+	getAllModes = () => {
 	  let labels = [];
 	  for(let x = 0; x < MODES.length; x++) {
 			let mode = MODES[x];
-			labels.push(e(Label, {header: mode.name, text: this.notesToString(this.getModeNotes(mode, this.state.baseNote, this.state.accidental))}));
+			labels.push(e(Label, {header: mode.name, text: this.notesToString(this.getModeNotes(mode, this.state.degree, this.state.accidental))}));
 		}
 	  return labels;
-  };
+	};
 
-  render = () => {
+	render = () => {
 	return e('div', {id: 'inputContainer'},
 		e('select', 
-			{id: 'base_note'},
+			{id: 'degree', onClick: () => this.changeDegree()},
 			e('option', {value: '6'},'A'),
 			e('option', {value: '7'},'B'),
 			e('option', {value: '1'},'C'),
@@ -135,20 +174,20 @@ class Container extends React.Component {
 			e('option', {value: '5'},'G')
 		),
 		e('select', 
-			{id: 'accidental', defaultValue: '0'},
+			{id: 'accidental', defaultValue: '0', onClick: () => this.changeAccidental()},
 			e('option', {value: '1'},'#'),
 			e('option', {value: '0'},'♮'),
 			e('option', {value: '-1'},'b')
 		),
 		e('br'),
 		e('select', 
-			{id: 'concept'},
+			{id: 'concept', onClick: () => this.changeConcept()},
 			e('option', {value: 'CHORDS'},'Chords'),
 			e('option', {value: 'MODES'},'Modes')
 		),
-		e('select', 
-			{id: 'chords'},
-			e('option', {value: 'MAJ_TRIAD'},'Major Triad'),
+		(this.state.concept === 'CHORDS' && e('select', 
+			{id: 'chord', onClick: () => this.changeChord()},
+			e('option', {value: 'MAJ_TRI'},'Major Triad'),
 			e('option', {value: 'MAJ_6'},'Major 6th'),
 			e('option', {value: 'DOM_7'},'Dominant 7th'),
 			e('option', {value: 'MAJ_7'},'Major 7th'),
@@ -161,9 +200,9 @@ class Container extends React.Component {
 			e('option', {value: 'DIM_TRI'},'Diminished Triad'),
 			e('option', {value: 'DIM_7'},'Diminished 7th'),
 			e('option', {value: 'HALF_DIM_7'},'Half-Diminished 7th')
-		),
-		e('select', 
-			{id: 'modes'},
+		)),
+		(this.state.concept === 'MODES' && e('select', 
+			{id: 'mode', onClick: () => this.changeMode()},
 			e('option', {value: 'IONIAN'},'Ionian (Major)'),
 			e('option', {value: 'DORIAN'},'Dorian'),
 			e('option', {value: 'PHRYGIAN'},'Phrygian'),
@@ -171,29 +210,13 @@ class Container extends React.Component {
 			e('option', {value: 'MIXOLYDIAN'},'Mixolydian'),
 			e('option', {value: 'AEOLIAN'},'Aeolian (Natural Minor)'),
 			e('option', {value: 'LOCRIAN'},'Locrian')
-		),
+		)),
 		e('br'),
-		e('button', { onClick: () => this.changeKey() },
+		/*e('button', { onClick: () => this.changeKey() },
 			'Go!'
-		),
-		e(Label, {header: '========== Chords =========='}),
-		this.getChords(),
-		e(Label, {header: '========== Modes =========='}),
-		this.getModes()
-    );
-  };
-}
-
-class Label extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render = () => {
-	return e('div', {className: 'label'},
-		e('h2', {className: 'labelHeader'}, `${this.props.header}`),
-		e('pre', {className: 'labelText'}, `${(this.props.text) ? this.props.text : ''}`)
-    );
+		),*/
+		this.getNotesLabel()
+	);
   };
 }
 
