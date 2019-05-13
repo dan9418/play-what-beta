@@ -60,9 +60,9 @@ class App extends React.Component {
 		this.state = {
 			accidental: 0,
 			degree: 6,
-			concept: 'CHORDS',
-			chord: 'MAJ_TRI',
-			mode: 'IONIAN'
+			concept: CONCEPTS.Chords,
+			chord: CHORDS.Maj_Tri.id,
+			mode: MODES.Ionian.id
 		};
 	}
 
@@ -82,7 +82,7 @@ class App extends React.Component {
 	
 	changeConcept = () => {
 		var element = document.getElementById("concept");
-		var value = element.value;
+		var value =parseInt(element.value);
 		this.setState({concept: value});
 	};
 	
@@ -101,7 +101,7 @@ class App extends React.Component {
 	// Helper functions
 
 	getMode = () => {
-		let mode = MODES.find((mode) => { return mode.id === this.state.mode });
+		let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
 		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
 		let notes = [];
 		for(let i = 0; i < 7; i++) {
@@ -115,7 +115,7 @@ class App extends React.Component {
 	};
 
 	getChord = () => {
-		let chord = CHORDS.find((chord) => { return chord.id === this.state.chord });
+		let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
 		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
 		let notes = [];
 		for(let i = 0; i < chord.intervals.length; i++) {
@@ -130,9 +130,9 @@ class App extends React.Component {
 	};
 	
 	getNotes = () => {
-		if(this.state.concept === 'CHORDS')
+		if(this.state.concept === CONCEPTS.Chords)
 			return this.getChord();
-		else if(this.state.concept === 'MODES')
+		else if(this.state.concept === CONCEPTS.Modes)
 			return this.getMode();
 	}
 
@@ -140,51 +140,51 @@ class App extends React.Component {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
 				{id: 'degree', onClick: () => this.changeDegree()},
-				e('option', {value: '6'},'A'),
-				e('option', {value: '7'},'B'),
-				e('option', {value: '1'},'C'),
-				e('option', {value: '2'},'D'),
-				e('option', {value: '3'},'E'),
-				e('option', {value: '4'},'F'),
-				e('option', {value: '5'},'G')
+				e('option', {value: NOTES.A.degreeInC		}, NOTES.A.name				),
+				e('option', {value: NOTES.B.degreeInC		}, NOTES.B.name				),
+				e('option', {value: NOTES.C.degreeInC		}, NOTES.C.name				),
+				e('option', {value: NOTES.D.degreeInC		}, NOTES.D.name				),
+				e('option', {value: NOTES.E.degreeInC		}, NOTES.E.name				),
+				e('option', {value: NOTES.F.degreeInC		}, NOTES.F.name				),
+				e('option', {value: NOTES.G.degreeInC		}, NOTES.G.name				)
 			),
 			e('select', 
 				{id: 'accidental', defaultValue: '0', onClick: () => this.changeAccidental()},
-				e('option', {value: '1'},'#'),
-				e('option', {value: '0'},'♮'),
-				e('option', {value: '-1'},'b')
+				e('option', {value: '1'						}, '#'						),
+				e('option', {value: '0'						}, '♮'						),
+				e('option', {value: '-1'					}, 'b'						)
 			),
 			e('br'),
 			e('select', 
 				{id: 'concept', onClick: () => this.changeConcept()},
-				e('option', {value: 'CHORDS'},'Chords'),
-				e('option', {value: 'MODES'},'Modes')
+				e('option', {value: CONCEPTS.Chords},		'Chords'					),
+				e('option', {value: CONCEPTS.Modes},		'Modes'						)
 			),
-			(this.state.concept === 'CHORDS' && e('select', 
+			(this.state.concept === CONCEPTS.Chords && e('select', 
 				{id: 'chord', onClick: () => this.changeChord()},
-				e('option', {value: 'MAJ_TRI'},'Major Triad'),
-				e('option', {value: 'MAJ_6'},'Major 6th'),
-				e('option', {value: 'DOM_7'},'Dominant 7th'),
-				e('option', {value: 'MAJ_7'},'Major 7th'),
-				e('option', {value: 'AUG_TRI'},'Augmented Triad'),
-				e('option', {value: 'AUG_7'},'Augmented 7th'),
-				e('option', {value: 'MIN_TRI'},'Minor Triad'),
-				e('option', {value: 'MIN_6'},'Minor 6th'),
-				e('option', {value: 'MIN_7'},'Minor 7th'),
-				e('option', {value: 'MIN_MAJ_7'},'Minor-Major 7th'),
-				e('option', {value: 'DIM_TRI'},'Diminished Triad'),
-				e('option', {value: 'DIM_7'},'Diminished 7th'),
-				e('option', {value: 'HALF_DIM_7'},'Half-Diminished 7th')
+				e('option', {value: CHORDS.Maj_Tri.id		}, CHORDS.Maj_Tri.name		),
+				e('option', {value: CHORDS.Maj_6.id			}, CHORDS.Maj_6.name		),
+				e('option', {value: CHORDS.Dom_7.id			}, CHORDS.Dom_7.name		),
+				e('option', {value: CHORDS.Maj_7.id			}, CHORDS.Maj_7.name		),
+				e('option', {value: CHORDS.Aug_Tri.id		}, CHORDS.Aug_Tri.name		),
+				e('option', {value: CHORDS.Aug_7.id			}, CHORDS.Aug_7.name		),
+				e('option', {value: CHORDS.Min_Tri.id		}, CHORDS.Min_Tri.name		),
+				e('option', {value: CHORDS.Min_6.id			}, CHORDS.Min_6.name		),
+				e('option', {value: CHORDS.Min_7.id			}, CHORDS.Min_7.name		),
+				e('option', {value: CHORDS.Min_Maj_7.id		}, CHORDS.Min_Maj_7.name	),
+				e('option', {value: CHORDS.Dim_Tri.id		}, CHORDS.Dim_Tri.name		),
+				e('option', {value: CHORDS.Dim_7.id			}, CHORDS.Dim_7.name		),
+				e('option', {value: CHORDS.Half_Dim_7.id	}, CHORDS.Half_Dim_7.name	)
 			)),
-			(this.state.concept === 'MODES' && e('select', 
+			(this.state.concept === CONCEPTS.Modes && e('select', 
 				{id: 'mode', onClick: () => this.changeMode()},
-				e('option', {value: 'IONIAN'},'Ionian (Major)'),
-				e('option', {value: 'DORIAN'},'Dorian'),
-				e('option', {value: 'PHRYGIAN'},'Phrygian'),
-				e('option', {value: 'LYDIAN'},'Lydian'),
-				e('option', {value: 'MIXOLYDIAN'},'Mixolydian'),
-				e('option', {value: 'AEOLIAN'},'Aeolian (Natural Minor)'),
-				e('option', {value: 'LOCRIAN'},'Locrian')
+				e('option', {value: MODES.Ionian.id			}, MODES.Ionian.name		),
+				e('option', {value: MODES.Dorian.id			}, MODES.Dorian.name		),
+				e('option', {value: MODES.Phrygian.id		}, MODES.Phrygian.name		),
+				e('option', {value: MODES.Lydian.id			}, MODES.Lydian.name		),
+				e('option', {value: MODES.Mixolydian.id		}, MODES.Mixolydian.name	),
+				e('option', {value: MODES.Aeolian.id		}, MODES.Aeolian.name		),
+				e('option', {value: MODES.Locrian.id		}, MODES.Locrian.name		)
 			)),
 			e('br'),
 			/*e('button', { onClick: () => this.changeKey() },
