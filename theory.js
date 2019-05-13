@@ -53,6 +53,47 @@ class Note extends React.Component {
 
 }
 
+class Chord extends React.Component {
+	
+	constructor(props) {
+		super(props);
+	}
+
+	render = () => {
+		let homePosition = BASE_NOTES[this.props.degree - 1].positionInC;
+		let notes = [];
+		for(let i = 0; i < this.props.chordDef.intervals.length; i++) {
+			let interval = this.props.chordDef.intervals[i];
+			let degree = interval.degree - 1;
+			let relativeDegree = ((degree + this.props.degree - 1) % 7) + 1;
+			let octave = Math.floor((degree + this.props.degree - 1) / 7);
+			let position = homePosition + this.props.accidental + interval.semitones;
+			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
+		}
+		return notes.map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
+	};
+}
+
+class Mode extends React.Component {
+	
+	constructor(props) {
+		super(props);
+	}
+
+	render = () => {
+		let homePosition = BASE_NOTES[this.props.degree - 1].positionInC;
+		let notes = [];
+		for(let i = 0; i < 7; i++) {
+			let degree = (this.props.modeDef.degree - 1 + i) % 7;
+			let relativeDegree = ((degree + this.props.degree - 1) % 7) + 1;
+			let octave = Math.floor((degree + this.props.degree - 1) / 7);
+			let position = homePosition + this.props.accidental + MAJOR_INTERVALS[degree].semitones;
+			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
+		}
+		return notes.map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
+	};
+}
+
 class App extends React.Component {
 	
 	constructor(props) {
@@ -100,7 +141,7 @@ class App extends React.Component {
 
 	// Helper functions
 
-	getMode = () => {
+	/*getMode = () => {
 		let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
 		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
 		let notes = [];
@@ -112,10 +153,9 @@ class App extends React.Component {
 			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
 		}
 		return notes.map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
-	};
+	};*/
 
-	getChord = () => {
-		let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
+	/*getChord = () => {	
 		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
 		let notes = [];
 		for(let i = 0; i < chord.intervals.length; i++) {
@@ -127,13 +167,19 @@ class App extends React.Component {
 			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
 		}
 		return notes.map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
-	};
+	};*/
 	
-	getNotes = () => {
+	getDisplay = () => {
 		if(this.state.concept === CONCEPTS.Chords)
-			return this.getChord();
+		{
+			let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
+			return e(Chord, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
+		}
 		else if(this.state.concept === CONCEPTS.Modes)
-			return this.getMode();
+		{
+			let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
+			return e(Mode, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
+		}
 	}
 
 	render = () => {
@@ -190,7 +236,7 @@ class App extends React.Component {
 			/*e('button', { onClick: () => this.changeKey() },
 				'Go!'
 			),*/
-			this.getNotes()
+			this.getDisplay()
 		);
   	};
 }
