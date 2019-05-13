@@ -94,93 +94,45 @@ class Mode extends React.Component {
 	};
 }
 
-class App extends React.Component {
+class InputBox extends React.Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {
-			accidental: 0,
-			degree: 6,
-			concept: CONCEPTS.Chords,
-			chord: CHORDS.Maj_Tri.id,
-			mode: MODES.Ionian.id
+			concept: CONCEPTS.Chords
 		};
 	}
-
-	// Event handlers
 
 	changeDegree = () => {
 		var element = document.getElementById("degree");
 		var value = parseInt(element.value);
-		this.setState({degree: value});
+		this.props.onChange({degree: value});
 	};
 	
 	changeAccidental = () => {
 		var element = document.getElementById("accidental");
 		var value = parseInt(element.value);
-		this.setState({accidental: value});
+		this.props.onChange({accidental: value});
 	};
 	
 	changeConcept = () => {
 		var element = document.getElementById("concept");
-		var value =parseInt(element.value);
+		var value = parseInt(element.value);
 		this.setState({concept: value});
+		this.props.onChange({concept: value});
 	};
 	
 	changeChord = () => {
 		var element = document.getElementById("chord");
 		var value = element.value;
-		this.setState({chord: value});
+		this.props.onChange({chord: value});
 	};
 	
 	changeMode = () => {
 		var element = document.getElementById("mode");
 		var value = element.value;
-		this.setState({mode: value});
+		this.props.onChange({mode: value});
 	};
-
-	// Helper functions
-
-	/*getMode = () => {
-		let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
-		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
-		let notes = [];
-		for(let i = 0; i < 7; i++) {
-			let degree = (mode.degree - 1 + i) % 7;
-			let relativeDegree = ((degree + this.state.degree - 1) % 7) + 1;
-			let octave = Math.floor((degree + this.state.degree - 1) / 7);
-			let position = homePosition + this.state.accidental + MAJOR_INTERVALS[degree].semitones;
-			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
-		}
-		return notes.map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
-	};*/
-
-	/*getChord = () => {	
-		let homePosition = BASE_NOTES[this.state.degree - 1].positionInC;
-		let notes = [];
-		for(let i = 0; i < chord.intervals.length; i++) {
-			let interval = chord.intervals[i];
-			let degree = interval.degree - 1;
-			let relativeDegree = ((degree + this.state.degree - 1) % 7) + 1;
-			let octave = Math.floor((degree + this.state.degree - 1) / 7);
-			let position = homePosition + this.state.accidental + interval.semitones;
-			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
-		}
-		return notes.map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
-	};*/
-	
-	getDisplay = () => {
-		if(this.state.concept === CONCEPTS.Chords)
-		{
-			let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
-			return e(Chord, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
-		}
-		else if(this.state.concept === CONCEPTS.Modes)
-		{
-			let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
-			return e(Mode, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
-		}
-	}
 
 	render = () => {
 		return e('div', {id: 'inputContainer'},
@@ -231,11 +183,45 @@ class App extends React.Component {
 				e('option', {value: MODES.Mixolydian.id		}, MODES.Mixolydian.name	),
 				e('option', {value: MODES.Aeolian.id		}, MODES.Aeolian.name		),
 				e('option', {value: MODES.Locrian.id		}, MODES.Locrian.name		)
-			)),
+			))
+		);
+	};
+}
+
+class App extends React.Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			accidental: 0,
+			degree: 6,
+			concept: CONCEPTS.Chords,
+			chord: CHORDS.Maj_Tri.id,
+			mode: MODES.Ionian.id
+		};
+	}
+
+	getDisplay = () => {
+		if(this.state.concept === CONCEPTS.Chords)
+		{
+			let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
+			return e(Chord, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
+		}
+		else if(this.state.concept === CONCEPTS.Modes)
+		{
+			let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
+			return e(Mode, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
+		}
+	}
+
+	onChange = (inputState) => {
+		this.setState(inputState);
+	}
+
+	render = () => {
+		return e('div', {id: 'appContainer'},
+			e(InputBox, {onChange: this.onChange}, null),
 			e('br'),
-			/*e('button', { onClick: () => this.changeKey() },
-				'Go!'
-			),*/
 			this.getDisplay()
 		);
   	};
