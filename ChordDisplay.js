@@ -1,4 +1,4 @@
-class Chord extends React.Component {
+class ChordDisplay extends React.Component {
 	
 	constructor(props) {
 		super(props);

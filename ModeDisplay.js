@@ -1,4 +1,4 @@
-class Mode extends React.Component {
+class ModeDisplay extends React.Component {
 	
 	constructor(props) {
 		super(props);

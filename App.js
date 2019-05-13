@@ -27,12 +27,12 @@ class App extends React.Component {
 		if(this.state.concept === CONCEPTS.Chords)
 		{
 			let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
-			return e(Chord, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
+			return e(ChordDisplay, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
 			let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
-			return e(Mode, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
+			return e(ModeDisplay, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
 		}
 	}
 
