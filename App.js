@@ -26,13 +26,13 @@ class App extends React.Component {
 	getDisplay = () => {
 		if(this.state.concept === CONCEPTS.Chords)
 		{
-			let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
-			return e(ChordDisplay, {chordDef: chord, degree: this.state.degree, accidental: this.state.accidental}, null);
+			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+			return e(ChordDisplay, {chordDef: chord}, null);
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
-			let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
-			return e(ModeDisplay, {modeDef: mode, degree: this.state.degree, accidental: this.state.accidental}, null);
+			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+			return e(ModeDisplay, {modeDef: mode}, null);
 		}
 	}
 
