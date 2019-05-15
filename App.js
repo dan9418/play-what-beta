@@ -27,12 +27,12 @@ class App extends React.Component {
 		if(this.state.concept === CONCEPTS.Chords)
 		{
 			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
-			return e(ChordDisplay, {chordDef: chord}, null);
+			return chord.getNotes().map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
 			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
-			return e(ModeDisplay, {modeDef: mode}, null);
+			return mode.getNotes().map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
 		}
 	}
 
