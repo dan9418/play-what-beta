@@ -42,32 +42,44 @@ button {
 
 .piano-key {
 	display: inline-block;
-	height: 100%;
-}
-
-.piano-key-active {
-	background-color: red !important;
-	color: white;
-}
-
-.black-key {
-	width: 0px;
-}
-
-.black-key-top {
-	background-color: black;
-	color: white;
-	height: 40px;
-	width: 10px;
-	position: relative;
-	left: -5px;
-	top: 30px;
 }
 
 .white-key {
 	background-color: white;
 	color: black;
-	border: 1px solid black;
+	box-shadow:inset 0px 0px 0px 1px black;
 	padding: 5px;
+	height: 100px;
 	width: 15px;
+}
+
+.white-key.piano-key-active {
+	background-color: red !important;
+	color: white;
+}
+
+.black-key-container {
+	height: 100px;
+	width: 0px;
+}
+
+.black-key {
+	box-shadow:inset 0px 0px 0px 1px black;
+	background-color: black;
+	color: white;
+	height: 80px;
+	width: 10px;
+	position: relative;
+	left: -5px;
+	top: -30px;
+}
+
+.black-key.piano-key-active {
+	background-color: darkred !important;
+	color: white;
+	
+}
+
+.piano-key:hover {
+	background-color: yellow !important;
 }

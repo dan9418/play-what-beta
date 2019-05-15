@@ -61,9 +61,8 @@ class App extends React.Component {
 	render = () => {
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
-			e('br'),
-			this.getNotes(),
-			this.getPiano()
+			e('div',{id: 'notesContainer'}, this.getNotes()),
+			e('div',{id: 'pianoContainer'}, this.getPiano()),
 		);
   	};
 }

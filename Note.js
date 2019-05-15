@@ -17,6 +17,10 @@ class Note extends React.Component {
 		return valueOfEquivalentDegreeInC.name + this.getAccidentalString();
 	};
 
+	getPosition = () => {
+		return this.state.position;
+	};
+
 	getAccidentalString = () => {
 		let accidental = this.state.accidental;
 		switch(accidental) {
