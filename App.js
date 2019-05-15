@@ -54,6 +54,21 @@ class App extends React.Component {
 		}
 	}
 
+	getGuitar = () => {
+		if(this.state.concept === CONCEPTS.Chords)
+		{
+			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+			let chordNotes = chord.getNotes();
+			return e(Guitar, {notes: chordNotes}, null);
+		}
+		else if(this.state.concept === CONCEPTS.Modes)
+		{
+			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+			let modeNotes = mode.getNotes();
+			return e(Guitar, {notes: modeNotes}, null);
+		}
+	}
+
 	onChange = (inputState) => {
 		this.setState(inputState);
 	}
@@ -63,6 +78,7 @@ class App extends React.Component {
 			e(InputBox, {onChange: this.onChange}, null),
 			e('div',{id: 'notesContainer'}, this.getNotes()),
 			e('div',{id: 'pianoContainer'}, this.getPiano()),
+			e('div',{id: 'guitarContainer'}, this.getGuitar()),
 		);
   	};
 }

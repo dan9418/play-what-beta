@@ -60,7 +60,7 @@ button {
 }
 
 .piano {
-	height: 50px;
+	height: 100%;
 }
 
 .piano-key {
@@ -104,5 +104,38 @@ button {
 }
 
 .piano-key:hover {
+	background-color: yellow !important;
+}
+
+.guitar {
+	height: 100%;
+}
+
+.guitar-string {
+	width: 100%;
+}
+
+.guitar-fret {
+	display: inline-block;
+	background-color: burlywood;
+	color: grey;
+	height: 20px;
+	width: 30px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+}
+
+.guitar-fret-open {
+	background-color: chocolate;
+	border-right: 3px solid grey;
+}
+
+.guitar-fret-active {
+	background-color: red;
+}
+
+.guitar-fret:hover {
 	background-color: yellow !important;
 }
