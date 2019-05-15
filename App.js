@@ -44,7 +44,8 @@ class App extends React.Component {
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
 			e('br'),
-			this.getDisplay()
+			this.getDisplay(),
+			e(Piano, {}, null)
 		);
   	};
 }
