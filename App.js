@@ -23,16 +23,34 @@ class App extends React.Component {
 		};
 	}
 
-	getDisplay = () => {
+	getNotes = () => {
 		if(this.state.concept === CONCEPTS.Chords)
 		{
 			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
-			return chord.getNotes().map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
+			let chordNotes = chord.getNotes();
+			let components = chordNotes.map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
+			return components;
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
 			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
-			return mode.getNotes().map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
+			let modeNotes = mode.getNotes();
+			return modeNotes.map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
+		}
+	}
+
+	getPiano = () => {
+		if(this.state.concept === CONCEPTS.Chords)
+		{
+			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+			let chordNotes = chord.getNotes();
+			return e(Piano, {notes: chordNotes}, null);
+		}
+		else if(this.state.concept === CONCEPTS.Modes)
+		{
+			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+			let modeNotes = mode.getNotes();
+			return e(Piano, {notes: modeNotes}, null);
 		}
 	}
 
@@ -44,8 +62,8 @@ class App extends React.Component {
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
 			e('br'),
-			this.getDisplay(),
-			e(Piano, {}, null)
+			this.getNotes(),
+			this.getPiano()
 		);
   	};
 }

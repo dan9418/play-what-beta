@@ -45,6 +45,11 @@ button {
 	height: 100%;
 }
 
+.piano-key-active {
+	background-color: red !important;
+	color: white;
+}
+
 .black-key {
 	width: 0px;
 }
