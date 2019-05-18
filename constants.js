@@ -18,7 +18,7 @@ let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B]
 let INTERVALS = {
 	PU: { id: 'PU:',	name: 'Perfect Unison',	base: true,		degree: 1,	semitones: 0  },
 	m2: { id: 'm2:',	name: 'Minor 2nd',		base: true,		degree: 2,	semitones: 1  },
-	M2: { id: 'M2:',	name: 'Minor 2nd',		base: true,		degree: 2,	semitones: 2  },
+	M2: { id: 'M2:',	name: 'Major 2nd',		base: true,		degree: 2,	semitones: 2  },
 	m3: { id: 'm3:',	name: 'Minor 3rd',		base: true,		degree: 3,	semitones: 3  },
 	M3: { id: 'M3:',	name: 'Major 3rd',		base: true,		degree: 3,	semitones: 4  },
 	P4: { id: 'P4:',	name: 'Perfect 4th',	base: true,		degree: 4,	semitones: 5  },

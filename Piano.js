@@ -58,32 +58,6 @@ class Piano extends React.Component {
 	constructor(props) {
         super(props);
         this.keys = [];
-        /*this.keys = [
-            {position: 0, type: 'WHITE'}, // C
-            {position: 1, type: 'BLACK'},
-            {position: 2, type: 'WHITE'}, // D
-            {position: 3, type: 'BLACK'},
-            {position: 4, type: 'WHITE'}, // E
-            {position: 5, type: 'WHITE'}, // F
-            {position: 6, type: 'BLACK'},
-            {position: 7, type: 'WHITE'}, // G
-            {position: 8, type: 'BLACK'},
-            {position: 9, type: 'WHITE'}, // A
-            {position: 10, type: 'BLACK'},
-            {position: 11, type: 'WHITE'}, // B
-            {position: 12, type: 'WHITE'}, // C
-            {position: 13, type: 'BLACK'},
-            {position: 14, type: 'WHITE'}, // D
-            {position: 15, type: 'BLACK'},
-            {position: 16, type: 'WHITE'}, // E
-            {position: 17, type: 'WHITE'}, // F
-            {position: 18, type: 'BLACK'},
-            {position: 19, type: 'WHITE'}, // G
-            {position: 20, type: 'BLACK'},
-            {position: 21, type: 'WHITE'}, // A
-            {position: 22, type: 'BLACK'},
-            {position: 23, type: 'WHITE'} // B
-        ];*/
         for(let i = 0; i < this.props.length; i++) {
             let type = ([0, 2, 4, 5, 7, 9, 11].includes(i % 12)) ? 'WHITE' : 'BLACK';
             this.keys.push({position: i, type: type});
