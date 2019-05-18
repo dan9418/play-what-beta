@@ -35,20 +35,12 @@ class PianoKey extends React.Component {
         super(props);
     }
 
-    isActive = () => {
-        for(condition in this.props.activeConditions) {
-            if(!condition())
-                return false;
-        }
-        return true;
-    }
-
 	render = () => {
         if(this.props.type === 'WHITE') {
-            return e(WhiteKey, {key: `key-${this.props.index}`, active: this.isActive()}, null);
+            return e(WhiteKey, {key: `key-${this.props.position}`, active: this.props.active}, null);
         }
         else if(this.props.type === 'BLACK') {
-            return e(BlackKey, {key: `key-${this.props.index}`, active: this.isActive()}, null);
+            return e(BlackKey, {key: `key-${this.props.position}`, active: this.props.active}, null);
         }
     };
 }
@@ -63,11 +55,15 @@ class Piano extends React.Component {
             this.keys.push({position: i, type: type});
         }
     }
+
+    isPositionActive = (position) => {
+        return this.props.activeNotes.findIndex((note) => {return note.getPosition() === position}) >= 0;
+    }
     
     getKeys = () => {
-        return this.keys.map((key, index) => {
-            let active = this.props.activeNotes.findIndex((note) => {return note.getPosition() === index}) >= 0;
-            return e(PianoKey, {type: key.type, index: index, active: active}, null)
+        return this.keys.map((key) => {
+            let isActive = this.isPositionActive(key.position);
+            return e(PianoKey, {type: key.type, position: key.position, active: isActive}, null)
         });
     }
 
