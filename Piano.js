@@ -29,11 +29,36 @@ class BlackKey extends React.Component {
     };
 }
 
+class PianoKey extends React.Component {
+	
+	constructor(props) {
+        super(props);
+    }
+
+    isActive = () => {
+        for(condition in this.props.activeConditions) {
+            if(!condition())
+                return false;
+        }
+        return true;
+    }
+
+	render = () => {
+        if(this.props.type === 'WHITE') {
+            return e(WhiteKey, {key: `key-${this.props.index}`, active: this.isActive()}, null);
+        }
+        else if(this.props.type === 'BLACK') {
+            return e(BlackKey, {key: `key-${this.props.index}`, active: this.isActive()}, null);
+        }
+    };
+}
+
 class Piano extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.keys = [
+        this.keys = [];
+        /*this.keys = [
             {position: 0, type: 'WHITE'}, // C
             {position: 1, type: 'BLACK'},
             {position: 2, type: 'WHITE'}, // D
@@ -58,22 +83,21 @@ class Piano extends React.Component {
             {position: 21, type: 'WHITE'}, // A
             {position: 22, type: 'BLACK'},
             {position: 23, type: 'WHITE'} // B
-        ];
+        ];*/
+        for(let i = 0; i < this.props.length; i++) {
+            let type = ([0, 2, 4, 5, 7, 9, 11].includes(i % 12)) ? 'WHITE' : 'BLACK';
+            this.keys.push({position: i, type: type});
+        }
     }
     
     getKeys = () => {
         return this.keys.map((key, index) => {
-            let active = this.props.notes.findIndex((note) => {return note.getPosition() === index}) >= 0;
-            if(key.type === 'WHITE') {
-                return e(WhiteKey, {key: `key-${index}`, active: active}, null);
-            }
-            else if(key.type === 'BLACK') {
-                return e(BlackKey, {key: `key-${index}`, active: active}, null);
-            }
+            let active = this.props.activeNotes.findIndex((note) => {return note.getPosition() === index}) >= 0;
+            return e(PianoKey, {type: key.type, index: index, active: active}, null)
         });
     }
 
 	render = () => {
-		return e('div', {className: 'piano'},this.getKeys());
+		return e('div', {className: 'piano'}, this.getKeys());
     };
 }

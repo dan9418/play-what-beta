@@ -1,3 +1,23 @@
+class Fret extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        // displaySettings: object
+        // activeSettings: object
+        // activeConditions: function[]
+    }
+
+	render = () => {
+        let classes = ['guitar-fret'];
+        if(this.props.active)
+            classes.push('guitar-fret-active');
+        if(this.props.open)
+            classes.push('guitar-fret-open');
+        let name = (this.props.name) ? this.props.name : '';
+		return e('div', {className: classes.join(' ')}, this.props.position);
+    };
+}
+
 class String extends React.Component {
 	
 	constructor(props) {
@@ -22,22 +42,6 @@ class String extends React.Component {
     };
 }
 
-class Fret extends React.Component {
-	
-	constructor(props) {
-        super(props);
-    }
-
-	render = () => {
-        let classes = ['guitar-fret'];
-        if(this.props.active)
-            classes.push('guitar-fret-active');
-        if(this.props.open)
-            classes.push('guitar-fret-open');
-        let name = (this.props.name) ? this.props.name : '';
-		return e('div', {className: classes.join(' ')}, this.props.position);
-    };
-}
 
 class Guitar extends React.Component {
 	

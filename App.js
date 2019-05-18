@@ -44,13 +44,13 @@ class App extends React.Component {
 		{
 			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
 			let chordNotes = chord.getNotes();
-			return e(Piano, {notes: chordNotes}, null);
+			return e(Piano, {activeNotes: chordNotes, length: 24}, null);
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
 			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
 			let modeNotes = mode.getNotes();
-			return e(Piano, {notes: modeNotes}, null);
+			return e(Piano, {activeNotes: modeNotes, length: 24}, null);
 		}
 	}
 
