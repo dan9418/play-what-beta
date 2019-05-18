@@ -21,6 +21,10 @@ class Note extends React.Component {
 		return this.state.position;
 	};
 
+	getDegree = () => {
+		return this.state.degree;
+	};
+
 	getAccidentalString = () => {
 		let accidental = this.state.accidental;
 		switch(accidental) {

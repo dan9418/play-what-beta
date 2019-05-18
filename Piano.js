@@ -6,9 +6,12 @@ class WhiteKey extends React.Component {
 
 	render = () => {
         let classes = ['piano-key', 'white-key'];
-        if(this.props.active)
+        let active = this.props.note !== null;
+        if(active)
             classes.push('piano-key-active');
         let name = (this.props.name) ? this.props.name : '';
+        if(active && this.props.displaySettings.label === 'DEGREE')
+            name = this.props.note.getDegree();
 		return e('div', {className: classes.join(' ')}, name);
     };
 }
@@ -22,9 +25,12 @@ class BlackKey extends React.Component {
 	render = () => {
         let containerClasses = ['piano-key','black-key-container'];
         let classes = ['piano-key', 'black-key'];
+        let active = this.props.note !== null;
         if(this.props.active)
             classes.push('piano-key-active');
         let name = (this.props.name) ? this.props.name : '';
+        if(active && this.props.displaySettings.label === 'DEGREE')
+            name = this.props.note.getDegree();
 		return e('div', {className: containerClasses.join(' ')}, e('div', {className: classes.join(' ')}, name));
     };
 }
@@ -37,10 +43,10 @@ class PianoKey extends React.Component {
 
 	render = () => {
         if(this.props.type === 'WHITE') {
-            return e(WhiteKey, {key: `key-${this.props.position}`, active: this.props.active}, null);
+            return e(WhiteKey, {key: `key-${this.props.position}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
         }
         else if(this.props.type === 'BLACK') {
-            return e(BlackKey, {key: `key-${this.props.position}`, active: this.props.active}, null);
+            return e(BlackKey, {key: `key-${this.props.position}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
         }
     };
 }
@@ -56,14 +62,14 @@ class Piano extends React.Component {
         }
     }
 
-    isPositionActive = (position) => {
-        return this.props.activeNotes.findIndex((note) => {return note.getPosition() === position}) >= 0;
+    getActiveNote = (position) => {
+        return this.props.activeNotes.find((note) => {return note.getPosition() === position});
     }
     
     getKeys = () => {
         return this.keys.map((key) => {
-            let isActive = this.isPositionActive(key.position);
-            return e(PianoKey, {type: key.type, position: key.position, active: isActive}, null)
+            let note = this.getActiveNote(key.position) || null;
+            return e(PianoKey, {key: `key-${key.position}`, type: key.type, position: key.position, note: note, displaySettings: this.props.displaySettings}, null)
         });
     }
 

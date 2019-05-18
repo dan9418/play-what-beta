@@ -61,19 +61,21 @@ button {
 
 .piano {
 	height: 100%;
+	padding: 25px;
 }
 
 .piano-key {
 	display: inline-block;
+	vertical-align: top;
 }
 
 .white-key {
 	background-color: white;
 	color: black;
 	box-shadow:inset 0px 0px 0px 1px black;
-	padding: 5px;
 	height: 100px;
-	width: 15px;
+	width: 25px;
+	padding-top: 5px;
 }
 
 .white-key.piano-key-active {
@@ -90,11 +92,11 @@ button {
 	box-shadow:inset 0px 0px 0px 1px black;
 	background-color: black;
 	color: white;
-	height: 80px;
-	width: 10px;
+	height: 70px;
+	width: 12px;
 	position: relative;
-	left: -5px;
-	top: -30px;
+	left: -6px;
+	padding-top: 5px;
 }
 
 .black-key.piano-key-active {

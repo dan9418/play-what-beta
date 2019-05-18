@@ -40,11 +40,14 @@ class App extends React.Component {
 	}
 
 	getPiano = () => {
+		let displaySettings = {
+			label: 'DEGREE'
+		}
 		if(this.state.concept === CONCEPTS.Chords)
 		{
 			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
 			let chordNotes = chord.getNotes();
-			return e(Piano, {activeNotes: chordNotes, length: 24}, null);
+			return e(Piano, {activeNotes: chordNotes, length: 24, displaySettings: displaySettings}, null);
 		}
 		else if(this.state.concept === CONCEPTS.Modes)
 		{
