@@ -16,7 +16,7 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			accidental: 0,
-			degree: 6,
+			relativeDegree: 6,
 			concept: CONCEPTS.Chords,
 			chord: CHORDS.Maj_Tri.id,
 			mode: MODES.Ionian.id
@@ -24,16 +24,14 @@ class App extends React.Component {
 	}
 
 	getNotes = () => {
-		if(this.state.concept === CONCEPTS.Chords)
-		{
-			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+		if(this.state.concept === CONCEPTS.Chords) {
+			let chord = new Chord(this.state.chord, this.state.relativeDegree, this.state.accidental);
 			let chordNotes = chord.getNotes();
 			let components = chordNotes.map((note) => {return e('span', {className: 'note chord-note', key: note.getName()}, note.getName())});
 			return components;
 		}
-		else if(this.state.concept === CONCEPTS.Modes)
-		{
-			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+		else if(this.state.concept === CONCEPTS.Modes) {
+			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
 			let modeNotes = mode.getNotes();
 			return modeNotes.map((note) => {return e('span', {className: 'note mode-note', key: note.getName()}, note.getName())});
 		}
@@ -43,30 +41,26 @@ class App extends React.Component {
 		let displaySettings = {
 			label: 'DEGREE'
 		}
-		if(this.state.concept === CONCEPTS.Chords)
-		{
-			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+		if(this.state.concept === CONCEPTS.Chords) {
+			let chord = new Chord(this.state.chord, this.state.relativeDegree, this.state.accidental);
 			let chordNotes = chord.getNotes();
 			return e(Piano, {activeNotes: chordNotes, length: 24, displaySettings: displaySettings}, null);
 		}
-		else if(this.state.concept === CONCEPTS.Modes)
-		{
-			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+		else if(this.state.concept === CONCEPTS.Modes) {
+			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
 			let modeNotes = mode.getNotes();
 			return e(Piano, {activeNotes: modeNotes, length: 24}, null);
 		}
 	}
 
 	getGuitar = () => {
-		if(this.state.concept === CONCEPTS.Chords)
-		{
-			let chord = new Chord(this.state.chord, this.state.degree, this.state.accidental);
+		if(this.state.concept === CONCEPTS.Chords) {
+			let chord = new Chord(this.state.chord, this.state.relativeDegree, this.state.accidental);
 			let chordNotes = chord.getNotes();
 			return e(Guitar, {notes: chordNotes}, null);
 		}
-		else if(this.state.concept === CONCEPTS.Modes)
-		{
-			let mode = new Mode(this.state.mode, this.state.degree, this.state.accidental);
+		else if(this.state.concept === CONCEPTS.Modes) {
+			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
 			let modeNotes = mode.getNotes();
 			return e(Guitar, {notes: modeNotes}, null);
 		}
@@ -81,7 +75,7 @@ class App extends React.Component {
 			e(InputBox, {onChange: this.onChange}, null),
 			e('div',{id: 'notesContainer'}, this.getNotes()),
 			e('div',{id: 'pianoContainer'}, this.getPiano()),
-			e('div',{id: 'guitarContainer'}, this.getGuitar()),
+			e('div',{id: 'guitarContainer'}, this.getGuitar())
 		);
   	};
 }

@@ -1,8 +1,8 @@
 class Mode {
 
-	constructor(id, degree, accidental) {
+	constructor(id, relativeDegree, accidental) {
                 this.modeDef = ALL_MODES.find((mode) => { return mode.id === id });
-                this.relativeDegree = degree;
+                this.relativeDegree = relativeDegree;
                 this.accidental = accidental;
         }
         

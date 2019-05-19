@@ -8,16 +8,13 @@ class WhiteKey extends React.Component {
         let classes = ['piano-key', 'white-key'];
         let active = this.props.note !== null;
         let name = (this.props.name) ? this.props.name : '';
-        if(active)
-        {
-            if(active && this.props.displaySettings.label === 'DEGREE')
-            {
+        if(active) {
+            if(active && this.props.displaySettings.label === 'DEGREE') {
                 let degree = this.props.note.getDegree();
                 name = degree;
                 classes.push(`degree-${degree}`)
             }
-            else
-            {
+            else {
                 classes.push('piano-key-active');
             }
         }
@@ -36,16 +33,13 @@ class BlackKey extends React.Component {
         let classes = ['piano-key', 'black-key'];
         let active = this.props.note !== null;
         let name = (this.props.name) ? this.props.name : '';
-        if(active)
-        {
-            if(this.props.displaySettings.label === 'DEGREE')
-            {
+        if(active) {
+            if(this.props.displaySettings.label === 'DEGREE') {
                 let degree = this.props.note.getDegree();
                 name = degree;
                 classes.push(`degree-${name}`)
             }
-            else
-            {
+            else {
                 classes.push('piano-key-active');
             }
         }
