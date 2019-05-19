@@ -15,7 +15,7 @@ class Chord {
 			let relativeDegree = ((degree + this.degree - 1) % 7) + 1;
 			let octave = Math.floor((degree + this.degree - 1) / 7);
 			let position = homePosition + this.accidental + interval.semitones;
-			notes.push(new Note({position: position, degree: relativeDegree, octave: octave}));
+			notes.push(new Note({position: position, relativeDegree: relativeDegree, octave: octave}));
 		}
 		return notes;
         }

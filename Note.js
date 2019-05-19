@@ -2,32 +2,25 @@ class Note extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {
-			position: props.position,
-			degree: props.degree,
-			octave: props.octave,
-			accidental: 0,
-			active: false
-		};
+		this.accidental = 0;
 	}
 
 	getName = () => {
-		let valueOfEquivalentDegreeInC = BASE_NOTES.find((note) => { return note.degreeInC ===this.state.degree; });
-		this.state.accidental = this.state.position - (valueOfEquivalentDegreeInC.positionInC + this.state.octave * 12);
+		let valueOfEquivalentDegreeInC = BASE_NOTES.find((note) => { return note.degreeInC === this.props.relativeDegree; });
+		this.accidental = this.props.position - (valueOfEquivalentDegreeInC.positionInC + this.props.octave * 12);
 		return valueOfEquivalentDegreeInC.name + this.getAccidentalString();
 	};
 
 	getPosition = () => {
-		return this.state.position;
+		return this.props.position;
 	};
 
 	getDegree = () => {
-		return this.state.degree;
+		return this.props.relativeDegree;
 	};
 
 	getAccidentalString = () => {
-		let accidental = this.state.accidental;
-		switch(accidental) {
+		switch(this.accidental) {
 		  case 0:
 			return ''
 		  case 1:
@@ -39,11 +32,11 @@ class Note extends React.Component {
 		  case -2:
 			return 'bb';
 		  default:
-			if(accidental < 0) {
-				return -accidental + 'b';
-			} else if (accidental > 0) {
-				return accidental + '#';
-			}
+				if(this.accidental < 0) {
+					return -this.accidental + 'b';
+				} else if (this.accidental > 0) {
+					return this.accidental + '#';
+				}
 		}
 	};
 
