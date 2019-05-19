@@ -2,13 +2,12 @@ class Note extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.accidental = 0;
 	}
 
 	getName = () => {
-		let valueOfEquivalentDegreeInC = BASE_NOTES.find((note) => { return note.degreeInC === this.props.relativeDegree; });
-		this.accidental = this.props.position - (valueOfEquivalentDegreeInC.positionInC + this.props.octave * 12);
-		return valueOfEquivalentDegreeInC.name + this.getAccidentalString();
+		let relativeDegreeNote = BASE_NOTES.find((note) => { return note.degreeInC === this.props.relativeDegree; });
+		let accidental = this.props.position - (relativeDegreeNote.positionInC + (this.props.octave * 12));
+		return relativeDegreeNote.name + this.getAccidentalString(accidental);
 	};
 
 	getPosition = () => {
@@ -16,26 +15,26 @@ class Note extends React.Component {
 	};
 
 	getDegree = () => {
-		return this.props.relativeDegree;
+		return this.props.degree;
 	};
 
-	getAccidentalString = () => {
-		switch(this.accidental) {
+	getAccidentalString = (accidental) => {
+		switch(accidental) {
 		  case 0:
-			return ''
+				return ''
 		  case 1:
-			return '#';
+				return '#';
 		  case 2:
-			return 'x';
+				return 'x';
 		  case -1:
-			return 'b';
+				return 'b';
 		  case -2:
-			return 'bb';
+				return 'bb';
 		  default:
-				if(this.accidental < 0) {
-					return -this.accidental + 'b';
-				} else if (this.accidental > 0) {
-					return this.accidental + '#';
+				if(accidental < 0) {
+					return -accidental + 'b';
+				} else if (accidental > 0) {
+					return accidental + '#';
 				}
 		}
 	};
