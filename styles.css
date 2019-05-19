@@ -100,12 +100,12 @@ button {
 }
 
 .black-key.piano-key-active {
-	background-color: darkred !important;
+	background-color: darkred;
 	color: white;
 }
 
 .piano-key:hover {
-	background-color: yellow !important;
+	background-color: darkgray !important;
 }
 
 .guitar {
@@ -139,4 +139,32 @@ button {
 
 .guitar-fret:hover {
 	background-color: yellow !important;
+}
+
+.degree-1 {
+	background-color: red;
+}
+
+.degree-2 {
+	background-color: orange;
+}
+
+.degree-3 {
+	background-color: yellow;
+}
+
+.degree-4 {
+	background-color: green;
+}
+
+.degree-5 {
+	background-color: blue;
+}
+
+.degree-6 {
+	background-color: indigo;
+}
+
+.degree-7 {
+	background-color: purple;
 }

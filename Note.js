@@ -15,7 +15,7 @@ class Note extends React.Component {
 	};
 
 	getDegree = () => {
-		return this.props.degree;
+		return this.props.interval.degree;
 	};
 
 	getAccidentalString = (accidental) => {

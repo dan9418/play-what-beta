@@ -7,11 +7,20 @@ class WhiteKey extends React.Component {
 	render = () => {
         let classes = ['piano-key', 'white-key'];
         let active = this.props.note !== null;
-        if(active)
-            classes.push('piano-key-active');
         let name = (this.props.name) ? this.props.name : '';
-        if(active && this.props.displaySettings.label === 'DEGREE')
-            name = this.props.note.getDegree();
+        if(active)
+        {
+            if(active && this.props.displaySettings.label === 'DEGREE')
+            {
+                let degree = this.props.note.getDegree();
+                name = degree;
+                classes.push(`degree-${degree}`)
+            }
+            else
+            {
+                classes.push('piano-key-active');
+            }
+        }
 		return e('div', {className: classes.join(' ')}, name);
     };
 }
@@ -26,11 +35,20 @@ class BlackKey extends React.Component {
         let containerClasses = ['piano-key','black-key-container'];
         let classes = ['piano-key', 'black-key'];
         let active = this.props.note !== null;
-        if(this.props.active)
-            classes.push('piano-key-active');
         let name = (this.props.name) ? this.props.name : '';
-        if(active && this.props.displaySettings.label === 'DEGREE')
-            name = this.props.note.getDegree();
+        if(active)
+        {
+            if(this.props.displaySettings.label === 'DEGREE')
+            {
+                let degree = this.props.note.getDegree();
+                name = degree;
+                classes.push(`degree-${name}`)
+            }
+            else
+            {
+                classes.push('piano-key-active');
+            }
+        }
 		return e('div', {className: containerClasses.join(' ')}, e('div', {className: classes.join(' ')}, name));
     };
 }
