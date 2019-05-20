@@ -3,14 +3,14 @@ class InputBox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			concept: CONCEPTS.Chords
+			concept: CONCEPTS.Modes
 		};
 	}
 
 	changeDegree = () => {
 		var element = document.getElementById("degree");
 		var value = parseInt(element.value);
-		this.props.onChange({degree: value});
+		this.props.onChange({relativeDegree: value});
 	};
 	
 	changeAccidental = () => {
@@ -41,7 +41,7 @@ class InputBox extends React.Component {
 	render = () => {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
-				{id: 'degree', onClick: () => this.changeDegree()},
+				{id: 'degree', onChange: () => this.changeDegree()},
 				e('option', {value: NOTES.A.degreeInC		}, NOTES.A.name				),
 				e('option', {value: NOTES.B.degreeInC		}, NOTES.B.name				),
 				e('option', {value: NOTES.C.degreeInC		}, NOTES.C.name				),
@@ -51,19 +51,19 @@ class InputBox extends React.Component {
 				e('option', {value: NOTES.G.degreeInC		}, NOTES.G.name				)
 			),
 			e('select', 
-				{id: 'accidental', defaultValue: '0', onClick: () => this.changeAccidental()},
+				{id: 'accidental', defaultValue: '0', onChange: () => this.changeAccidental()},
 				e('option', {value: '1'						}, '#'						),
 				e('option', {value: '0'						}, '♮'						),
 				e('option', {value: '-1'					}, 'b'						)
 			),
 			e('br'),
 			e('select', 
-				{id: 'concept', onClick: () => this.changeConcept()},
+				{id: 'concept', onChange: () => this.changeConcept()},
 				e('option', {value: CONCEPTS.Chords},		'Chords'					),
 				e('option', {value: CONCEPTS.Modes},		'Modes'						)
 			),
 			(this.state.concept === CONCEPTS.Chords && e('select', 
-				{id: 'chord', onClick: () => this.changeChord()},
+				{id: 'chord', onChange: () => this.changeChord()},
 				e('option', {value: CHORDS.Maj_Tri.id		}, CHORDS.Maj_Tri.name		),
 				e('option', {value: CHORDS.Maj_6.id			}, CHORDS.Maj_6.name		),
 				e('option', {value: CHORDS.Dom_7.id			}, CHORDS.Dom_7.name		),
@@ -79,7 +79,7 @@ class InputBox extends React.Component {
 				e('option', {value: CHORDS.Half_Dim_7.id	}, CHORDS.Half_Dim_7.name	)
 			)),
 			(this.state.concept === CONCEPTS.Modes && e('select', 
-				{id: 'mode', onClick: () => this.changeMode()},
+				{id: 'mode', onChange: () => this.changeMode()},
 				e('option', {value: MODES.Ionian.id			}, MODES.Ionian.name		),
 				e('option', {value: MODES.Dorian.id			}, MODES.Dorian.name		),
 				e('option', {value: MODES.Phrygian.id		}, MODES.Phrygian.name		),

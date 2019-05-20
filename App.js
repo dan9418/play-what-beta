@@ -16,8 +16,8 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			accidental: 0,
-			relativeDegree: 6,
-			concept: CONCEPTS.Chords,
+			relativeDegree: 1,
+			concept: CONCEPTS.Modes,
 			chord: CHORDS.Maj_Tri.id,
 			mode: MODES.Ionian.id
 		};
@@ -49,7 +49,7 @@ class App extends React.Component {
 		else if(this.state.concept === CONCEPTS.Modes) {
 			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
 			let modeNotes = mode.getNotes();
-			return e(Piano, {activeNotes: modeNotes, length: 24}, null);
+			return e(Piano, {activeNotes: modeNotes, length: 24, displaySettings: displaySettings}, null);
 		}
 	}
 

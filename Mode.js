@@ -7,14 +7,22 @@ class Mode {
         }
         
         getNotes() {
-                let homePosition = BASE_NOTES[this.relativeDegree - 1].positionInC;
-		let notes = [];
-		for(let i = 0; i < 7; i++) {
-			let degree = (this.modeDef.degree - 1 + i) % 7;
-			let relativeDegree = ((degree + this.relativeDegree - 1) % 7) + 1;
-			let octave = Math.floor((degree + this.relativeDegree - 1) / 7);
-			let position = homePosition + this.accidental + MAJOR_INTERVALS[degree].semitones;
-			notes.push(new Note({position: position, interval: interval, relativeDegree: relativeDegree, octave: octave}));
+		let homeNote = BASE_NOTES[this.relativeDegree - 1];
+		let modeNote = BASE_NOTES[this.modeDef.degree - 1];
+		let modeDegree = modeNote.degreeInC;
+		let notes = new Array(MAJOR_INTERVALS.length);
+		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
+			let interval = MAJOR_INTERVALS[i]; //only used for degree right now
+			let semitones = 0;
+			//let degreeIndex = (modeDegree - 1 + i) % 7 + 1;
+			for(let j = 0; j < i; j++) {
+				let index = (modeDegree - 1 + j) % 7;
+				semitones = semitones + MAJOR_STEPS[index].semitones;
+			}
+			let position = homeNote.positionInC + semitones + this.accidental;
+			let octave = Math.floor(position / 12);
+			
+			notes[i] = new Note({position: position, interval: interval, relativeDegree: i + 1, octave: octave});
 		}
 		return notes;
         }
