@@ -54,15 +54,18 @@ class App extends React.Component {
 	}
 
 	getGuitar = () => {
+		let displaySettings = {
+			label: 'DEGREE'
+		}
 		if(this.state.concept === CONCEPTS.Chords) {
 			let chord = new Chord(this.state.chord, this.state.relativeDegree, this.state.accidental);
 			let chordNotes = chord.getNotes();
-			return e(Guitar, {notes: chordNotes}, null);
+			return e(Guitar, {notes: chordNotes, displaySettings: displaySettings}, null);
 		}
 		else if(this.state.concept === CONCEPTS.Modes) {
 			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
 			let modeNotes = mode.getNotes();
-			return e(Guitar, {notes: modeNotes}, null);
+			return e(Guitar, {notes: modeNotes, displaySettings: displaySettings}, null);
 		}
 	}
 

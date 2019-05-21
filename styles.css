@@ -119,13 +119,14 @@ button {
 .guitar-fret {
 	display: inline-block;
 	background-color: burlywood;
-	color: grey;
+	color: black;
 	height: 20px;
 	width: 30px;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	border-right: 1px solid grey;
 	border-left: 1px solid grey;
+	vertical-align: top
 }
 
 .guitar-fret-open {
@@ -138,7 +139,7 @@ button {
 }
 
 .guitar-fret:hover {
-	background-color: yellow !important;
+	background-color: darkgray !important;
 }
 
 .degree-1 {

@@ -9,7 +9,7 @@ class WhiteKey extends React.Component {
         let active = this.props.note !== null;
         let name = (this.props.name) ? this.props.name : '';
         if(active) {
-            if(active && this.props.displaySettings.label === 'DEGREE') {
+            if(this.props.displaySettings.label === 'DEGREE') {
                 let degree = this.props.note.getDegree();
                 name = degree;
                 classes.push(`degree-${degree}`)
