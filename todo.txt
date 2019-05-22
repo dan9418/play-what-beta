@@ -1,0 +1,13 @@
+expandable ranges
+display options
+    intervals
+    note names
+    distance
+tunable guitar
+octave filter
+guitar voicings
+configurable colors
+note display component
+scales (ascending/descending)
+roman numerals
+extended chords
