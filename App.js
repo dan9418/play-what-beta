@@ -57,9 +57,9 @@ class App extends React.Component {
 		}
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
-			e('div',{id: 'notesContainer'}, this.getNoteCollection(notes)),
-			e('div',{id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
-			e('div',{id: 'guitarContainer'}, this.getGuitar(notes, displaySettings))
+			e('div', {id: 'notesContainer'}, this.getNoteCollection(notes)),
+			e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
+			e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings))
 		);
   	};
 }
