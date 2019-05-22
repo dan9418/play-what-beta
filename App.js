@@ -34,8 +34,8 @@ class App extends React.Component {
 		}
 	}
 
-	getNoteDisplays = (notes) => {
-		return notes.map((note) => {return e('span', {className: 'note', key: note.getName()}, note.getName())});
+	getNoteCollection = (notes) => {
+		return e(NoteCollection, {notes: notes}, null);
 	}
 
 	getPiano = (notes, displaySettings) => {
@@ -57,7 +57,7 @@ class App extends React.Component {
 		}
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
-			e('div',{id: 'notesContainer'}, this.getNoteDisplays(notes)),
+			e('div',{id: 'notesContainer'}, this.getNoteCollection(notes)),
 			e('div',{id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
 			e('div',{id: 'guitarContainer'}, this.getGuitar(notes, displaySettings))
 		);
