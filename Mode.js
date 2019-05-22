@@ -22,7 +22,7 @@ class Mode {
 				semitones = semitones + MAJOR_STEPS[index].semitones;
 			}
 			let position = homeNote.positionInC + semitones + this.accidental;
-			let octave = Math.floor(position / 12);
+			let octave = Math.floor((homeNote.positionInC + semitones)/ 12);
 			
 			notes[i] = new Note({position: position, interval: interval, relativeDegree: degreeIndex, octave: octave});
 		}
