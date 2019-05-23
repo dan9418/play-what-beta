@@ -14,7 +14,7 @@ class Mode {
 		let notes = new Array(MAJOR_INTERVALS.length);
 		console.log('\n');
 		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
-			let interval = MAJOR_INTERVALS[i]; //only used for degree right now
+			let functionalDegree = MAJOR_INTERVALS[i].degree;
 			let semitones = 0;
 			let degreeIndex = (homeDegree - 1 + i) % 7 + 1;
 			for(let j = 0; j < i; j++) {
@@ -22,9 +22,10 @@ class Mode {
 				semitones = semitones + MAJOR_STEPS[index].semitones;
 			}
 			let position = homeNote.positionInC + semitones + this.accidental;
+			let interval = ALL_INTERVALS.find((i) => {return (i.semitones === semitones && i.degree === functionalDegree)})
 			let octave = Math.floor((homeNote.positionInC + semitones)/ 12);
 			
-			notes[i] = new Note({position: position, interval: interval, relativeDegree: degreeIndex, octave: octave});
+			notes[i] = new Note({position: position, interval: interval, functionalDegree: functionalDegree, relativeDegree: degreeIndex, octave: octave});
 		}
 		return notes;
         }
