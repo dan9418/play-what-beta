@@ -4,13 +4,13 @@ let CONCEPTS = {
 }
 
 let NOTES = {
-	C: { id: 'C', name: 'C', degreeInC: 1, positionInC: 0	},
-	D: { id: 'D', name: 'D', degreeInC: 2, positionInC: 2	},
-	E: { id: 'E', name: 'E', degreeInC: 3, positionInC: 4	},
-	F: { id: 'F', name: 'F', degreeInC: 4, positionInC: 5	},
-	G: { id: 'G', name: 'G', degreeInC: 5, positionInC: 7	},
-	A: { id: 'A', name: 'A', degreeInC: 6, positionInC: 9	},
-	B: { id: 'B', name: 'B', degreeInC: 7, positionInC: 11	}
+	C: { id: 'C', name: 'C', relativeDegree: 1, relativePosition: 0	},
+	D: { id: 'D', name: 'D', relativeDegree: 2, relativePosition: 2	},
+	E: { id: 'E', name: 'E', relativeDegree: 3, relativePosition: 4	},
+	F: { id: 'F', name: 'F', relativeDegree: 4, relativePosition: 5	},
+	G: { id: 'G', name: 'G', relativeDegree: 5, relativePosition: 7	},
+	A: { id: 'A', name: 'A', relativeDegree: 6, relativePosition: 9	},
+	B: { id: 'B', name: 'B', relativeDegree: 7, relativePosition: 11	}
 };
 
 let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];

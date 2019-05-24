@@ -5,8 +5,8 @@ class Note extends React.Component {
 	}
 
 	getName = () => {
-		let relativeDegreeNote = BASE_NOTES.find((note) => { return note.degreeInC === this.props.relativeDegree; });
-		let accidental = this.props.position - (relativeDegreeNote.positionInC + (this.props.octave * 12));
+		let relativeDegreeNote = BASE_NOTES.find((note) => { return note.relativeDegree === this.props.relativeDegree; });
+		let accidental = this.props.position - (relativeDegreeNote.relativePosition + (this.props.octave * 12));
 		return relativeDegreeNote.name + this.getAccidentalString(accidental);
 	};
 

@@ -9,8 +9,8 @@ class Mode {
         getNotes() {
 		let homeNote = BASE_NOTES[this.relativeDegree - 1];
 		let modeNote = BASE_NOTES[this.modeDef.degree - 1];
-		let homeDegree = homeNote.degreeInC;
-		let modeDegree = modeNote.degreeInC;
+		let homeDegree = homeNote.relativeDegree;
+		let modeDegree = modeNote.relativeDegree;
 		let notes = new Array(MAJOR_INTERVALS.length);
 		console.log('\n');
 		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
@@ -21,9 +21,9 @@ class Mode {
 				let index = (modeDegree - 1 + j) % 7;
 				semitones = semitones + MAJOR_STEPS[index].semitones;
 			}
-			let position = homeNote.positionInC + semitones + this.accidental;
+			let position = homeNote.relativePosition + semitones + this.accidental;
 			let interval = ALL_INTERVALS.find((i) => {return (i.semitones === semitones && i.degree === functionalDegree)})
-			let octave = Math.floor((homeNote.positionInC + semitones)/ 12);
+			let octave = Math.floor((homeNote.relativePosition + semitones)/ 12);
 			
 			notes[i] = new Note({position: position, interval: interval, functionalDegree: functionalDegree, relativeDegree: degreeIndex, octave: octave});
 		}

@@ -7,7 +7,7 @@ class Chord {
         }
         
         getNotes() {
-                let homePosition = BASE_NOTES[this.relativeDegree - 1].positionInC;
+                let homePosition = BASE_NOTES[this.relativeDegree - 1].relativePosition;
 		let notes = [];
 		for(let i = 0; i < this.chordDef.intervals.length; i++) {
 			let interval = this.chordDef.intervals[i];
