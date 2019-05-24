@@ -10,7 +10,7 @@ let NOTES = {
 	F: { id: 'F', name: 'F', relativeDegree: 4, relativePosition: 5	},
 	G: { id: 'G', name: 'G', relativeDegree: 5, relativePosition: 7	},
 	A: { id: 'A', name: 'A', relativeDegree: 6, relativePosition: 9	},
-	B: { id: 'B', name: 'B', relativeDegree: 7, relativePosition: 11	}
+	B: { id: 'B', name: 'B', relativeDegree: 7, relativePosition: 11 }
 };
 
 let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];

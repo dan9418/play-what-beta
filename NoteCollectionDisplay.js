@@ -20,7 +20,7 @@ class NoteDisplay extends React.Component {
     };
 }
 
-class NoteCollection extends React.Component {
+class NoteCollectionDisplay extends React.Component {
 	
 	constructor(props) {
         super(props);

@@ -35,7 +35,7 @@ class App extends React.Component {
 	}
 
 	getNoteCollection = (notes, displaySettings) => {
-		return e(NoteCollection, {notes: notes, displaySettings: displaySettings}, null);
+		return e(NoteCollectionDisplay, {notes: notes, displaySettings: displaySettings}, null);
 	}
 
 	getPiano = (notes, displaySettings) => {
