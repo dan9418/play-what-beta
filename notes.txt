@@ -1,3 +1,46 @@
+5/24/19
+
+NoteCollection
+	props
+		root
+			absoluteDegree	// 1
+			accidental		// 0
+			octave			// 4
+		range
+			upper
+			lower
+		concept
+			id				// scale
+			interval
+				id			// perfect unison
+				direction	// ascending
+			chord
+				id			// major triad
+				inversion	// 0
+			scale
+				id			// major diatonic
+				direction	// ascending
+			mode
+				id			// ionian
+				direction	// ascending
+			scaleDegrees
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLD:
+
 NOTE: This entire project is a work in progress. Nothing is completely accurate or finished yet.
 
 start with keyboard with base_notes, degrees, diatonic pattern + semitones and base_intervals

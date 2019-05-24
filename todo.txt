@@ -1,13 +1,32 @@
-expandable ranges
-display options
-    intervals
-    note names
-    distance
-tunable guitar
-octave filter
-guitar voicings
-configurable colors
-note display component
-scales (ascending/descending)
-roman numerals
-extended chords
+piano
+    expandable ranges
+
+guitar
+    expandable ranges
+    tunable strings
+    voicings
+
+concepts
+    note
+    interval
+    chord
+    scale
+    mode
+    scale degree
+
+note metadata
+    name
+    frequency
+    octave
+    relative interval
+    relative position
+    absolute position
+
+interactivity
+    range filter
+    guitar voicings
+    configurable colors
+    transposition
+
+other
+    extended chords
