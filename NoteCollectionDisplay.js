@@ -10,7 +10,7 @@ class NoteDisplay extends React.Component {
         let interval = '';
         if(this.props.displaySettings.label === 'DEGREE') {
             degree = this.props.note.getDegree();
-            interval = this.props.note.getInterval().id;
+            interval = this.props.note.getRelativeInterval().id;
             classes.push(`degree-${degree}`)
         }
         return e('div', {className: classes.join(' ')}, this.props.note.getName(),

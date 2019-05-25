@@ -3,18 +3,6 @@ let CONCEPTS = {
 	Modes: 1
 }
 
-let NOTES = {
-	C: { id: 'C', name: 'C', absoluteDegree: 1, relativePosition: 0	},
-	D: { id: 'D', name: 'D', absoluteDegree: 2, relativePosition: 2	},
-	E: { id: 'E', name: 'E', absoluteDegree: 3, relativePosition: 4	},
-	F: { id: 'F', name: 'F', absoluteDegree: 4, relativePosition: 5	},
-	G: { id: 'G', name: 'G', absoluteDegree: 5, relativePosition: 7	},
-	A: { id: 'A', name: 'A', absoluteDegree: 6, relativePosition: 9	},
-	B: { id: 'B', name: 'B', absoluteDegree: 7, relativePosition: 11 }
-};
-
-let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];
-
 let INTERVALS = {
 	PU: { id: 'PU',		name: 'Perfect Unison',	base: true,		relativeDegree: 1,	semitones: 0  },
 	m2: { id: 'm2',		name: 'Minor 2nd',		base: true,		relativeDegree: 2,	semitones: 1  },
@@ -38,6 +26,18 @@ let INTERVALS = {
 let ALL_INTERVALS = [INTERVALS.PU, INTERVALS.m2, INTERVALS.M2, INTERVALS.m3, INTERVALS.M3, INTERVALS.P4, INTERVALS.A4, INTERVALS.TT, INTERVALS.d5, INTERVALS.P5, INTERVALS.A5, INTERVALS.m6, INTERVALS.M6, INTERVALS.d7, INTERVALS.m7, INTERVALS.M7, INTERVALS.P8];
 let MAJOR_INTERVALS = [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7];
 let MAJOR_STEPS = [INTERVALS.M2, INTERVALS.M2, INTERVALS.m2, INTERVALS.M2, INTERVALS.M2, INTERVALS.M2, INTERVALS.m2];
+
+let NOTES = {
+	C: { id: 'C', name: 'C', absoluteDegree: 1, relativePosition: 0	},
+	D: { id: 'D', name: 'D', absoluteDegree: 2, relativePosition: 2	},
+	E: { id: 'E', name: 'E', absoluteDegree: 3, relativePosition: 4	},
+	F: { id: 'F', name: 'F', absoluteDegree: 4, relativePosition: 5	},
+	G: { id: 'G', name: 'G', absoluteDegree: 5, relativePosition: 7	},
+	A: { id: 'A', name: 'A', absoluteDegree: 6, relativePosition: 9	},
+	B: { id: 'B', name: 'B', absoluteDegree: 7, relativePosition: 11 }
+};
+
+let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];
 
 let CHORDS = {
 	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5]				},

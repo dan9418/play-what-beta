@@ -10,8 +10,8 @@ class Note extends React.Component {
 		return homeNote.name + this.getAccidentalString(accidental);
 	};
 
-	getInterval = () => {
-		return this.props.interval;
+	getRelativeInterval = () => {
+		return this.props.relativeInterval;
 	};
 
 	getRelativePosition = () => {
