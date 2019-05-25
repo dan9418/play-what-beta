@@ -6,7 +6,7 @@ class Note extends React.Component {
 
 	getName = () => {
 		let homeNote = BASE_NOTES.find((note) => { return note.absoluteDegree === this.props.absoluteDegree; });
-		let accidental = this.props.position - (homeNote.relativePosition + (this.props.octave * 12));
+		let accidental = this.props.relativePosition - (homeNote.relativePosition + (this.props.octave * 12));
 		return homeNote.name + this.getAccidentalString(accidental);
 	};
 
@@ -14,8 +14,12 @@ class Note extends React.Component {
 		return this.props.interval;
 	};
 
-	getPosition = () => {
-		return this.props.position;
+	getRelativePosition = () => {
+		return this.props.relativePosition;
+	};
+
+	getAbsolutePosition = () => {
+		return (this.props.octave * 12) + this.props.relativePosition;
 	};
 
 	getDegree = () => {

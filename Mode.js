@@ -19,11 +19,11 @@ class Mode {
 				let index = (modeNote.absoluteDegree - 1 + j) % 7;
 				semitones = semitones + MAJOR_STEPS[index].semitones;
 			}
-			let position = homeNote.relativePosition + semitones + this.accidental;
+			let relativePosition = homeNote.relativePosition + semitones + this.accidental;
 			let interval = ALL_INTERVALS.find((i) => {return (i.semitones === semitones && i.relativeDegree === relativeDegree)})
 			let octave = Math.floor((homeNote.relativePosition + semitones)/ 12);
 			
-			notes.push(new Note({position: position, interval: interval, relativeDegree: relativeDegree, absoluteDegree: absoluteDegree, octave: octave}));
+			notes.push(new Note({relativePosition: relativePosition, interval: interval, relativeDegree: relativeDegree, absoluteDegree: absoluteDegree, octave: octave}));
 		}
 		return notes;
         }

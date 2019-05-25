@@ -2,9 +2,6 @@ class Fret extends React.Component {
 	
 	constructor(props) {
         super(props);
-        // displaySettings: object
-        // activeSettings: object
-        // activeConditions: function[]
     }
 
     render = () => {
@@ -36,10 +33,10 @@ class String extends React.Component {
         let frets = [];
         for(let i = 0; i < 12; i++) {
             let note = this.props.notes.find((note) => {
-                return note.getPosition() % 12 === (this.props.position + i) % 12
-                    || (note.getPosition() + 12 )% 12 === (this.props.position + i + 12) % 12 // low octave hack
+                return note.getRelativePosition() % 12 === (this.props.openPosition + i) % 12
+                    || (note.getRelativePosition() + 12 ) % 12 === (this.props.openPosition + i + 12) % 12 // low octave hack
             }) || null;
-            frets.push(e(Fret, {position: this.props.position + i, key: `fret-${i}`, note: note, open: (i === 0), displaySettings: this.props.displaySettings}, null));
+            frets.push(e(Fret, {absolutePosition: this.props.openPosition + i, key: `fret-${i}`, note: note, open: (i === 0), displaySettings: this.props.displaySettings}, null));
         }
         return frets;
     }
@@ -48,7 +45,6 @@ class String extends React.Component {
         let classes = ['guitar-string'];
         if(this.props.active)
             classes.push('guitar-string-active');
-        //let name = (this.props.name) ? this.props.name : '';
 		return e('div', {className: classes.join(' ')}, this.getFrets());
     };
 }
@@ -59,18 +55,18 @@ class Guitar extends React.Component {
 	constructor(props) {
         super(props);
         this.strings = [
-            {position: 16},  // e
-            {position: 11},  // B
-            {position: 7},  // G
-            {position: 2},  // D
-            {position: -3},  // A
-            {position: -8}  // E   
+            {absolutePosition: 16},  // e
+            {absolutePosition: 11},  // B
+            {absolutePosition: 7},  // G
+            {absolutePosition: 2},  // D
+            {absolutePosition: -3},  // A
+            {absolutePosition: -8}  // E   
         ];
     }
     
     getStrings = () => {
         return this.strings.map((string, index) => {
-            return e(String, {key: `key-${index}`, position: string.position, notes: this.props.notes, displaySettings: this.props.displaySettings}, null);
+            return e(String, {key: `key-${index}`, openPosition: string.absolutePosition, notes: this.props.notes, displaySettings: this.props.displaySettings}, null);
         });
     }
 
