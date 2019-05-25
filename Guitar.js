@@ -11,9 +11,9 @@ class Fret extends React.Component {
         if(active) {
             classes.push('guitar-fret-active');
             if(this.props.displaySettings.label === 'DEGREE') {
-                let degree = this.props.note.getDegree();
-                name = degree;
-                classes.push(`degree-${degree}`)
+                let relativeDegree = this.props.note.getRelativeDegree();
+                name = relativeDegree;
+                classes.push(`degree-${relativeDegree}`)
             }
         }
         if(this.props.open)

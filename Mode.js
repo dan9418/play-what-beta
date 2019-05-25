@@ -8,31 +8,37 @@ class Mode {
         }
         
         getNotes() {
-		let homeNote = BASE_NOTES[this.absoluteDegree - 1];
+		let rootNote = BASE_NOTES[this.absoluteDegree - 1];
 		let modeNote = BASE_NOTES[this.modeDef.relativeDegree - 1];
 		let notes = [];
 		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
 			// Degree calculation
-			let absoluteDegree = (homeNote.absoluteDegree - 1 + i) % 7 + 1;
-			let relativeDegree = MAJOR_INTERVALS[i].relativeDegree;
+			let relativeDegree = i + 1;
 			// Position calculation
 			let homeOffset = 0;
 			for(let j = 0; j < i; j++) {
 				let index = (modeNote.absoluteDegree - 1 + j) % 7;
 				homeOffset += MAJOR_STEPS[index].semitones;
 			}
-			let relativePosition = homeNote.relativePosition + homeOffset + this.accidental;
+			let relativePosition = (rootNote.relativePosition + this.accidental) + homeOffset;
 			// Octave calculation
-			let octaveOffset = Math.floor((homeNote.relativePosition + homeOffset)/ 12);
+			let octaveOffset = Math.floor((rootNote.relativePosition + homeOffset)/ 12);
 			// Get associated interval
-			let interval = ALL_INTERVALS.find((i) => {return (i.semitones === homeOffset && i.relativeDegree === relativeDegree)})
+			let interval = ALL_INTERVALS.find((i) => { return (i.semitones === homeOffset && i.relativeDegree === relativeDegree) });
+			// Accidental calculation
+			let naturalDegreePosition = BASE_NOTES[relativeDegree - 1].relativePosition;
+			let accidental = relativePosition - naturalDegreePosition;
 			// Add note
 			notes.push(new Note({
-				absoluteDegree: absoluteDegree,
-				relativeDegree: relativeDegree,
-				relativePosition: relativePosition,
-				relativeInterval: interval,
-				octave: this.octave + octaveOffset
+				// Absolute parameters
+				octave: this.octave + octaveOffset,
+				absoluteDegree: relativeDegree,
+				accidental: accidental,
+				// Relative parameters
+				reference: {
+					note: rootNote,
+					interval: interval
+				}
 			}));
 		}
 		return notes;

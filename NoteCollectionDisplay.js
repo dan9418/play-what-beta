@@ -6,16 +6,22 @@ class NoteDisplay extends React.Component {
 
 	render = () => {
         let classes = ['note'];
-        let degree = '';
-        let interval = '';
+        let relativeDegree = '';
+        let relativeInterval = '';
+        let relativePosition = '';
+        let absolutePosition = '';
         if(this.props.displaySettings.label === 'DEGREE') {
-            degree = this.props.note.getDegree();
-            interval = this.props.note.getRelativeInterval().id;
-            classes.push(`degree-${degree}`)
+            relativeDegree = this.props.note.getRelativeDegree();
+            relativeInterval = this.props.note.getRelativeInterval().id;
+            relativePosition = this.props.note.getRelativePosition();
+            absolutePosition = this.props.note.getAbsolutePosition().id;
+            classes.push(`degree-${relativeDegree}`)
         }
         return e('div', {className: classes.join(' ')}, this.props.note.getName(),
-            e('div', {className: 'note-degree'}, degree),
-            e('div', {className: 'note-interval'}, interval)
+            e('div', {className: 'note-degree'}, relativeDegree),
+            e('div', {className: 'note-interval'}, relativeInterval),
+            e('div', {className: 'note-interval'}, relativePosition),
+            e('div', {className: 'note-interval'}, absolutePosition)
         );
     };
 }

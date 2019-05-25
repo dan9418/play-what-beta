@@ -2,28 +2,43 @@ class Note extends React.Component {
 	
 	constructor(props) {
 		super(props);
+		// Specification
+		//octave
+		//absoluteDegree
+		//accidental
+		// Reference note
+		//referenceNote
+		//referenceInterval
 	}
 
 	getName = () => {
-		let homeNote = BASE_NOTES.find((note) => { return note.absoluteDegree === this.props.absoluteDegree; });
-		let accidental = this.props.relativePosition - (homeNote.relativePosition + (this.props.octave * 12));
-		return homeNote.name + this.getAccidentalString(accidental);
+		let homeNote = BASE_NOTES[this.props.absoluteDegree - 1];
+		//let accidental = this.getRelativePosition() - (homeNote.relativePosition + (this.props.octave * 12));
+		let accidentalName = this.getAccidentalString(this.props.accidental);
+		
+		return homeNote.name + accidentalName;
 	};
 
 	getRelativeInterval = () => {
-		return this.props.relativeInterval;
+		return this.props.reference.interval;
 	};
 
 	getRelativePosition = () => {
-		return this.props.relativePosition;
+		let rootNote = this.props.reference.note;
+		let homeNote = BASE_NOTES[this.props.absoluteDegree - 1];
+		return rootNote.relativePosition + homeNote.relativePosition + this.props.accidental;
 	};
 
 	getAbsolutePosition = () => {
-		return (this.props.octave * 12) + this.props.relativePosition;
+		return (this.props.octave * 12) + this.getRelativePosition();
 	};
 
-	getDegree = () => {
-		return this.props.relativeDegree;
+	getRelativeDegree = () => {
+		return this.props.reference.interval.relativeDegree;
+	};
+
+	getAbsoluteDegree = () => {
+		return this.props.absoluteDegree;
 	};
 
 	getAccidentalString = (accidental) => {

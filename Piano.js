@@ -10,9 +10,9 @@ class WhiteKey extends React.Component {
         let name = (this.props.name) ? this.props.name : '';
         if(active) {
             if(this.props.displaySettings.label === 'DEGREE') {
-                let degree = this.props.note.getDegree();
-                name = degree;
-                classes.push(`degree-${degree}`)
+                let relativeDegree = this.props.note.getRelativeDegree();
+                name = relativeDegree;
+                classes.push(`degree-${relativeDegree}`)
             }
             else {
                 classes.push('piano-key-active');
@@ -35,9 +35,9 @@ class BlackKey extends React.Component {
         let name = (this.props.name) ? this.props.name : '';
         if(active) {
             if(this.props.displaySettings.label === 'DEGREE') {
-                let degree = this.props.note.getDegree();
-                name = degree;
-                classes.push(`degree-${name}`)
+                let relativeDegree = this.props.note.getRelativeDegree();
+                name = relativeDegree;
+                classes.push(`degree-${relativeDegree}`)
             }
             else {
                 classes.push('piano-key-active');
@@ -82,7 +82,7 @@ class Piano extends React.Component {
         return this.keys.map((key) => {
             let note = this.getActiveNote(key.absolutePosition) || {
                 getAbsolutePosition: () => { return key.absolutePosition; },
-                getDegree: () => { return '' }
+                getRelativeDegree: () => { return '' }
             }; // temp hack
             return e(PianoKey, {key: `key-${key.absolutePosition}`, type: key.type, note: note, displaySettings: this.props.displaySettings}, null)
         });
