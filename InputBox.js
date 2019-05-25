@@ -10,7 +10,7 @@ class InputBox extends React.Component {
 	changeDegree = () => {
 		var element = document.getElementById("degree");
 		var value = parseInt(element.value);
-		this.props.onChange({relativeDegree: value});
+		this.props.onChange({absoluteDegree: value});
 	};
 	
 	changeAccidental = () => {
@@ -41,14 +41,14 @@ class InputBox extends React.Component {
 	render = () => {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
-				{id: 'degree', defaultValue: NOTES.C.relativeDegree, onChange: () => this.changeDegree()},
-				e('option', {value: NOTES.A.relativeDegree		}, NOTES.A.name				),
-				e('option', {value: NOTES.B.relativeDegree		}, NOTES.B.name				),
-				e('option', {value: NOTES.C.relativeDegree		}, NOTES.C.name				),
-				e('option', {value: NOTES.D.relativeDegree		}, NOTES.D.name				),
-				e('option', {value: NOTES.E.relativeDegree		}, NOTES.E.name				),
-				e('option', {value: NOTES.F.relativeDegree		}, NOTES.F.name				),
-				e('option', {value: NOTES.G.relativeDegree		}, NOTES.G.name				)
+				{id: 'degree', defaultValue: NOTES.C.absoluteDegree, onChange: () => this.changeDegree()},
+				e('option', {value: NOTES.A.absoluteDegree		}, NOTES.A.name				),
+				e('option', {value: NOTES.B.absoluteDegree		}, NOTES.B.name				),
+				e('option', {value: NOTES.C.absoluteDegree		}, NOTES.C.name				),
+				e('option', {value: NOTES.D.absoluteDegree		}, NOTES.D.name				),
+				e('option', {value: NOTES.E.absoluteDegree		}, NOTES.E.name				),
+				e('option', {value: NOTES.F.absoluteDegree		}, NOTES.F.name				),
+				e('option', {value: NOTES.G.absoluteDegree		}, NOTES.G.name				)
 			),
 			e('select', 
 				{id: 'accidental', defaultValue: '0', onChange: () => this.changeAccidental()},

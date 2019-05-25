@@ -16,7 +16,7 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			accidental: 0,
-			relativeDegree: 1,
+			absoluteDegree: 1,
 			concept: CONCEPTS.Modes,
 			chord: CHORDS.Maj_Tri.id,
 			mode: MODES.Ionian.id
@@ -52,7 +52,7 @@ class App extends React.Component {
 	}
 
 	render = () => {
-		let key = new Key(this.state.relativeDegree, this.state.accidental, 4);
+		let key = new Key(this.state.absoluteDegree, this.state.accidental, 4);
 		let notes = this.getNotesForConcept(key);
 		let displaySettings = {
 			label: 'DEGREE'

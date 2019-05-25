@@ -5,9 +5,9 @@ class Note extends React.Component {
 	}
 
 	getName = () => {
-		let relativeDegreeNote = BASE_NOTES.find((note) => { return note.relativeDegree === this.props.relativeDegree; });
-		let accidental = this.props.position - (relativeDegreeNote.relativePosition + (this.props.octave * 12));
-		return relativeDegreeNote.name + this.getAccidentalString(accidental);
+		let homeNote = BASE_NOTES.find((note) => { return note.absoluteDegree === this.props.absoluteDegree; });
+		let accidental = this.props.position - (homeNote.relativePosition + (this.props.octave * 12));
+		return homeNote.name + this.getAccidentalString(accidental);
 	};
 
 	getInterval = () => {
@@ -19,7 +19,7 @@ class Note extends React.Component {
 	};
 
 	getDegree = () => {
-		return this.props.functionalDegree;
+		return this.props.relativeDegree;
 	};
 
 	getAccidentalString = (accidental) => {
