@@ -7,20 +7,14 @@ guitar
     voicings
 
 concepts
-    note
-    interval
-    chord
-    scale
-    mode
-    scale degree
+    notes
+    intervals
+    scales
+    roman numerals
 
 note metadata
-    name
     frequency
     octave
-    relative interval
-    relative position
-    absolute position
 
 interactivity
     range filter

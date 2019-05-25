@@ -28,11 +28,11 @@ class App extends React.Component {
 	}
 
 	getLabel = () => {
-		return 'NAME';
+		//return 'NAME';
 		//return 'INTERVAL';
 		//return 'REL_POS';
 		//return 'ABS_POS';
-		//return 'REL_DEG';
+		return 'REL_DEG';
 		//return 'ABS_DEG';
 	}
 
