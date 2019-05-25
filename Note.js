@@ -2,13 +2,6 @@ class Note extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		// Specification
-		//octave
-		//absoluteDegree
-		//accidental
-		// Reference note
-		//referenceNote
-		//referenceInterval
 	}
 
 	getName = () => {

@@ -105,7 +105,11 @@ class Piano extends React.Component {
     }
 
     getActiveNote = (absolutePosition) => {
-        return this.props.activeNotes.find((note) => {return note.getRelativePosition() === absolutePosition});
+        return this.props.activeNotes.find((note) => {
+            return note.getRelativePosition() === absolutePosition ||
+                note.getRelativePosition() - 12 === absolutePosition || // Octave hack
+                note.getRelativePosition() + 12 === absolutePosition;
+        });
     }
     
     getKeys = () => {

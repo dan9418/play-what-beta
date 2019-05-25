@@ -48,7 +48,7 @@ class String extends React.Component {
 
     getFrets = () => {
         let frets = [];
-        for(let i = 0; i < 12; i++) {
+        for(let i = 0; i <= 12; i++) {
             let note = this.props.notes.find((note) => {
                 return note.getRelativePosition() % 12 === (this.props.openPosition + i) % 12
                     || (note.getRelativePosition() + 12 ) % 12 === (this.props.openPosition + i + 12) % 12 // low octave hack
