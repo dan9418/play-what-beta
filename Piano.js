@@ -7,17 +7,17 @@ class WhiteKey extends React.Component {
     getName = () => {
         switch(this.props.displaySettings.label)
         {
-            case 'NAME':
+            case LABELS.Name:
                 return this.props.note.getName();
-            case 'INTERVAL':
+            case LABELS.Interval:
                 return this.props.note.getRelativeInterval().id;
-            case 'REL_POS':
+            case LABELS.RelativePosition:
                 return this.props.note.getRelativePosition();
-            case 'ABS_POS':
+            case LABELS.AbsolutePosition:
                 return this.props.note.getAbsolutePosition();
-            case 'REL_DEG':
+            case LABELS.RelativeDegree:
                 return this.props.note.getRelativeDegree();
-            case 'ABS_DEG':
+            case LABELS.AbsoluteDegree:
                 return this.props.note.getAbsoluteDegree();
             default:
                 return '';
@@ -47,17 +47,17 @@ class BlackKey extends React.Component {
     getName = () => {
         switch(this.props.displaySettings.label)
         {
-            case 'NAME':
+            case LABELS.Name:
                 return this.props.note.getName();
-            case 'INTERVAL':
+            case LABELS.Interval:
                 return this.props.note.getRelativeInterval().id;
-            case 'REL_POS':
+            case LABELS.RelativePosition:
                 return this.props.note.getRelativePosition();
-            case 'ABS_POS':
+            case LABELS.AbsolutePosition:
                 return this.props.note.getAbsolutePosition();
-            case 'REL_DEG':
+            case LABELS.RelativeDegree:
                 return this.props.note.getRelativeDegree();
-            case 'ABS_DEG':
+            case LABELS.AbsoluteDegree:
                 return this.props.note.getAbsoluteDegree();
             default:
                 return '';

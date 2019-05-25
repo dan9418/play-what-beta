@@ -3,6 +3,16 @@ let CONCEPTS = {
 	Modes: 1
 }
 
+let LABELS = {
+	Name: 0,
+	Interval: 1,
+	RelativePosition: 2,
+	//AbsolutePosition: 3,
+	RelativeDegree: 4,
+	AbsoluteDegree: 5//,
+	//Frequency: 6
+}
+
 let INTERVALS = {
 	PU: { id: 'PU',		name: 'Perfect Unison',	base: true,		relativeDegree: 1,	semitones: 0  },
 	m2: { id: 'm2',		name: 'Minor 2nd',		base: true,		relativeDegree: 2,	semitones: 1  },

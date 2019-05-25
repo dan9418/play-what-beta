@@ -38,6 +38,12 @@ class InputBox extends React.Component {
 		this.props.onChange({mode: value});
 	};
 
+	changeLabel = () => {
+		var element = document.getElementById("label");
+		var value = parseInt(element.value);
+		this.props.onChange({label: value});
+	};
+
 	render = () => {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
@@ -87,7 +93,16 @@ class InputBox extends React.Component {
 				e('option', {value: MODES.Mixolydian.id		}, MODES.Mixolydian.name	),
 				e('option', {value: MODES.Aeolian.id		}, MODES.Aeolian.name		),
 				e('option', {value: MODES.Locrian.id		}, MODES.Locrian.name		)
-			))
+			)),
+			e('br'),
+			e('select', 
+				{id: 'label', defaultValue: LABELS.RelativeDegree, onChange: () => this.changeLabel()},
+				e('option', {value: LABELS.Name				},		'Name'				),
+				e('option', {value: LABELS.Interval			},		'Interval'			),
+				e('option', {value: LABELS.RelativePosition	},		'Relative Position'	),
+				e('option', {value: LABELS.RelativeDegree	},		'Relative Degree'	),
+				e('option', {value: LABELS.AbsoluteDegree	},		'Absolute Degree'	)
+			),
 		);
 	};
 }
