@@ -23,14 +23,19 @@ class App extends React.Component {
 		};
 	}
 
-	getNotes = () => {
+	onChange = (inputState) => {
+		this.setState(inputState);
+	}
+
+	getNotesForConcept = (key) => {
 		if(this.state.concept === CONCEPTS.Chords) {
-			let chord = new Chord(this.state.chord, this.state.relativeDegree, this.state.accidental);
-			return chord.getNotes();
+			return key.getChord(this.state.chord).getNotes();
 		}
 		else if(this.state.concept === CONCEPTS.Modes) {
-			let mode = new Mode(this.state.mode, this.state.relativeDegree, this.state.accidental);
-			return mode.getNotes();
+			return key.getMode(this.state.mode).getNotes();
+		}
+		else {
+			return [];
 		}
 	}
 
@@ -46,12 +51,9 @@ class App extends React.Component {
 		return e(Guitar, {notes: notes, displaySettings: displaySettings}, null);
 	}
 
-	onChange = (inputState) => {
-		this.setState(inputState);
-	}
-
 	render = () => {
-		let notes = this.getNotes();
+		let key = new Key(this.state.relativeDegree, this.state.accidental, 4);
+		let notes = this.getNotesForConcept(key);
 		let displaySettings = {
 			label: 'DEGREE'
 		}

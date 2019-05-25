@@ -41,7 +41,7 @@ class InputBox extends React.Component {
 	render = () => {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
-				{id: 'degree', onChange: () => this.changeDegree()},
+				{id: 'degree', defaultValue: NOTES.C.relativeDegree, onChange: () => this.changeDegree()},
 				e('option', {value: NOTES.A.relativeDegree		}, NOTES.A.name				),
 				e('option', {value: NOTES.B.relativeDegree		}, NOTES.B.name				),
 				e('option', {value: NOTES.C.relativeDegree		}, NOTES.C.name				),
@@ -58,7 +58,7 @@ class InputBox extends React.Component {
 			),
 			e('br'),
 			e('select', 
-				{id: 'concept', onChange: () => this.changeConcept()},
+				{id: 'concept', defaultValue: CONCEPTS.Modes, onChange: () => this.changeConcept()},
 				e('option', {value: CONCEPTS.Chords},		'Chords'					),
 				e('option', {value: CONCEPTS.Modes},		'Modes'						)
 			),
