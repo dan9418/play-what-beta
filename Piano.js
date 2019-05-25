@@ -4,18 +4,34 @@ class WhiteKey extends React.Component {
         super(props);
     }
 
+    getName = () => {
+        switch(this.props.displaySettings.label)
+        {
+            case 'NAME':
+                return this.props.note.getName();
+            case 'INTERVAL':
+                return this.props.note.getRelativeInterval().id;
+            case 'REL_POS':
+                return this.props.note.getRelativePosition();
+            case 'ABS_POS':
+                return this.props.note.getAbsolutePosition();
+            case 'REL_DEG':
+                return this.props.note.getRelativeDegree();
+            case 'ABS_DEG':
+                return this.props.note.getAbsoluteDegree();
+            default:
+                return '';
+        }
+    }
+
 	render = () => {
         let classes = ['piano-key', 'white-key'];
         let active = this.props.note !== null;
         let name = (this.props.name) ? this.props.name : '';
         if(active) {
-            if(this.props.displaySettings.label === 'DEGREE') {
-                let relativeDegree = this.props.note.getRelativeDegree();
-                name = relativeDegree;
-                classes.push(`degree-${relativeDegree}`)
-            }
-            else {
-                classes.push('piano-key-active');
+            if(active) {
+                classes.push(`degree-${this.props.note.getRelativeDegree()}`)
+                name = this.getName();
             }
         }
 		return e('div', {className: classes.join(' ')}, name);
@@ -28,20 +44,34 @@ class BlackKey extends React.Component {
         super(props);
     }
 
+    getName = () => {
+        switch(this.props.displaySettings.label)
+        {
+            case 'NAME':
+                return this.props.note.getName();
+            case 'INTERVAL':
+                return this.props.note.getRelativeInterval().id;
+            case 'REL_POS':
+                return this.props.note.getRelativePosition();
+            case 'ABS_POS':
+                return this.props.note.getAbsolutePosition();
+            case 'REL_DEG':
+                return this.props.note.getRelativeDegree();
+            case 'ABS_DEG':
+                return this.props.note.getAbsoluteDegree();
+            default:
+                return '';
+        }
+    }
+
 	render = () => {
         let containerClasses = ['piano-key','black-key-container'];
         let classes = ['piano-key', 'black-key'];
         let active = this.props.note !== null;
-        let name = (this.props.name) ? this.props.name : '';
+        let name = '';
         if(active) {
-            if(this.props.displaySettings.label === 'DEGREE') {
-                let relativeDegree = this.props.note.getRelativeDegree();
-                name = relativeDegree;
-                classes.push(`degree-${relativeDegree}`)
-            }
-            else {
-                classes.push('piano-key-active');
-            }
+            classes.push(`degree-${this.props.note.getRelativeDegree()}`)
+            name = this.getName();
         }
 		return e('div', {className: containerClasses.join(' ')}, e('div', {className: classes.join(' ')}, name));
     };
@@ -81,8 +111,12 @@ class Piano extends React.Component {
     getKeys = () => {
         return this.keys.map((key) => {
             let note = this.getActiveNote(key.absolutePosition) || {
+                getName: () => { return ''; },
+                getRelativeInterval: () => { return ''; },
+                getRelativePosition: () => { return ''; },
                 getAbsolutePosition: () => { return key.absolutePosition; },
-                getRelativeDegree: () => { return '' }
+                getRelativeDegree: () => { return ''; },
+                getAbsoluteDegree: () => { return ''; }
             }; // temp hack
             return e(PianoKey, {key: `key-${key.absolutePosition}`, type: key.type, note: note, displaySettings: this.props.displaySettings}, null)
         });

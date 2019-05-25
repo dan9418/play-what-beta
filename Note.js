@@ -13,9 +13,7 @@ class Note extends React.Component {
 
 	getName = () => {
 		let homeNote = BASE_NOTES[this.props.absoluteDegree - 1];
-		//let accidental = this.getRelativePosition() - (homeNote.relativePosition + (this.props.octave * 12));
 		let accidentalName = this.getAccidentalString(this.props.accidental);
-		
 		return homeNote.name + accidentalName;
 	};
 

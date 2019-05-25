@@ -27,6 +27,15 @@ class App extends React.Component {
 		this.setState(inputState);
 	}
 
+	getLabel = () => {
+		return 'NAME';
+		//return 'INTERVAL';
+		//return 'REL_POS';
+		//return 'ABS_POS';
+		//return 'REL_DEG';
+		//return 'ABS_DEG';
+	}
+
 	getNotesForConcept = (key) => {
 		if(this.state.concept === CONCEPTS.Chords) {
 			return key.getChord(this.state.chord).getNotes();
@@ -55,7 +64,7 @@ class App extends React.Component {
 		let key = new Key(this.state.absoluteDegree, this.state.accidental, 4);
 		let notes = this.getNotesForConcept(key);
 		let displaySettings = {
-			label: 'DEGREE'
+			label: this.getLabel()
 		}
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),

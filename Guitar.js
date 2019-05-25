@@ -4,17 +4,34 @@ class Fret extends React.Component {
         super(props);
     }
 
+    getName = () => {
+        switch(this.props.displaySettings.label)
+        {
+            case 'NAME':
+                return this.props.note.getName();
+            case 'INTERVAL':
+                return this.props.note.getRelativeInterval().id;
+            case 'REL_POS':
+                return this.props.note.getRelativePosition();
+            case 'ABS_POS':
+                return this.props.note.getAbsolutePosition();
+            case 'REL_DEG':
+                return this.props.note.getRelativeDegree();
+            case 'ABS_DEG':
+                return this.props.note.getAbsoluteDegree();
+            default:
+                return '';
+        }
+    }
+
     render = () => {
         let classes = ['guitar-fret'];
         let active = this.props.note !== null;
-        let name = (this.props.name) ? this.props.name : '';
+        let name = '';
         if(active) {
             classes.push('guitar-fret-active');
-            if(this.props.displaySettings.label === 'DEGREE') {
-                let relativeDegree = this.props.note.getRelativeDegree();
-                name = relativeDegree;
-                classes.push(`degree-${relativeDegree}`)
-            }
+            classes.push(`degree-${this.props.note.getRelativeDegree()}`);
+            name = this.getName();
         }
         if(this.props.open)
             classes.push('guitar-fret-open');

@@ -21,8 +21,9 @@ class Chord {
 			let octaveOffset = Math.floor(degreeSum / 7);
 			// Position calculation
 			let relativePosition = (rootNote.relativePosition + this.accidental) + interval.semitones;
+			// Accidental calculation
 			let naturalDegreePosition = BASE_NOTES[intervalDegree - 1].relativePosition;
-			let accidental = relativePosition - naturalDegreePosition;
+			let accidental = relativePosition - (octaveOffset * 12) - naturalDegreePosition;
 			// Add note
 			notes.push(new Note({
 				// Absolute parameters

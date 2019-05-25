@@ -13,7 +13,8 @@ class Mode {
 		let notes = [];
 		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
 			// Degree calculation
-			let relativeDegree = i + 1;
+			let relativeDegree =  i + 1;
+			let absoluteDegree = (relativeDegree - 1 + rootNote.absoluteDegree - 1) % 7 + 1;
 			// Position calculation
 			let homeOffset = 0;
 			for(let j = 0; j < i; j++) {
@@ -26,13 +27,13 @@ class Mode {
 			// Get associated interval
 			let interval = ALL_INTERVALS.find((i) => { return (i.semitones === homeOffset && i.relativeDegree === relativeDegree) });
 			// Accidental calculation
-			let naturalDegreePosition = BASE_NOTES[relativeDegree - 1].relativePosition;
-			let accidental = relativePosition - naturalDegreePosition;
+			let naturalDegreePosition = BASE_NOTES[absoluteDegree - 1].relativePosition;
+			let accidental = relativePosition - (octaveOffset * 12) - naturalDegreePosition;
 			// Add note
 			notes.push(new Note({
 				// Absolute parameters
 				octave: this.octave + octaveOffset,
-				absoluteDegree: relativeDegree,
+				absoluteDegree: absoluteDegree,
 				accidental: accidental,
 				// Relative parameters
 				reference: {
