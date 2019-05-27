@@ -7,10 +7,11 @@ let LABELS = {
 	Name: 0,
 	Interval: 1,
 	RelativePosition: 2,
-	//AbsolutePosition: 3,
+	AbsolutePosition: 3,
 	RelativeDegree: 4,
-	AbsoluteDegree: 5//,
-	//Frequency: 6
+	AbsoluteDegree: 5,
+	Octave: 6,//,
+	//Frequency: 7
 }
 
 let INTERVALS = {

@@ -31,6 +31,10 @@ class Note extends React.Component {
 		return this.props.absoluteDegree;
 	};
 
+	getOctave = () => {
+		return this.props.octave;
+	};
+
 	getAccidentalString = (accidental) => {
 		switch(accidental) {
 		  case 0:

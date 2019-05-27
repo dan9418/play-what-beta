@@ -19,6 +19,8 @@ class Fret extends React.Component {
                 return this.props.note.getRelativeDegree();
             case LABELS.AbsoluteDegree:
                 return this.props.note.getAbsoluteDegree();
+            case LABELS.Octave:
+                return this.props.note.getOctave();
             default:
                 return '';
         }
@@ -50,8 +52,7 @@ class String extends React.Component {
         let frets = [];
         for(let i = 0; i <= 12; i++) {
             let note = this.props.notes.find((note) => {
-                return note.getRelativePosition() % 12 === (this.props.openPosition + i) % 12
-                    || (note.getRelativePosition() + 12 ) % 12 === (this.props.openPosition + i + 12) % 12 // low octave hack
+                return note.getAbsolutePosition() === (this.props.openPosition + i);
             }) || null;
             frets.push(e(Fret, {absolutePosition: this.props.openPosition + i, key: `fret-${i}`, note: note, open: (i === 0), displaySettings: this.props.displaySettings}, null));
         }

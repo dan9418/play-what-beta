@@ -100,8 +100,10 @@ class InputBox extends React.Component {
 				e('option', {value: LABELS.Name				},		'Name'				),
 				e('option', {value: LABELS.Interval			},		'Interval'			),
 				e('option', {value: LABELS.RelativePosition	},		'Relative Position'	),
+				e('option', {value: LABELS.AbsolutePosition	},		'Absolute Position'	),
 				e('option', {value: LABELS.RelativeDegree	},		'Relative Degree'	),
-				e('option', {value: LABELS.AbsoluteDegree	},		'Absolute Degree'	)
+				e('option', {value: LABELS.AbsoluteDegree	},		'Absolute Degree'	),
+				e('option', {value: LABELS.Octave			},		'Octave'			)
 			),
 		);
 	};

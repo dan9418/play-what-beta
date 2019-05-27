@@ -19,6 +19,8 @@ class WhiteKey extends React.Component {
                 return this.props.note.getRelativeDegree();
             case LABELS.AbsoluteDegree:
                 return this.props.note.getAbsoluteDegree();
+            case LABELS.Octave:
+                return this.props.note.getOctave();
             default:
                 return '';
         }
@@ -59,6 +61,8 @@ class BlackKey extends React.Component {
                 return this.props.note.getRelativeDegree();
             case LABELS.AbsoluteDegree:
                 return this.props.note.getAbsoluteDegree();
+            case LABELS.Octave:
+                return this.props.note.getOctave();
             default:
                 return '';
         }
@@ -106,9 +110,7 @@ class Piano extends React.Component {
 
     getActiveNote = (absolutePosition) => {
         return this.props.activeNotes.find((note) => {
-            return note.getRelativePosition() === absolutePosition ||
-                note.getRelativePosition() - 12 === absolutePosition || // Octave hack
-                note.getRelativePosition() + 12 === absolutePosition;
+            return note.getAbsolutePosition() === absolutePosition;
         });
     }
     
@@ -120,7 +122,8 @@ class Piano extends React.Component {
                 getRelativePosition: () => { return ''; },
                 getAbsolutePosition: () => { return key.absolutePosition; },
                 getRelativeDegree: () => { return ''; },
-                getAbsoluteDegree: () => { return ''; }
+                getAbsoluteDegree: () => { return ''; },
+                getOctave: () => { return ''; }
             }; // temp hack
             return e(PianoKey, {key: `key-${key.absolutePosition}`, type: key.type, note: note, displaySettings: this.props.displaySettings}, null)
         });
