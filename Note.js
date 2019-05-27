@@ -15,9 +15,8 @@ class Note extends React.Component {
 	};
 
 	getRelativePosition = () => {
-		let rootNote = this.props.reference.note;
 		let homeNote = BASE_NOTES[this.props.absoluteDegree - 1];
-		return rootNote.relativePosition + homeNote.relativePosition + this.props.accidental;
+		return homeNote.relativePosition + this.props.accidental;
 	};
 
 	getAbsolutePosition = () => {
