@@ -44,7 +44,7 @@ class App extends React.Component {
 	}
 
 	getPiano = (notes, displaySettings) => {
-		return e(Piano, {activeNotes: notes, length: 24, displaySettings: displaySettings}, null);
+		return e(Piano, {activeNotes: notes, length: 25, displaySettings: displaySettings}, null);
 	}
 
 	getGuitar = (notes, displaySettings) => {
