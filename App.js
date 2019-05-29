@@ -19,7 +19,8 @@ class App extends React.Component {
 			absoluteDegree: 1,
 			concept: CONCEPTS.Modes,
 			chord: CHORDS.Maj_Tri.id,
-			mode: MODES.Ionian.id
+			mode: MODES.Ionian.id,
+			label: LABELS.RelativeDegree
 		};
 	}
 

@@ -26,7 +26,6 @@ class Chord {
 			let naturalDegreePosition = BASE_NOTES[intervalDegree - 1].relativePosition;
 			let accidental = relativePosition - Math.floor(degreeSum / 7) * 12 - naturalDegreePosition;
 			let overflowNote = (relativePosition >= 12 && (relativePosition - accidental) < 12) ? 1 : (relativePosition < 12 && (relativePosition - accidental) >= 12) ? -1 : 0;
-			console.log(relativePosition, accidental, overflowNote);
 			// Add note
 			notes.push(new Note({
 				// Absolute parameters

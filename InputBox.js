@@ -97,6 +97,7 @@ class InputBox extends React.Component {
 			e('br'),
 			e('select', 
 				{id: 'label', defaultValue: LABELS.RelativeDegree, onChange: () => this.changeLabel()},
+				e('option', {value: LABELS.None				},		'None'				),
 				e('option', {value: LABELS.Name				},		'Name'				),
 				e('option', {value: LABELS.Interval			},		'Interval'			),
 				e('option', {value: LABELS.RelativePosition	},		'Relative Position'	),

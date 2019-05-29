@@ -4,14 +4,15 @@ let CONCEPTS = {
 }
 
 let LABELS = {
-	Name: 0,
-	Interval: 1,
-	RelativePosition: 2,
-	AbsolutePosition: 3,
-	RelativeDegree: 4,
-	AbsoluteDegree: 5,
-	Octave: 6,//,
-	//Frequency: 7
+	None: 0,
+	Name: 1,
+	Interval: 2,
+	RelativePosition: 3,
+	AbsolutePosition: 4,
+	RelativeDegree: 5,
+	AbsoluteDegree: 6,
+	Octave: 7,//,
+	//Frequency: 8
 }
 
 let INTERVALS = {

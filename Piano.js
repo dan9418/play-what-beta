@@ -7,6 +7,8 @@ class WhiteKey extends React.Component {
     getName = () => {
         switch(this.props.displaySettings.label)
         {
+            case LABELS.None:
+                return '';
             case LABELS.Name:
                 return this.props.note.getName();
             case LABELS.Interval:
@@ -49,6 +51,8 @@ class BlackKey extends React.Component {
     getName = () => {
         switch(this.props.displaySettings.label)
         {
+            case LABELS.None:
+                return '';
             case LABELS.Name:
                 return this.props.note.getName();
             case LABELS.Interval:
