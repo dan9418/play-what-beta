@@ -93,10 +93,10 @@ class PianoKey extends React.Component {
 
 	render = () => {
         if(this.props.type === 'WHITE') {
-            return e(WhiteKey, {key: `key-${this.props.note.getAbsolutePosition()}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
+            return e(WhiteKey, {key: `white-key-${this.props.absolutePosition}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
         }
         else if(this.props.type === 'BLACK') {
-            return e(BlackKey, {key: `key-${this.props.note.getAbsolutePosition()}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
+            return e(BlackKey, {key: `black-key-${this.props.absolutePosition}`, note: this.props.note, displaySettings: this.props.displaySettings}, null);
         }
     };
 }
@@ -114,22 +114,16 @@ class Piano extends React.Component {
 
     getActiveNote = (absolutePosition) => {
         return this.props.activeNotes.find((note) => {
-            return note.getAbsolutePosition() === absolutePosition;
+            return (this.props.displaySettings.filterOctave) ? 
+                note.getAbsolutePosition() === absolutePosition :
+                note.getRelativePosition() === absolutePosition % 12;
         });
     }
     
     getKeys = () => {
         return this.keys.map((key) => {
-            let note = this.getActiveNote(key.absolutePosition) || {
-                getName: () => { return ''; },
-                getRelativeInterval: () => { return ''; },
-                getRelativePosition: () => { return ''; },
-                getAbsolutePosition: () => { return key.absolutePosition; },
-                getRelativeDegree: () => { return ''; },
-                getAbsoluteDegree: () => { return ''; },
-                getOctave: () => { return ''; }
-            }; // temp hack
-            return e(PianoKey, {key: `key-${key.absolutePosition}`, type: key.type, note: note, displaySettings: this.props.displaySettings}, null)
+            let note = this.getActiveNote(key.absolutePosition) || null;
+            return e(PianoKey, {key: `key-${key.absolutePosition}`, absolutePosition: key.absolutePosition, type: key.type, note: note, displaySettings: this.props.displaySettings}, null)
         });
     }
 

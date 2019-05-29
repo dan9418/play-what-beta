@@ -54,7 +54,9 @@ class String extends React.Component {
         let frets = [];
         for(let i = 0; i <= 12; i++) {
             let note = this.props.notes.find((note) => {
-                return note.getAbsolutePosition() === (this.props.openPosition + i);
+                return (this.props.displaySettings.filterOctave) ? 
+                note.getAbsolutePosition() === (this.props.openPosition + i) :
+                note.getRelativePosition() === (this.props.openPosition + i) % 12;
             }) || null;
             frets.push(e(Fret, {absolutePosition: this.props.openPosition + i, key: `fret-${i}`, note: note, open: (i === 0), displaySettings: this.props.displaySettings}, null));
         }

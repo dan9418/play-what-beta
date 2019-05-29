@@ -20,7 +20,8 @@ class App extends React.Component {
 			concept: CONCEPTS.Modes,
 			chord: CHORDS.Maj_Tri.id,
 			mode: MODES.Ionian.id,
-			label: LABELS.RelativeDegree
+			label: LABELS.RelativeDegree,
+			filterOctave: false
 		};
 	}
 
@@ -56,7 +57,8 @@ class App extends React.Component {
 		let key = new Key(this.state.absoluteDegree, this.state.accidental, 4);
 		let notes = this.getNotesForConcept(key);
 		let displaySettings = {
-			label: this.state.label
+			label: this.state.label,
+			filterOctave: this.state.filterOctave
 		}
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),

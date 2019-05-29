@@ -44,6 +44,11 @@ class InputBox extends React.Component {
 		this.props.onChange({label: value});
 	};
 
+	changeFilterOctave = () => {
+		var element = document.getElementById("filterOctave");
+		this.props.onChange({filterOctave: element.checked});
+	};
+
 	render = () => {
 		return e('div', {id: 'inputContainer'},
 			e('select', 
@@ -106,6 +111,9 @@ class InputBox extends React.Component {
 				e('option', {value: LABELS.AbsoluteDegree	},		'Absolute Degree'	),
 				e('option', {value: LABELS.Octave			},		'Octave'			)
 			),
+			e('br'),
+			e('input', {id: 'filterOctave', type: 'checkbox', onChange: () => this.changeFilterOctave()}, null),
+			'Filter octave'
 		);
 	};
 }
