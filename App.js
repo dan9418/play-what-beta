@@ -60,12 +60,8 @@ class App extends React.Component {
 		return e(Piano, {activeNotes: notes, length: 25, displaySettings: displaySettings}, null);
 	}
 
-	getGuitar = (notes, displaySettings) => {
-		return e(Guitar, {notes: notes, displaySettings: displaySettings}, null);
-	}
-
-	getGuitar2 = (keyDef, notes, displaySettings) => {
-		return e(Guitar2, {keyDef: keyDef, notes: notes, displaySettings: displaySettings}, null);
+	getGuitar = (keyDef, notes, displaySettings) => {
+		return e(Guitar, {keyDef: keyDef, notes: notes, displaySettings: displaySettings}, null);
 	}
 
 	render = () => {
@@ -77,10 +73,10 @@ class App extends React.Component {
 		}
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
-			e('div', {id: 'notesContainer'}, this.getNoteCollection(notes, displaySettings)),
-			e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
-			e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings)),
-			e('div', {id: 'guitar2Container'}, this.getGuitar2(key, this.getConcept().intervals, displaySettings))
+			//e('div', {id: 'notesContainer'}, this.getNoteCollection(notes, displaySettings)),
+			//e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
+			//e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings)),
+			e('div', {id: 'guitarContainer'}, this.getGuitar(key, this.getConcept().intervals, displaySettings))
 		);
   	};
 }
