@@ -40,16 +40,24 @@ class App extends React.Component {
 		}
 	}
 
-	getNoteCollection = (notes, displaySettings) => {
-		return e(NoteCollectionDisplay, {notes: notes, displaySettings: displaySettings}, null);
+	getNoteCollection = (keyDef, intervals, displaySettings) => {
+		return e(NoteCollection, {
+			keyDef: keyDef,
+			intervals: intervals,
+			displaySettings: displaySettings
+		}, null);
 	}
 
-	getPiano = (notes, displaySettings) => {
-		return e(Piano, {activeNotes: notes, length: 25, displaySettings: displaySettings}, null);
+	getPiano = (intervals, displaySettings) => {
+		return e(Piano, {activeNotes: intervals, length: 25, displaySettings: displaySettings}, null);
 	}
 
-	getGuitar = (keyDef, notes, displaySettings) => {
-		return e(Guitar, {keyDef: keyDef, notes: notes, displaySettings: displaySettings}, null);
+	getGuitar = (keyDef, intervals, displaySettings) => {
+		return e(Guitar, {
+			keyDef: keyDef,
+			intervals: intervals,
+			displaySettings: displaySettings
+		}, null);
 	}
 
 	render = () => {
@@ -63,7 +71,7 @@ class App extends React.Component {
 		// Render
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
-			//e('div', {id: 'notesContainer'}, this.getNoteCollection(notes, displaySettings)),
+			e('div', {id: 'notesContainer'}, this.getNoteCollection(key, intervals, displaySettings)),
 			//e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
 			e('div', {id: 'guitarContainer'}, this.getGuitar(key, intervals, displaySettings))
 		);
