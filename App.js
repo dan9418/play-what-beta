@@ -44,11 +44,11 @@ class App extends React.Component {
 	getConcept = () => {
 		if(this.state.concept === CONCEPTS.Chords) {
 			let id = this.state.chord;
-			return ALL_CHORDS.find((chord) => { return chord.id === id});
+			return ALL_CHORDS.find((chord) => { return chord.id === id });
 		}
 		else if(this.state.concept === CONCEPTS.Modes) {
 			let id = this.state.mode;
-			return ALL_MODES.find((mode) => { return mode.id === id});
+			return ALL_MODES.find((mode) => { return mode.id === id });
 		}
 	}
 
