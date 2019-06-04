@@ -26,8 +26,13 @@ class Note2 extends React.Component {
 	}
 
 	getAccidental = () => {
-		if(this.getAbsoluteDegree() >= 1)
-			return this.getRelativePosition() - MAJOR_INTERVALS[this.getAbsoluteDegree() - 1].semitones;
+		if(this.getAbsoluteDegree() >= 1) {
+			let accidental = this.getRelativePosition() - MAJOR_INTERVALS[this.getAbsoluteDegree() - 1].semitones;
+			// edge case hacks:
+			if (accidental >  2) accidental -= 12;
+			if (accidental < -2) accidental += 12;
+			return accidental;
+		}
 	}
 
 	getRelativeDegree = () => {
@@ -46,11 +51,10 @@ class Note2 extends React.Component {
 
 	getAbsoluteDegree = () => {
 		let relativePosition = this.getRelativePosition();
+		// edge case hack:
+		if(relativePosition === 11 && this.props.keyDef.accidental < 0) relativePosition -= 12;
 		let position = relativePosition - MAJOR_INTERVALS[this.props.keyDef.absoluteDegree - 1].semitones - this.props.keyDef.accidental;
-		if(position < 0) {
-			position += 12;
-		}
-
+		if(position < 0) position += 12;
 		
 		for(let i = 0; i < MAJOR_INTERVALS.length; i++) {
 			if(MAJOR_INTERVALS[i].semitones === position)
