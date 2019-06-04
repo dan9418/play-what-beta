@@ -69,19 +69,19 @@ class Fret extends React.Component {
             case LABELS.None:
                 return '';
             case LABELS.Name:
-                return this.props.note.getName() || '';
+                return this.props.interval.getName() || '';
             case LABELS.Interval:
-                return this.props.note.getRelativeInterval().id || '';
+                return this.props.interval.getRelativeInterval().id || '';
             case LABELS.RelativePosition:
-                return this.props.note.getRelativePosition() || '';
+                return this.props.interval.getRelativePosition() || '';
             case LABELS.AbsolutePosition:
-                return this.props.note.getAbsolutePosition() || '';
+                return this.props.interval.getAbsolutePosition() || '';
             case LABELS.RelativeDegree:
-                return this.props.note.getRelativeDegree() || '';
+                return this.props.interval.getRelativeDegree() || '';
             case LABELS.AbsoluteDegree:
-                return this.props.note.getAbsoluteDegree() || '';
+                return this.props.interval.getAbsoluteDegree() || '';
             case LABELS.Octave:
-                return this.props.note.getOctave() || '';
+                return this.props.interval.getOctave() || '';
             default:
                 return '';
         }
