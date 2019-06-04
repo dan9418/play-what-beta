@@ -75,7 +75,7 @@ let ALL_CHORDS = [
 ];
 
 let MODES = {
-	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1 },
+	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: MAJOR_INTERVALS},
 	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2 },
 	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3 },
 	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4 },

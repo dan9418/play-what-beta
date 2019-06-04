@@ -63,7 +63,7 @@ button {
 
 .piano {
 	height: 100%;
-	padding: 25px;
+	padding: 20px;
 }
 
 .piano-key {
@@ -112,6 +112,7 @@ button {
 
 .guitar {
 	height: 100%;
+	padding: 20px;
 }
 
 .guitar-string {

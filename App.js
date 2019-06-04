@@ -41,6 +41,17 @@ class App extends React.Component {
 		}
 	}
 
+	getConcept = () => {
+		if(this.state.concept === CONCEPTS.Chords) {
+			let id = this.state.chord;
+			return ALL_CHORDS.find((chord) => { return chord.id === id});
+		}
+		else if(this.state.concept === CONCEPTS.Modes) {
+			let id = this.state.mode;
+			return ALL_MODES.find((mode) => { return mode.id === id});
+		}
+	}
+
 	getNoteCollection = (notes, displaySettings) => {
 		return e(NoteCollectionDisplay, {notes: notes, displaySettings: displaySettings}, null);
 	}
@@ -51,6 +62,10 @@ class App extends React.Component {
 
 	getGuitar = (notes, displaySettings) => {
 		return e(Guitar, {notes: notes, displaySettings: displaySettings}, null);
+	}
+
+	getGuitar2 = (keyDef, notes, displaySettings) => {
+		return e(Guitar2, {keyDef: keyDef, notes: notes, displaySettings: displaySettings}, null);
 	}
 
 	render = () => {
@@ -64,7 +79,8 @@ class App extends React.Component {
 			e(InputBox, {onChange: this.onChange}, null),
 			e('div', {id: 'notesContainer'}, this.getNoteCollection(notes, displaySettings)),
 			e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
-			e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings))
+			e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings)),
+			e('div', {id: 'guitar2Container'}, this.getGuitar2(key, this.getConcept().intervals, displaySettings))
 		);
   	};
 }
