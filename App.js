@@ -29,18 +29,6 @@ class App extends React.Component {
 		this.setState(inputState);
 	}
 
-	getNotesForConcept = (key) => {
-		if(this.state.concept === CONCEPTS.Chords) {
-			return key.getChord(this.state.chord).getNotes();
-		}
-		else if(this.state.concept === CONCEPTS.Modes) {
-			return key.getMode(this.state.mode).getNotes();
-		}
-		else {
-			return [];
-		}
-	}
-
 	getConcept = () => {
 		if(this.state.concept === CONCEPTS.Chords) {
 			let id = this.state.chord;
@@ -65,18 +53,19 @@ class App extends React.Component {
 	}
 
 	render = () => {
+		// Configuration
 		let key = new Key(this.state.absoluteDegree, this.state.accidental, 4);
-		let notes = this.getNotesForConcept(key);
+		let intervals = this.getConcept().intervals;
 		let displaySettings = {
 			label: this.state.label,
 			filterOctave: this.state.filterOctave
 		}
+		// Render
 		return e('div', {id: 'appContainer'},
 			e(InputBox, {onChange: this.onChange}, null),
 			//e('div', {id: 'notesContainer'}, this.getNoteCollection(notes, displaySettings)),
 			//e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
-			//e('div', {id: 'guitarContainer'}, this.getGuitar(notes, displaySettings)),
-			e('div', {id: 'guitarContainer'}, this.getGuitar(key, this.getConcept().intervals, displaySettings))
+			e('div', {id: 'guitarContainer'}, this.getGuitar(key, intervals, displaySettings))
 		);
   	};
 }
