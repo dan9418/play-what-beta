@@ -51,10 +51,9 @@ class App extends React.Component {
 		return e(Piano, {activeNotes: intervals, length: 25, displaySettings: displaySettings}, null);
 	}
 
-	getGuitar = (keyDef, intervals, displaySettings) => {
+	getGuitar = (functionalNotes, displaySettings) => {
 		return e(Guitar, {
-			keyDef: keyDef,
-			intervals: intervals,
+			functionalNotes: functionalNotes,
 			displaySettings: displaySettings
 		}, null);
 	}
@@ -86,7 +85,7 @@ class App extends React.Component {
 			e(InputBox, {onChange: this.onChange}, null),
 			e('div', {id: 'notesContainer'}, this.getNoteCollection(functionalNotes, displaySettings)),
 			//e('div', {id: 'pianoContainer'}, this.getPiano(notes, displaySettings)),
-			//e('div', {id: 'guitarContainer'}, this.getGuitar(key, intervals, displaySettings))
+			e('div', {id: 'guitarContainer'}, this.getGuitar(functionalNotes, displaySettings))
 		);
   	};
 }

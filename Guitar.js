@@ -16,7 +16,7 @@ class Guitar extends React.Component {
         return this.strings.map((string, index) => {
             return e(String, {
                 key: `key-${index}`,
-                keyDef: this.props.keyDef,
+                functionalNotes: this.props.functionalNotes,
                 openPosition: string.openPosition,
                 displaySettings: this.props.displaySettings
             }, null);
@@ -37,13 +37,11 @@ class String extends React.Component {
     getFrets = () => {
         let frets = [];
         for(let i = 0; i <= 12; i++) {
-            let note = new Note({
-                absolutePosition: this.props.openPosition + i,
-                keyDef: this.props.keyDef
-            });
+            let physicalNote = new PhysicalNote(this.props.openPosition + i);
             frets.push(e(Fret, {
                 key: `fret-${i}`,
-                note: note,
+                functionalNotes: this.props.functionalNotes,
+                physicalNote: physicalNote,
                 open: (i === 0),
                 displaySettings: this.props.displaySettings
             }, null));
@@ -63,25 +61,25 @@ class Fret extends React.Component {
         super(props);
     }
 
-    getName = () => {
+    getName = (note) => {
         switch(this.props.displaySettings.label)
         {
             case LABELS.None:
                 return '';
             case LABELS.Name:
-                return this.props.note.getName() || '';
+                return (note !== null) ? note.name : '';
             case LABELS.Interval:
-                return this.props.note.getRelativeInterval().id || '';
+                return (note !== null) ? note.interval.id : '';
             case LABELS.RelativePosition:
-                return this.props.note.getRelativePosition() || '';
+                return this.props.physicalNote.relativePosition;
             case LABELS.AbsolutePosition:
-                return this.props.note.getAbsolutePosition() || '';
+                return this.props.physicalNote.absolutePosition
             case LABELS.RelativeDegree:
-                return this.props.note.getRelativeDegree() || '';
+                return (note !== null) ? note.interval.relativeDegree : '';
             case LABELS.AbsoluteDegree:
-                return this.props.note.getAbsoluteDegree() || '';
+                return (note !== null) ? note.absoluteDegree : '';
             case LABELS.Octave:
-                return this.props.note.getOctave() || '';
+                return this.props.physicalNote.octave;
             default:
                 return '';
         }
@@ -89,10 +87,16 @@ class Fret extends React.Component {
 
     render = () => {
         let classes = ['guitar-fret'];
-        let name = this.getName();
         if(this.props.open)
             classes.push('guitar-fret-open');
-        
+        let note = null;
+        let name = '';
+        for(let i = 0; i < this.props.functionalNotes.length; i++) {
+            if(this.props.functionalNotes[i].relativePosition === this.props.physicalNote.relativePosition)
+                note = this.props.functionalNotes[i];
+        }
+        name = this.getName(note);
+
 		return e('div', {className: classes.join(' ')}, name);
     };
 }
