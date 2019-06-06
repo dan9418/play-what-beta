@@ -27,12 +27,18 @@ NoteCollection
 	
 
 
+maybe pass in key and/or interval for functional attributes?
 
+PhysicalNote
+	physical attributes
+	helpers
 
-
-
-
-
+	FuctionalNote
+		absolute degree
+		accidental
+		+ interval
+			relative degree
+			
 
 
 

@@ -63,13 +63,16 @@ class Note extends React.Component {
 		return '';
 	};
 
-	getRelativeRootNote = () => {
-		return '';
+	// Relative attributes
+
+	getRelativeNote = (interval) => {
+		return new Note({
+            absolutePosition: this.getAbsolutePosition() + interval.semitones,
+            keyDef: this.props.keyDef
+        })
 	}
 
-	getRelativeInterval = () => {
-		return '';
-	};
+	// Helpers
 
 	getAbsoluteDegreeString = (degree) => {
 		switch(degree) {

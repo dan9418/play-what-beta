@@ -76,12 +76,12 @@ let ALL_CHORDS = [
 
 let MODES = {
 	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: MAJOR_INTERVALS},
-	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2 },
-	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3 },
-	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4 },
-	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 				relativeDegree: 5 },
-	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 	relativeDegree: 6 },
-	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 					relativeDegree: 7 }
+	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2, intervals: [] },
+	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3, intervals: [] },
+	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4, intervals: [] },
+	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 				relativeDegree: 5, intervals: [] },
+	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 	relativeDegree: 6, intervals: [] },
+	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 					relativeDegree: 7, intervals: [] }
 };
 
 let ALL_MODES = [MODES.Ionian, MODES.Dorian, MODES.Phrygian, MODES.Lydian, MODES.Mixolydian, MODES.Aeolian, MODES.Locrian];

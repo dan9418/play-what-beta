@@ -5,21 +5,13 @@ class NoteDisplay extends React.Component {
     }
 
 	render = () => {
-        let note = new Note({
-            absolutePosition: MAJOR_INTERVALS[this.props.keyDef.absoluteDegree - 1].semitones + this.props.interval.semitones + this.props.keyDef.accidental,
-            keyDef: this.props.keyDef
-        });
+        let note = this.props.functionalNote;
+        let classes = ['note', `degree-${note.interval.relativeDegree}`];
 
-        let relativeDegree = this.props.interval.relativeDegree;
-        let relativePosition = this.props.interval.semitones;
-        let relativeInterval = this.props.interval.id;
-        
-        let classes = ['note', `degree-${relativeDegree}`];
-
-        return e('div', {className: classes.join(' ')}, note.getName(),
-            e('div', {className: 'note-degree'}, relativeDegree),
-            e('div', {className: 'note-interval'}, relativePosition),
-            e('div', {className: 'note-interval'}, relativeInterval)
+        return e('div', {className: classes.join(' ')}, note.name,
+            e('div', {className: 'note-degree'}, note.interval.relativeDegree),
+            e('div', {className: 'note-interval'}, note.relativePosition),
+            e('div', {className: 'note-interval'}, note.interval.id)
         );
     };
 }
@@ -32,11 +24,10 @@ class NoteCollection extends React.Component {
 
     getNoteDisplays() {
         let noteDisplays = [];
-        for(let i = 0; i < this.props.intervals.length; i++) {
+        for(let i = 0; i < this.props.functionalNotes.length; i++) {
             noteDisplays.push(e(NoteDisplay, {
                 key: `note-display-${i}`,
-                keyDef: this.props.keyDef,
-                interval: this.props.intervals[i],
+                functionalNote: this.props.functionalNotes[i],
                 displaySettings: this.props.displaySettings
             }, null));
         }
