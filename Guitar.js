@@ -93,7 +93,10 @@ class Fret extends React.Component {
         let name = '';
         for(let i = 0; i < this.props.functionalNotes.length; i++) {
             if(this.props.functionalNotes[i].relativePosition === this.props.physicalNote.relativePosition)
+            {
                 note = this.props.functionalNotes[i];
+                classes.push(`degree-${note.interval.relativeDegree}`);
+            }     
         }
         name = this.getName(note);
 
