@@ -1,18 +1,3 @@
-class Key2 {
-    constructor(homeDegree, accidental) {
-        this.homeDegree = homeDegree;
-        this.accidental = accidental;
-        this.homePosition = MAJOR_INTERVALS[homeDegree - 1].semitones + this.accidental;
-    }
-}
-
-class Interval2 {
-    constructor(relativeDegree, semitones) {
-        this.relativeDegree = relativeDegree;
-        this.semitones = semitones;
-    }
-}
-
 class FunctionalNote {
 	constructor(key, interval) {
         this.key = key;
@@ -45,16 +30,4 @@ class FunctionalNote {
 				}
 		}
 	};
-}
-
-class PhysicalNote {
-	constructor(absolutePosition) {
-        this.absolutePosition = absolutePosition;
-        if(absolutePosition >= 0)
-            this.relativePosition = absolutePosition % 12;
-        else
-            this.relativePosition = 12 + (absolutePosition % 12);
-        
-        this.octave = 4 + Math.floor(absolutePosition / 12);
-    }
 }

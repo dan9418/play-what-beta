@@ -2,7 +2,7 @@
 |
 | Music Theory Toolkit
 | Author: Dan Bednarczyk
-| Date: 5/8/19
+| Date: 6/6/19
 |
 */
 
@@ -62,7 +62,7 @@ class App extends React.Component {
 		}, null);
 	}
 
-	getNotes = (key, intervals) => {
+	getFunctionalNotes = (key, intervals) => {
 		let notes = [];
 		for(let i = 0; i < intervals.length; i++) {
 			let functionalNote = new FunctionalNote(key, intervals[i]);
@@ -74,11 +74,10 @@ class App extends React.Component {
 
 	render = () => {
 		// Configuration
-		//let key = new Key(this.state.absoluteDegree, this.state.accidental, 4);
-		let key2 = new Key2(this.state.absoluteDegree, this.state.accidental);
+		let key = new Key(this.state.absoluteDegree, this.state.accidental);
 		let intervals = this.getConcept().intervals;
-		let functionalNotes = this.getNotes(key2, intervals);
-		console.log(key2, intervals, functionalNotes);
+		let functionalNotes = this.getFunctionalNotes(key, intervals);
+		console.log(key, intervals, functionalNotes);
 
 		let displaySettings = {
 			label: this.state.label,
