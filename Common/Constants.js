@@ -1,3 +1,5 @@
+// Enums
+
 let CONCEPTS = {
 	Chords: 0,
 	Modes: 1
@@ -14,6 +16,8 @@ let LABELS = {
 	Octave: 7,//,
 	//Frequency: 8
 }
+
+// Constants
 
 let INTERVALS = {
 	PU: { id: 'PU',		name: 'Perfect Unison',	base: true,		relativeDegree: 1,	semitones: 0  },
@@ -35,10 +39,6 @@ let INTERVALS = {
 	P8: { id: 'P8',		name: 'Perfect Octave',	base: true,		relativeDegree: 1,	semitones: 12 }
 };
 
-let ALL_INTERVALS = [INTERVALS.PU, INTERVALS.m2, INTERVALS.M2, INTERVALS.m3, INTERVALS.M3, INTERVALS.P4, INTERVALS.A4, INTERVALS.TT, INTERVALS.d5, INTERVALS.P5, INTERVALS.A5, INTERVALS.m6, INTERVALS.M6, INTERVALS.d7, INTERVALS.m7, INTERVALS.M7, INTERVALS.P8];
-let MAJOR_INTERVALS = [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7];
-let MAJOR_STEPS = [INTERVALS.M2, INTERVALS.M2, INTERVALS.m2, INTERVALS.M2, INTERVALS.M2, INTERVALS.M2, INTERVALS.m2];
-
 let NOTES = {
 	C: { id: 'C', name: 'C', absoluteDegree: 1, relativePosition: 0	},
 	D: { id: 'D', name: 'D', absoluteDegree: 2, relativePosition: 2	},
@@ -49,7 +49,7 @@ let NOTES = {
 	B: { id: 'B', name: 'B', absoluteDegree: 7, relativePosition: 11 }
 };
 
-let BASE_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];
+let ALL_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];
 
 let CHORDS = {
 	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5]				},
@@ -75,13 +75,14 @@ let ALL_CHORDS = [
 ];
 
 let MODES = {
-	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: MAJOR_INTERVALS},
-	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2, intervals: [] },
-	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3, intervals: [] },
-	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4, intervals: [] },
-	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 				relativeDegree: 5, intervals: [] },
-	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 	relativeDegree: 6, intervals: [] },
-	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 					relativeDegree: 7, intervals: [] }
+	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
+	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
+	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
+	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.A4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
+	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 				relativeDegree: 5, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
+	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 	relativeDegree: 6, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
+	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 					relativeDegree: 7, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.d5, INTERVALS.m6, INTERVALS.m7] }
 };
 
 let ALL_MODES = [MODES.Ionian, MODES.Dorian, MODES.Phrygian, MODES.Lydian, MODES.Mixolydian, MODES.Aeolian, MODES.Locrian];
+

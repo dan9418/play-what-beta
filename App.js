@@ -67,7 +67,6 @@ class App extends React.Component {
 		for(let i = 0; i < intervals.length; i++) {
 			let functionalNote = new FunctionalNote(key, intervals[i]);
 			notes.push(functionalNote);
-			console.log(functionalNote.name);
 		}
 		return notes;
 	}
