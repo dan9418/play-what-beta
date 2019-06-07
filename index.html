@@ -6,7 +6,12 @@
 		<title>Music Theory Toolkit</title>
 		<meta name="description" content="Music Theory Toolkit">
 		<meta name="author" content="Dan Bednarczyk">
-		<link rel="stylesheet" href="styles.css">
+
+		<link rel="stylesheet" href="Views/Guitar/Guitar.css">
+		<link rel="stylesheet" href="Views/Piano/Piano.css">
+		<link rel="stylesheet" href="Views/NoteCollection/NoteCollection.css">
+		<link rel="stylesheet" href="Views/InputBox/InputBox.css">
+		<link rel="stylesheet" href="Common/Common.css">
 	</head>
 
 	<body>
@@ -18,15 +23,18 @@
 		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-		<script src="Constants.js"></script>
-		<script src="InputBox.js"></script>
-		<script src="PhysicalNote.js"></script>
-		<script src="FunctionalNote.js"></script>
-		<script src="Key.js"></script>
-		<script src="Interval.js"></script>
-		<script src="NoteCollection.js"></script>
-		<script src="Piano.js"></script>
-		<script src="Guitar.js"></script>
+		<script src="Common/Constants.js"></script>
+		
+		<script src="Theory/PhysicalNote.js"></script>
+		<script src="Theory/FunctionalNote.js"></script>
+		<script src="Theory/Key.js"></script>
+		<script src="Theory/Interval.js"></script>
+
+		<script src="Views/NoteCollection/NoteCollection.js"></script>
+		<script src="Views/Piano/Piano.js"></script>
+		<script src="Views/Guitar/Guitar.js"></script>
+		<script src="Views/InputBox/InputBox.js"></script>
+
 		<script src="App.js"></script>
 		
 	</body>

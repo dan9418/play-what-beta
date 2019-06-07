@@ -1,0 +1,34 @@
+.guitar {
+	height: 100%;
+	padding: 20px;
+}
+
+.guitar-string {
+	width: 100%;
+}
+
+.guitar-fret {
+	display: inline-block;
+	background-color: burlywood;
+	color: black;
+	height: 20px;
+	width: 30px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	vertical-align: top
+}
+
+.guitar-fret-open {
+	background-color: chocolate;
+	border-right: 3px solid grey;
+}
+
+.guitar-fret-active {
+	background-color: red;
+}
+
+.guitar-fret:hover {
+	background-color: darkgray !important;
+}

@@ -1,0 +1,10 @@
+#notesContainer {
+	padding: 15px;
+}
+
+.note {
+	padding: 10px;
+	font-size: 20px;
+	width: 25px;
+	display: inline-block;
+}

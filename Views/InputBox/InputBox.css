@@ -1,0 +1,51 @@
+* {
+	text-align: center;
+	font: 15px arial, sans-serif;
+}
+
+html {
+	background-color: #e6f7ff
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+select {
+    color: black;
+	background-color: white;
+    padding: 5px;
+	margin: 5px;
+    border: 1px solid black;
+	vertical-align: middle;
+}
+
+#degree {
+	width: 100px;
+}
+
+#accidental {
+	width: 100px;
+}
+
+#concept {
+	width: 200px;
+}
+
+#chord {
+	width: 200px;
+}
+
+#mode {
+	width: 200px;
+}
+
+button {
+	color: white;
+	background-color: #339966;
+    padding: 5px;
+	margin: 5px;
+    width: 100px;
+    border: 1px solid black;
+	vertical-align: middle;
+}
