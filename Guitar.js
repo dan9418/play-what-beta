@@ -90,15 +90,15 @@ class Fret extends React.Component {
         if(this.props.open)
             classes.push('guitar-fret-open');
         let note = null;
-        let name = '';
         for(let i = 0; i < this.props.functionalNotes.length; i++) {
             if(this.props.functionalNotes[i].relativePosition === this.props.physicalNote.relativePosition)
             {
                 note = this.props.functionalNotes[i];
                 classes.push(`degree-${note.interval.relativeDegree}`);
+                break;
             }     
         }
-        name = this.getName(note);
+        let name = this.getName(note);
 
 		return e('div', {className: classes.join(' ')}, name);
     };
