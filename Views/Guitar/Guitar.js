@@ -61,6 +61,19 @@ class Fret extends React.Component {
         super(props);
     }
 
+    sound = () => {
+        let duration = 500;
+        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let oscillator = audioCtx.createOscillator();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.value = this.props.physicalNote.frequency;
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+            
+        setTimeout(() => { oscillator.stop(); }, duration);
+    }
+
     getName = (note) => {
         switch(this.props.displaySettings.label)
         {
@@ -102,6 +115,9 @@ class Fret extends React.Component {
         }
         let name = this.getName(note);
 
-		return e('div', {className: classes.join(' ')}, name);
+		return e('div', {
+            className: classes.join(' '),
+            onClick: () => { this.sound(this.props.physicalNote.frequency, 500); }
+        }, name);
     };
 }

@@ -8,6 +8,7 @@ class PhysicalNote {
         
         this.octave = 4 + Math.floor(absolutePosition / 12);
 
+        // Calculate frequency
         let f = 440;
         let distA4 = this.absolutePosition - HOME_DEGREES.A.relativePosition;
         if(distA4 < 0) {
@@ -21,7 +22,6 @@ class PhysicalNote {
                 f = f * Math.pow(2, 1/12);
             }
         }
-        
         this.frequency = Math.round(f);
     }
 }

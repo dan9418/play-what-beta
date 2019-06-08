@@ -8,3 +8,8 @@
 	width: 25px;
 	display: inline-block;
 }
+
+.note:hover {
+	cursor: pointer;
+	background-color: darkgray !important;
+}

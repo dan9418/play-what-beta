@@ -17,7 +17,11 @@
 	border-bottom: 1px solid black;
 	border-right: 1px solid grey;
 	border-left: 1px solid grey;
-	vertical-align: top
+	vertical-align: top;
+}
+
+.guitar-fret:hover {
+	cursor: pointer;
 }
 
 .guitar-fret-open {

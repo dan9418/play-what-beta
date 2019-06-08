@@ -33,6 +33,19 @@ class PianoKey extends React.Component {
         super(props);
     }
 
+    sound = () => {
+        let duration = 500;
+        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let oscillator = audioCtx.createOscillator();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.value = this.props.physicalNote.frequency;
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+            
+        setTimeout(() => { oscillator.stop(); }, duration);
+    }
+
     getName = (note) => {
         switch(this.props.displaySettings.label)
         {
@@ -73,15 +86,19 @@ class PianoKey extends React.Component {
         if(this.props.type === 'WHITE') {
             return e(WhiteKey, {
                 key: `white-key-${this.props.physicalNote.absolutePosition}`,
+                physicalNote: this.props.physicalNote,
                 functionalNote: note,
-                label: name
+                label: name,
+                sound: this.sound
             }, null);
         }
         else if(this.props.type === 'BLACK') {
             return e(BlackKey, {
                 key: `black-key-${this.props.physicalNote.absolutePosition}`,
+                physicalNote: this.props.physicalNote,
                 functionalNote: note,
-                label: name
+                label: name.frequency,
+                sound: this.sound
             }, null);
         }
     };
@@ -98,7 +115,10 @@ class WhiteKey extends React.Component {
         if(this.props.functionalNote != null) {
             classes.push(`degree-${this.props.functionalNote.interval.relativeDegree}`)
         }
-		return e('div', {className: classes.join(' ')}, this.props.label);
+		return e('div', {
+            className: classes.join(' '),
+            onClick: () => { this.props.sound(); }
+        }, this.props.label);
     };
 }
 
@@ -114,6 +134,12 @@ class BlackKey extends React.Component {
         if(this.props.functionalNote != null) {
             classes.push(`degree-${this.props.functionalNote.interval.relativeDegree}`)
         }
-		return e('div', {className: containerClasses.join(' ')}, e('div', {className: classes.join(' ')}, this.props.label));
+		return e('div', {
+                    className: containerClasses.join(' ')
+                },
+                e('div', {
+                    className: classes.join(' '),
+                    onClick: () => { this.props.sound(); }
+                }, this.props.label));
     };
 }

@@ -8,6 +8,10 @@
 	vertical-align: top;
 }
 
+.piano-key:hover {
+	cursor: pointer;
+}
+
 .white-key {
 	background-color: white;
 	color: black;
@@ -15,11 +19,6 @@
 	height: 100px;
 	width: 25px;
 	padding-top: 5px;
-}
-
-.white-key.piano-key-active {
-	background-color: red !important;
-	color: white;
 }
 
 .black-key-container {
@@ -36,11 +35,6 @@
 	position: relative;
 	left: -6px;
 	padding-top: 5px;
-}
-
-.black-key.piano-key-active {
-	background-color: darkred;
-	color: white;
 }
 
 .piano-key:hover {
