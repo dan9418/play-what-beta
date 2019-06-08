@@ -15,30 +15,46 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			accidental: 0,
-			absoluteDegree: 1,
-			concept: CONCEPTS.Modes,
-			chord: CHORDS.Maj_Tri.id,
-			mode: MODES.Ionian.id,
-			label: LABELS.RelativeDegree,
+			degree: HOME_DEGREES.C,
+			accidental: ACCIDENTALS.Natural,
+			concept: CONCEPTS.Mode,
+			chord: CHORDS.Maj_Tri,
+			mode:  MODES.Ionian,
+			label: LABELS.Name,
 			filterOctave: false
 		};
 	}
 
+	// Event handlers
+
 	onChange = (inputState) => {
-		this.setState(inputState);
+		console.log(inputState);
+		let newState = {};
+		if(inputState.degree) {
+			newState['degree'] = ALL_HOME_DEGREES.find((degree) => { return degree.id === inputState.degree });
+		}
+		if(inputState.accidental) {
+			newState['accidental'] = ALL_ACCIDENTALS.find((accidental) => { return accidental.id === inputState.accidental });
+		}
+		if(inputState.concept) {
+			newState['concept'] = ALL_CONCEPTS.find((concept) => { return concept.id === inputState.concept });
+		}
+		if(inputState.chord) {
+			newState['chord'] = ALL_CHORDS.find((chord) => { return chord.id === inputState.chord });
+		}
+		if(inputState.mode) {
+			newState['mode'] = ALL_MODES.find((mode) => { return mode.id === inputState.mode });
+		}
+		if(inputState.label) {
+			newState['label'] = ALL_LABELS.find((label) => { return label.id === inputState.label });
+		}
+		if(inputState.filterOctave) {
+			newState['filterOctave'] = filterOctave;
+		}
+		this.setState(newState);
 	}
 
-	getConcept = () => {
-		if(this.state.concept === CONCEPTS.Chords) {
-			let id = this.state.chord;
-			return ALL_CHORDS.find((chord) => { return chord.id === id });
-		}
-		else if(this.state.concept === CONCEPTS.Modes) {
-			let id = this.state.mode;
-			return ALL_MODES.find((mode) => { return mode.id === id });
-		}
-	}
+	// View helpers
 
 	getNoteCollection = (functionalNotes, displaySettings) => {
 		return e(NoteCollection, {
@@ -62,6 +78,17 @@ class App extends React.Component {
 		}, null);
 	}
 
+	// Note calculation
+
+	getConcept = (conceptId) => {
+		switch(conceptId) {
+			case CONCEPTS.Chord.id:
+				return this.state.chord;
+			case CONCEPTS.Mode.id:
+				return this.state.mode;
+		}
+	}
+
 	getFunctionalNotes = (key, intervals) => {
 		let notes = [];
 		for(let i = 0; i < intervals.length; i++) {
@@ -71,23 +98,27 @@ class App extends React.Component {
 		return notes;
 	}
 
-	render = () => {
-		// Configuration
-		let key = new Key(this.state.absoluteDegree, this.state.accidental);
-		let intervals = this.getConcept().intervals;
-		let functionalNotes = this.getFunctionalNotes(key, intervals);
-		console.log(key, intervals, functionalNotes);
+	// Render
 
+	render = () => {
+		// Get data
+		let key = new Key(this.state.degree.absoluteDegree, this.state.accidental.offset);
+		let concept = this.getConcept(this.state.concept.id);
+		let functionalNotes = this.getFunctionalNotes(key, concept.intervals);
+		//console.log(key, concept, functionalNotes);
+
+		// Get display settings
 		let displaySettings = {
-			label: this.state.label,
+			label: this.state.label.id,
 			filterOctave: this.state.filterOctave
 		}
+
 		// Render
-		return e('div', {id: 'appContainer'},
-			e(InputBox, {onChange: this.onChange}, null),
-			e('div', {id: 'notesContainer'}, this.getNoteCollection(functionalNotes, displaySettings)),
-			e('div', {id: 'pianoContainer'}, this.getPiano(functionalNotes, displaySettings)),
-			e('div', {id: 'guitarContainer'}, this.getGuitar(functionalNotes, displaySettings))
+		return e('div', { id: 'appContainer' },
+			e(InputBox, { onChange: this.onChange }, null),
+			e('div', { id: 'notesContainer' }, this.getNoteCollection(functionalNotes, displaySettings)),
+			e('div', { id: 'pianoContainer' }, this.getPiano(functionalNotes, displaySettings)),
+			e('div', { id: 'guitarContainer' }, this.getGuitar(functionalNotes, displaySettings))
 		);
   	};
 }

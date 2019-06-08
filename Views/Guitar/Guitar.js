@@ -64,21 +64,21 @@ class Fret extends React.Component {
     getName = (note) => {
         switch(this.props.displaySettings.label)
         {
-            case LABELS.None:
+            case LABELS.None.id:
                 return '';
-            case LABELS.Name:
+            case LABELS.Name.id:
                 return (note !== null) ? note.name : '';
-            case LABELS.Interval:
+            case LABELS.Interval.id:
                 return (note !== null) ? note.interval.id : '';
-            case LABELS.RelativePosition:
+            case LABELS.RelativePosition.id:
                 return this.props.physicalNote.relativePosition;
-            case LABELS.AbsolutePosition:
+            case LABELS.AbsolutePosition.id:
                 return this.props.physicalNote.absolutePosition
-            case LABELS.RelativeDegree:
+            case LABELS.RelativeDegree.id:
                 return (note !== null) ? note.interval.relativeDegree : '';
-            case LABELS.AbsoluteDegree:
+            case LABELS.AbsoluteDegree.id:
                 return (note !== null) ? note.absoluteDegree : '';
-            case LABELS.Octave:
+            case LABELS.Octave.id:
                 return this.props.physicalNote.octave;
             default:
                 return '';

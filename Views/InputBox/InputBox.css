@@ -1,14 +1,11 @@
-* {
-	text-align: center;
-	font: 15px arial, sans-serif;
-}
-
-html {
-	background-color: #e6f7ff
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
+button {
+	color: white;
+	background-color: #339966;
+    padding: 5px;
+	margin: 5px;
+    width: 100px;
+    border: 1px solid black;
+	vertical-align: middle;
 }
 
 select {
@@ -20,32 +17,22 @@ select {
 	vertical-align: middle;
 }
 
-#degree {
+#input-degree {
 	width: 100px;
 }
 
-#accidental {
+#input-accidental {
 	width: 100px;
 }
 
-#concept {
+#input-concept {
 	width: 200px;
 }
 
-#chord {
+#input-chord {
 	width: 200px;
 }
 
-#mode {
+#input-mode {
 	width: 200px;
-}
-
-button {
-	color: white;
-	background-color: #339966;
-    padding: 5px;
-	margin: 5px;
-    width: 100px;
-    border: 1px solid black;
-	vertical-align: middle;
 }

@@ -1,23 +1,37 @@
-// Enums
+// Concepts
 
 let CONCEPTS = {
-	Chords: 0,
-	Modes: 1
-}
+    Label:         { id: 'label',         name: 'Labels'},
+    Degree:        { id: 'degree',        name: 'Degrees'},
+    Accidental:    { id: 'accidental',    name: 'Accidentals'},
+    Interval:      { id: 'interval',      name: 'Intervals'},
+    Chord:         { id: 'chord',         name: 'Chords'},
+    Scale:         { id: 'scale',         name: 'Scales'},
+    Mode:          { id: 'mode',          name: 'Modes'},
+    RomanNumeral:  { id: 'romanNumeral',  name: 'Roman Numerals'}
+};
+
+let ALL_CONCEPTS = [CONCEPTS.Label, CONCEPTS.Degree, CONCEPTS.Accidental, CONCEPTS.Interval,
+    CONCEPTS.Chord, CONCEPTS.Scale, CONCEPTS.Mode, CONCEPTS.RomanNumeral];
+
+// Labels
 
 let LABELS = {
-	None: 0,
-	Name: 1,
-	Interval: 2,
-	RelativePosition: 3,
-	AbsolutePosition: 4,
-	RelativeDegree: 5,
-	AbsoluteDegree: 6,
-	Octave: 7,//,
-	//Frequency: 8
-}
+    None:               { id: 'None',               name: 'None'},
+    Name:               { id: 'Name',               name: 'Name'},
+    Interval:           { id: 'Interval',           name: 'Interval'},
+    RelativePosition:   { id: 'RelativePosition',   name: 'Relative Position'},
+    AbsolutePosition:   { id: 'AbsolutePosition',   name: 'Absolute Position'},
+    RelativeDegree:     { id: 'RelativeDegree',     name: 'Relative Degree'},
+	AbsoluteDegree:     { id: 'AbsoluteDegree',     name: 'Absolute Degree'},
+	Octave:     		{ id: 'Octave',     		name: 'Octave'},
+    Frequency:          { id: 'Frequency',          name: 'Frequency'}
+};
 
-// Constants
+let ALL_LABELS = [LABELS.None, LABELS.Name, LABELS.Interval, LABELS.RelativePosition, LABELS.AbsolutePosition,
+    LABELS.RelativeDegree, LABELS.AbsoluteDegree, LABELS.Octave, LABELS.Frequency];
+
+// Intervals
 
 let INTERVALS = {
 	PU: { id: 'PU',		name: 'Perfect Unison',	base: true,		relativeDegree: 1,	semitones: 0  },
@@ -39,7 +53,23 @@ let INTERVALS = {
 	P8: { id: 'P8',		name: 'Perfect Octave',	base: true,		relativeDegree: 1,	semitones: 12 }
 };
 
-let NOTES = {
+let ALL_INTERVALS = [
+	INTERVALS.PU,
+	INTERVALS.m2,
+	INTERVALS.M3,
+	INTERVALS.P4,
+	INTERVALS.TT, INTERVALS.A4, INTERVALS.d5,
+	INTERVALS.P5,
+	INTERVALS.m6, INTERVALS.A5,
+	INTERVALS.M6, INTERVALS.d7,
+	INTERVALS.m7,
+	INTERVALS.M7,
+	INTERVALS.P8
+];
+
+// Home degrees
+
+let HOME_DEGREES = {
 	C: { id: 'C', name: 'C', absoluteDegree: 1, relativePosition: 0	},
 	D: { id: 'D', name: 'D', absoluteDegree: 2, relativePosition: 2	},
 	E: { id: 'E', name: 'E', absoluteDegree: 3, relativePosition: 4	},
@@ -49,7 +79,21 @@ let NOTES = {
 	B: { id: 'B', name: 'B', absoluteDegree: 7, relativePosition: 11 }
 };
 
-let ALL_NOTES = [NOTES.C, NOTES.D, NOTES.E, NOTES.F, NOTES.G, NOTES.A, NOTES.B];
+let ALL_HOME_DEGREES = [HOME_DEGREES.C, HOME_DEGREES.D, HOME_DEGREES.E, HOME_DEGREES.F, HOME_DEGREES.G, HOME_DEGREES.A, HOME_DEGREES.B];
+
+// Accidentals
+
+let ACCIDENTALS = {
+	DoubleSharp:	{ id: 'DoubleSharp',	name: 'xx',	offset:  2 },
+	Sharp:			{ id: 'Sharp',			name: '#',	offset:  1 },
+	Natural:		{ id: 'Natural',		name: '♮',	offset:  0 },
+	Flat:			{ id: 'Flat',			name: 'b',	offset: -1 },
+	DoubleFlat:		{ id: 'DoubleFlat',		name: 'bb',	offset: -2 }
+};
+
+let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.Natural, ACCIDENTALS.Flat, ACCIDENTALS.DoubleFlat];
+
+// Chords
 
 let CHORDS = {
 	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5]				},
@@ -73,6 +117,8 @@ let ALL_CHORDS = [
 	CHORDS.Min_Tri, CHORDS.Min_6, CHORDS.Min_7, CHORDS.Min_Maj_7,
 	CHORDS.Dim_Tri, CHORDS.Dim_7, CHORDS.Half_Dim_7
 ];
+
+// Modes
 
 let MODES = {
 	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },

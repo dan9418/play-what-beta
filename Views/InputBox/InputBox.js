@@ -3,117 +3,85 @@ class InputBox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			concept: CONCEPTS.Modes
+			degree: HOME_DEGREES.C.id,
+			accidental: ACCIDENTALS.Natural.id,
+			concept: CONCEPTS.Mode.id,
+			chord: CHORDS.Maj_Tri.id,
+			mode: MODES.Ionian.id,
+			label: LABELS.Name.id,
+			filterOctave: false
 		};
+		this.props.onChange(this.state);
 	}
 
-	changeDegree = () => {
-		var element = document.getElementById("degree");
-		var value = parseInt(element.value);
-		this.props.onChange({absoluteDegree: value});
-	};
-	
-	changeAccidental = () => {
-		var element = document.getElementById("accidental");
-		var value = parseInt(element.value);
-		this.props.onChange({accidental: value});
-	};
-	
-	changeConcept = () => {
-		var element = document.getElementById("concept");
-		var value = parseInt(element.value);
-		this.setState({concept: value});
-		this.props.onChange({concept: value});
-	};
-	
-	changeChord = () => {
-		var element = document.getElementById("chord");
-		var value = element.value;
-		this.props.onChange({chord: value});
-	};
-	
-	changeMode = () => {
-		var element = document.getElementById("mode");
-		var value = element.value;
-		this.props.onChange({mode: value});
-	};
+	handleChange = (concept, value) => {
+		console.log(concept + ': ' + value, this.state);
+		let obj = {};
+  		obj[concept] = value;
+		this.setState(obj);
+		this.props.onChange(obj);
+	}
 
-	changeLabel = () => {
-		var element = document.getElementById("label");
-		var value = parseInt(element.value);
-		this.props.onChange({label: value});
-	};
+	getSelect = (conceptId, dataSource) => {
+		let options = [];
+		for(let i = 0; i < dataSource.length; i++)
+		{
+			options.push(e('option', {
+					key: conceptId + '-opt-' + i,
+					value: dataSource[i].id
+				}, dataSource[i].name)
+			);
+		}
+		return e('select', {
+			id: 'input-' + conceptId,
+			value: this.state[conceptId],
+			onChange: (event) => { this.handleChange(conceptId, event.target.value); }
+		}, options);
+	}
 
-	changeFilterOctave = () => {
-		var element = document.getElementById("filterOctave");
-		this.props.onChange({filterOctave: element.checked});
-	};
+	getKeyInputs = () => {
+		return [
+			this.getSelect(CONCEPTS.Degree.id, ALL_HOME_DEGREES),
+			this.getSelect(CONCEPTS.Accidental.id, ALL_ACCIDENTALS)
+		];
+	}
+
+	getConceptInputs = () => {
+		let inputs = [
+			this.getSelect('concept', ALL_CONCEPTS)
+		];
+		switch(this.state.concept) {
+			case CONCEPTS.Chord.id: {
+				inputs.push(this.getSelect(CONCEPTS.Chord.id, ALL_CHORDS));
+				break;
+			}
+			case CONCEPTS.Mode.id: {
+				inputs.push(this.getSelect(CONCEPTS.Mode.id, ALL_MODES));
+				break;
+			}
+		}
+		return inputs;
+	}
+
+	getDisplayInputs = () => {
+		let inputs = [
+			this.getSelect(CONCEPTS.Label.id, ALL_LABELS),
+			e('br'),
+			e('input', {
+				id: 'filterOctave',
+				type: 'checkbox',
+				onChange: (event) => { this.handleChange('filterOctave', event.checked); }
+			}, null),
+			'Filter Octave'
+		];
+		return inputs;
+	}
 
 	render = () => {
 		return e('div', {id: 'inputContainer'},
-			e('select', 
-				{id: 'degree', defaultValue: NOTES.C.absoluteDegree, onChange: () => this.changeDegree()},
-				e('option', {value: NOTES.A.absoluteDegree		}, NOTES.A.name				),
-				e('option', {value: NOTES.B.absoluteDegree		}, NOTES.B.name				),
-				e('option', {value: NOTES.C.absoluteDegree		}, NOTES.C.name				),
-				e('option', {value: NOTES.D.absoluteDegree		}, NOTES.D.name				),
-				e('option', {value: NOTES.E.absoluteDegree		}, NOTES.E.name				),
-				e('option', {value: NOTES.F.absoluteDegree		}, NOTES.F.name				),
-				e('option', {value: NOTES.G.absoluteDegree		}, NOTES.G.name				)
-			),
-			e('select', 
-				{id: 'accidental', defaultValue: '0', onChange: () => this.changeAccidental()},
-				e('option', {value: '1'						}, '#'						),
-				e('option', {value: '0'						}, '♮'						),
-				e('option', {value: '-1'					}, 'b'						)
-			),
-			e('br'),
-			e('select', 
-				{id: 'concept', defaultValue: CONCEPTS.Modes, onChange: () => this.changeConcept()},
-				e('option', {value: CONCEPTS.Chords},		'Chords'					),
-				e('option', {value: CONCEPTS.Modes},		'Modes'						)
-			),
-			(this.state.concept === CONCEPTS.Chords && e('select', 
-				{id: 'chord', onChange: () => this.changeChord()},
-				e('option', {value: CHORDS.Maj_Tri.id		}, CHORDS.Maj_Tri.name		),
-				e('option', {value: CHORDS.Maj_6.id			}, CHORDS.Maj_6.name		),
-				e('option', {value: CHORDS.Dom_7.id			}, CHORDS.Dom_7.name		),
-				e('option', {value: CHORDS.Maj_7.id			}, CHORDS.Maj_7.name		),
-				e('option', {value: CHORDS.Aug_Tri.id		}, CHORDS.Aug_Tri.name		),
-				e('option', {value: CHORDS.Aug_7.id			}, CHORDS.Aug_7.name		),
-				e('option', {value: CHORDS.Min_Tri.id		}, CHORDS.Min_Tri.name		),
-				e('option', {value: CHORDS.Min_6.id			}, CHORDS.Min_6.name		),
-				e('option', {value: CHORDS.Min_7.id			}, CHORDS.Min_7.name		),
-				e('option', {value: CHORDS.Min_Maj_7.id		}, CHORDS.Min_Maj_7.name	),
-				e('option', {value: CHORDS.Dim_Tri.id		}, CHORDS.Dim_Tri.name		),
-				e('option', {value: CHORDS.Dim_7.id			}, CHORDS.Dim_7.name		),
-				e('option', {value: CHORDS.Half_Dim_7.id	}, CHORDS.Half_Dim_7.name	)
-			)),
-			(this.state.concept === CONCEPTS.Modes && e('select', 
-				{id: 'mode', onChange: () => this.changeMode()},
-				e('option', {value: MODES.Ionian.id			}, MODES.Ionian.name		),
-				e('option', {value: MODES.Dorian.id			}, MODES.Dorian.name		),
-				e('option', {value: MODES.Phrygian.id		}, MODES.Phrygian.name		),
-				e('option', {value: MODES.Lydian.id			}, MODES.Lydian.name		),
-				e('option', {value: MODES.Mixolydian.id		}, MODES.Mixolydian.name	),
-				e('option', {value: MODES.Aeolian.id		}, MODES.Aeolian.name		),
-				e('option', {value: MODES.Locrian.id		}, MODES.Locrian.name		)
-			)),
-			e('br'),
-			e('select', 
-				{id: 'label', defaultValue: LABELS.RelativeDegree, onChange: () => this.changeLabel()},
-				e('option', {value: LABELS.None				},		'None'				),
-				e('option', {value: LABELS.Name				},		'Name'				),
-				e('option', {value: LABELS.Interval			},		'Interval'			),
-				e('option', {value: LABELS.RelativePosition	},		'Relative Position'	),
-				e('option', {value: LABELS.AbsolutePosition	},		'Absolute Position'	),
-				e('option', {value: LABELS.RelativeDegree	},		'Relative Degree'	),
-				e('option', {value: LABELS.AbsoluteDegree	},		'Absolute Degree'	),
-				e('option', {value: LABELS.Octave			},		'Octave'			)
-			),
-			e('br'),
-			e('input', {id: 'filterOctave', type: 'checkbox', onChange: () => this.changeFilterOctave()}, null),
-			'Filter octave'
+			this.getKeyInputs(), e('br'),
+			this.getConceptInputs(), e('br'),
+			this.getDisplayInputs(), e('br'),
 		);
 	};
 }

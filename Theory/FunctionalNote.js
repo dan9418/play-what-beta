@@ -7,7 +7,7 @@ class FunctionalNote {
         this.accidental = this.relativePosition - MODES.Ionian.intervals[this.absoluteDegree - 1].semitones;
         if(this.relativePosition === 0 && this.accidental < 0) this.accidental += 12;
         if(this.relativePosition === -1 && this.accidental < 0) this.relativePosition += 12;
-        this.name = ALL_NOTES[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
+        this.name = ALL_HOME_DEGREES[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
     }
     
     getAccidentalString = (accidental) => {
