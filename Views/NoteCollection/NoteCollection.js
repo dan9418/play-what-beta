@@ -2,8 +2,6 @@ class NoteDisplay extends React.Component {
 	
 	constructor(props) {
         super(props);
-
-        this.physicalNote = new PhysicalNote(this.props.functionalNote.relativePosition);
     }
 
     sound = () => {
@@ -22,6 +20,11 @@ class NoteDisplay extends React.Component {
 	render = () => {
         let note = this.props.functionalNote;
         let classes = ['note', `degree-${note.interval.relativeDegree}`];
+
+        this.physicalNote = new PhysicalNote(
+            ALL_HOME_DEGREES[this.props.functionalNote.key.homeDegree - 1].relativePosition + 
+            this.props.functionalNote.interval.semitones
+            );
 
         return e('div', {
             className: classes.join(' '),
