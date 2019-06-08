@@ -58,6 +58,8 @@ class App extends React.Component {
 				return this.state.chord;
 			case CONCEPTS.Mode.id:
 				return this.state.mode;
+			default:
+				return { intervals: [] };
 		}
 	}
 
