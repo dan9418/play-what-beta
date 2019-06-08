@@ -80,6 +80,8 @@ class Fret extends React.Component {
                 return (note !== null) ? note.absoluteDegree : '';
             case LABELS.Octave.id:
                 return this.props.physicalNote.octave;
+            case LABELS.Frequency.id:
+                return this.props.physicalNote.frequency;
             default:
                 return '';
         }
