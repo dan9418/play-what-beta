@@ -1,4 +1,4 @@
-class InputBox extends React.Component {
+class InputForm extends React.Component {
 	
 	constructor(props) {
 		super(props);

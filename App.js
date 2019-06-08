@@ -25,10 +25,8 @@ class App extends React.Component {
 		};
 	}
 
-	// Event handlers
-
 	onChange = (inputState) => {
-		console.log(inputState);
+		//console.log(inputState);
 		let newState = {};
 		if(inputState.degree) {
 			newState['degree'] = ALL_HOME_DEGREES.find((degree) => { return degree.id === inputState.degree });
@@ -54,32 +52,6 @@ class App extends React.Component {
 		this.setState(newState);
 	}
 
-	// View helpers
-
-	getNoteCollection = (functionalNotes, displaySettings) => {
-		return e(NoteCollection, {
-			functionalNotes: functionalNotes,
-			displaySettings: displaySettings
-		}, null);
-	}
-
-	getPiano = (functionalNotes, displaySettings) => {
-		return e(Piano, {
-			functionalNotes: functionalNotes,
-			length: 25,
-			displaySettings: displaySettings
-		}, null);
-	}
-
-	getGuitar = (functionalNotes, displaySettings) => {
-		return e(Guitar, {
-			functionalNotes: functionalNotes,
-			displaySettings: displaySettings
-		}, null);
-	}
-
-	// Note calculation
-
 	getConcept = (conceptId) => {
 		switch(conceptId) {
 			case CONCEPTS.Chord.id:
@@ -89,22 +61,10 @@ class App extends React.Component {
 		}
 	}
 
-	getFunctionalNotes = (key, intervals) => {
-		let notes = [];
-		for(let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(key, intervals[i]);
-			notes.push(functionalNote);
-		}
-		return notes;
-	}
-
-	// Render
-
 	render = () => {
 		// Get data
-		let key = new Key(this.state.degree.absoluteDegree, this.state.accidental.offset);
+		let keyDef = new Key(this.state.degree.absoluteDegree, this.state.accidental.offset);
 		let concept = this.getConcept(this.state.concept.id);
-		let functionalNotes = this.getFunctionalNotes(key, concept.intervals);
 		//console.log(key, concept, functionalNotes);
 
 		// Get display settings
@@ -115,10 +75,8 @@ class App extends React.Component {
 
 		// Render
 		return e('div', { id: 'appContainer' },
-			e(InputBox, { onChange: this.onChange }, null),
-			e('div', { id: 'notesContainer' }, this.getNoteCollection(functionalNotes, displaySettings)),
-			e('div', { id: 'pianoContainer' }, this.getPiano(functionalNotes, displaySettings)),
-			e('div', { id: 'guitarContainer' }, this.getGuitar(functionalNotes, displaySettings))
+			e(InputForm, { onChange: this.onChange }, null),
+			e(ViewManager, { keyDef: keyDef, concept: concept, displaySettings: displaySettings }, null),
 		);
   	};
 }
