@@ -48,7 +48,7 @@ class InputForm extends React.Component {
 
 	getConceptInputs = () => {
 		let inputs = [
-			this.getSelect('concept', ALL_CONCEPTS)
+			this.getSelect('concept', ALL_CONCEPTS.filter((concept) => { return concept.active; }))
 		];
 		switch(this.state.concept) {
 			case CONCEPTS.Chord.id: {

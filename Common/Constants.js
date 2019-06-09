@@ -1,14 +1,14 @@
 // Concepts
 
 let CONCEPTS = {
-    Label:         { id: 'label',         name: 'Labels'},
-    Degree:        { id: 'degree',        name: 'Degrees'},
-    Accidental:    { id: 'accidental',    name: 'Accidentals'},
-    Interval:      { id: 'interval',      name: 'Intervals'},
-    Chord:         { id: 'chord',         name: 'Chords'},
-    Scale:         { id: 'scale',         name: 'Scales'},
-    Mode:          { id: 'mode',          name: 'Modes'},
-    RomanNumeral:  { id: 'romanNumeral',  name: 'Roman Numerals'}
+    Label:         { id: 'label',         name: 'Labels',			active: false },
+    Degree:        { id: 'degree',        name: 'Degrees',			active: false },
+    Accidental:    { id: 'accidental',    name: 'Accidentals',		active: false },
+    Interval:      { id: 'interval',      name: 'Intervals',		active: true },
+    Chord:         { id: 'chord',         name: 'Chords',			active: true },
+    Scale:         { id: 'scale',         name: 'Scales',			active: true },
+    Mode:          { id: 'mode',          name: 'Modes',			active: true },
+    RomanNumeral:  { id: 'romanNumeral',  name: 'Roman Numerals',	active: true }
 };
 
 let ALL_CONCEPTS = [CONCEPTS.Label, CONCEPTS.Degree, CONCEPTS.Accidental, CONCEPTS.Interval,
