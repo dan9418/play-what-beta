@@ -79,6 +79,7 @@ class App extends React.Component {
 				for(let i = 0; i < this.state.romanNumeral.chords.length; i++)
 					groups.push({
 						name: this.state.romanNumeral.chords[i].name,
+						relativeDegree: this.state.romanNumeral.chords[i].relativeDegree,
 						intervals: this.state.romanNumeral.chords[i].chord.intervals
 					});
 				return groups;

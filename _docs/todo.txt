@@ -1,3 +1,7 @@
+architecture
+    display settings per view
+    note collection ui
+
 piano
     expandable ranges
 
@@ -8,18 +12,11 @@ guitar
 
 concepts
     extended chords
-    notes
-    intervals
-    scales
-    roman numerals
-
-note metadata
-    frequency
-    octave type
 
 interactivity
     range filter
     guitar voicings
     configurable colors
     transposition
-    urls
+    routing
+    octave type

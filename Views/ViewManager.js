@@ -50,13 +50,25 @@ class ViewManager extends React.Component {
     
     // Render
 
+    getViewForGroups = (key, groups, displaySettings) => {
+        let noteViews = [];
+        let pianoViews = [];
+        let guitarViews = [];
+        for(let i = 0; i < groups.length; i++) {
+            let group = groups[i];
+
+            if(group.relativeDegree)
+                key = new Key((key.homeDegree - 1 + group.relativeDegree - 1) % 7 + 1, key.accidental);
+
+            let functionalNotes = this.getFunctionalNotes(key, group.intervals);
+            noteViews.push(e('div', { id: 'notesContainer' }, e('div', { className: 'group-label' }, group.name), this.getNoteCollection(functionalNotes, this.props.displaySettings)));
+            pianoViews.push(e('div', { id: 'pianoContainer' }, e('div', { className: 'group-label' }, group.name), this.getPiano(functionalNotes, this.props.displaySettings))),
+            guitarViews.push(e('div', { id: 'guitarContainer' }, e('div', { className: 'group-label' }, group.name), this.getGuitar(functionalNotes, this.props.displaySettings)))
+        }
+        return e('div', { id: 'viewContainer' }, noteViews, pianoViews, guitarViews);
+    }
+
     render = () => {
-        let groups =  this.props.intervalGroups[0].intervals;
-        let functionalNotes = this.getFunctionalNotes(this.props.keyDef, groups);
-        return e('div', { id: 'viewContainer' },
-                e('div', { id: 'notesContainer' }, this.getNoteCollection(functionalNotes, this.props.displaySettings)),
-                e('div', { id: 'pianoContainer' }, this.getPiano(functionalNotes, this.props.displaySettings)),
-                e('div', { id: 'guitarContainer' }, this.getGuitar(functionalNotes, this.props.displaySettings))
-            );
+        return this.getViewForGroups(this.props.keyDef, this.props.intervalGroups, this.props.displaySettings);
     }
 }
