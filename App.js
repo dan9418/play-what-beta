@@ -20,6 +20,7 @@ class App extends React.Component {
 			concept: CONCEPTS.Mode,
 			chord: CHORDS.Maj_Tri,
 			mode:  MODES.Ionian,
+			interval: INTERVALS.PU,
 			label: LABELS.Name,
 			filterOctave: false
 		};
@@ -43,6 +44,9 @@ class App extends React.Component {
 		if(inputState.mode) {
 			newState['mode'] = ALL_MODES.find((mode) => { return mode.id === inputState.mode });
 		}
+		if(inputState.interval) {
+			newState['interval'] = ALL_INTERVALS.find((interval) => { return interval.id === inputState.interval });
+		}
 		if(inputState.label) {
 			newState['label'] = ALL_LABELS.find((label) => { return label.id === inputState.label });
 		}
@@ -54,6 +58,8 @@ class App extends React.Component {
 
 	getConcept = (conceptId) => {
 		switch(conceptId) {
+			case CONCEPTS.Interval.id:
+				return { intervals: [INTERVALS.PU, this.state.interval] };
 			case CONCEPTS.Chord.id:
 				return this.state.chord;
 			case CONCEPTS.Mode.id:

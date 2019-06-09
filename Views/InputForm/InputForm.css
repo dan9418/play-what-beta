@@ -29,6 +29,10 @@ select {
 	width: 200px;
 }
 
+#input-interval {
+	width: 200px;
+}
+
 #input-chord {
 	width: 200px;
 }

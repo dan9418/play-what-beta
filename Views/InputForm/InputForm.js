@@ -8,6 +8,7 @@ class InputForm extends React.Component {
 			concept: CONCEPTS.Mode.id,
 			chord: CHORDS.Maj_Tri.id,
 			mode: MODES.Ionian.id,
+			interval: INTERVALS.PU.id,
 			label: LABELS.Name.id,
 			filterOctave: false
 		};
@@ -51,6 +52,10 @@ class InputForm extends React.Component {
 			this.getSelect('concept', ALL_CONCEPTS.filter((concept) => { return concept.active; }))
 		];
 		switch(this.state.concept) {
+			case CONCEPTS.Interval.id: {
+				inputs.push(this.getSelect(CONCEPTS.Interval.id, ALL_INTERVALS));
+				break;
+			}
 			case CONCEPTS.Chord.id: {
 				inputs.push(this.getSelect(CONCEPTS.Chord.id, ALL_CHORDS));
 				break;
