@@ -120,6 +120,17 @@ let ALL_CHORDS = [
 	CHORDS.Dim_Tri, CHORDS.Dim_7, CHORDS.Half_Dim_7
 ];
 
+// Scales
+
+let SCALES = {
+	Major:				{ id: 'Major',				name: 'Major', 				intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
+	NatualMinor:		{ id: 'NatualMinor',		name: 'Natual Minor', 		intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
+	MajorPentatonic:	{ id: 'MajorPentatonic',	name: 'Major Pentatonic', 	intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6] },
+	MinorPentatonic:	{ id: 'MinorPentatonic',	name: 'Minor Pentatonic', 	intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m7] }
+};
+
+let ALL_SCALES = [SCALES.Major, SCALES.NatualMinor, SCALES.MajorPentatonic, SCALES.MinorPentatonic];
+
 // Modes
 
 let MODES = {

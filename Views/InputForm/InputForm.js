@@ -6,9 +6,10 @@ class InputForm extends React.Component {
 			degree: HOME_DEGREES.C.id,
 			accidental: ACCIDENTALS.Natural.id,
 			concept: CONCEPTS.Mode.id,
-			chord: CHORDS.Maj_Tri.id,
-			mode: MODES.Ionian.id,
-			interval: INTERVALS.PU.id,
+				interval: INTERVALS.PU.id,
+				chord: CHORDS.Maj_Tri.id,
+				scale: SCALES.Major.id,
+				mode: MODES.Ionian.id,
 			label: LABELS.Name.id,
 			filterOctave: false
 		};
@@ -58,6 +59,10 @@ class InputForm extends React.Component {
 			}
 			case CONCEPTS.Chord.id: {
 				inputs.push(this.getSelect(CONCEPTS.Chord.id, ALL_CHORDS));
+				break;
+			}
+			case CONCEPTS.Scale.id: {
+				inputs.push(this.getSelect(CONCEPTS.Scale.id, ALL_SCALES));
 				break;
 			}
 			case CONCEPTS.Mode.id: {

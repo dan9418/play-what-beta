@@ -18,9 +18,10 @@ class App extends React.Component {
 			degree: HOME_DEGREES.C,
 			accidental: ACCIDENTALS.Natural,
 			concept: CONCEPTS.Mode,
-			chord: CHORDS.Maj_Tri,
-			mode:  MODES.Ionian,
-			interval: INTERVALS.PU,
+				interval: INTERVALS.PU,
+				chord: CHORDS.Maj_Tri,
+				scale: SCALES.Major,
+				mode:  MODES.Ionian,
 			label: LABELS.Name,
 			filterOctave: false
 		};
@@ -38,15 +39,18 @@ class App extends React.Component {
 		if(inputState.concept) {
 			newState['concept'] = ALL_CONCEPTS.find((concept) => { return concept.id === inputState.concept });
 		}
-		if(inputState.chord) {
-			newState['chord'] = ALL_CHORDS.find((chord) => { return chord.id === inputState.chord });
-		}
-		if(inputState.mode) {
-			newState['mode'] = ALL_MODES.find((mode) => { return mode.id === inputState.mode });
-		}
-		if(inputState.interval) {
-			newState['interval'] = ALL_INTERVALS.find((interval) => { return interval.id === inputState.interval });
-		}
+			if(inputState.interval) {
+				newState['interval'] = ALL_INTERVALS.find((interval) => { return interval.id === inputState.interval });
+			}
+			if(inputState.chord) {
+				newState['chord'] = ALL_CHORDS.find((chord) => { return chord.id === inputState.chord });
+			}
+			if(inputState.scale) {
+				newState['scale'] = ALL_SCALES.find((scale) => { return scale.id === inputState.scale });
+			}
+			if(inputState.mode) {
+				newState['mode'] = ALL_MODES.find((mode) => { return mode.id === inputState.mode });
+			}
 		if(inputState.label) {
 			newState['label'] = ALL_LABELS.find((label) => { return label.id === inputState.label });
 		}
@@ -62,6 +66,8 @@ class App extends React.Component {
 				return { intervals: [INTERVALS.PU, this.state.interval] };
 			case CONCEPTS.Chord.id:
 				return this.state.chord;
+			case CONCEPTS.Scale.id:
+				return this.state.scale;
 			case CONCEPTS.Mode.id:
 				return this.state.mode;
 			default:
