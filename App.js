@@ -22,6 +22,7 @@ class App extends React.Component {
 				chord: CHORDS.Maj_Tri,
 				scale: SCALES.Major,
 				mode:  MODES.Ionian,
+				romanNumeral: ROMAN_NUMERALS.Major,
 			label: LABELS.Name,
 			filterOctave: false
 		};
@@ -51,6 +52,9 @@ class App extends React.Component {
 			if(inputState.mode) {
 				newState['mode'] = ALL_MODES.find((mode) => { return mode.id === inputState.mode });
 			}
+			if(inputState.romanNumeral) {
+				newState['romanNumeral'] = ALL_ROMAN_NUMERALS.find((romanNumeral) => { return romanNumeral.id === inputState.romanNumeral });
+			}
 		if(inputState.label) {
 			newState['label'] = ALL_LABELS.find((label) => { return label.id === inputState.label });
 		}
@@ -60,25 +64,33 @@ class App extends React.Component {
 		this.setState(newState);
 	}
 
-	getConcept = (conceptId) => {
+	getConceptIntervalGroups = (conceptId) => {
 		switch(conceptId) {
 			case CONCEPTS.Interval.id:
-				return { intervals: [INTERVALS.PU, this.state.interval] };
+				return [{ intervals: [INTERVALS.PU, this.state.interval] }];
 			case CONCEPTS.Chord.id:
-				return this.state.chord;
+				return [{ intervals: this.state.chord.intervals }];
 			case CONCEPTS.Scale.id:
-				return this.state.scale;
+				return [{ intervals: this.state.scale.intervals }];
 			case CONCEPTS.Mode.id:
-				return this.state.mode;
+				return [{ intervals: this.state.mode.intervals }];
+			case CONCEPTS.RomanNumeral.id:
+				let groups = [];
+				for(let i = 0; i < this.state.romanNumeral.chords.length; i++)
+					groups.push({
+						name: this.state.romanNumeral.chords[i].name,
+						intervals: this.state.romanNumeral.chords[i].chord.intervals
+					});
+				return groups;
 			default:
-				return { intervals: [] };
+				return [{ intervals: [] }];
 		}
 	}
 
 	render = () => {
 		// Get data
 		let keyDef = new Key(this.state.degree.absoluteDegree, this.state.accidental.offset);
-		let concept = this.getConcept(this.state.concept.id);
+		let intervalGroups = this.getConceptIntervalGroups(this.state.concept.id);
 		//console.log(key, concept, functionalNotes);
 
 		// Get display settings
@@ -90,7 +102,7 @@ class App extends React.Component {
 		// Render
 		return e('div', { id: 'appContainer' },
 			e(InputForm, { onChange: this.onChange }, null),
-			e(ViewManager, { keyDef: keyDef, concept: concept, displaySettings: displaySettings }, null),
+			e(ViewManager, { keyDef: keyDef, intervalGroups: intervalGroups, displaySettings: displaySettings }, null),
 		);
   	};
 }

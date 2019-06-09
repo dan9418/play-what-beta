@@ -10,6 +10,8 @@ class InputForm extends React.Component {
 				chord: CHORDS.Maj_Tri.id,
 				scale: SCALES.Major.id,
 				mode: MODES.Ionian.id,
+				romanNumeral: ROMAN_NUMERALS.Major.id,
+					romanNumeralChord: 0,
 			label: LABELS.Name.id,
 			filterOctave: false
 		};
@@ -67,6 +69,10 @@ class InputForm extends React.Component {
 			}
 			case CONCEPTS.Mode.id: {
 				inputs.push(this.getSelect(CONCEPTS.Mode.id, ALL_MODES));
+				break;
+			}
+			case CONCEPTS.RomanNumeral.id: {
+				inputs.push(this.getSelect(CONCEPTS.RomanNumeral.id, ALL_ROMAN_NUMERALS));
 				break;
 			}
 		}

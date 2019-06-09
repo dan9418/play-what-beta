@@ -6,8 +6,8 @@ class ViewManager extends React.Component {
 			degree: HOME_DEGREES.C,
 			accidental: ACCIDENTALS.Natural,
 			concept: CONCEPTS.Mode,
-			chord: CHORDS.Maj_Tri,
-			mode:  MODES.Ionian,
+                chord: CHORDS.Maj_Tri,
+                mode:  MODES.Ionian,
 			label: LABELS.Name,
 			filterOctave: false
 		};
@@ -51,7 +51,8 @@ class ViewManager extends React.Component {
     // Render
 
     render = () => {
-        let functionalNotes = this.getFunctionalNotes(this.props.keyDef, this.props.concept.intervals);
+        let groups =  this.props.intervalGroups[0].intervals;
+        let functionalNotes = this.getFunctionalNotes(this.props.keyDef, groups);
         return e('div', { id: 'viewContainer' },
                 e('div', { id: 'notesContainer' }, this.getNoteCollection(functionalNotes, this.props.displaySettings)),
                 e('div', { id: 'pianoContainer' }, this.getPiano(functionalNotes, this.props.displaySettings)),

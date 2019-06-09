@@ -145,3 +145,83 @@ let MODES = {
 
 let ALL_MODES = [MODES.Ionian, MODES.Dorian, MODES.Phrygian, MODES.Lydian, MODES.Mixolydian, MODES.Aeolian, MODES.Locrian];
 
+// Modes
+
+let ROMAN_NUMERALS = {
+	Major: { id: 'Major', name: 'Major', chords: [
+		{
+			name: 'I',
+			relativeDegree: 1,
+			chord: CHORDS.Maj_Tri
+		},
+		{
+			name: 'ii',
+			relativeDegree: 2,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'iii',
+			relativeDegree: 3,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'IV',
+			relativeDegree: 4,
+			chord: CHORDS.Maj_Tri
+		},
+		{
+			name: 'V',
+			relativeDegree: 5,
+			chord: CHORDS.Maj_Tri
+		},
+		{
+			name: 'vi',
+			relativeDegree: 6,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'vii°',
+			relativeDegree: 7,
+			chord: CHORDS.Dim_Tri
+		}
+	] },
+	Minor: { id: 'Minor', name: 'Minor', chords: [
+		{
+			name: 'i',
+			relativeDegree: 1,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'ii°',
+			relativeDegree: 2,
+			chord: CHORDS.Dim_Tri
+		},
+		{
+			name: 'III',
+			relativeDegree: 3,
+			chord: CHORDS.Maj_Tri
+		},
+		{
+			name: 'iv',
+			relativeDegree: 4,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'v',
+			relativeDegree: 5,
+			chord: CHORDS.Min_Tri
+		},
+		{
+			name: 'VI',
+			relativeDegree: 6,
+			chord: CHORDS.Maj_Tri
+		},
+		{
+			name: 'VII',
+			relativeDegree: 7,
+			chord: CHORDS.Maj_Tri
+		}
+	] }
+};
+
+let ALL_ROMAN_NUMERALS = [ROMAN_NUMERALS.Major, ROMAN_NUMERALS.Minor];
