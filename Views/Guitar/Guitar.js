@@ -79,40 +79,49 @@ class Fret extends React.Component {
         {
             case LABELS.None.id:
                 return '';
-            case LABELS.Name.id:
-                return (note !== null) ? note.name : '';
-            case LABELS.Interval.id:
-                return (note !== null) ? note.interval.id : '';
             case LABELS.RelativePosition.id:
                 return this.props.physicalNote.relativePosition;
             case LABELS.AbsolutePosition.id:
                 return this.props.physicalNote.absolutePosition
-            case LABELS.RelativeDegree.id:
-                return (note !== null) ? note.interval.relativeDegree : '';
-            case LABELS.AbsoluteDegree.id:
-                return (note !== null) ? note.absoluteDegree : '';
             case LABELS.Octave.id:
                 return this.props.physicalNote.octave;
             case LABELS.Frequency.id:
                 return this.props.physicalNote.frequency;
-            default:
-                return '';
+            default: {
+                if (note === null)
+                    return '';
+                switch(this.props.displaySettings.label)
+                {
+                    case LABELS.None.id:
+                        return '';
+                    case LABELS.Name.id:
+                        return note.name;
+                    case LABELS.Interval.id:
+                        return note.interval.id;
+                    case LABELS.RelativeDegree.id:
+                        return note.interval.relativeDegree;
+                    case LABELS.AbsoluteDegree.id:
+                        return note.absoluteDegree;
+                    default:
+                        return '';
+                }
+            }
         }
+    }
+
+    getFunctionalNote = () => {
+        return this.props.functionalNotes.find((note) => {
+            return note.relativePosition === this.props.physicalNote.relativePosition;
+        }) || null;
     }
 
     render = () => {
         let classes = ['guitar-fret'];
         if(this.props.open)
             classes.push('guitar-fret-open');
-        let note = null;
-        for(let i = 0; i < this.props.functionalNotes.length; i++) {
-            if(this.props.functionalNotes[i].relativePosition === this.props.physicalNote.relativePosition)
-            {
-                note = this.props.functionalNotes[i];
-                classes.push(`degree-${note.interval.relativeDegree}`);
-                break;
-            }     
-        }
+        let note = this.getFunctionalNote();
+        if(note !== null)
+            classes.push(`degree-${note.interval.relativeDegree}`);
         let name = this.getName(note);
 
 		return e('div', {

@@ -72,15 +72,14 @@ class PianoKey extends React.Component {
         }
     }
 
+    getFunctionalNote = () => {
+        return this.props.functionalNotes.find((note) => {
+            return note.relativePosition === this.props.physicalNote.relativePosition;
+        }) || null;
+    }
+
 	render = () => {
-        let note = null;
-        for(let i = 0; i < this.props.functionalNotes.length; i++) {
-            if(this.props.functionalNotes[i].relativePosition === this.props.physicalNote.relativePosition)
-            {
-                note = this.props.functionalNotes[i];
-                break;
-            }     
-        }
+        let note = this.getFunctionalNote();
         let name = this.getName(note);
 
         if(this.props.type === 'WHITE') {

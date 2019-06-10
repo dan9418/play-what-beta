@@ -11,7 +11,7 @@ class FunctionalNote {
 					this.name = ALL_HOME_DEGREES[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
 				} else {
 					this.absoluteDegree = 0;
-					this.relativePosition = 6;
+					this.relativePosition = (SCALES.Major.intervals[key.homeDegree - 1].semitones + 6 + this.key.accidental) % 12;
 					this.accidental = 0;
 					this.name = INTERVALS.TT.id;
 				}
