@@ -1,22 +1,23 @@
-architecture
-    display settings per view
-    note collection ui
+Default settings
 
-piano
-    expandable ranges
+Range filter
 
-guitar
-    expandable ranges
-    tunable strings
-    voicings
+Extended chords
 
-concepts
-    extended chords
+Architecture
+    AbstractView
+        Transposition by interval, ascending & descending
+        Label configuration
+        Color congifuration
+        Play all sounds
+        Multiple views?
+        Octave type?
+    GuitarView
+        Expandable range
+        Tunable strings
+        Voicings
+    PianoView
+        Expandable range
+    NoteView
 
-interactivity
-    range filter
-    guitar voicings
-    configurable colors
-    transposition
-    routing
-    octave type
+Routing
