@@ -60,7 +60,7 @@ let ALL_INTERVALS = [
 	INTERVALS.m3,
 	INTERVALS.M3,
 	INTERVALS.P4,
-	/*INTERVALS.TT,*/ INTERVALS.A4, INTERVALS.d5,
+	INTERVALS.TT, INTERVALS.A4, INTERVALS.d5,
 	INTERVALS.P5,
 	INTERVALS.A5, INTERVALS.m6,
 	INTERVALS.M6, INTERVALS.d7,
@@ -126,10 +126,11 @@ let SCALES = {
 	Major:				{ id: 'Major',				name: 'Major', 				intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
 	NatualMinor:		{ id: 'NatualMinor',		name: 'Natual Minor', 		intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
 	MajorPentatonic:	{ id: 'MajorPentatonic',	name: 'Major Pentatonic', 	intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6] },
-	MinorPentatonic:	{ id: 'MinorPentatonic',	name: 'Minor Pentatonic', 	intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m7] }
+	MinorPentatonic:	{ id: 'MinorPentatonic',	name: 'Minor Pentatonic', 	intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m7] },
+	Chromatic:			{ id: 'Chromatic',			name: 'Chromatic', 			intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.M2, INTERVALS.m3, INTERVALS.M3, INTERVALS.P4, INTERVALS.TT, INTERVALS.P5, INTERVALS.m6, INTERVALS.M6, INTERVALS.m7, INTERVALS.M7] }
 };
 
-let ALL_SCALES = [SCALES.Major, SCALES.NatualMinor, SCALES.MajorPentatonic, SCALES.MinorPentatonic];
+let ALL_SCALES = [SCALES.Major, SCALES.NatualMinor, SCALES.MajorPentatonic, SCALES.MinorPentatonic, SCALES.Chromatic];
 
 // Modes
 
