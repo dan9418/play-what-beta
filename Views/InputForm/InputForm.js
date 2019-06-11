@@ -5,10 +5,10 @@ class InputForm extends React.Component {
 		this.state = {
 			degree: HOME_DEGREES.C.id,
 			accidental: ACCIDENTALS.Natural.id,
-			concept: CONCEPTS.Mode.id,
+			concept: CONCEPTS.Scale.id,
 				interval: INTERVALS.PU.id,
 				chord: CHORDS.Maj_Tri.id,
-				scale: SCALES.Major.id,
+				scale: SCALES.Chromatic.id,
 				mode: MODES.Ionian.id,
 				romanNumeral: ROMAN_NUMERALS.Major.id,
 					romanNumeralChord: 0,

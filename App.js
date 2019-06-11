@@ -14,6 +14,7 @@ class App extends React.Component {
 	
 	constructor(props) {
 		super(props);
+		// TODO: This state doesn't really matter, but is required for first render
 		this.state = {
 			degree: HOME_DEGREES.C,
 			accidental: ACCIDENTALS.Natural,
