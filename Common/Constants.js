@@ -124,24 +124,26 @@ let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.N
 // Chords
 
 let CHORDS = {
-	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5]				},
-	m9:			{ id: 'm9',			name: 'Minor 9',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.m9]				},
+	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5] },
 	Maj_6:		{ id: 'MAJ_6',		name: 'Major 6th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6]	},
 	Dom_7:		{ id: 'DOM_7',		name: 'Dominant "Major-Minor" 7th',	intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.m7]	},
 	Maj_7:		{ id: 'MAJ_7',		name: 'Major 7th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7]	},
-	Aug_Tri:	{ id: 'AUG_TRI',	name: 'Augmented Triad',			intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.A5]				},
+	M9:			{ id: 'M9',			name: 'Major 9',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7, INTERVALS.M9]	},
+	M11:		{ id: 'M11',		name: 'Major 11',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7, INTERVALS.M9, INTERVALS.P11] },
+	M13:		{ id: 'M13',		name: 'Major 13',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7, INTERVALS.M9, INTERVALS.P11, INTERVALS.M13] },
+	Aug_Tri:	{ id: 'AUG_TRI',	name: 'Augmented Triad',			intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.A5] },
 	Aug_7:		{ id: 'AUG_7',		name: 'Augmented Seventh',			intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.A5, INTERVALS.m7]	},
-	Min_Tri:	{ id: 'MIN_TRI',	name: 'Minor Triad',				intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P5]				},
+	Min_Tri:	{ id: 'MIN_TRI',	name: 'Minor Triad',				intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P5] },
 	Min_6:		{ id: 'MIN_6',		name: 'Minor 6th',					intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P5, INTERVALS.M6]	},
 	Min_7:		{ id: 'MIN_7',		name: 'Minor 7th',					intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P5, INTERVALS.m7]	},
 	Min_Maj_7:	{ id: 'MIN_MAJ_7',	name: 'Minor-Major 7th',			intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.P5, INTERVALS.M7]	},
-	Dim_Tri:	{ id: 'DIM_TRI',	name: 'Diminished Triad',			intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.d5]				},
+	Dim_Tri:	{ id: 'DIM_TRI',	name: 'Diminished Triad',			intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.d5] },
 	Dim_7:		{ id: 'DIM_7',		name: 'Diminished 7th',				intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.d5, INTERVALS.d7]	},
 	Half_Dim_7:	{ id: 'HALF_DIM_7',	name: 'Half-Diminished 7th',		intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.d5, INTERVALS.m7]	}
 };
 
 let ALL_CHORDS = [
-	CHORDS.Maj_Tri, CHORDS.m9, CHORDS.Maj_6, CHORDS.Dom_7, CHORDS.Maj_7,
+	CHORDS.Maj_Tri, CHORDS.Maj_6, CHORDS.Dom_7, CHORDS.Maj_7, CHORDS.M9, CHORDS.M11, CHORDS.M13,
 	CHORDS.Aug_Tri, CHORDS.Aug_7,
 	CHORDS.Min_Tri, CHORDS.Min_6, CHORDS.Min_7, CHORDS.Min_Maj_7,
 	CHORDS.Dim_Tri, CHORDS.Dim_7, CHORDS.Half_Dim_7
