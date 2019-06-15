@@ -34,23 +34,38 @@ let ALL_LABELS = [LABELS.None, LABELS.Name, LABELS.Interval, LABELS.RelativePosi
 // Intervals
 
 let INTERVALS = {
-	PU: { id: 'PU',		name: 'Perfect Unison',	base: true,		relativeDegree: 1,	semitones: 0  },
-	m2: { id: 'm2',		name: 'Minor 2nd',		base: true,		relativeDegree: 2,	semitones: 1  },
-	M2: { id: 'M2',		name: 'Major 2nd',		base: true,		relativeDegree: 2,	semitones: 2  },
-	m3: { id: 'm3',		name: 'Minor 3rd',		base: true,		relativeDegree: 3,	semitones: 3  },
-	M3: { id: 'M3',		name: 'Major 3rd',		base: true,		relativeDegree: 3,	semitones: 4  },
-	P4: { id: 'P4',		name: 'Perfect 4th',	base: true,		relativeDegree: 4,	semitones: 5  },
-	A4: { id: 'A4',		name: 'Augmented 4th',	base: false,	relativeDegree: 4,	semitones: 6  },
-	TT: { id: 'TT',		name: 'Tritone',		base: true,		relativeDegree: 0,	semitones: 6  },
-	d5: { id: 'd5',		name: 'Diminished 5th',	base: false,	relativeDegree: 5,	semitones: 6  },
-	P5: { id: 'P5',		name: 'Perfect 5th',	base: true,		relativeDegree: 5,	semitones: 7  },
-	A5: { id: 'A5',		name: 'Augmented 5th',	base: false,	relativeDegree: 5,	semitones: 8  },
-	m6: { id: 'm6',		name: 'Minor 6th',		base: true,		relativeDegree: 6,	semitones: 8  },
-	M6: { id: 'M6',		name: 'Major 6th',		base: true,		relativeDegree: 6,	semitones: 9  },
-	d7: { id: 'd7',		name: 'Diminished 7th',	base: false,	relativeDegree: 7,	semitones: 9  },
-	m7: { id: 'm7',		name: 'Minor 7th',		base: true,		relativeDegree: 7,	semitones: 10 },
-	M7: { id: 'M7',		name: 'Major 7th',		base: true,		relativeDegree: 7,	semitones: 11 },
-	P8: { id: 'P8',		name: 'Perfect Octave',	base: true,		relativeDegree: 1,	semitones: 12 }
+	PU: { id: 'PU',			name: 'Perfect Unison',	relativeDegree: 1,	degree: 1,	semitones: 0  },
+	m2: { id: 'm2',			name: 'Minor 2nd',		relativeDegree: 2,	degree: 2,	semitones: 1  },
+	M2: { id: 'M2',			name: 'Major 2nd',		relativeDegree: 2,	degree: 2,	semitones: 2  },
+	m3: { id: 'm3',			name: 'Minor 3rd',		relativeDegree: 3,	degree: 3,	semitones: 3  },
+	M3: { id: 'M3',			name: 'Major 3rd',		relativeDegree: 3,	degree: 3,	semitones: 4  },
+	P4: { id: 'P4',			name: 'Perfect 4th',	relativeDegree: 4,	degree: 4,	semitones: 5  },
+	A4: { id: 'A4',			name: 'Augmented 4th',	relativeDegree: 4,	degree: 4,	semitones: 6  },
+	TT: { id: 'TT',			name: 'Tritone',		relativeDegree: 0,	degree: 0,	semitones: 6  },
+	d5: { id: 'd5',			name: 'Diminished 5th',	relativeDegree: 5,	degree: 5,	semitones: 6  },
+	P5: { id: 'P5',			name: 'Perfect 5th',	relativeDegree: 5,	degree: 5,	semitones: 7  },
+	A5: { id: 'A5',			name: 'Augmented 5th',	relativeDegree: 5,	degree: 5,	semitones: 8  },
+	m6: { id: 'm6',			name: 'Minor 6th',		relativeDegree: 6,	degree: 6,	semitones: 8  },
+	M6: { id: 'M6',			name: 'Major 6th',		relativeDegree: 6,	degree: 6,	semitones: 9  },
+	d7: { id: 'd7',			name: 'Diminished 7th',	relativeDegree: 7,	degree: 7,	semitones: 9  },
+	m7: { id: 'm7',			name: 'Minor 7th',		relativeDegree: 7,	degree: 7,	semitones: 10 },
+	M7: { id: 'M7',			name: 'Major 7th',		relativeDegree: 7,	degree: 7,	semitones: 11 },
+	P8: { id: 'P8',			name: 'Perfect Octave',	relativeDegree: 1,	degree: 8,	semitones: 12 },
+	m9: { id: 'm9',			name: 'Minor 9th',		relativeDegree: 2,	degree: 9,	semitones: 13  },
+	M9: { id: 'M9',			name: 'Major 9th',		relativeDegree: 2,	degree: 9,	semitones: 14  },
+	m10: { id: 'm10',		name: 'Minor 10th',		relativeDegree: 3,	degree: 10,	semitones: 15  },
+	M10: { id: 'M10',		name: 'Major 10th',		relativeDegree: 3,	degree: 10,	semitones: 16  },
+	P11: { id: 'P11',		name: 'Perfect 11th',	relativeDegree: 4,	degree: 11,	semitones: 17  },
+	A11: { id: 'A11',		name: 'Augmented 11h',	relativeDegree: 4,	degree: 11,	semitones: 18  },
+	dTT: { id: 'dTT',		name: 'Double Tritone',	relativeDegree: 0,	degree: 0,	semitones: 18  },
+	d12: { id: 'd12',		name: 'Diminished 12th',relativeDegree: 5,	degree: 12,	semitones: 18  },
+	P12: { id: 'P12',		name: 'Perfect 12th',	relativeDegree: 5,	degree: 12,	semitones: 19  },
+	A12: { id: 'A12',		name: 'Augmented 12th',	relativeDegree: 5,	degree: 12,	semitones: 20  },
+	m13: { id: 'm13',		name: 'Minor 13th',		relativeDegree: 6,	degree: 13,	semitones: 20  },
+	M13: { id: 'M13',		name: 'Major 13th',		relativeDegree: 6,	degree: 13,	semitones: 21  },
+	d14: { id: 'd14',		name: 'Diminished 14th',relativeDegree: 7,	degree: 14,	semitones: 21  },
+	m14: { id: 'm14',		name: 'Minor 14th',		relativeDegree: 7,	degree: 14,	semitones: 22 },
+	M14: { id: 'M14',		name: 'Major 14th',		relativeDegree: 7,	degree: 14,	semitones: 23 }
 };
 
 let ALL_INTERVALS = [
@@ -66,7 +81,18 @@ let ALL_INTERVALS = [
 	INTERVALS.M6, INTERVALS.d7,
 	INTERVALS.m7,
 	INTERVALS.M7,
-	INTERVALS.P8
+	INTERVALS.P8,
+	INTERVALS.m9,
+	INTERVALS.M9,
+	INTERVALS.m10,
+	INTERVALS.M10,
+	INTERVALS.P11,
+	INTERVALS.dTT, INTERVALS.A11, INTERVALS.d12,
+	INTERVALS.P12,
+	INTERVALS.A12, INTERVALS.m13,
+	INTERVALS.M13, INTERVALS.d14,
+	INTERVALS.m14,
+	INTERVALS.M14
 ];
 
 // Home degrees
@@ -99,6 +125,7 @@ let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.N
 
 let CHORDS = {
 	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5]				},
+	m9:			{ id: 'm9',			name: 'Minor 9',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.m9]				},
 	Maj_6:		{ id: 'MAJ_6',		name: 'Major 6th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6]	},
 	Dom_7:		{ id: 'DOM_7',		name: 'Dominant "Major-Minor" 7th',	intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.m7]	},
 	Maj_7:		{ id: 'MAJ_7',		name: 'Major 7th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7]	},
@@ -114,7 +141,7 @@ let CHORDS = {
 };
 
 let ALL_CHORDS = [
-	CHORDS.Maj_Tri, CHORDS.Maj_6, CHORDS.Dom_7, CHORDS.Maj_7,
+	CHORDS.Maj_Tri, CHORDS.m9, CHORDS.Maj_6, CHORDS.Dom_7, CHORDS.Maj_7,
 	CHORDS.Aug_Tri, CHORDS.Aug_7,
 	CHORDS.Min_Tri, CHORDS.Min_6, CHORDS.Min_7, CHORDS.Min_Maj_7,
 	CHORDS.Dim_Tri, CHORDS.Dim_7, CHORDS.Half_Dim_7

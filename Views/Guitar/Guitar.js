@@ -121,7 +121,7 @@ class Fret extends React.Component {
             classes.push('guitar-fret-open');
         let note = this.getFunctionalNote();
         if(note !== null)
-            classes.push(`degree-${note.interval.relativeDegree}`);
+            classes.push(`degree-${note.interval.degree}`);
         let name = this.getName(note);
 
 		return e('div', {

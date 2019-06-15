@@ -19,7 +19,7 @@ class NoteDisplay extends React.Component {
 
 	render = () => {
         let note = this.props.functionalNote;
-        let classes = ['note', `degree-${note.interval.relativeDegree}`];
+        let classes = ['note', `degree-${note.interval.degree}`];
 
         this.physicalNote = new PhysicalNote(
             ALL_HOME_DEGREES[this.props.functionalNote.key.homeDegree - 1].relativePosition + 
@@ -30,7 +30,7 @@ class NoteDisplay extends React.Component {
             className: classes.join(' '),
             onClick: () => { this.sound(); }
         }, note.name,
-            e('div', {className: 'note-degree'}, note.interval.relativeDegree),
+            e('div', {className: 'note-degree'}, note.interval.degree),
             e('div', {className: 'note-interval'}, note.relativePosition),
             e('div', {className: 'note-interval'}, note.interval.id)
         );

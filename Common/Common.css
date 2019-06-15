@@ -54,3 +54,38 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: purple;
 	color: white;
 }
+
+.degree-8 {
+	background-color: lightcoral;
+	color: black;
+}
+
+.degree-9 {
+	background-color: lightsalmon;
+	color: black;
+}
+
+.degree-10 {
+	background-color: lightyellow;
+	color: black;
+}
+
+.degree-11 {
+	background-color: lightgreen;
+	color: black;
+}
+
+.degree-12 {
+	background-color: lightblue;
+	color: black;
+}
+
+.degree-13 {
+	background-color: lightsteelblue;
+	color: black;
+}
+
+.degree-14 {
+	background-color: lightpink;
+	color: black;
+}
