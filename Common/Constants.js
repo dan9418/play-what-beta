@@ -125,6 +125,8 @@ let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.N
 
 let CHORDS = {
 	Maj_Tri:	{ id: 'MAJ_TRI',	name: 'Major Triad',				intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5] },
+	Sus2:		{ id: 'SUS2',		name: 'Suspended 2nd',				intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.P5] },
+	Sus4:		{ id: 'SUS4',		name: 'Suspended 4th',				intervals: [INTERVALS.PU, INTERVALS.P4, INTERVALS.P5] },
 	Maj_6:		{ id: 'MAJ_6',		name: 'Major 6th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6]	},
 	Dom_7:		{ id: 'DOM_7',		name: 'Dominant "Major-Minor" 7th',	intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.m7]	},
 	Maj_7:		{ id: 'MAJ_7',		name: 'Major 7th',					intervals: [INTERVALS.PU, INTERVALS.M3, INTERVALS.P5, INTERVALS.M7]	},
@@ -143,7 +145,9 @@ let CHORDS = {
 };
 
 let ALL_CHORDS = [
-	CHORDS.Maj_Tri, CHORDS.Maj_6, CHORDS.Dom_7, CHORDS.Maj_7, CHORDS.M9, CHORDS.M11, CHORDS.M13,
+	CHORDS.Maj_Tri, CHORDS.Maj_6, 
+	CHORDS.Sus2, CHORDS.Sus4,
+	CHORDS.Dom_7, CHORDS.Maj_7, CHORDS.M9, CHORDS.M11, CHORDS.M13,
 	CHORDS.Aug_Tri, CHORDS.Aug_7,
 	CHORDS.Min_Tri, CHORDS.Min_6, CHORDS.Min_7, CHORDS.Min_Maj_7,
 	CHORDS.Dim_Tri, CHORDS.Dim_7, CHORDS.Half_Dim_7

@@ -1,15 +1,14 @@
-Default settings
-
-Range filter
-
-Extended chords
-
 Architecture
+    Input
+        Key selection
+        Concept selection
+        Concept options
     AbstractView
         Transposition by interval, ascending & descending
         Label configuration
         Color congifuration
         Play all sounds
+        Range filter
         Multiple views?
         Octave type?
     GuitarView
