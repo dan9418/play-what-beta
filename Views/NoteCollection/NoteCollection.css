@@ -3,13 +3,65 @@
 }
 
 .note {
-	padding: 10px;
-	font-size: 20px;
-	width: 25px;
+	padding: 5px;
+	height: 70px;
+	width: 70px;
 	display: inline-block;
+	position: relative;
+	margin: 1px
+}
+
+.note-row {
+	display: block;
+}
+
+.note-row-mid {
+	position: relative;
+    top: 20px;
 }
 
 .note:hover {
 	cursor: pointer;
 	background-color: darkgray !important;
+}
+
+.note-name {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.note-octave {
+	display: inline-block;
+	font-size: 15px;
+	margin: 3px;
+}
+
+.note-relative-position {
+	display: inline-block;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.note-absolute-position {
+	display: inline-block;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.note-interval {
+	display: inline-block;
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+}
+
+.note-frequency {
+	display: inline-block;
+	position: absolute;
+	font-size: 12px;
+	right: 5px;
+	bottom: 5px;
 }

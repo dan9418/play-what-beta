@@ -27,12 +27,21 @@ class NoteDisplay extends React.Component {
             );
 
         return e('div', {
-            className: classes.join(' '),
-            onClick: () => { this.sound(); }
-        }, note.name,
-            e('div', {className: 'note-degree'}, note.interval.degree),
-            e('div', {className: 'note-interval'}, note.relativePosition),
-            e('div', {className: 'note-interval'}, note.interval.id)
+                className: classes.join(' '),
+                onClick: () => { this.sound(); }
+            },
+            e('div', {className: 'note-row note-row-top'},
+                e('div', {className: 'note-relative-position'}, note.relativePosition),
+                e('div', {className: 'note-absolute-position'}, this.physicalNote.absolutePosition)
+            ),
+            e('div', {className: 'note-row note-row-mid'},
+                e('div', {className: 'note-name'}, note.name),
+                e('div', {className: 'note-octave'}, this.physicalNote.octave)
+            ),
+            e('div', {className: 'note-row note-row-bot'},
+                e('div', {className: 'note-interval'}, note.interval.id),
+                e('div', {className: 'note-frequency'}, this.physicalNote.frequency + ' Hz')
+            )
         );
     };
 }
