@@ -102,11 +102,15 @@ class App extends React.Component {
 		}
 
 		// Render
-		return e('div', { id: 'appContainer' },
+		/*return e('div', { id: 'appContainer' },
 			e(InputForm, { onChange: this.onChange }, null),
 			e(ViewManager, { keyDef: keyDef, intervalGroups: intervalGroups, displaySettings: displaySettings }, null),
-		);
-  	};
+		);*/
+
+		return e('div', { id: 'appContainer' },
+				e(SettingsPanel, { id: 'main-panel' }, null)
+			);
+	  };
 }
 
 const domContainer = document.querySelector('#app');
