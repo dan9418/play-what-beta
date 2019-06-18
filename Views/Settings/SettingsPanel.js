@@ -13,7 +13,7 @@ class SettingsPanel extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: 'settings-panel-' + this.props.id },
+        return e('div', { id: 'settings-panel-' + this.props.id, className: 'settings-panel' },
             e('pre', { id: 'display-text' }, JSON.stringify(this.state)),
             e(SettingsSelect, {
                 id: 'concepts',

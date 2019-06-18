@@ -1,0 +1,12 @@
+.settings-select {
+    margin: 5px;
+    text-align: right;
+}
+
+.settings-select-label {
+    display: inline-block;
+}
+
+.settings-select-dropdown {
+    width: 200px;
+}
