@@ -4,7 +4,7 @@ class DefaultDriver extends React.Component {
         super(props);
         this.state = {
             homeDegree: HOME_DEGREES.C.id,
-            concept: CONCEPTS.Scale.id,
+            concept: CONCEPTS.Chord.id,
             accidental: ACCIDENTALS.Natural.id,
             scale: SCALES.Chromatic.id,
             interval: INTERVALS.P5.id,
@@ -91,7 +91,7 @@ class DefaultDriver extends React.Component {
 
         return e('div', { id: 'default-driver' },
             //e('pre', { id: 'display-text' }, JSON.stringify(this.state)),
-            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting }, null),
+            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state }, null),
             this.getNoteCollection(notes, displaySettings),
             this.getPiano(notes, displaySettings),
             this.getGuitar(notes, displaySettings)

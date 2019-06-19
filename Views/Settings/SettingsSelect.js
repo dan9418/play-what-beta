@@ -19,7 +19,7 @@ class SettingsSelect extends React.Component {
 	render = () => {
 		return e('div', { id: this.props.id, className: 'settings-select' },
             e('div', { className: 'settings-select-label' }, this.props.name),
-            e('select', { className: 'settings-select-dropdown', onChange: this.props.onChange },
+            e('select', { className: 'settings-select-dropdown', onChange: this.props.onChange, defaultValue: this.props.default },
                 this.getOptions()
             ),
         );
