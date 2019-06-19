@@ -11,8 +11,7 @@ let CONCEPTS = {
     RomanNumeral:  { id: 'romanNumeral',  name: 'Roman Numerals',	active: true }
 };
 
-let ALL_CONCEPTS = [CONCEPTS.Label, CONCEPTS.Degree, CONCEPTS.Accidental, CONCEPTS.Interval,
-    CONCEPTS.Chord, CONCEPTS.Scale, CONCEPTS.Mode, CONCEPTS.RomanNumeral];
+let ALL_CONCEPTS = [CONCEPTS.Interval, CONCEPTS.Chord, CONCEPTS.Scale, CONCEPTS.Mode, CONCEPTS.RomanNumeral];
 
 // Labels
 
@@ -259,3 +258,19 @@ let ROMAN_NUMERALS = {
 };
 
 let ALL_ROMAN_NUMERALS = [ROMAN_NUMERALS.Major, ROMAN_NUMERALS.Minor];
+
+let SETTINGS = {
+	Concept: { id: 'concept', name: 'Concept', data: ALL_CONCEPTS },
+	Interval: { id: 'interval', name: 'Interval', data: ALL_INTERVALS },
+	Chord: { id: 'chord', name: 'Chord', data: ALL_CHORDS },
+	Scale: { id: 'scale', name: 'Scale', data: ALL_SCALES },
+	Mode: { id: 'mode', name: 'Mode', data: ALL_MODES },
+	RomanNumeral: { id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS },
+	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
+	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS },
+	Label: { id: 'label', name: 'Label', data: ALL_LABELS }
+};
+
+
+	
+ 

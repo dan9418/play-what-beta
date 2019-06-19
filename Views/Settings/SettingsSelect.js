@@ -7,7 +7,11 @@ class SettingsSelect extends React.Component {
     getOptions = () => {
 		let options = [];
 		for(let i = 0; i < this.props.options.length; i++) {
-			options.push(e('option', { key: this.props.id + '-opt-' + i, className: 'settings-select-dropdown-option', value: this.props.options[i].value }, this.props.options[i].name));
+			options.push(e('option', {
+                key: this.props.id + '-opt-' + i,
+                className: 'settings-select-dropdown-option',
+                value: this.props.options[i].id
+            }, this.props.options[i].name));
 		}
 		return options;
 	}

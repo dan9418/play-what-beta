@@ -102,13 +102,13 @@ class App extends React.Component {
 		}
 
 		// Render
-		return (true) ?
+		return (false) ?
 
 		e('div', { id: 'appContainer' },
 			e(InputForm, { onChange: this.onChange }, null),
 			e(ViewManager, { keyDef: keyDef, intervalGroups: intervalGroups, displaySettings: displaySettings }, null),
 		) :
-		
+
 		e('div', { id: 'appContainer' },
 			e(SettingsPanel, { id: 'main-panel' }, null)
 		);

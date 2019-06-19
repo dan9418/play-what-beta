@@ -1,42 +1,11 @@
 .settings-panel {
-    
-}
-
-.settings-tab-handle {
-    background-color: lightskyblue;
-    display: inline-block;
-    cursor: pointer;
+    background-color: white;
     padding: 10px;
-    height: 20px;
-    width: 50px;
+    margin: 10px;
 }
 
-#settings-tab-handle-concept {
-    background-color: rgb(20%, 50%, 50%);
-    right: 10px;
-    z-index: 0;
-}
-
-#settings-tab-handle-key {
-    background-color: rgb(40%, 50%, 50%);
-    right: -60px;
-    z-index: -10;
-}
-
-#settings-tab-handle-display {
-    background-color: rgb(60%, 50%, 50%);
-    right: -130px;
-    z-index: -10;
-}
-
-#settings-tab-handle-rhythm {
-    background-color: rgb(80%, 50%, 50%);
-    right: -200px;
-    z-index: -10;
-}
-
-#settings-tab-handle-sound {
-    background-color: rgb(100%, 50%, 50%);
-    right: -270px;
-    z-index: -10;
+.settings-subpanel {
+    background-color: steelblue;
+    padding: 10px;
+    margin: 10px;
 }
