@@ -51,7 +51,7 @@ class ConceptSelection extends React.Component {
 
 	render = () => {
         return e('div', { id: 'settings-subpanel-' + this.props.id, className: 'settings-subpanel' },
-        e('pre', { id: 'display-text' }, JSON.stringify(this.state)),    
+        //e('pre', { id: 'display-text' }, JSON.stringify(this.state)),    
         e(SettingsSelect, {
                     id: SETTINGS.Concept.id,
                     name: SETTINGS.Concept.name,
@@ -96,21 +96,13 @@ class SettingsPanel extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.state = {};
-    }
-
-    updateSetting = (name, value) => {
-        let update = {};
-        update[name] = value;
-        this.setState(update);
     }
 
 	render = () => {
         return e('div', { id: 'settings-panel-' + this.props.id, className: 'settings-panel' },
-            e('pre', { id: 'display-text' }, JSON.stringify(this.state)),
-            e(KeySelection, { id: 'key', updateSetting: this.updateSetting }, null),
-            e(ConceptSelection, { id: 'concept', updateSetting: this.updateSetting }, null),
-            e(DisplaySelection, { id: 'display', updateSetting: this.updateSetting }, null)
+            e(KeySelection, { id: 'key', updateSetting: this.props.updateSetting }, null),
+            e(ConceptSelection, { id: 'concept', updateSetting: this.props.updateSetting }, null),
+            e(DisplaySelection, { id: 'display', updateSetting: this.props.updateSetting }, null)
         );
     };
 }
