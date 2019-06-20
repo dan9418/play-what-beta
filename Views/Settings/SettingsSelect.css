@@ -7,26 +7,23 @@
     display: block;
 }
 
-.settings-select-dropdown {
-    width: 200px;
-}
-
 .settings-select-option {
     display: inline-block;
-    background-color: darkslateblue;
+    background-color: #CC625F;
     text-align: center;
     vertical-align: middle;
+    padding: 5px;
     margin: 5px;
-    line-height: 50px;
-    height: 50px;
-    width: 75px;
+    line-height: 40px;
+    height: 40px;
+    min-width: 40px;
 }
 
 .settings-select-option:hover {
-    background-color: darkcyan;
+    background-color: #BB514E;
     cursor: pointer;
 }
 
 .active-setting {
-    border: 2px solid yellow;
+    border: 2px solid #EA9C1F;
 }

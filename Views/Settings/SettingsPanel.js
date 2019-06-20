@@ -48,7 +48,7 @@ class ConceptSelection extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-            conceptId: this.props.defaultSettings[SETTINGS.Concept.id]
+            conceptId: this.props.defaultSettings[SETTINGS.Concept.id].id
         }
     }
 
@@ -60,7 +60,7 @@ class ConceptSelection extends React.Component {
                     name: SETTINGS.Concept.name,
                     options: SETTINGS.Concept.data,
                     default: this.props.defaultSettings[SETTINGS.Concept.id],
-                    updateSetting: this.props.updateSetting
+                    updateSetting: (property, value) => { this.setState({ conceptId: value.id }); this.props.updateSetting(property, value) }
                 }, null),
             (this.state.conceptId === SETTINGS.Interval.id && e(SettingsSelect, {
                 id: SETTINGS.Interval.id,

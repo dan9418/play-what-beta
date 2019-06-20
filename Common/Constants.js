@@ -111,11 +111,11 @@ let ALL_HOME_DEGREES = [HOME_DEGREES.C, HOME_DEGREES.D, HOME_DEGREES.E, HOME_DEG
 // Accidentals
 
 let ACCIDENTALS = {
-	DoubleSharp:	{ id: 'DoubleSharp',	name: 'xx',	offset:  2 },
-	Sharp:			{ id: 'Sharp',			name: '#',	offset:  1 },
-	Natural:		{ id: 'Natural',		name: '♮',	offset:  0 },
+	DoubleFlat:		{ id: 'DoubleFlat',		name: 'bb',	offset: -2 },
 	Flat:			{ id: 'Flat',			name: 'b',	offset: -1 },
-	DoubleFlat:		{ id: 'DoubleFlat',		name: 'bb',	offset: -2 }
+	Natural:		{ id: 'Natural',		name: '♮',	offset:  0 },
+	Sharp:			{ id: 'Sharp',			name: '#',	offset:  1 },
+	DoubleSharp:	{ id: 'DoubleSharp',	name: 'xx',	offset:  2 }
 };
 
 let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.Natural, ACCIDENTALS.Flat, ACCIDENTALS.DoubleFlat];

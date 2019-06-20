@@ -1,13 +1,13 @@
 .settings-panel {
     padding: 10px;
     margin: 10px;
-    display: inline-block;
+    display: block;
 }
 
 .settings-subpanel {
-    background-color: steelblue;
+    background-color: #2B4C5F;
     color: white;
     padding: 10px;
     margin: 10px;
-    display: inline-block;
+    display: block;
 }
