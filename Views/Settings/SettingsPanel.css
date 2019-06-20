@@ -4,10 +4,7 @@
     display: block;
 }
 
-.settings-subpanel {
-    background-color: #2B4C5F;
-    color: white;
-    padding: 10px;
-    margin: 10px;
-    display: block;
+.setting-manager {
+    margin: 5px;
+    display: inline-block;
 }

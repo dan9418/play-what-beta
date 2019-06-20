@@ -271,6 +271,24 @@ let SETTINGS = {
 	Label: { id: 'label', name: 'Label', data: ALL_LABELS }
 };
 
+let SETTINGS_TREE = [
+	{ id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
+	{ id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS },
+	{
+		id: 'concept',
+		name: 'Concept',
+		data: ALL_CONCEPTS,
+		children: [
+			{ condition: CONCEPTS.Interval.id, id: 'interval', name: 'Interval', data: ALL_INTERVALS },
+			{ condition: CONCEPTS.Chord.id, id: 'chord', name: 'Chord', data: ALL_CHORDS },
+			{ condition: CONCEPTS.Scale.id, id: 'scale', name: 'Scale', data: ALL_SCALES },
+			{ condition: CONCEPTS.Mode.id, id: 'mode', name: 'Mode', data: ALL_MODES },
+			{ condition: CONCEPTS.RomanNumeral.id, id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS }
+		]
+	},
+	{ id: 'label', name: 'Label', data: ALL_LABELS }
+];
+
 
 	
  

@@ -1,10 +1,16 @@
 .settings-select {
+    background-color: #2B4C5F;
+    color: white;
     margin: 5px;
     text-align: center;
+    display: inline-block;
+    border: 1px solid white;
 }
 
 .settings-select-label {
     display: block;
+    padding: 2px;
+    padding-top: 5px;
 }
 
 .settings-select-option {

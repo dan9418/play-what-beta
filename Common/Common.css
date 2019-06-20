@@ -4,11 +4,16 @@
 }
 
 html {
-	background-color: #E7E7E7
+	background-color: lightslategray
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
+}
+
+#page-title {
+	font-size: 20px;
+	color: white;
 }
 
 .group-label {
