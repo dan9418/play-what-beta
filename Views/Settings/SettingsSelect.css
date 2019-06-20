@@ -1,12 +1,32 @@
 .settings-select {
     margin: 5px;
-    text-align: right;
+    text-align: center;
 }
 
 .settings-select-label {
-    display: inline-block;
+    display: block;
 }
 
 .settings-select-dropdown {
     width: 200px;
+}
+
+.settings-select-option {
+    display: inline-block;
+    background-color: darkslateblue;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+    line-height: 50px;
+    height: 50px;
+    width: 75px;
+}
+
+.settings-select-option:hover {
+    background-color: darkcyan;
+    cursor: pointer;
+}
+
+.active-setting {
+    border: 2px solid yellow;
 }

@@ -7,10 +7,13 @@ class SettingsSelect extends React.Component {
     getOptions = () => {
 		let options = [];
 		for(let i = 0; i < this.props.options.length; i++) {
-			options.push(e('option', {
+            let classes = ['settings-select-option'];
+            if(this.props.default.id === this.props.options[i].id)
+                classes.push('active-setting');
+			options.push(e('div', {
                 key: this.props.id + '-opt-' + i,
-                className: 'settings-select-dropdown-option',
-                value: this.props.options[i].id
+                className: classes.join(' '),
+                onClick: () => { this.props.updateSetting(this.props.id, this.props.options[i]) }
             }, this.props.options[i].name));
 		}
 		return options;
@@ -19,9 +22,7 @@ class SettingsSelect extends React.Component {
 	render = () => {
 		return e('div', { id: this.props.id, className: 'settings-select' },
             e('div', { className: 'settings-select-label' }, this.props.name),
-            e('select', { className: 'settings-select-dropdown', onChange: this.props.onChange, defaultValue: this.props.default },
-                this.getOptions()
-            ),
+            this.getOptions()
         );
     };
 }

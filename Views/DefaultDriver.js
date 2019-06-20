@@ -3,15 +3,15 @@ class DefaultDriver extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-            homeDegree: HOME_DEGREES.C.id,
-            concept: CONCEPTS.Chord.id,
-            accidental: ACCIDENTALS.Natural.id,
-            scale: SCALES.Chromatic.id,
-            interval: INTERVALS.P5.id,
-            chord: CHORDS.Maj_Tri.id,
-            mode: MODES.Ionian.id,
-            romanNumeral: ROMAN_NUMERALS.Major.id,
-            label: LABELS.Interval.id
+            homeDegree: HOME_DEGREES.C,
+            concept: CONCEPTS.Chord,
+            accidental: ACCIDENTALS.Natural,
+            scale: SCALES.Chromatic,
+            interval: INTERVALS.P5,
+            chord: CHORDS.Maj_Tri,
+            mode: MODES.Ionian,
+            romanNumeral: ROMAN_NUMERALS.Major,
+            label: LABELS.Interval
         };
     }
 
@@ -21,28 +21,17 @@ class DefaultDriver extends React.Component {
         this.setState(update);
     }
 
-    getKey = () => {
-        let homeDegree = ALL_HOME_DEGREES.find((degree) => { return degree.id === this.state.homeDegree });
-        let accidental = ALL_ACCIDENTALS.find((accidental) => { return accidental.id === this.state.accidental });
-        return new Key(homeDegree, accidental)
-    }
-
     getIntervals = () => {
-		switch(this.state.concept) {
+		switch(this.state.concept.id) {
             case SETTINGS.Interval.id:
-                let interval = ALL_INTERVALS.find((interval) => { return interval.id === this.state.interval });
-				return [INTERVALS.PU, interval];
+				return [INTERVALS.PU, this.state.interval];
             case SETTINGS.Chord.id:
-                let chord = ALL_CHORDS.find((chord) => { return chord.id === this.state.chord });
-				return chord.intervals;
+				return this.state.chord.intervals;
             case SETTINGS.Scale.id:
-                let scale = ALL_SCALES.find((scale) => { return scale.id === this.state.scale });
-				return scale.intervals;
+				return this.state.scale.intervals;
             case SETTINGS.Mode.id:
-                let mode = ALL_MODES.find((mode) => { return mode.id === this.state.mode });
-				return mode.intervals;
+				return this.state.mode.intervals;
             case SETTINGS.RomanNumeral.id:
-                let romanNumeral = ALL_ROMAN_NUMERALS.find((romanNumeral) => { return romanNumeral.id === this.state.romanNumeral });
 				return [];
 			default:
 				return [];
@@ -81,12 +70,12 @@ class DefaultDriver extends React.Component {
 	}
 
 	render = () => {
-        let key = this.getKey();
+        let key = new Key(this.state.homeDegree, this.state.accidental)
         let intervals = this.getIntervals()
         let notes = this.getFunctionalNotes(key, intervals);
 
         let displaySettings = {
-            label: this.state.label
+            label: this.state.label.id
         }
 
         return e('div', { id: 'default-driver' },
