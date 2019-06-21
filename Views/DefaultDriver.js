@@ -80,8 +80,8 @@ class DefaultDriver extends React.Component {
 
         return e('div', { id: 'default-driver' },
             //e('pre', { id: 'display-text' }, JSON.stringify(this.state)),
-            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state }, null),
             this.getNoteCollection(notes, displaySettings),
+            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state }, null),
             this.getPiano(notes, displaySettings),
             this.getGuitar(notes, displaySettings)
         );
