@@ -8,3 +8,8 @@
     margin: 5px;
     display: inline-block;
 }
+
+#top-bar {
+    background-color: #2B4C5F;
+    padding: 10px;
+}

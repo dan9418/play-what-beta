@@ -1,6 +1,9 @@
 .piano {
 	height: 100%;
 	padding: 20px;
+	display: inline-block;
+	position: absolute;
+	left: 0;
 }
 
 .piano-key {

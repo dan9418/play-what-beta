@@ -5,11 +5,11 @@
 .note {
 	padding: 5px;
 	height: 40px;
-	width: 80px;
+	width: 60px;
 	font-size: 12px;
 	display: inline-block;
 	position: relative;
-	margin: 1px
+	margin: 3px
 }
 
 .note-row {

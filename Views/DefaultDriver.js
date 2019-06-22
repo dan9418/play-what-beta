@@ -39,35 +39,28 @@ class DefaultDriver extends React.Component {
 	}
 
     getFunctionalNotes = (key, intervals) => {
-		let notes = [];
-		for(let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(key, intervals[i]);
-			notes.push(functionalNote);
-		}
-		return notes;
-    }
-
-    getNoteCollection = (notes, displaySettings) => {
-		return e(NoteCollection, {
-			functionalNotes: notes,
-			displaySettings: displaySettings
-		}, null);
+      let notes = [];
+      for(let i = 0; i < intervals.length; i++) {
+        let functionalNote = new FunctionalNote(key, intervals[i]);
+        notes.push(functionalNote);
+      }
+      return notes;
     }
     
     getPiano = (notes, displaySettings) => {
-		return e(Piano, {
-            functionalNotes: notes,
-            length: 25,
-			displaySettings: displaySettings
-		}, null);
+      return e(Piano, {
+              functionalNotes: notes,
+              length: 25,
+        displaySettings: displaySettings
+      }, null);
     }
     
     getGuitar = (notes, displaySettings) => {
-		return e(Guitar, {
-			functionalNotes: notes,
-			displaySettings: displaySettings
-		}, null);
-	}
+      return e(Guitar, {
+        functionalNotes: notes,
+        displaySettings: displaySettings
+      }, null);
+    }
 
 	render = () => {
         let key = new Key(this.state.homeDegree, this.state.accidental)
@@ -80,10 +73,11 @@ class DefaultDriver extends React.Component {
 
         return e('div', { id: 'default-driver' },
             //e('pre', { id: 'display-text' }, JSON.stringify(this.state)),
-            this.getNoteCollection(notes, displaySettings),
-            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state }, null),
-            this.getPiano(notes, displaySettings),
-            this.getGuitar(notes, displaySettings)
+            e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state, notes: notes }, null),
+            e('div', { id: 'visualizers' },
+              this.getPiano(notes, displaySettings),
+              this.getGuitar(notes, displaySettings)
+            )
         );
     };
 }

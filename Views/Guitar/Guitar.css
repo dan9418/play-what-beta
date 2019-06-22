@@ -1,6 +1,9 @@
 .guitar {
 	height: 100%;
 	padding: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
 }
 
 .guitar-string {

@@ -271,9 +271,12 @@ let SETTINGS = {
 	Label: { id: 'label', name: 'Label', data: ALL_LABELS }
 };
 
-let SETTINGS_TREE = [
+let KEY_TREE = [
 	{ id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
-	{ id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS },
+	{ id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS }
+];
+
+let CONCEPT_TREE = [
 	{
 		id: 'concept',
 		name: 'Concept',

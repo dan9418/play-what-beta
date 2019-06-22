@@ -46,10 +46,10 @@ class SettingsPanel extends React.Component {
         super(props);
     }
 
-    getSettingManagers = () => {
+    getSettingManagers = (settingsConfig) => {
         let settings = [];
-        for(let i = 0; i < SETTINGS_TREE.length; i++) {
-            let setting = SETTINGS_TREE[i];
+        for(let i = 0; i < settingsConfig.length; i++) {
+            let setting = settingsConfig[i];
             settings.push(e(SettingManager, {
                 key: 'parent-setting-' + setting.id,
                 setting: setting,
@@ -60,9 +60,18 @@ class SettingsPanel extends React.Component {
         return settings;
     };
 
+    getNoteCollection = (notes, displaySettings) => {
+        return e(NoteCollection, {
+            functionalNotes: notes,
+            displaySettings: displaySettings
+        }, null);
+    }
+
 	render = () => {
-        return e('div', { id: 'settings-panel-' + this.props.id, className: 'settings-panel' },
-            this.getSettingManagers()
+        return e('div', { id: 'top-bar' },
+            this.getSettingManagers(KEY_TREE),
+            this.getSettingManagers(CONCEPT_TREE),
+            e('div', {}, this.getNoteCollection(this.props.notes, null))
         );
     };
 }
