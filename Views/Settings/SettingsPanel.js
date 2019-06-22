@@ -45,7 +45,7 @@ class IntervalSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = SELECT_INTERVAL;
+        this.selection = CONFIG.Interval;
         this.state = {
             conceptId: this.props.default
         }
@@ -69,7 +69,7 @@ class ChordSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = SELECT_CHORD;
+        this.selection = CONFIG.Chord;
         this.state = {
             conceptId: this.props.default
         }
@@ -93,7 +93,7 @@ class ScaleSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = SELECT_SCALE;
+        this.selection = CONFIG.Scale;
         this.state = {
             conceptId: this.props.default
         }
@@ -117,7 +117,7 @@ class ModeSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = SELECT_MODE;
+        this.selection = CONFIG.Mode;
         this.state = {
             conceptId: this.props.default
         }
@@ -141,7 +141,7 @@ class RomanNumeralSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = SELECT_ROMAN_NUMERAL;
+        this.selection = CONFIG.RomanNumeral;
         this.state = {
             conceptId: this.props.default
         }
@@ -211,29 +211,29 @@ class SettingsPanel extends React.Component {
         return e('div', { id: 'top-bar' },
             e('div', { id: 'top-bar-key'},
                 e(SettingsSelect, {
-                    id: SELECT_HOME_DEGREE.id,
-                    name: SELECT_HOME_DEGREE.name,
-                    options: SELECT_HOME_DEGREE.data,
-                    displayProp: SELECT_HOME_DEGREE.displayProp || 'name',
-                    default: this.props.defaultSettings[SELECT_HOME_DEGREE.id],
+                    id: CONFIG.HomeDegree.id,
+                    name: CONFIG.HomeDegree.name,
+                    options: CONFIG.HomeDegree.data,
+                    displayProp: CONFIG.HomeDegree.displayProp || 'name',
+                    default: this.props.defaultSettings[CONFIG.HomeDegree.id],
                     updateSetting: (property, value) => { this.props.updateSetting(property, value) }
                 }, null),
                 e(SettingsSelect, {
-                    id: SELECT_ACCIDENTAL.id,
-                    name: SELECT_ACCIDENTAL.name,
-                    options: SELECT_ACCIDENTAL.data,
-                    displayProp: SELECT_ACCIDENTAL.displayProp || 'name',
-                    default: this.props.defaultSettings[SELECT_ACCIDENTAL.id],
+                    id: CONFIG.Accidental.id,
+                    name: CONFIG.Accidental.name,
+                    options: CONFIG.Accidental.data,
+                    displayProp: CONFIG.Accidental.displayProp || 'name',
+                    default: this.props.defaultSettings[CONFIG.Accidental.id],
                     updateSetting: (property, value) => { this.props.updateSetting(property, value) }
                 }, null)
             ),
             e('div', { id: 'top-bar-concept'},
                 e(SettingsSelect, {
-                    id: SELECT_CONCEPT.id,
-                    name: SELECT_CONCEPT.name,
-                    options: SELECT_CONCEPT.data,
-                    displayProp: SELECT_CONCEPT.displayProp || 'name',
-                    default: this.props.defaultSettings[SELECT_CONCEPT.id],
+                    id: CONFIG.Concept.id,
+                    name: CONFIG.Concept.name,
+                    options: CONFIG.Concept.data,
+                    displayProp: CONFIG.Concept.displayProp || 'name',
+                    default: this.props.defaultSettings[CONFIG.Concept.id],
                     updateSetting: (property, value) => { this.setState({ conceptId: value.id }); this.props.updateSetting(property, value) }
                 }, null)
             ),
@@ -242,11 +242,11 @@ class SettingsPanel extends React.Component {
             ),
             e('div', { id: 'top-bar-label'},
                 e(SettingsSelect, {
-                    id: SELECT_LABEL.id,
-                    name: SELECT_LABEL.name,
-                    options: SELECT_LABEL.data,
-                    displayProp: SELECT_LABEL.displayProp || 'name',
-                    default: this.props.defaultSettings[SELECT_LABEL.id],
+                    id: CONFIG.Label.id,
+                    name: CONFIG.Label.name,
+                    options: CONFIG.Label.data,
+                    displayProp: CONFIG.Label.displayProp || 'name',
+                    default: this.props.defaultSettings[CONFIG.Label.id],
                     updateSetting: (property, value) => { this.props.updateSetting(property, value) }
                 }, null)
             ),

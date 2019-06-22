@@ -265,40 +265,14 @@ let ROMAN_NUMERALS = {
 
 let ALL_ROMAN_NUMERALS = [ROMAN_NUMERALS.Major, ROMAN_NUMERALS.Minor];
 
-let SETTINGS = {
-	Concept: { id: 'concept', name: 'Concept', data: ALL_CONCEPTS },
-	Interval: { id: 'interval', name: 'Interval', data: ALL_INTERVALS },
-	Chord: { id: 'chord', name: 'Chord', data: ALL_CHORDS },
-	Scale: { id: 'scale', name: 'Scale', data: ALL_SCALES },
-	Mode: { id: 'mode', name: 'Mode', data: ALL_MODES },
-	RomanNumeral: { id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS },
-	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
-	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS },
-	Label: { id: 'label', name: 'Label', data: ALL_LABELS }
-};
-
-let SELECT_HOME_DEGREE = { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES };
-
-let SELECT_ACCIDENTAL = { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS };
-
-let SELECT_INTERVAL = 		{ id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, 		data: ALL_INTERVALS, displayProp: 'id' };
-let SELECT_CHORD = 			{ id: CONCEPTS.Chord.id, 		name: CONCEPTS.Chord.name, 			data: ALL_CHORDS };
-let SELECT_SCALE = 			{ id: CONCEPTS.Scale.id, 		name: CONCEPTS.Scale.name, 			data: ALL_SCALES };
-let SELECT_MODE = 			{ id: CONCEPTS.Mode.id,			name: CONCEPTS.Mode.name, 			data: ALL_MODES };
-let SELECT_ROMAN_NUMERAL = 	{ id: CONCEPTS.RomanNumeral.id, name: CONCEPTS.RomanNumeral.name, 	data: ALL_ROMAN_NUMERALS };
-
-let SELECT_CONCEPT = 
-	{
-		id: 'concept',
-		name: 'Concept',
-		data: ALL_CONCEPTS,
-		children: [
-			SELECT_INTERVAL,
-			SELECT_CHORD,
-			SELECT_SCALE,
-			SELECT_MODE,
-			SELECT_ROMAN_NUMERAL
-		]
-	};
-
-let SELECT_LABEL = { id: 'label', name: 'Label', data: ALL_LABELS };
+let CONFIG = {
+	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES, default: HOME_DEGREES.C },
+	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS, default: ACCIDENTALS.Natural },
+	Interval: { id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, data: ALL_INTERVALS, default: INTERVALS.P5, displayProp: 'id' },
+	Chord: { id: CONCEPTS.Chord.id, name: CONCEPTS.Chord.name, data: ALL_CHORDS, default: CHORDS.Maj_Tri },
+	Scale: { id: CONCEPTS.Scale.id, name: CONCEPTS.Scale.name, data: ALL_SCALES, default: SCALES.Major },
+	Mode: { id: CONCEPTS.Mode.id, name: CONCEPTS.Mode.name, data: ALL_MODES, default: MODES.Ionian },
+	RomanNumeral: { id: CONCEPTS.RomanNumeral.id, name: CONCEPTS.RomanNumeral.name, data: ALL_ROMAN_NUMERALS, default: ROMAN_NUMERALS.Ionian },
+	Concept: { id: 'concept', name: 'Concept', data: ALL_CONCEPTS, default: CONCEPTS.Chord },
+	Label: { id: 'label', name: 'Label', data: ALL_LABELS, default: LABELS.Interval }
+}

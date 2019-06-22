@@ -23,15 +23,15 @@ class DefaultDriver extends React.Component {
 
     getIntervals = () => {
 		switch(this.state.concept.id) {
-            case SETTINGS.Interval.id:
+            case CONFIG.Interval.id:
 				return [INTERVALS.PU, this.state.interval];
-            case SETTINGS.Chord.id:
+            case CONFIG.Chord.id:
 				return this.state.chord.intervals;
-            case SETTINGS.Scale.id:
+            case CONFIG.Scale.id:
 				return this.state.scale.intervals;
-            case SETTINGS.Mode.id:
+            case CONFIG.Mode.id:
 				return this.state.mode.intervals;
-            case SETTINGS.RomanNumeral.id:
+            case CONFIG.RomanNumeral.id:
 				return [];
 			default:
 				return [];
