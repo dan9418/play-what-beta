@@ -46,7 +46,7 @@ class SettingsPanel extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-            conceptId: this.props.defaultSettings[CONCEPT_TREE[0].id]
+            conceptId: this.props.defaultSettings[SELECT_CONCEPT.id]
         }
     }
 
@@ -73,12 +73,12 @@ class SettingsPanel extends React.Component {
 
     getConceptOptions = () => {
         let children = [];
-        if(CONCEPT_TREE[0].children) {
-            for(let i = 0; i < CONCEPT_TREE[0].children.length; i++) {
-                let child = CONCEPT_TREE[0].children[i];
+        if(SELECT_CONCEPT.children) {
+            for(let i = 0; i < SELECT_CONCEPT.children.length; i++) {
+                let child = SELECT_CONCEPT.children[i];
                 if(this.state.conceptId === child.condition) {
                     children.push(e(SettingsSelect, {
-                        key: 'settings-' + CONCEPT_TREE[0].id + '-child-' + i,
+                        key: 'settings-' + SELECT_CONCEPT.id + '-child-' + i,
                         id: child.id,
                         name: child.name,
                         options: child.data,
@@ -96,36 +96,45 @@ class SettingsPanel extends React.Component {
         return e('div', { id: 'top-bar' },
             e('div', { id: 'top-bar-key'},
                 e(SettingsSelect, {
-                    id: KEY_TREE[0].id,
-                    name: KEY_TREE[0].name,
-                    options: KEY_TREE[0].data,
-                    displayProp: KEY_TREE[0].displayProp || 'name',
-                    default: this.props.defaultSettings[KEY_TREE[0].id],
+                    id: SELECT_HOME_DEGREE.id,
+                    name: SELECT_HOME_DEGREE.name,
+                    options: SELECT_HOME_DEGREE.data,
+                    displayProp: SELECT_HOME_DEGREE.displayProp || 'name',
+                    default: this.props.defaultSettings[SELECT_HOME_DEGREE.id],
                     updateSetting: (property, value) => { this.props.updateSetting(property, value) }
                 }, null),
                 e(SettingsSelect, {
-                    id: KEY_TREE[1].id,
-                    name: KEY_TREE[1].name,
-                    options: KEY_TREE[1].data,
-                    displayProp: KEY_TREE[1].displayProp || 'name',
-                    default: this.props.defaultSettings[KEY_TREE[1].id],
+                    id: SELECT_ACCIDENTAL.id,
+                    name: SELECT_ACCIDENTAL.name,
+                    options: SELECT_ACCIDENTAL.data,
+                    displayProp: SELECT_ACCIDENTAL.displayProp || 'name',
+                    default: this.props.defaultSettings[SELECT_ACCIDENTAL.id],
                     updateSetting: (property, value) => { this.props.updateSetting(property, value) }
                 }, null)
             ),
             e('div', { id: 'top-bar-concept'},
                 e(SettingsSelect, {
-                    id: CONCEPT_TREE[0].id,
-                    name: CONCEPT_TREE[0].name,
-                    options: CONCEPT_TREE[0].data,
-                    displayProp: CONCEPT_TREE[0].displayProp || 'name',
-                    default: this.props.defaultSettings[CONCEPT_TREE[0].id],
+                    id: SELECT_CONCEPT.id,
+                    name: SELECT_CONCEPT.name,
+                    options: SELECT_CONCEPT.data,
+                    displayProp: SELECT_CONCEPT.displayProp || 'name',
+                    default: this.props.defaultSettings[SELECT_CONCEPT.id],
                     updateSetting: (property, value) => { this.setState({ conceptId: value.id }); this.props.updateSetting(property, value) }
                 }, null)
             ),
             e('div', { id: 'top-bar-concept-options'},
                 this.getConceptOptions()
             ),
-            e('div', { id: 'top-bar-bottom'}, this.getSettingManagers(LABEL_TREE)),
+            e('div', { id: 'top-bar-label'},
+                e(SettingsSelect, {
+                    id: SELECT_LABEL.id,
+                    name: SELECT_LABEL.name,
+                    options: SELECT_LABEL.data,
+                    displayProp: SELECT_LABEL.displayProp || 'name',
+                    default: this.props.defaultSettings[SELECT_LABEL.id],
+                    updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+                }, null)
+            ),
             e('div', {}, this.getNoteCollection(this.props.notes, null))
         );
     };

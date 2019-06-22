@@ -118,7 +118,13 @@ let ACCIDENTALS = {
 	DoubleSharp:	{ id: 'DoubleSharp',	name: 'xx',	offset:  2 }
 };
 
-let ALL_ACCIDENTALS = [ACCIDENTALS.DoubleSharp, ACCIDENTALS.Sharp, ACCIDENTALS.Natural, ACCIDENTALS.Flat, ACCIDENTALS.DoubleFlat];
+let ALL_ACCIDENTALS = [
+	ACCIDENTALS.DoubleFlat,
+	ACCIDENTALS.Flat,
+	ACCIDENTALS.Natural,
+	ACCIDENTALS.Sharp,
+	ACCIDENTALS.DoubleSharp,
+];
 
 // Chords
 
@@ -271,12 +277,11 @@ let SETTINGS = {
 	Label: { id: 'label', name: 'Label', data: ALL_LABELS }
 };
 
-let KEY_TREE = [
-	{ id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
-	{ id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS }
-];
+let SELECT_HOME_DEGREE = { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES };
 
-let CONCEPT_TREE = [
+let SELECT_ACCIDENTAL = { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS };
+
+let SELECT_CONCEPT = 
 	{
 		id: 'concept',
 		name: 'Concept',
@@ -288,12 +293,9 @@ let CONCEPT_TREE = [
 			{ condition: CONCEPTS.Mode.id, id: 'mode', name: 'Mode', data: ALL_MODES },
 			{ condition: CONCEPTS.RomanNumeral.id, id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS }
 		]
-	}
-];
+	};
 
-let LABEL_TREE = [
-	{ id: 'label', name: 'Label', data: ALL_LABELS }
-];
+let SELECT_LABEL = { id: 'label', name: 'Label', data: ALL_LABELS };
 
 
 	
