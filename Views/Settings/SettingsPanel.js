@@ -1,4 +1,4 @@
-class SettingManager extends React.Component {
+/*class SettingManager extends React.Component {
 	
 	constructor(props) {
         super(props);
@@ -39,6 +39,126 @@ class SettingManager extends React.Component {
             this.getChildren()
         ));
     };
+}*/
+
+class IntervalSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.selection = SELECT_INTERVAL;
+        this.state = {
+            conceptId: this.props.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.selection.id + '-selection'},
+            e(SettingsSelect, {
+                id: this.selection.id,
+                name: this.selection.name,
+                options: this.selection.data,
+                displayProp: this.selection.displayProp || 'name',
+                default: this.props.default,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class ChordSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.selection = SELECT_CHORD;
+        this.state = {
+            conceptId: this.props.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.selection.id + '-selection'},
+            e(SettingsSelect, {
+                id: this.selection.id,
+                name: this.selection.name,
+                options: this.selection.data,
+                displayProp: this.selection.displayProp || 'name',
+                default: this.props.default,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class ScaleSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.selection = SELECT_SCALE;
+        this.state = {
+            conceptId: this.props.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.selection.id + '-selection'},
+            e(SettingsSelect, {
+                id: this.selection.id,
+                name: this.selection.name,
+                options: this.selection.data,
+                displayProp: this.selection.displayProp || 'name',
+                default: this.props.default,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class ModeSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.selection = SELECT_MODE;
+        this.state = {
+            conceptId: this.props.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.selection.id + '-selection'},
+            e(SettingsSelect, {
+                id: this.selection.id,
+                name: this.selection.name,
+                options: this.selection.data,
+                displayProp: this.selection.displayProp || 'name',
+                default: this.props.default,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class RomanNumeralSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.selection = SELECT_ROMAN_NUMERAL;
+        this.state = {
+            conceptId: this.props.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.selection.id + '-selection'},
+            e(SettingsSelect, {
+                id: this.selection.id,
+                name: this.selection.name,
+                options: this.selection.data,
+                displayProp: this.selection.displayProp || 'name',
+                default: this.props.default,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
 }
 
 class SettingsPanel extends React.Component {
@@ -46,23 +166,9 @@ class SettingsPanel extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-            conceptId: this.props.defaultSettings[SELECT_CONCEPT.id]
+            conceptId: this.props.defaultSettings['concept'].id
         }
     }
-
-    getSettingManagers = (settingsConfig) => {
-        let settings = [];
-        for(let i = 0; i < settingsConfig.length; i++) {
-            let setting = settingsConfig[i];
-            settings.push(e(SettingManager, {
-                key: 'parent-setting-' + setting.id,
-                setting: setting,
-                defaultSettings: this.props.defaultSettings,
-                updateSetting: this.props.updateSetting
-            }, null));
-        }
-        return settings;
-    };
 
     getNoteCollection = (notes, displaySettings) => {
         return e(NoteCollection, {
@@ -72,24 +178,33 @@ class SettingsPanel extends React.Component {
     }
 
     getConceptOptions = () => {
-        let children = [];
-        if(SELECT_CONCEPT.children) {
-            for(let i = 0; i < SELECT_CONCEPT.children.length; i++) {
-                let child = SELECT_CONCEPT.children[i];
-                if(this.state.conceptId === child.condition) {
-                    children.push(e(SettingsSelect, {
-                        key: 'settings-' + SELECT_CONCEPT.id + '-child-' + i,
-                        id: child.id,
-                        name: child.name,
-                        options: child.data,
-                        displayProp: child.displayProp || 'name',
-                        default: this.props.defaultSettings[child.id],
-                        updateSetting: (property, value) => { this.props.updateSetting(property, value) }
-                    }, null));
-                }
-            }
+        switch(this.state.conceptId) {
+            case CONCEPTS.Interval.id:
+                return e(IntervalSelection, {
+                    default: this.props.defaultSettings[CONCEPTS.Interval.id],
+                    updateSetting: this.props.updateSetting
+                }, null);
+            case CONCEPTS.Chord.id:
+                return e(ChordSelection, {
+                    default: this.props.defaultSettings[CONCEPTS.Chord.id],
+                    updateSetting: this.props.updateSetting
+                }, null);
+            case CONCEPTS.Scale.id:
+                return e(ScaleSelection, {
+                    default: this.props.defaultSettings[CONCEPTS.Scale.id],
+                    updateSetting: this.props.updateSetting
+                }, null);
+            case CONCEPTS.Mode.id:
+                return e(ModeSelection, {
+                    default: this.props.defaultSettings[CONCEPTS.Mode.id],
+                    updateSetting: this.props.updateSetting
+                }, null);
+            case CONCEPTS.RomanNumeral.id:
+                return e(RomanNumeralSelection, {
+                    default: this.props.defaultSettings[CONCEPTS.RomanNumeral.id],
+                    updateSetting: this.props.updateSetting
+                }, null);
         }
-        return children;
     }
 
 	render = () => {

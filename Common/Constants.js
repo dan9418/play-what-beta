@@ -281,22 +281,24 @@ let SELECT_HOME_DEGREE = { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME
 
 let SELECT_ACCIDENTAL = { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS };
 
+let SELECT_INTERVAL = 		{ id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, 		data: ALL_INTERVALS, displayProp: 'id' };
+let SELECT_CHORD = 			{ id: CONCEPTS.Chord.id, 		name: CONCEPTS.Chord.name, 			data: ALL_CHORDS };
+let SELECT_SCALE = 			{ id: CONCEPTS.Scale.id, 		name: CONCEPTS.Scale.name, 			data: ALL_SCALES };
+let SELECT_MODE = 			{ id: CONCEPTS.Mode.id,			name: CONCEPTS.Mode.name, 			data: ALL_MODES };
+let SELECT_ROMAN_NUMERAL = 	{ id: CONCEPTS.RomanNumeral.id, name: CONCEPTS.RomanNumeral.name, 	data: ALL_ROMAN_NUMERALS };
+
 let SELECT_CONCEPT = 
 	{
 		id: 'concept',
 		name: 'Concept',
 		data: ALL_CONCEPTS,
 		children: [
-			{ condition: CONCEPTS.Interval.id, id: 'interval', name: 'Interval', data: ALL_INTERVALS, displayProp: 'id' },
-			{ condition: CONCEPTS.Chord.id, id: 'chord', name: 'Chord', data: ALL_CHORDS },
-			{ condition: CONCEPTS.Scale.id, id: 'scale', name: 'Scale', data: ALL_SCALES },
-			{ condition: CONCEPTS.Mode.id, id: 'mode', name: 'Mode', data: ALL_MODES },
-			{ condition: CONCEPTS.RomanNumeral.id, id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS }
+			SELECT_INTERVAL,
+			SELECT_CHORD,
+			SELECT_SCALE,
+			SELECT_MODE,
+			SELECT_ROMAN_NUMERAL
 		]
 	};
 
 let SELECT_LABEL = { id: 'label', name: 'Label', data: ALL_LABELS };
-
-
-	
- 
