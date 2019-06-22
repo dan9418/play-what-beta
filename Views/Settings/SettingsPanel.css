@@ -5,11 +5,29 @@
 }
 
 .setting-manager {
-    margin: 5px;
-    display: inline-block;
+    margin: 2px;
+    display: block;
 }
 
 #top-bar {
     background-color: #2B4C5F;
     padding: 10px;
+    text-align: center;
+}
+
+#top-bar-key {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+
+#top-bar-concept {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+
+#top-bar-bottom {
+    text-align: center;
+    vertical-align: top;
 }

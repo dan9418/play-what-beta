@@ -59,8 +59,9 @@ class NoteCollection extends React.Component {
 
     getNoteDisplays() {
         let noteDisplays = [];
-        for(let i = 0; i < 12; i++) {
-            let note = this.props.functionalNotes.find((n) => { return n.relativePosition === i }) || null;
+        let startingPosition = ALL_HOME_DEGREES[this.props.functionalNotes[0].key.homeDegree - 1].relativePosition;
+        for(let i = startingPosition; i < startingPosition + 12; i++) {
+            let note = this.props.functionalNotes.find((n) => { return n.relativePosition === (i % 12) }) || null;
             noteDisplays.push(e(NoteDisplay, {
                 key: `note-display-${i}`,
                 position: i,

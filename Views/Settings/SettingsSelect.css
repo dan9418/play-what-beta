@@ -1,15 +1,19 @@
 .settings-select {
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
     display: inline-block;
-    border: 1px solid white;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .settings-select-label {
     display: block;
+    background-color: white;
+    color: #2B4C5F;
     padding: 2px;
-    padding-top: 5px;
+    margin: 2px;
+    font-weight: bold;
 }
 
 .settings-select-option {
@@ -19,9 +23,10 @@
     vertical-align: middle;
     padding: 5px;
     margin: 5px;
-    line-height: 40px;
-    height: 40px;
-    min-width: 40px;
+    line-height: 20px;
+    height: 20px;
+    min-width: 20px;
+    font-size: 12px;
 }
 
 .settings-select-option:hover {

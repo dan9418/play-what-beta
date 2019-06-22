@@ -14,7 +14,7 @@ class SettingsSelect extends React.Component {
                 key: this.props.id + '-opt-' + i,
                 className: classes.join(' '),
                 onClick: () => { this.props.updateSetting(this.props.id, this.props.options[i]) }
-            }, this.props.options[i].name));
+            }, this.props.options[i][this.props.displayProp]));
 		}
 		return options;
 	}

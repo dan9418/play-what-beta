@@ -282,13 +282,16 @@ let CONCEPT_TREE = [
 		name: 'Concept',
 		data: ALL_CONCEPTS,
 		children: [
-			{ condition: CONCEPTS.Interval.id, id: 'interval', name: 'Interval', data: ALL_INTERVALS },
+			{ condition: CONCEPTS.Interval.id, id: 'interval', name: 'Interval', data: ALL_INTERVALS, displayProp: 'id' },
 			{ condition: CONCEPTS.Chord.id, id: 'chord', name: 'Chord', data: ALL_CHORDS },
 			{ condition: CONCEPTS.Scale.id, id: 'scale', name: 'Scale', data: ALL_SCALES },
 			{ condition: CONCEPTS.Mode.id, id: 'mode', name: 'Mode', data: ALL_MODES },
 			{ condition: CONCEPTS.RomanNumeral.id, id: 'romanNumeral', name: 'Roman Numeral', data: ALL_ROMAN_NUMERALS }
 		]
-	},
+	}
+];
+
+let LABEL_TREE = [
 	{ id: 'label', name: 'Label', data: ALL_LABELS }
 ];
 
