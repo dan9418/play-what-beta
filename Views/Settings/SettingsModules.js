@@ -1,3 +1,83 @@
+class HomeDegreeSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.config = CONFIG.HomeDegree;
+        this.state = {
+            homeDegreeId: this.config.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
+            e(SettingsSelect, {
+                config: this.config,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class AccidentalSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.config = CONFIG.Accidental;
+        this.state = {
+            accidentalId: this.config.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
+            e(SettingsSelect, {
+                config: this.config,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class ConceptSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.config = CONFIG.Concept;
+        this.state = {
+            conceptId: this.config.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
+            e(SettingsSelect, {
+                config: this.config,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
+class LabelSelection extends React.Component {
+	
+	constructor(props) {
+        super(props);
+        this.config = CONFIG.Label;
+        this.state = {
+            labelId: this.config.default
+        }
+    }
+
+	render = () => {
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
+            e(SettingsSelect, {
+                config: this.config,
+                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
+            }, null)
+        )
+    };
+}
+
 class IntervalSelection extends React.Component {
 	
 	constructor(props) {
@@ -9,7 +89,7 @@ class IntervalSelection extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: this.config.id + '-config'},
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
             e(SettingsSelect, {
                 config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
@@ -29,7 +109,7 @@ class ChordSelection extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: this.config.id + '-config'},
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
             e(SettingsSelect, {
                 config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
@@ -49,7 +129,7 @@ class ScaleSelection extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: this.config.id + '-config'},
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
             e(SettingsSelect, {
                 config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
@@ -69,7 +149,7 @@ class ModeSelection extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: this.config.id + '-config'},
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
             e(SettingsSelect, {
                 config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
@@ -89,7 +169,7 @@ class RomanNumeralSelection extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: this.config.id + '-config'},
+        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
             e(SettingsSelect, {
                 config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }

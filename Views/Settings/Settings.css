@@ -71,3 +71,7 @@
 .active-setting {
     border: 2px solid #EA9C1F;
 }
+
+.selection-container {
+    display: inline-block;
+}

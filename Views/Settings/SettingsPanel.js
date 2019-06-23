@@ -2,71 +2,49 @@ class SettingsPanel extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.state = {
-            conceptId: this.props.defaultSettings['concept'].id
-        }
+        this.state = this.props.defaultSettings;
     }
 
-    getNoteCollection = (notes, displaySettings) => {
-        return e(NoteCollection, {
-            functionalNotes: notes,
-            displaySettings: displaySettings
-        }, null);
+    updateSetting = (property, value) => {
+        let update = {};
+        update[property] = value;
+        this.setState(update);
+        this.props.updateSetting(property, value);
     }
 
     getConceptOptions = () => {
-        switch(this.state.conceptId) {
+        switch(this.state.concept.id) {
             case CONCEPTS.Interval.id:
-                return e(IntervalSelection, {
-                    updateSetting: this.props.updateSetting
-                }, null);
+                return e(IntervalSelection, { updateSetting: this.updateSetting }, null);
             case CONCEPTS.Chord.id:
-                return e(ChordSelection, {
-                    updateSetting: this.props.updateSetting
-                }, null);
+                return e(ChordSelection, { updateSetting: this.updateSetting }, null);
             case CONCEPTS.Scale.id:
-                return e(ScaleSelection, {
-                    updateSetting: this.props.updateSetting
-                }, null);
+                return e(ScaleSelection, { updateSetting: this.updateSetting }, null);
             case CONCEPTS.Mode.id:
-                return e(ModeSelection, {
-                    updateSetting: this.props.updateSetting
-                }, null);
+                return e(ModeSelection, { updateSetting: this.updateSetting }, null);
             case CONCEPTS.RomanNumeral.id:
-                return e(RomanNumeralSelection, {
-                    updateSetting: this.props.updateSetting
-                }, null);
+                return e(RomanNumeralSelection, { updateSetting: this.updateSetting }, null);
         }
     }
 
 	render = () => {
         return e('div', { id: 'top-bar' },
             e('div', { id: 'top-bar-key'},
-                e(SettingsSelect, {
-                    config: CONFIG.HomeDegree,
-                    updateSetting: (property, value) => { this.props.updateSetting(property, value) }
-                }, null),
-                e(SettingsSelect, {
-                    config: CONFIG.Accidental,
-                    updateSetting: (property, value) => { this.props.updateSetting(property, value) }
-                }, null)
+                e(HomeDegreeSelection, { updateSetting: this.updateSetting }, null),
+                e(AccidentalSelection, { updateSetting: this.updateSetting }, null)
             ),
             e('div', { id: 'top-bar-concept'},
-                e(SettingsSelect, {
-                    config: CONFIG.Concept,
-                    updateSetting: (property, value) => { this.setState({ conceptId: value.id }); this.props.updateSetting(property, value) }
-                }, null)
+                e(ConceptSelection, { updateSetting: this.updateSetting }, null)
             ),
             e('div', { id: 'top-bar-concept-options'},
                 this.getConceptOptions()
             ),
             e('div', { id: 'top-bar-label'},
-                e(SettingsSelect, {
-                    config: CONFIG.Label,
-                    updateSetting: (property, value) => { this.props.updateSetting(property, value) }
-                }, null)
+                e(LabelSelection, { updateSetting: this.updateSetting }, null)
             ),
-            e('div', {}, this.getNoteCollection(this.props.notes, null))
+            e('div', { id: 'top-bar-pitch-classes' },
+                e(NoteCollection, { functionalNotes: this.props.notes, displaySettings: null }, null)
+            )
         );
     };
 }
