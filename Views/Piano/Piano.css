@@ -4,6 +4,7 @@
 	display: inline-block;
 	position: absolute;
 	left: 0;
+	font-size: 12px;
 }
 
 .piano-key {

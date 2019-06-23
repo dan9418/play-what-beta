@@ -3,11 +3,21 @@ class Piano extends React.Component {
 	constructor(props) {
         super(props);
         this.keys = [];
+        this.state = {
+            config: { label: LABELS.Interval.id }
+        }
+
         for(let i = 0; i < this.props.length; i++) {
             let type = ([0, 2, 4, 5, 7, 9, 11].includes(i % 12)) ? 'WHITE' : 'BLACK';
             this.keys.push({absolutePosition: i, type: type});
         }
     }
+
+    updateSetting = (name, value) => {
+        let update = {};
+        update[name] = value;
+        this.setState({config: update});
+      }
     
     getKeys = () => {
         return this.keys.map((key, index) => {
@@ -17,13 +27,18 @@ class Piano extends React.Component {
                 type: key.type,
                 physicalNote: physicalNote,
                 functionalNotes: this.props.functionalNotes,
-                displaySettings: this.props.displaySettings
+                config: this.state.config
             }, null)
         });
     }
 
 	render = () => {
-		return e('div', {className: 'piano'}, this.getKeys());
+        return [
+            e('div', {className: 'piano'},
+                this.getKeys(),
+                e(LabelSelection, { updateSetting: this.updateSetting }, null)
+            )        
+        ];
     };
 }
 
@@ -47,7 +62,7 @@ class PianoKey extends React.Component {
     }
 
     getName = (note) => {
-        switch(this.props.displaySettings.label)
+        switch(this.props.config.label)
         {
             case LABELS.None.id:
                 return '';
@@ -96,7 +111,7 @@ class PianoKey extends React.Component {
                 key: `black-key-${this.props.physicalNote.absolutePosition}`,
                 physicalNote: this.props.physicalNote,
                 functionalNote: note,
-                label: name.frequency,
+                label: name,
                 sound: this.sound
             }, null);
         }

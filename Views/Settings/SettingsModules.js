@@ -68,12 +68,21 @@ class LabelSelection extends React.Component {
         }
     }
 
+    getOptions = () => {
+        let options = [];
+        for(let i = 0; i < this.config.data.length; i++) {
+            let data = this.config.data[i];
+            options.push(e('option', { id: data.id, key: data.id, value: data.id, className: 'select-option' }, data.name));
+        }
+        return options;
+    }
+
 	render = () => {
-        return e('div', { id: this.config.id + '-selection', className: 'selection-container' },
-            e(SettingsSelect, {
-                config: this.config,
-                updateSetting: (property, value) => { this.props.updateSetting(property, value) }
-            }, null)
+        return e('div', { id: this.config.id + '-selection', className: 'dropdown-container' },
+            e('select', {
+                defaultValue: this.config.default.id,
+                onChange: (event) => { this.props.updateSetting(this.config.id, event.target.value) },
+            }, this.getOptions())
         )
     };
 }

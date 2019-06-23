@@ -39,9 +39,9 @@ class SettingsPanel extends React.Component {
             e('div', { id: 'top-bar-concept-options'},
                 this.getConceptOptions()
             ),
-            e('div', { id: 'top-bar-label'},
+            /*e('div', { id: 'top-bar-label'},
                 e(LabelSelection, { updateSetting: this.updateSetting }, null)
-            ),
+            ),*/
             e('div', { id: 'top-bar-pitch-classes' },
                 e(NoteCollection, { functionalNotes: this.props.notes, displaySettings: null }, null)
             )

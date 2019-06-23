@@ -4,6 +4,7 @@
 	display: inline-block;
 	position: absolute;
 	right: 0;
+	font-size: 12px;
 }
 
 .guitar-string {

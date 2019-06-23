@@ -75,3 +75,7 @@
 .selection-container {
     display: inline-block;
 }
+
+.dropdown-container {
+    display: block;
+}

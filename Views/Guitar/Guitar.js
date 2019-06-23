@@ -10,21 +10,33 @@ class Guitar extends React.Component {
             { openPosition: -3  },  // A
             { openPosition: -8  }   // E   
         ];
+        this.state = {
+            config: { label: LABELS.Interval.id }
+        }
     }
     
+    updateSetting = (name, value) => {
+        let update = {};
+        update[name] = value;
+        this.setState({config: update});
+      }
+
     getStrings = () => {
         return this.strings.map((string, index) => {
             return e(String, {
                 key: `key-${index}`,
                 functionalNotes: this.props.functionalNotes,
                 openPosition: string.openPosition,
-                displaySettings: this.props.displaySettings
+                config: this.state.config
             }, null);
         });
     }
 
 	render = () => {
-		return e('div', {className: 'guitar'}, this.getStrings());
+        return e('div', {className: 'guitar'},
+            this.getStrings(),
+            e(LabelSelection, { updateSetting: this.updateSetting }, null)
+        );
     };
 }
 
@@ -43,7 +55,7 @@ class String extends React.Component {
                 functionalNotes: this.props.functionalNotes,
                 physicalNote: physicalNote,
                 open: (i === 0),
-                displaySettings: this.props.displaySettings
+                config: this.props.config
             }, null));
         }
         return frets;
@@ -75,7 +87,7 @@ class Fret extends React.Component {
     }
 
     getName = (note) => {
-        switch(this.props.displaySettings.label)
+        switch(this.props.config.label)
         {
             case LABELS.None.id:
                 return '';
@@ -90,7 +102,7 @@ class Fret extends React.Component {
             default: {
                 if (note === null)
                     return '';
-                switch(this.props.displaySettings.label)
+                switch(this.props.config.label)
                 {
                     case LABELS.None.id:
                         return '';
