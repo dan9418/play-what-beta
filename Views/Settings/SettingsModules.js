@@ -2,20 +2,16 @@ class IntervalSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = CONFIG.Interval;
+        this.config = CONFIG.Interval;
         this.state = {
-            conceptId: this.props.default
+            intervalId: this.config.default
         }
     }
 
 	render = () => {
-        return e('div', { id: this.selection.id + '-selection'},
+        return e('div', { id: this.config.id + '-config'},
             e(SettingsSelect, {
-                id: this.selection.id,
-                name: this.selection.name,
-                options: this.selection.data,
-                displayProp: this.selection.displayProp || 'name',
-                default: this.props.default,
+                config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
             }, null)
         )
@@ -26,20 +22,16 @@ class ChordSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = CONFIG.Chord;
+        this.config = CONFIG.Chord;
         this.state = {
-            conceptId: this.props.default
+            chordId: this.config.default
         }
     }
 
 	render = () => {
-        return e('div', { id: this.selection.id + '-selection'},
+        return e('div', { id: this.config.id + '-config'},
             e(SettingsSelect, {
-                id: this.selection.id,
-                name: this.selection.name,
-                options: this.selection.data,
-                displayProp: this.selection.displayProp || 'name',
-                default: this.props.default,
+                config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
             }, null)
         )
@@ -50,20 +42,16 @@ class ScaleSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = CONFIG.Scale;
+        this.config = CONFIG.Scale;
         this.state = {
-            conceptId: this.props.default
+            scaleId: this.config.default
         }
     }
 
 	render = () => {
-        return e('div', { id: this.selection.id + '-selection'},
+        return e('div', { id: this.config.id + '-config'},
             e(SettingsSelect, {
-                id: this.selection.id,
-                name: this.selection.name,
-                options: this.selection.data,
-                displayProp: this.selection.displayProp || 'name',
-                default: this.props.default,
+                config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
             }, null)
         )
@@ -74,20 +62,16 @@ class ModeSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = CONFIG.Mode;
+        this.config = CONFIG.Mode;
         this.state = {
-            conceptId: this.props.default
+            modeId: this.config.default
         }
     }
 
 	render = () => {
-        return e('div', { id: this.selection.id + '-selection'},
+        return e('div', { id: this.config.id + '-config'},
             e(SettingsSelect, {
-                id: this.selection.id,
-                name: this.selection.name,
-                options: this.selection.data,
-                displayProp: this.selection.displayProp || 'name',
-                default: this.props.default,
+                config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
             }, null)
         )
@@ -98,20 +82,16 @@ class RomanNumeralSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selection = CONFIG.RomanNumeral;
+        this.config = CONFIG.RomanNumeral;
         this.state = {
-            conceptId: this.props.default
+            romanNumeralId: this.config.default
         }
     }
 
 	render = () => {
-        return e('div', { id: this.selection.id + '-selection'},
+        return e('div', { id: this.config.id + '-config'},
             e(SettingsSelect, {
-                id: this.selection.id,
-                name: this.selection.name,
-                options: this.selection.data,
-                displayProp: this.selection.displayProp || 'name',
-                default: this.props.default,
+                config: this.config,
                 updateSetting: (property, value) => { this.props.updateSetting(property, value) }
             }, null)
         )
