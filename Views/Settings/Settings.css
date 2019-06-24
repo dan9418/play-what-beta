@@ -32,6 +32,10 @@
     vertical-align: top;
 }
 
+.selection-container {
+    position: relative;
+}
+
 .settings-select {
     color: white;
     font-size: 12px;
@@ -39,15 +43,22 @@
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-top: 2px;
+    margin: 5px;
 }
 
 .settings-select-label {
-    display: block;
-    background-color: white;
-    color: #2B4C5F;
+    color: white;
+    background-color: #2B4C5F;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: -7px;
+    left: 10px;
     padding: 2px;
     margin: 2px;
-    font-weight: bold;
 }
 
 .settings-select-option {
@@ -56,7 +67,7 @@
     text-align: center;
     vertical-align: middle;
     padding: 5px;
-    margin: 5px;
+    margin: 7px;
     line-height: 20px;
     height: 20px;
     min-width: 20px;
@@ -70,6 +81,7 @@
 
 .active-setting {
     border: 2px solid #EA9C1F;
+    margin: 5px;
 }
 
 .selection-container {
