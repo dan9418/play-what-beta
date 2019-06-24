@@ -267,7 +267,7 @@ let ALL_ROMAN_NUMERALS = [ROMAN_NUMERALS.Major, ROMAN_NUMERALS.Minor];
 
 let CONFIG = {
 	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES, default: HOME_DEGREES.C },
-	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS, default: ACCIDENTALS.Natural },
+	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS.filter((a) => {return Math.abs(a.offset) <= 1}), default: ACCIDENTALS.Natural },
 	Interval: { id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, data: ALL_INTERVALS, default: INTERVALS.P5, displayProp: 'id' },
 	Chord: { id: CONCEPTS.Chord.id, name: CONCEPTS.Chord.name, data: ALL_CHORDS, default: CHORDS.Maj_Tri },
 	Scale: { id: CONCEPTS.Scale.id, name: CONCEPTS.Scale.name, data: ALL_SCALES, default: SCALES.Major },

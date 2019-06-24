@@ -17,10 +17,88 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 }
 
-.group-label {
-	font-weight: bold;
-	padding: 5px;
+/* Home Degrees */
+
+.homeDegree-C {
+	background-color: red;
+	color: white;
 }
+
+.homeDegree-D {
+	background-color: orange;
+	color: white;
+}
+
+.homeDegree-E {
+	background-color: yellow;
+	color: black;
+}
+
+.homeDegree-F {
+	background-color: green;
+	color: white;
+}
+
+.homeDegree-G {
+	background-color: blue;
+	color: white;
+}
+
+.homeDegree-A {
+	background-color: indigo;
+	color: white;
+}
+
+.homeDegree-B {
+	background-color: purple;
+	color: white;
+}
+
+/* Accidentals */
+
+.accidental-Flat {
+	background-color: darkred;
+	color: white;
+}
+
+.accidental-Natural {
+	background-color: darkred;
+	color: white;
+}
+
+.accidental-Sharp {
+	background-color: darkred;
+	color: white;
+}
+
+/* Accidentals */
+
+.concept-interval {
+	background-color: darkolivegreen;
+	color: white;
+}
+
+.concept-chord {
+	background-color: darkolivegreen;
+	color: white;
+}
+
+.concept-scale {
+	background-color: darkolivegreen;
+	color: white;
+}
+
+.concept-mode {
+	background-color: darkolivegreen;
+	color: white;
+}
+
+.concept-romanNumeral {
+	background-color: darkolivegreen;
+	color: white;
+}
+
+/* Degrees */
 
 .degree-0 {
 	background-color: white;
@@ -39,6 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .degree-3 {
 	background-color: yellow;
+	color: black;
 }
 
 .degree-4 {
@@ -61,18 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 }
 
-.degree-8 {
-	background-color: lightcoral;
-	color: black;
-}
-
 .degree-9 {
 	background-color: lightsalmon;
-	color: black;
-}
-
-.degree-10 {
-	background-color: lightyellow;
 	color: black;
 }
 
@@ -81,17 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: black;
 }
 
-.degree-12 {
-	background-color: lightblue;
-	color: black;
-}
-
 .degree-13 {
 	background-color: lightsteelblue;
-	color: black;
-}
-
-.degree-14 {
-	background-color: lightpink;
 	color: black;
 }
