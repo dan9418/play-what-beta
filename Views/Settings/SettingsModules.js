@@ -164,7 +164,7 @@ class LabelSelection extends React.Component {
         return e('div', { id: this.config.id + '-selection', className: 'dropdown-container' },
             e('select', {
                 defaultValue: this.config.default.id,
-                onChange: (event) => { this.props.updateDriverState(this.config.id, event.target.value) },
+                onChange: (event) => { this.props.updateViewDriverState(this.config.id, event.target.value) },
             }, this.getOptions())
         )
     };

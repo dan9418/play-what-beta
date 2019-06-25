@@ -3,9 +3,6 @@ class Piano extends React.Component {
 	constructor(props) {
         super(props);
         this.keys = [];
-        this.state = {
-            config: { label: LABELS.Interval.id }
-        }
 
         for(let i = 0; i < this.props.length; i++) {
             let type = ([0, 2, 4, 5, 7, 9, 11].includes(i % 12)) ? 'WHITE' : 'BLACK';
@@ -21,17 +18,14 @@ class Piano extends React.Component {
                 type: key.type,
                 physicalNote: physicalNote,
                 functionalNotes: this.props.functionalNotes,
-                config: this.state.config
+                config: this.props.config
             }, null)
         });
     }
 
 	render = () => {
         return [
-            e('div', {className: 'piano'},
-                this.getKeys(),
-                e(LabelSelection, { updateDriverState: this.updateDriverState }, null)
-            )        
+            e('div', {className: 'piano'}, this.getKeys())        
         ];
     };
 }

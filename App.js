@@ -20,7 +20,7 @@ class App extends React.Component {
 	render = () => {
 		return e('div', { id: 'appContainer' },
 					e(HarmonicDriver, { updateNotes: this.updateNotes }, null),
-					e(ViewDriver, {notes: this.state.notes }, null)
+					e(ViewManager, {notes: this.state.notes }, null)
 				);
 	  };
 }

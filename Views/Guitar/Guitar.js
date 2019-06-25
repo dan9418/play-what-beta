@@ -10,16 +10,7 @@ class Guitar extends React.Component {
             { openPosition: -3  },  // A
             { openPosition: -8  }   // E   
         ];
-        this.state = {
-            config: { label: LABELS.Interval.id }
-        }
     }
-    
-    updateDriverState = (name, value) => {
-        let update = {};
-        update[name] = value;
-        this.setState({config: update});
-      }
 
     getStrings = () => {
         return this.strings.map((string, index) => {
@@ -27,15 +18,14 @@ class Guitar extends React.Component {
                 key: `key-${index}`,
                 functionalNotes: this.props.functionalNotes,
                 openPosition: string.openPosition,
-                config: this.state.config
+                config: this.props.config
             }, null);
         });
     }
 
 	render = () => {
         return e('div', {className: 'guitar'},
-            this.getStrings(),
-            e(LabelSelection, { updateDriverState: this.updateDriverState }, null)
+            this.getStrings()
         );
     };
 }
