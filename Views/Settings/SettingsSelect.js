@@ -16,7 +16,7 @@ class SettingsSelect extends React.Component {
             options.push(e('div', {
                 key: this.props.config.id + '-opt-' + i,
                 className: classes.join(' '),
-                onClick: () => { this.selectedId = option.id; this.props.updateSetting(this.props.config.id, option) }
+                onClick: () => { this.selectedId = option.id; this.props.updateDriverState(this.props.config.id, option) }
             }, option[displayProp]));
 		}
 		return options;

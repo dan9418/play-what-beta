@@ -12,12 +12,6 @@ class Piano extends React.Component {
             this.keys.push({absolutePosition: i, type: type});
         }
     }
-
-    updateSetting = (name, value) => {
-        let update = {};
-        update[name] = value;
-        this.setState({config: update});
-      }
     
     getKeys = () => {
         return this.keys.map((key, index) => {
@@ -36,7 +30,7 @@ class Piano extends React.Component {
         return [
             e('div', {className: 'piano'},
                 this.getKeys(),
-                e(LabelSelection, { updateSetting: this.updateSetting }, null)
+                e(LabelSelection, { updateDriverState: this.updateDriverState }, null)
             )        
         ];
     };

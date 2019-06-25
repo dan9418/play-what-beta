@@ -14,7 +14,7 @@ class DefaultDriver extends React.Component {
     };
   }
 
-  updateSetting = (name, value) => {
+  updateDriverState = (name, value) => {
     let update = {};
     update[name] = value;
     this.setState(update);
@@ -52,7 +52,7 @@ class DefaultDriver extends React.Component {
     let notes = this.getFunctionalNotes(key, intervals);
 
     return e('div', { id: 'default-driver' },
-        e(SettingsPanel, { id: 'default-panel', updateSetting: this.updateSetting, defaultSettings: this.state, notes: notes }, null),
+        e(SettingsPanel, { id: 'default-panel', updateDriverState: this.updateDriverState, driverState: this.state, notes: notes }, null),
         e('div', { id: 'visualizers' },
           e(Piano, { functionalNotes: notes, length: 25 }, null),
           e(Guitar, { functionalNotes: notes }, null)

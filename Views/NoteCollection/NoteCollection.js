@@ -65,8 +65,7 @@ class NoteCollection extends React.Component {
             noteDisplays.push(e(NoteDisplay, {
                 key: `note-display-${i}`,
                 position: i,
-                functionalNote: note,
-                displaySettings: this.props.displaySettings
+                functionalNote: note
             }, null));
         }
         return noteDisplays;

@@ -15,7 +15,7 @@ class Guitar extends React.Component {
         }
     }
     
-    updateSetting = (name, value) => {
+    updateDriverState = (name, value) => {
         let update = {};
         update[name] = value;
         this.setState({config: update});
@@ -35,7 +35,7 @@ class Guitar extends React.Component {
 	render = () => {
         return e('div', {className: 'guitar'},
             this.getStrings(),
-            e(LabelSelection, { updateSetting: this.updateSetting }, null)
+            e(LabelSelection, { updateDriverState: this.updateDriverState }, null)
         );
     };
 }
