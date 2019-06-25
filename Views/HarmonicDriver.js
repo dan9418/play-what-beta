@@ -1,4 +1,4 @@
-class DefaultDriver extends React.Component {
+class HarmonicDriver extends React.Component {
 	
 	constructor(props) {
     super(props);
@@ -12,12 +12,19 @@ class DefaultDriver extends React.Component {
         mode: MODES.Ionian,
         romanNumeral: ROMAN_NUMERALS.Major
     };
+    this.notes = [];
   }
 
   updateDriverState = (name, value) => {
     let update = {};
     update[name] = value;
     this.setState(update);
+
+    let key = new Key(this.state.homeDegree, this.state.accidental)
+    let intervals = this.getIntervals()
+    let notes = this.getFunctionalNotes(key, intervals);
+    this.notes = notes;
+    this.props.updateNotes(notes);
   }
 
   getIntervals = () => {
@@ -47,16 +54,8 @@ class DefaultDriver extends React.Component {
   }
 
 	render = () => {
-    let key = new Key(this.state.homeDegree, this.state.accidental)
-    let intervals = this.getIntervals()
-    let notes = this.getFunctionalNotes(key, intervals);
-
     return e('div', { id: 'default-driver' },
-        e(SettingsPanel, { id: 'default-panel', updateDriverState: this.updateDriverState, driverState: this.state, notes: notes }, null),
-        e('div', { id: 'visualizers' },
-          e(Piano, { functionalNotes: notes, length: 25 }, null),
-          e(Guitar, { functionalNotes: notes }, null)
-        )
+        e(SettingsPanel, { id: 'default-panel', updateDriverState: this.updateDriverState, driverState: this.state, notes: this.notes }, null)
     );
   };
 }
