@@ -2,7 +2,7 @@ class SettingsSelect extends React.Component {
 	
 	constructor(props) {
         super(props);
-        this.selectedId = this.props.config.default.id;
+        this.selectedId = this.props.driverState[this.props.config.id].id;
     }
 
     getOptions = () => {

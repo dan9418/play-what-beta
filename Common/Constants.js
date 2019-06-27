@@ -173,13 +173,13 @@ let ALL_SCALES = [SCALES.Major, SCALES.NatualMinor, SCALES.MajorPentatonic, SCAL
 // Modes
 
 let MODES = {
-	Ionian:		{ id: 'IONIAN',		name: 'Ionian (Major)', 			relativeDegree: 1, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
-	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 					relativeDegree: 2, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
-	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 					relativeDegree: 3, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
-	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 					relativeDegree: 4, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.A4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
-	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', 				relativeDegree: 5, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
-	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian (Natual Minor)', 	relativeDegree: 6, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
-	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 					relativeDegree: 7, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.d5, INTERVALS.m6, INTERVALS.m7] }
+	Ionian:		{ id: 'IONIAN',		name: 'Ionian', 	relativeDegree: 1, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
+	Dorian:		{ id: 'DORIAN',		name: 'Dorian', 	relativeDegree: 2, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
+	Phrygian:	{ id: 'PHRYGIAN',	name: 'Phrygian', 	relativeDegree: 3, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
+	Lydian:		{ id: 'LYDIAN',		name: 'Lydian', 	relativeDegree: 4, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.A4, INTERVALS.P5, INTERVALS.M6, INTERVALS.M7] },
+	Mixolydian:	{ id: 'MIXOLYDIAN',	name: 'Mixolydian', relativeDegree: 5, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P4, INTERVALS.P5, INTERVALS.M6, INTERVALS.m7] },
+	Aeolian:	{ id: 'AEOLIAN',	name: 'Aeolian', 	relativeDegree: 6, intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7] },
+	Locrian:	{ id: 'LOCRIAN',	name: 'Locrian', 	relativeDegree: 7, intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.d5, INTERVALS.m6, INTERVALS.m7] }
 };
 
 let ALL_MODES = [MODES.Ionian, MODES.Dorian, MODES.Phrygian, MODES.Lydian, MODES.Mixolydian, MODES.Aeolian, MODES.Locrian];
@@ -266,13 +266,16 @@ let ROMAN_NUMERALS = {
 let ALL_ROMAN_NUMERALS = [ROMAN_NUMERALS.Major, ROMAN_NUMERALS.Minor];
 
 let CONFIG = {
-	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES, default: HOME_DEGREES.C },
-	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS.filter((a) => {return Math.abs(a.offset) <= 1}), default: ACCIDENTALS.Natural },
-	Interval: { id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, data: ALL_INTERVALS, default: INTERVALS.P5, displayProp: 'id' },
-	Chord: { id: CONCEPTS.Chord.id, name: CONCEPTS.Chord.name, data: ALL_CHORDS, default: CHORDS.Maj_Tri },
-	Scale: { id: CONCEPTS.Scale.id, name: CONCEPTS.Scale.name, data: ALL_SCALES, default: SCALES.Major },
-	Mode: { id: CONCEPTS.Mode.id, name: CONCEPTS.Mode.name, data: ALL_MODES, default: MODES.Ionian },
-	RomanNumeral: { id: CONCEPTS.RomanNumeral.id, name: CONCEPTS.RomanNumeral.name, data: ALL_ROMAN_NUMERALS, default: ROMAN_NUMERALS.Ionian },
+	// Base
+	HomeDegree: { id: 'homeDegree', name: 'Home Degree', data: ALL_HOME_DEGREES },
+	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS.filter((a) => {return Math.abs(a.offset) <= 1}) },
 	Concept: { id: 'concept', name: 'Concept', data: ALL_CONCEPTS, default: CONCEPTS.Chord },
+	// Options
+	Interval: { id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, data: ALL_INTERVALS, displayProp: 'id' },
+	Chord: { id: CONCEPTS.Chord.id, name: CONCEPTS.Chord.name, data: ALL_CHORDS },
+	Scale: { id: CONCEPTS.Scale.id, name: CONCEPTS.Scale.name, data: ALL_SCALES },
+	Mode: { id: CONCEPTS.Mode.id, name: CONCEPTS.Mode.name, data: ALL_MODES },
+	RomanNumeral: { id: CONCEPTS.RomanNumeral.id, name: CONCEPTS.RomanNumeral.name, data: ALL_ROMAN_NUMERALS },
+	// Other
 	Label: { id: 'label', name: 'Label', data: ALL_LABELS, default: LABELS.Interval }
 }

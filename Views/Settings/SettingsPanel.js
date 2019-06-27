@@ -7,26 +7,26 @@ class SettingsPanel extends React.Component {
     getConceptOptions = () => {
         switch(this.props.driverState.concept.id) {
             case CONCEPTS.Interval.id:
-                return e(IntervalSelection, { updateDriverState: this.props.updateDriverState }, null);
+                return e(IntervalSelection, { config: CONFIG.Interval, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null);
             case CONCEPTS.Chord.id:
-                return e(ChordSelection, { updateDriverState: this.props.updateDriverState }, null);
+                return e(ChordSelection, { config: CONFIG.Chord, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null);
             case CONCEPTS.Scale.id:
-                return e(ScaleSelection, { updateDriverState: this.props.updateDriverState }, null);
+                return e(ScaleSelection, { config: CONFIG.Scale, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null);
             case CONCEPTS.Mode.id:
-                return e(ModeSelection, { updateDriverState: this.props.updateDriverState }, null);
+                return e(ModeSelection, { config: CONFIG.Mode, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null);
             case CONCEPTS.RomanNumeral.id:
-                return e(RomanNumeralSelection, { updateDriverState: this.props.updateDriverState }, null);
+                return e(RomanNumeralSelection, { config: CONFIG.RomanNumeral, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null);
         }
     }
 
 	render = () => {
         return e('div', { id: 'top-bar' },
             e('div', { id: 'top-bar-key'},
-                e(HomeDegreeSelection, { driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null),
-                e(AccidentalSelection, { driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null)
+                e(HomeDegreeSelection, { config: CONFIG.HomeDegree, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null),
+                e(AccidentalSelection, { config: CONFIG.Accidental, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null)
             ),
             e('div', { id: 'top-bar-concept'},
-                e(ConceptSelection, { updateDriverState: this.props.updateDriverState }, null)
+                e(ConceptSelection, { config: CONFIG.Concept, driverState: this.props.driverState, updateDriverState: this.props.updateDriverState }, null)
             ),
             e('div', { id: 'top-bar-concept-options'},
                 this.getConceptOptions()
