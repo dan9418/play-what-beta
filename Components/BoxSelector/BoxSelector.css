@@ -1,42 +1,14 @@
-.settings-panel {
-    padding: 10px;
-    margin: 10px;
-    display: block;
-}
-
-.setting-manager {
-    margin: 2px;
-    display: block;
-}
-
-#top-bar {
+#key-selector-container {
     background-color: #2B4C5F;
     padding: 10px;
     text-align: center;
 }
 
-#top-bar-key {
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-}
-
-#top-bar-concept {
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-}
-
-#top-bar-bottom {
-    text-align: center;
-    vertical-align: top;
-}
-
-.selection-container {
+.box-selector-container {
     position: relative;
 }
 
-.settings-select {
+.box-selector {
     color: white;
     font-size: 12px;
     text-align: center;
@@ -49,19 +21,18 @@
     margin: 5px;
 }
 
-.settings-select-label {
+.box-selector-label {
     color: white;
     background-color: #2B4C5F;
     font-weight: bold;
     font-size: 12px;
     position: absolute;
-    top: -7px;
-    left: 10px;
+    top: 3px;
     padding: 2px;
     margin: 2px;
 }
 
-.settings-select-option {
+.box-selector-option {
     display: inline-block;
     background-color: #CC625F;
     text-align: center;
@@ -74,7 +45,7 @@
     font-size: 12px;
 }
 
-.settings-select-option:hover {
+.box-selector-option:hover {
     background-color: #BB514E;
     cursor: pointer;
 }
@@ -82,12 +53,4 @@
 .active-setting {
     border: 2px solid #EA9C1F;
     margin: 5px;
-}
-
-.selection-container {
-    display: inline-block;
-}
-
-.dropdown-container {
-    display: block;
 }

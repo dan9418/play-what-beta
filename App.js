@@ -9,8 +9,8 @@ class App extends React.Component {
 	}
 
 	render = () => {
-		return e('div', { id: 'appContainer' },
-				e(HarmonicDriver, { updateNotes: this.updateNotes }, null)
+		return e('div', { id: 'app-container' },
+				e(KeySelector, {}, null)
 			);
 	  };
 }
