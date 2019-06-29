@@ -271,7 +271,7 @@ let CONFIG = {
 	Accidental: { id: 'accidental', name: 'Accidental', data: ALL_ACCIDENTALS.filter((a) => {return Math.abs(a.offset) <= 1}) },
 	Concept: { id: 'concept', name: 'Concept', data: ALL_CONCEPTS, default: CONCEPTS.Chord },
 	// Options
-	Interval: { id: CONCEPTS.Interval.id, 	name: CONCEPTS.Interval.name, data: ALL_INTERVALS, displayProp: 'id' },
+	Interval: { id: CONCEPTS.Interval.id, name: CONCEPTS.Interval.name, data: ALL_INTERVALS, displayProp: 'id' },
 	Chord: { id: CONCEPTS.Chord.id, name: CONCEPTS.Chord.name, data: ALL_CHORDS },
 	Scale: { id: CONCEPTS.Scale.id, name: CONCEPTS.Scale.name, data: ALL_SCALES },
 	Mode: { id: CONCEPTS.Mode.id, name: CONCEPTS.Mode.name, data: ALL_MODES },
