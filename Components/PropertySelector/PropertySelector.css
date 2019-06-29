@@ -1,0 +1,56 @@
+#key-selector-container {
+    background-color: #2B4C5F;
+    padding: 10px;
+    text-align: center;
+}
+
+.property-selector-container {
+    position: relative;
+}
+
+.property-selector {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-top: 2px;
+    margin: 5px;
+}
+
+.property-selector-label {
+    color: white;
+    background-color: #2B4C5F;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: 3px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.property-selector-option {
+    display: inline-block;
+    background-color: #CC625F;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 7px;
+    line-height: 20px;
+    height: 20px;
+    min-width: 20px;
+    font-size: 12px;
+}
+
+.property-selector-option:hover {
+    background-color: #BB514E;
+    cursor: pointer;
+}
+
+.active-setting {
+    border: 2px solid #EA9C1F;
+    margin: 5px;
+}
