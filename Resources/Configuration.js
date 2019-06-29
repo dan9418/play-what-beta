@@ -1,5 +1,7 @@
-let CONFIGURATION = {
-    Interval: {
+let CONCEPT_CONFIG = [
+    {
+        id: 'interval',
+        name: 'Intervals',
         defaultId: 'P5',
         defaultOptions: {
             direction: 'ASCENDING'
@@ -103,7 +105,9 @@ let CONFIGURATION = {
             }
         ]
     },
-    Chord: {
+    {
+        id: 'chord',
+        name: 'Chords',
         defaultId: 'maj',
         defaultOptions: {
             inversion: 0
@@ -201,7 +205,9 @@ let CONFIGURATION = {
             }
         ]
     },
-    Scale: {
+    {
+        id: 'scale',
+        name: 'Scales',
         defaultId: 'chromatic',
         defaultOptions: {
             direction: 'ASCENDING'
@@ -234,7 +240,9 @@ let CONFIGURATION = {
             }
         ]
     },
-    Mode: {
+    {
+        id: 'mode',
+        name: 'Modes',
         defaultId: 'ionian',
         defaultOptions: {
             direction: 'ASCENDING'
@@ -283,12 +291,14 @@ let CONFIGURATION = {
                 intervals: [INTERVALS.PU, INTERVALS.m2, INTERVALS.m3, INTERVALS.P4, INTERVALS.d5, INTERVALS.m6, INTERVALS.m7]
             }
         ]
-    },
-    RomanNumeral: {
+    }/*,
+    {
+        id: 'romanNumeral',
+        name: 'Roman Numerals',
         defaultId: 'none',
         defaultOptions: {
             quality: 'NONE'
         },
         data: []
-    }
-};
+    }*/
+]
