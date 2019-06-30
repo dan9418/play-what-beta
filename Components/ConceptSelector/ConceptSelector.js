@@ -17,7 +17,7 @@ class ConceptSelector extends React.Component {
 	render = () => {
     return e('div', { id: 'concept-selector-container' },
 				e(BoxSelector, { updateSelection: this.updateSelection, id: 'concept', name: 'Concept', data: CONCEPT_CONFIG, defaultId: 'chord' }, null),
-				e(ConceptDefSelector, { conceptConfig: this.state.conceptConfig }, null)
+				e(ConceptDefSelector, { conceptConfig: this.state.conceptConfig, keyDef: this.props.keyDef }, null)
     );
   };
 }

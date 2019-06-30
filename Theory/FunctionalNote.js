@@ -3,7 +3,7 @@ class FunctionalNote {
         this.key = key;
 				this.interval = interval;
 				if(interval.id !== INTERVALS.TT.id) {
-					this.absoluteDegree = (key.homeDegree - 1 + interval.relativeDegree - 1) % 7 + 1;
+					this.absoluteDegree = (key.degree - 1 + interval.relativeDegree - 1) % 7 + 1;
 					this.relativePosition = (key.homePosition + interval.semitones) % 12;
 					this.accidental = this.relativePosition - MODES.Ionian.intervals[this.absoluteDegree - 1].semitones;
 					if(this.relativePosition === 0 && this.accidental < 0) this.accidental += 12;
@@ -11,7 +11,7 @@ class FunctionalNote {
 					this.name = ALL_HOME_DEGREES[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
 				} else {
 					this.absoluteDegree = 0;
-					this.relativePosition = (SCALES.Major.intervals[key.homeDegree - 1].semitones + 6 + this.key.accidental) % 12;
+					this.relativePosition = (SCALES.Major.intervals[key.degree - 1].semitones + 6 + this.key.accidental) % 12;
 					this.accidental = 0;
 					this.name = INTERVALS.TT.id;
 				}
