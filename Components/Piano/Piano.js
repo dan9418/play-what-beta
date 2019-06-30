@@ -24,9 +24,10 @@ class Piano extends React.Component {
     }
 
 	render = () => {
-        return [
-            e('div', {className: 'piano'}, this.getKeys())        
-        ];
+        return e('span', {},
+            e('div', {className: 'piano'},
+            this.getKeys())
+            )
     };
 }
 
