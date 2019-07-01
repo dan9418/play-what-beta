@@ -9,7 +9,10 @@ class KeySelector extends React.Component {
 	}
 	
 	updateSelection = (propertyName, propertyValue) => {
-		console.log(propertyName, propertyValue);
+		let update = {};
+		update[propertyName] = propertyValue;
+		this.setState(update);
+		//console.log(propertyName, propertyValue);
 	}
 
 	render = () => {
