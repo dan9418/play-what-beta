@@ -1,5 +1,5 @@
-let CONCEPT_CONFIG = [
-    {
+let CONCEPT_DEF_CONFIG = {
+    interval: {
         id: 'interval',
         name: 'Intervals',
         defaultId: 'P5',
@@ -105,7 +105,7 @@ let CONCEPT_CONFIG = [
             }
         ]
     },
-    {
+    chord: {
         id: 'chord',
         name: 'Chords',
         defaultId: 'maj',
@@ -205,7 +205,7 @@ let CONCEPT_CONFIG = [
             }
         ]
     },
-    {
+    scale: {
         id: 'scale',
         name: 'Scales',
         defaultId: 'chromatic',
@@ -240,7 +240,7 @@ let CONCEPT_CONFIG = [
             }
         ]
     },
-    {
+    mode: {
         id: 'mode',
         name: 'Modes',
         defaultId: 'ionian',
@@ -292,7 +292,7 @@ let CONCEPT_CONFIG = [
             }
         ]
     }/*,
-    {
+    romanNumeral: {
         id: 'romanNumeral',
         name: 'Roman Numerals',
         defaultId: 'none',
@@ -301,4 +301,4 @@ let CONCEPT_CONFIG = [
         },
         data: []
     }*/
-]
+}

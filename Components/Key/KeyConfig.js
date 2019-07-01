@@ -1,5 +1,5 @@
 let KEY_CONFIG = {
-    DiatonicDegree: {
+    diatonicDegree: {
         id: 'diatonicDegree',
         name: 'Diatonic Degree',
         data: [
@@ -46,7 +46,7 @@ let KEY_CONFIG = {
             relativePosition: 11
         }
     ]},
-    Accidental: {
+    accidental: {
         id: 'accidental',
         name: 'Accidental',
         data: [
