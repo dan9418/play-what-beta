@@ -140,22 +140,23 @@ class LabelSelection extends React.Component {
 	
 	constructor(props) {
         super(props);
+        this.config = LABEL_CONFIG.Labels;
     }
 
     getOptions = () => {
         let options = [];
-        for(let i = 0; i < this.props.config.data.length; i++) {
-            let datum = this.props.config.data[i];
+        for(let i = 0; i < this.config.data.length; i++) {
+            let datum = this.config.data[i];
             options.push(e('option', { id: datum.id, key: datum.id, value: datum.id, className: 'select-option' }, datum.name));
         }
         return options;
     }
 
 	render = () => {
-        return e('div', { id: this.props.config.id + '-selection', className: 'dropdown-container' },
+        return e('div', { id: this.config.id + '-selection', className: 'dropdown-container' },
             e('select', {
-                defaultValue: this.props.config.default.id,
-                onChange: (event) => { this.props.updateViewDriverState(this.props.config.id, event.target.value) },
+                defaultValue: null,
+                onChange: (event) => { this.props.updateViewDriverState(this.config.id, event.target.value) },
             }, this.getOptions())
         )
     };

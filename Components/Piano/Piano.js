@@ -53,23 +53,23 @@ class PianoKey extends React.Component {
     getName = (note) => {
         switch(this.props.config.label)
         {
-            case LABELS.None.id:
+            case 'none':
                 return '';
-            case LABELS.Name.id:
+            case 'name':
                 return (note !== null) ? note.name : '';
-            case LABELS.Interval.id:
+            case 'interval':
                 return (note !== null) ? note.interval.id : '';
-            case LABELS.RelativePosition.id:
+            case 'relativePosition':
                 return this.props.physicalNote.relativePosition;
-            case LABELS.AbsolutePosition.id:
+            case 'absolutePosition':
                 return this.props.physicalNote.absolutePosition
-            case LABELS.RelativeDegree.id:
-                return (note !== null) ? note.interval.relativeDegree : '';
-            case LABELS.AbsoluteDegree.id:
+            case 'degree':
+                return (note !== null) ? note.interval.degree : '';
+            case 'absoluteDegree':
                 return (note !== null) ? note.absoluteDegree : '';
-            case LABELS.Octave.id:
+            case 'octave':
                 return this.props.physicalNote.octave;
-            case LABELS.Frequency.id:
+            case 'frequency':
                 return this.props.physicalNote.frequency;
             default:
                 return '';
