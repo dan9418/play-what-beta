@@ -1,4 +1,4 @@
-let CONCEPT_DEF_CONFIG = {
+let CONCEPT_CONFIG = {
     interval: {
         id: 'interval',
         name: 'Intervals',

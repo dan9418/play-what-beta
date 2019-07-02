@@ -19,7 +19,7 @@ class ConceptTypeSelector extends React.Component {
 
     return e('div', { id: 'concept-selector-container' },
 				e(BoxSelector, { updateSelection: this.updateSelection, id: CONCEPT_TYPE_CONFIG.type.id, name: CONCEPT_TYPE_CONFIG.type.name, data: CONCEPT_TYPE_CONFIG.type.data, defaultId: this.state.conceptType.id }, null),
-				e(ConceptDefSelector, { conceptType: conceptType, keyDef: this.props.keyDef }, null)
+				e(ConceptInstanceSelector, { key: conceptType.id, conceptType: conceptType, keyDef: this.props.keyDef }, null)
     );
   };
 }

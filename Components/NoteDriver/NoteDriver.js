@@ -4,27 +4,22 @@ class NoteDriver extends React.Component {
     super(props);
 	}
 
-	getIntervals = () => {
-		return this.props.conceptDefinition.intervals || [];
-		switch(this.props.conceptDefinition.id) {
-				case CONFIG.Interval.id:
-			return [INTERVALS.PU, this.props.conceptDefinition];
-				case CONFIG.Chord.id:
-			return this.props.conceptDefinition.intervals;
-				case CONFIG.Scale.id:
-			return this.props.conceptDefinition.intervals;
-				case CONFIG.Mode.id:
-			return this.props.conceptDefinition.intervals;
-				case CONFIG.RomanNumeral.id:
-			return [];
-		  default:
-			return [];
+	getConceptInstance = () => {
+		switch(this.props.conceptId) {
+			case CONCEPT_CONFIG.interval.id:
+				return new Interval(this.props.conceptDefinition, this.props.conceptOptions);
+			case CONCEPT_CONFIG.chord.id:
+				return new Chord(this.props.conceptDefinition, this.props.conceptOptions);
+			case CONCEPT_CONFIG.scale.id:
+				return new Scale(this.props.conceptDefinition, this.props.conceptOptions);
+			case CONCEPT_CONFIG.mode.id:
+				return new Mode(this.props.conceptDefinition, this.props.conceptOptions);
 		}
-  }
+	}
 	
 	getNotes = () => {
 		let notes = [];
-		let intervals = this.getIntervals();
+		let intervals = this.getConceptInstance().getIntervals();
 		for(let i = 0; i < intervals.length; i++) {
 			let functionalNote = new FunctionalNote(this.props.keyDef, intervals[i]);
 			notes.push(functionalNote);
