@@ -5,6 +5,6 @@ class Interval {
     }
 
     getIntervals = () => {
-        return [CONCEPT_CONFIG.interval.data[0], this.definition];
+        return [INTERVAL_CONFIG.data[0], this.definition];
     }
 }

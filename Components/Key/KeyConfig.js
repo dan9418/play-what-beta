@@ -1,8 +1,7 @@
-let KEY_CONFIG = {
-    diatonicDegree: {
-        id: 'diatonicDegree',
-        name: 'Diatonic Degree',
-        data: [
+let DIATONIC_DEGREE_CONFIG = {
+    id: 'diatonicDegree',
+    name: 'Diatonic Degree',
+    data: [
         {
             id: 'C',
             name: 'C',
@@ -45,11 +44,13 @@ let KEY_CONFIG = {
             diatonicDegree: 7,
             relativePosition: 11
         }
-    ]},
-    accidental: {
-        id: 'accidental',
-        name: 'Accidental',
-        data: [
+    ]
+};
+
+let ACCIDENTAL_CONFIG = {
+    id: 'accidental',
+    name: 'Accidental',
+    data: [
         {
             id: 'doubleFlat',
             name: 'bb',
@@ -75,5 +76,5 @@ let KEY_CONFIG = {
             name: 'xx',
             offset: 2
         }
-    ]}
+    ]
 };

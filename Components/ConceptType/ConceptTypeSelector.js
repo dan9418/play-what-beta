@@ -3,7 +3,7 @@ class ConceptTypeSelector extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
-			conceptType: CONCEPT_TYPE_CONFIG.type.data[1],
+			conceptType: CONCEPT_TYPE_CONFIG.data[1],
 		};
 	}
 	
@@ -18,8 +18,8 @@ class ConceptTypeSelector extends React.Component {
 		let conceptType = new ConceptType(this.state.conceptType);
 
     return e('div', { id: 'concept-selector-container' },
-				e(BoxSelector, { updateSelection: this.updateSelection, id: CONCEPT_TYPE_CONFIG.type.id, name: CONCEPT_TYPE_CONFIG.type.name, data: CONCEPT_TYPE_CONFIG.type.data, defaultId: this.state.conceptType.id }, null),
-				e(ConceptInstanceSelector, { key: conceptType.id, conceptType: conceptType, keyDef: this.props.keyDef }, null)
+				e(BoxSelector, { updateSelection: this.updateSelection, id: CONCEPT_TYPE_CONFIG.id, name: CONCEPT_TYPE_CONFIG.name, data: CONCEPT_TYPE_CONFIG.data, defaultId: this.state.conceptType.id }, null),
+				e(ConceptDefinitionSelector, { key: conceptType.id, conceptType: conceptType, keyDef: this.props.keyDef }, null)
     );
   };
 }

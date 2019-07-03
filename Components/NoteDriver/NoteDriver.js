@@ -5,14 +5,14 @@ class NoteDriver extends React.Component {
 	}
 
 	getConceptInstance = () => {
-		switch(this.props.conceptId) {
-			case CONCEPT_CONFIG.interval.id:
+		switch(this.props.conceptType.id) {
+			case INTERVAL_CONFIG.id:
 				return new Interval(this.props.conceptDefinition, this.props.conceptOptions);
-			case CONCEPT_CONFIG.chord.id:
+			case CHORD_CONFIG.id:
 				return new Chord(this.props.conceptDefinition, this.props.conceptOptions);
-			case CONCEPT_CONFIG.scale.id:
+			case SCALE_CONFIG.id:
 				return new Scale(this.props.conceptDefinition, this.props.conceptOptions);
-			case CONCEPT_CONFIG.mode.id:
+			case MODE_CONFIG.id:
 				return new Mode(this.props.conceptDefinition, this.props.conceptOptions);
 		}
 	}
