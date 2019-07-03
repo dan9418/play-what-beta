@@ -31,7 +31,7 @@ class ConceptOptionsSelector extends React.Component {
 	render = () => {
 		// TODO currently nothing is done with options config
     	return e('div', { id: 'concept-options-selector-container' },
-				e(NoteDriver, { conceptType: this.props.conceptType, conceptDefinition: this.props.conceptDefinition, conceptOptions: this.state.conceptOptions, keyDef: this.props.keyDef }, null)
+				e(TheoryEngine, { conceptType: this.props.conceptType, conceptDefinition: this.props.conceptDefinition, conceptOptions: this.state.conceptOptions, keyDef: this.props.keyDef }, null)
 			);
   };
 }

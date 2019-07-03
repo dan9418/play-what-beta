@@ -1,4 +1,4 @@
-class NoteDriver extends React.Component {
+class TheoryEngine extends React.Component {
 	
 	constructor(props) {
     super(props);

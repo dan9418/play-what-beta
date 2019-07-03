@@ -1,4 +1,4 @@
-class PianoViewDriver extends React.Component {
+class GuitarViewDriver extends React.Component {
 	
 	constructor(props) {
         super(props);
@@ -14,9 +14,9 @@ class PianoViewDriver extends React.Component {
     }
 
 	render = () => {
-        return e('div', { id: 'piano-view-driver' },
-                e(Piano, { functionalNotes: this.props.notes, length: 25, config: this.state }, null),
-                e(LabelSelection, { updateViewDriverState: this.updateViewDriverState }, null)
+        return e('div', { id: 'guitar-view-driver' },
+                e(Guitar, { functionalNotes: this.props.notes, config: this.state }, null),
+                e(LabelSelector, { updateViewDriverState: this.updateViewDriverState }, null)
             );
     };
 }

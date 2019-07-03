@@ -7,13 +7,12 @@
 		<meta name="description" content="Music Theory Toolkit">
 		<meta name="author" content="Dan Bednarczyk">
 
-		
-		<link rel="stylesheet" href="Components/NoteCollection/NoteCollection.css">
-		<link rel="stylesheet" href="Components/Guitar/Guitar.css">
-		<link rel="stylesheet" href="Components/Piano/Piano.css">
-		<link rel="stylesheet" href="Components/BoxSelector/BoxSelector.css">
-		<link rel="stylesheet" href="Components/PropertySelector/PropertySelector.css">
-		<link rel="stylesheet" href="Common/Common.css">
+		<link rel="stylesheet" href="Modules/Visualizers/NoteCollection/NoteCollection.css">
+		<link rel="stylesheet" href="Modules/Visualizers/Guitar/Guitar.css">
+		<link rel="stylesheet" href="Modules/Visualizers/Piano/Piano.css">
+		<link rel="stylesheet" href="Modules/Common/BoxSelector/BoxSelector.css">
+		<link rel="stylesheet" href="Modules/Common/PropertySelector/PropertySelector.css">
+		<link rel="stylesheet" href="Modules/Common/Common.css">
 		
 	</head>
 
@@ -23,41 +22,37 @@
 		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-		<script src="Common/Common.js"></script>
-		
-		<script src="Components/Key/Key.js"></script>
-		<script src="Components/Key/KeyConfig.js"></script>
-		<script src="Components/Key/KeySelector.js"></script>
+		<script src="Modules/Common/Common.js"></script>
+		<script src="Modules/Common/BoxSelector/BoxSelector.js"></script>
+		<script src="Modules/Common/PropertySelector/PropertySelector.js"></script>
 
-		<script src="Components/ConceptType/ConceptType.js"></script>
-		<script src="Components/ConceptType/ConceptTypeConfig.js"></script>
-		<script src="Components/ConceptType/ConceptTypeSelector.js"></script>
+		<script src="Modules/Key/Key.js"></script>
+		<script src="Modules/Key/KeyConfig.js"></script>
+		<script src="Modules/Key/KeySelector.js"></script>
 
-		<script src="Components/ConceptDefinition/ConceptDefinitionConfig.js"></script>
-		<script src="Components/ConceptDefinition/ConceptDefinitionSelector.js"></script>
+		<script src="Modules/Concept/ConceptType/ConceptType.js"></script>
+		<script src="Modules/Concept/ConceptType/ConceptTypeConfig.js"></script>
+		<script src="Modules/Concept/ConceptType/ConceptTypeSelector.js"></script>
+		<script src="Modules/Concept/ConceptDefinition/ConceptDefinitionConfig.js"></script>
+		<script src="Modules/Concept/ConceptDefinition/ConceptDefinitionSelector.js"></script>
+		<script src="Modules/Concept/ConceptOptions/ConceptOptionsConfig.js"></script>
+		<script src="Modules/Concept/ConceptOptions/ConceptOptionsSelector.js"></script>
 
-		<script src="Components/ConceptOptions/ConceptOptionsConfig.js"></script>
-		<script src="Components/ConceptOptions/ConceptOptionsSelector.js"></script>
+		<script src="Modules/TheoryEngine/TheoryEngine.js"></script>
+		<script src="Modules/TheoryEngine/Notes/PhysicalNote.js"></script>
+		<script src="Modules/TheoryEngine/Notes/FunctionalNote.js"></script>
+		<script src="Modules/TheoryEngine/Concepts/Interval.js"></script>
+		<script src="Modules/TheoryEngine/Concepts/Chord.js"></script>
+		<script src="Modules/TheoryEngine/Concepts/Scale.js"></script>
+		<script src="Modules/TheoryEngine/Concepts/Mode.js"></script>
 
-		<script src="Components/NoteDriver/Theory/FunctionalNote.js"></script>
-		<script src="Components/NoteDriver/Theory/PhysicalNote.js"></script>
-
-		<script src="Components/NoteDriver/Concepts/Interval.js"></script>
-		<script src="Components/NoteDriver/Concepts/Chord.js"></script>
-		<script src="Components/NoteDriver/Concepts/Scale.js"></script>
-		<script src="Components/NoteDriver/Concepts/Mode.js"></script>
-
-		<script src="Components/NoteDriver/NoteDriver.js"></script>
-
-		<script src="Components/BoxSelector/BoxSelector.js"></script>
-		<script src="Components/PropertySelector/PropertySelector.js"></script>
-		<script src="Components/SettingsModules.js"></script>
-		<script src="Components/NoteCollection/NoteCollection.js"></script>
-		<script src="Components/Piano/Piano.js"></script>
-		<script src="Components/Piano/PianoViewDriver.js"></script>
-		<script src="Components/Guitar/Guitar.js"></script>
-		<script src="Components/Guitar/GuitarViewDriver.js"></script>
-		<script src="Components/ViewManager.js"></script>
+		<script src="Modules/Visualizers/Common/LabelSelector.js"></script>
+		<script src="Modules/Visualizers/Common/ViewManager.js"></script>
+		<script src="Modules/Visualizers/NoteCollection/NoteCollection.js"></script>
+		<script src="Modules/Visualizers/Guitar/Guitar.js"></script>
+		<script src="Modules/Visualizers/Guitar/GuitarViewDriver.js"></script>
+		<script src="Modules/Visualizers/Piano/Piano.js"></script>
+		<script src="Modules/Visualizers/Piano/PianoViewDriver.js"></script>
 
 		<script src="App.js"></script>
 		
