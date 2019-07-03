@@ -23,7 +23,7 @@ class NoteDisplay extends React.Component {
 
         if(note !== null) {
             classes.push(`degree-${note.interval.degree}`);
-            this.physicalNote = new PhysicalNote(ALL_HOME_DEGREES[note.key.degree - 1].relativePosition + note.interval.semitones);
+            this.physicalNote = new PhysicalNote(DIATONIC_DEGREE_CONFIG.data[note.key.degree - 1].relativePosition + note.interval.semitones);
         }
         else {
             classes.push(`degree-0`);
@@ -59,7 +59,7 @@ class NoteCollection extends React.Component {
 
     getNoteDisplays() {
         let noteDisplays = [];
-        let startingPosition = (this.props.notes.length) ? ALL_HOME_DEGREES[this.props.notes[0].key.degree - 1].relativePosition : 0;
+        let startingPosition = (this.props.notes.length) ? DIATONIC_DEGREE_CONFIG.data[this.props.notes[0].key.degree - 1].relativePosition : 0;
         for(let i = startingPosition; i < startingPosition + 12; i++) {
             let note = this.props.notes.find((n) => { return n.relativePosition === (i % 12) }) || null;
             noteDisplays.push(e(NoteDisplay, {

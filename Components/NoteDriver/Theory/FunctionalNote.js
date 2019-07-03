@@ -5,13 +5,13 @@ class FunctionalNote {
 				if(interval.id !== INTERVALS.TT.id) {
 					this.absoluteDegree = (key.degree - 1 + interval.degree - 1) % 7 + 1;
 					this.relativePosition = (key.homePosition + interval.semitones) % 12;
-					this.accidental = this.relativePosition - MODES.Ionian.intervals[this.absoluteDegree - 1].semitones;
+					this.accidental = this.relativePosition - SCALE_CONFIG.data[0].intervals[this.absoluteDegree - 1].semitones;
 					if(this.relativePosition === 0 && this.accidental < 0) this.accidental += 12;
 					if(this.relativePosition === -1 && this.accidental < 0) this.relativePosition += 12;
-					this.name = ALL_HOME_DEGREES[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
+					this.name = DIATONIC_DEGREE_CONFIG.data[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
 				} else {
 					this.absoluteDegree = 0;
-					this.relativePosition = (SCALES.Major.intervals[key.degree - 1].semitones + 6 + this.key.accidental) % 12;
+					this.relativePosition = (SCALE_CONFIG.data[0].intervals[key.degree - 1].semitones + 6 + this.key.accidental) % 12;
 					this.accidental = 0;
 					this.name = INTERVALS.TT.id;
 				}
