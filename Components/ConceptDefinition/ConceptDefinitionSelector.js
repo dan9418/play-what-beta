@@ -17,7 +17,7 @@ class ConceptDefinitionSelector extends React.Component {
 				return CHORD_CONFIG;
 			case SCALE_CONFIG.id:
 				return SCALE_CONFIG;
-			case MODE_CONFIG:
+			case MODE_CONFIG.id:
 				return MODE_CONFIG;
 		}
 	}
