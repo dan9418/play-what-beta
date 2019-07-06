@@ -216,6 +216,11 @@ let SCALE_CONFIG = {
             intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.m7]
         },
         {
+            id: 'harmonicMinor',
+            name: 'Harmonic Minor',
+            intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.m3, INTERVALS.P4, INTERVALS.P5, INTERVALS.m6, INTERVALS.M7]
+        },
+        {
             id: 'majorPentatonic',
             name: 'Major Pentatonic',
             intervals: [INTERVALS.PU, INTERVALS.M2, INTERVALS.M3, INTERVALS.P5, INTERVALS.M6]

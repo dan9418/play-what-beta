@@ -24,6 +24,7 @@ class MasterConceptSelector extends React.Component {
 	setConcept = (conceptData) => {
 		let update = {};
 		update[this.state.conceptType.id] = conceptData;
+		this.props.updateConcept(conceptData);
 		this.setState(update);
 	}
 
@@ -50,24 +51,24 @@ class MasterConceptSelector extends React.Component {
 				break;
 		}
 		if(!this.state[this.state.conceptType.id].definition) this.state.concept = new conceptClass(conceptConfig.data[0], null);
-		return e(conceptSelector, { conceptClass: conceptClass, conceptConfig: conceptConfig, setConcept: this.setConcept, selected: this.state[this.state.conceptType.id].definition })
-	}
-
-	getNotes = () => {
-		let notes = [];
-		let intervals = this.state[this.state.conceptType.id].getIntervals();
-		for (let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(this.props.keyDef, intervals[i]);
-			notes.push(functionalNote);
-		}
-		return notes;
+		return e(conceptSelector, {
+			conceptClass: conceptClass,
+			conceptConfig: conceptConfig,
+			setConcept: this.setConcept,
+			selected: this.state[this.state.conceptType.id].definition
+		})
 	}
 
 	render = () => {
 		return e('div', { id: 'master-concept-selector-container' },
-			e(BoxSelector, { updateSelection: (p, v) => { this.setConceptType(v); }, id: CONCEPT_TYPE_CONFIG.id, name: CONCEPT_TYPE_CONFIG.name, data: CONCEPT_TYPE_CONFIG.data, selected: this.state.conceptType }, null),
+			e(BoxSelector, {
+				updateSelection: (p, v) => { this.setConceptType(v); },
+				id: CONCEPT_TYPE_CONFIG.id,
+				name: CONCEPT_TYPE_CONFIG.name,
+				data: CONCEPT_TYPE_CONFIG.data,
+				selected: this.state.conceptType
+			}, null),
 			this.getConceptTree(),
-			e(ViewManager, { notes: this.getNotes() }, null),
 		);
 	};
 }

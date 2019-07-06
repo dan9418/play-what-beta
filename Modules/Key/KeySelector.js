@@ -1,29 +1,43 @@
 class KeySelector extends React.Component {
 	
 	constructor(props) {
-    super(props);
-    this.state = {
-			diatonicDegree: DIATONIC_DEGREE_CONFIG.data[0],
-			accidental: ACCIDENTAL_CONFIG.data[2],
-		};
+		super(props);
+		this.state = {
+				diatonicDegree: DIATONIC_DEGREE_CONFIG.data[0],
+				accidental: ACCIDENTAL_CONFIG.data[2],
+			};
 	}
-	
-	updateSelection = (propertyName, propertyValue) => {
-		let update = {};
-		update[propertyName] = propertyValue;
-		this.setState(update);
-		//console.log(propertyName, propertyValue);
+
+	setDiatonicDegree = (diatonicDegree) => {
+		this.setState({ diatonicDegree: diatonicDegree })
+		let a = ACCIDENTAL_CONFIG.data.find((x) => x.offset === this.props.keyDef.accidental)
+		this.props.updateKey(new Key(diatonicDegree, a));
+	}
+
+	setAccidental = (accidental) => {
+		this.setState({ accidental: accidental })
+		let d = DIATONIC_DEGREE_CONFIG.data.find((x) => x.diatonicDegree === this.props.keyDef.degree)
+		this.props.updateKey(new Key(d, accidental));
 	}
 
 	render = () => {
-		let key = new Key(this.state.diatonicDegree, this.state.accidental)
-
-    return e('div', { id: 'key-selector-container' },
+    	return e('div', { id: 'key-selector-container' },
 			e('div', { id: 'top-bar-key'},
-				e(BoxSelector, { updateSelection: this.updateSelection, id: DIATONIC_DEGREE_CONFIG.id, name: DIATONIC_DEGREE_CONFIG.name, data: DIATONIC_DEGREE_CONFIG.data, selected: this.state.diatonicDegree }, null),
-				e(BoxSelector, { updateSelection: this.updateSelection, id: ACCIDENTAL_CONFIG.id, name: ACCIDENTAL_CONFIG.name, data: ACCIDENTAL_CONFIG.data, selected: this.state.accidental }, null)
+				e(BoxSelector, {
+					updateSelection: (p, v) => { this.setDiatonicDegree(v); },
+					id: DIATONIC_DEGREE_CONFIG.id,
+					name: DIATONIC_DEGREE_CONFIG.name,
+					data: DIATONIC_DEGREE_CONFIG.data,
+					selected: this.state.diatonicDegree
+				}, null),
+				e(BoxSelector, {
+					updateSelection: (p, v) => { this.setAccidental(v); },
+					id: ACCIDENTAL_CONFIG.id,
+					name: ACCIDENTAL_CONFIG.name,
+					data: ACCIDENTAL_CONFIG.data,
+					selected: this.state.accidental
+				}, null)
 			),
-			e(MasterConceptSelector, { keyDef: key }, null)
-    );
-  };
+   		);
+	};
 }

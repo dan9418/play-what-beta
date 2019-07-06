@@ -65,3 +65,9 @@
 	right: 3px;
 	bottom: 3px;
 }
+
+#note-display-container {
+	text-align: center;
+	vertical-align: middle;
+	margin: 5px;
+}

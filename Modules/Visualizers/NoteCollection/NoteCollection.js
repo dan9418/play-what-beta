@@ -31,7 +31,8 @@ class NoteDisplay extends React.Component {
             this.physicalNote = new PhysicalNote(this.props.position);
         }        
 
-        return e('div', {
+        return e('div',
+            {
                 className: classes.join(' '),
                 onClick: () => { this.sound(); }
             },
@@ -72,6 +73,6 @@ class NoteCollection extends React.Component {
     }
 
 	render = () => {
-		return this.getNoteDisplays();
+		return e('div', { id: 'note-display-container' }, this.getNoteDisplays());
     };
 }
