@@ -7,7 +7,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			key: new Key(DIATONIC_DEGREE_CONFIG.data[0], ACCIDENTAL_CONFIG.data[2]),
+			key: new Key(1, 0),
 			concept: EMPTY_CONCEPT
 		};
 	}

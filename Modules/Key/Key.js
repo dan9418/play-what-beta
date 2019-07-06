@@ -1,7 +1,7 @@
 class Key {
-    constructor(diatonicDegree, accidentalDef) {
-        this.degree = diatonicDegree.diatonicDegree;
-        this.accidental = accidentalDef.offset;
+    constructor(diatonicDegree, accidentalOffset) {
+        this.degree = diatonicDegree;
+        this.accidental = accidentalOffset;
         this.homePosition = SCALE_CONFIG.data[0].intervals[this.degree - 1].semitones + this.accidental;
     }
 }
