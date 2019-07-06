@@ -20,8 +20,8 @@ class KeySelector extends React.Component {
 
     return e('div', { id: 'key-selector-container' },
 			e('div', { id: 'top-bar-key'},
-				e(BoxSelector, { updateSelection: this.updateSelection, id: DIATONIC_DEGREE_CONFIG.id, name: DIATONIC_DEGREE_CONFIG.name, data: DIATONIC_DEGREE_CONFIG.data, defaultId: this.state.diatonicDegree.id }, null),
-				e(BoxSelector, { updateSelection: this.updateSelection, id: ACCIDENTAL_CONFIG.id, name: ACCIDENTAL_CONFIG.name, data: ACCIDENTAL_CONFIG.data, defaultId: this.state.accidental.id }, null)
+				e(BoxSelector, { updateSelection: this.updateSelection, id: DIATONIC_DEGREE_CONFIG.id, name: DIATONIC_DEGREE_CONFIG.name, data: DIATONIC_DEGREE_CONFIG.data, selected: this.state.diatonicDegree }, null),
+				e(BoxSelector, { updateSelection: this.updateSelection, id: ACCIDENTAL_CONFIG.id, name: ACCIDENTAL_CONFIG.name, data: ACCIDENTAL_CONFIG.data, selected: this.state.accidental }, null)
 			),
 			e(MasterConceptSelector, { keyDef: key }, null)
     );
