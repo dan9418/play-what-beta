@@ -1,3 +1,13 @@
+#key-selector-container {
+	display: inline-block;
+}
+
+#master-concept-selector-container {
+	display: inline-block;
+}
+
+
+
 * {
 	font-family: sans-serif;
 }

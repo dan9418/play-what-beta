@@ -22,22 +22,20 @@ class KeySelector extends React.Component {
 
 	render = () => {
     	return e('div', { id: 'key-selector-container' },
-			e('div', { id: 'top-bar-key'},
-				e(BoxSelector, {
-					updateSelection: (p, v) => { this.setDiatonicDegree(v); },
-					id: DIATONIC_DEGREE_CONFIG.id,
-					name: DIATONIC_DEGREE_CONFIG.name,
-					data: DIATONIC_DEGREE_CONFIG.data,
-					selected: this.state.diatonicDegree
-				}, null),
-				e(BoxSelector, {
-					updateSelection: (p, v) => { this.setAccidental(v); },
-					id: ACCIDENTAL_CONFIG.id,
-					name: ACCIDENTAL_CONFIG.name,
-					data: ACCIDENTAL_CONFIG.data,
-					selected: this.state.accidental
-				}, null)
-			),
+			e(BoxSelector, {
+				updateSelection: (p, v) => { this.setDiatonicDegree(v); },
+				id: DIATONIC_DEGREE_CONFIG.id,
+				name: DIATONIC_DEGREE_CONFIG.name,
+				data: DIATONIC_DEGREE_CONFIG.data,
+				selected: this.state.diatonicDegree
+			}, null),
+			e(BoxSelector, {
+				updateSelection: (p, v) => { this.setAccidental(v); },
+				id: ACCIDENTAL_CONFIG.id,
+				name: ACCIDENTAL_CONFIG.name,
+				data: ACCIDENTAL_CONFIG.data,
+				selected: this.state.accidental
+			}, null)
    		);
 	};
 }
