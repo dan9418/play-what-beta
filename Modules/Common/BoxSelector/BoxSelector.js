@@ -13,7 +13,7 @@ class BoxSelector extends React.Component {
             let option = this.props.data[i];
             let displayProp = this.props.displayProp || 'name';
             let classes = ['box-selector-option', this.props.id + '-' + option.id];
-            if(option.id === this.state.selectedId) classes.push('active-setting');
+            if(this.props.selected && option.id === this.props.selected.id) classes.push('active-setting');
             options.push(
                 e('div', {
                     key: this.props.id + '-opt-' + i,

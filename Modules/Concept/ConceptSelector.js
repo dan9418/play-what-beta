@@ -1,25 +1,28 @@
-function getConceptSelector(conceptClass, config, setConcept) {
+function getConceptSelector() {
 	wrappedComponent = class ConceptSelector extends React.Component {
 		constructor(props) {
 			super(props);
-			this.state = {
-					conceptDef: config.data[0],
-					conceptOptions: null
-				};
 		}
-		
+
 		setConceptDefinition = (conceptDef) => {
 			this.setState({ conceptDef: conceptDef })
-			setConcept(new conceptClass(conceptDef, this.state.conceptOptions));
+			this.props.setConcept(new this.props.conceptClass(conceptDef, this.props.conceptOptions));
 		}
 
 		setConceptOptions = (conceptOptions) => {
 			this.setState({ conceptOptions: conceptOptions })
-			setConcept(new conceptClass(this.state.conceptDef, conceptOptions));
+			this.props.setConcept(new this.props.conceptClass(this.props.conceptDef, conceptOptions));
 		}
 
 		render = () => {
-			return e(BoxSelector, { updateSelection: (p, v) => { this.setConceptDefinition(v) }, id: config.id + 'Def', name: config.name +' Definition', data: config.data, defaultId: '' }, null);
+			return e(BoxSelector, {
+				updateSelection: (p, v) => { this.setConceptDefinition(v) },
+				key: this.props.conceptConfig.id,
+				id: this.props.conceptConfig.id + 'Def',
+				name: this.props.conceptConfig.name +' Definition',
+				data: this.props.conceptConfig.data,
+				selected: this.props.selected
+			}, null);
 		};
 	}
 	return wrappedComponent;
