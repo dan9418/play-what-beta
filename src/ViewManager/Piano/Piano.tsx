@@ -125,6 +125,8 @@ export class WhiteKey extends React.Component<any> {
         let classes = ['piano-key', 'white-key'];
         if(this.props.functionalNote != null) {
             classes.push(`degree-${this.props.functionalNote.interval.degree}`)
+        } else {
+            classes.push(`degree-0`)
         }
 		return e('div', {
             className: classes.join(' '),
@@ -144,6 +146,9 @@ export class BlackKey extends React.Component<any> {
         let classes = ['piano-key', 'black-key'];
         if(this.props.functionalNote != null) {
             classes.push(`degree-${this.props.functionalNote.interval.degree}`)
+        }
+        else {
+            classes.push(`black`)
         }
 		return e('div', {
                     className: containerClasses.join(' ')

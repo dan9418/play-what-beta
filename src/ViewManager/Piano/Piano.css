@@ -21,12 +21,15 @@
 }
 
 .white-key {
-	background-color: white;
-	color: black;
 	box-shadow:inset 0px 0px 0px 1px black;
 	height: 100px;
 	width: 25px;
 	padding-top: 5px;
+}
+
+.black {
+	background-color: black;
+	color: white;
 }
 
 .black-key-container {
@@ -36,8 +39,6 @@
 
 .black-key {
 	box-shadow:inset 0px 0px 0px 1px black;
-	background-color: black;
-	color: white;
 	height: 70px;
 	width: 12px;
 	position: relative;

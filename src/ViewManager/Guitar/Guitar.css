@@ -5,6 +5,11 @@
 	vertical-align: middle;
 }
 
+.wood {
+	background-color: burlywood;
+	color: black;
+}
+
 .guitar {
 	padding: 20px;
 	display: block;
@@ -17,8 +22,7 @@
 
 .guitar-fret {
 	display: inline-block;
-	background-color: burlywood;
-	color: black;
+	font-weight: bold;
 	height: 20px;
 	width: 30px;
 	border-top: 1px solid black;
@@ -33,7 +37,6 @@
 }
 
 .guitar-fret-open {
-	background-color: chocolate;
 	border-right: 3px solid grey;
 }
 

@@ -123,6 +123,8 @@ export class Fret extends React.Component<any> {
         let note = this.getFunctionalNote();
         if(note !== null)
             classes.push(`degree-${note.interval.degree}`);
+        else
+            classes.push(`wood`);
         let name = this.getName(note);
 
 		return e('div', {
