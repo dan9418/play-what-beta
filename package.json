@@ -5,7 +5,8 @@
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compileJSX": "npx babel src --out-dir lib --presets react-app/prod --copy-files"
+    "compileJSX": "npx babel src --out-dir lib --presets react-app/prod --copy-files",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,20 @@
   },
   "homepage": "https://github.com/dan9418/music-theory-toolkit#readme",
   "dependencies": {
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2"
+    "babel-preset-react-app": "^3.1.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.35.2"
+  },
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2",
+    "webpack-cli": "^3.3.5"
   }
 }
