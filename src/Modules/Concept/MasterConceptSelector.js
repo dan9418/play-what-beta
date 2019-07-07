@@ -1,17 +1,13 @@
-let EMPTY_CONCEPT = {
-	getIntervals: () => { return []; }
-};
-
 class MasterConceptSelector extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
 			conceptType: CONCEPT_TYPE_CONFIG.data[1],
-			interval: EMPTY_CONCEPT,
-			chord: EMPTY_CONCEPT,
-			scale: EMPTY_CONCEPT,
-			mode: EMPTY_CONCEPT
+			interval: this.props.conceptValue,
+			chord: this.props.conceptValue,
+			scale: this.props.conceptValue,
+			mode: this.props.conceptValue
 		};
 	}
 
@@ -31,7 +27,7 @@ class MasterConceptSelector extends React.Component {
 	getConceptTree = () => {
 		let conceptClass = null;
 		let conceptConfig = null;
-		let conceptSelector = getConceptSelector();
+		let ConceptSelector = getConceptSelector();
 		switch (this.state.conceptType.id) {
 			case INTERVAL_CONFIG.id:
 				conceptClass = Interval;
@@ -50,25 +46,29 @@ class MasterConceptSelector extends React.Component {
 				conceptConfig = MODE_CONFIG;
 				break;
 		}
-		if(!this.state[this.state.conceptType.id].definition) this.state.concept = new conceptClass(conceptConfig.data[0], null);
-		return e(conceptSelector, {
-			conceptClass: conceptClass,
-			conceptConfig: conceptConfig,
-			setConcept: this.setConcept,
-			selected: this.state[this.state.conceptType.id].definition
-		})
+		if (!this.state[this.state.conceptType.id].definition) this.state.concept = new conceptClass(conceptConfig.data[0], null);
+		return (
+			<ConceptSelector
+				conceptClass={conceptClass}
+				conceptConfig={conceptConfig}
+				setConcept={this.setConcept}
+				selected={this.state[this.state.conceptType.id].definition}
+			/>
+		)
 	}
 
 	render = () => {
-		return e('div', { id: 'master-concept-selector-container' },
-			e(BoxSelector, {
-				updateSelection: (p, v) => { this.setConceptType(v); },
-				id: CONCEPT_TYPE_CONFIG.id,
-				name: CONCEPT_TYPE_CONFIG.name,
-				data: CONCEPT_TYPE_CONFIG.data,
-				selected: this.state.conceptType
-			}, null),
-			this.getConceptTree(),
+		return (
+			<div id='master-concept-selector-container'>
+				<BoxSelector
+					updateSelection={(p, v) => { this.setConceptType(v); }}
+					id={CONCEPT_TYPE_CONFIG.id}
+					name={CONCEPT_TYPE_CONFIG.name}
+					data={CONCEPT_TYPE_CONFIG.data}
+					selected={this.state.conceptType}
+				/>
+				{this.getConceptTree()}
+			</div>
 		);
 	};
 }
