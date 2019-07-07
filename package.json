@@ -1,0 +1,25 @@
+{
+  "name": "music-theory-toolkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compileJSX": "npx babel src --out-dir lib --presets react-app/prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan9418/music-theory-toolkit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan9418/music-theory-toolkit/issues"
+  },
+  "homepage": "https://github.com/dan9418/music-theory-toolkit#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
