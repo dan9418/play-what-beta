@@ -3,15 +3,16 @@ import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import { Key } from "../../Theory/Base/Key";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { DIATONIC_DEGREE_CONFIG, ACCIDENTAL_CONFIG } from "../../Theory/Base/KeyConfig";
+import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
+import { PARAM_accidental } from "../../Common/Parameters/Base/AccidentalConfig";
 
 export class KeySelector extends React.Component<any> {
 
 	constructor(props) {
 		super(props);
 		(this.state as any) = {
-			diatonicDegree: DIATONIC_DEGREE_CONFIG.data[0],
-			accidental: ACCIDENTAL_CONFIG.data[2],
+			diatonicDegree: PARAM_diatonicDegree.data[0],
+			accidental: PARAM_accidental.data[2],
 		};
 	}
 
@@ -30,16 +31,16 @@ export class KeySelector extends React.Component<any> {
 			<div id='key-selector-container'>
 				<BoxSelector
 					updateSelection={(p, v) => { this.setDiatonicDegree(v); }}
-					id={DIATONIC_DEGREE_CONFIG.id}
-					name={DIATONIC_DEGREE_CONFIG.name}
-					data={DIATONIC_DEGREE_CONFIG.data}
+					id={PARAM_diatonicDegree.id}
+					name={PARAM_diatonicDegree.name}
+					data={PARAM_diatonicDegree.data}
 					selected={(this.state as any).diatonicDegree}
 				/>
 				<BoxSelector
 					updateSelection={(p, v) => { this.setAccidental(v); }}
-					id={ACCIDENTAL_CONFIG.id}
-					name={ACCIDENTAL_CONFIG.name}
-					data={ACCIDENTAL_CONFIG.data}
+					id={PARAM_accidental.id}
+					name={PARAM_accidental.name}
+					data={PARAM_accidental.data}
 					selected={(this.state as any).accidental}
 				/>
 			</div>

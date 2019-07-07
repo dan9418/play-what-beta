@@ -1,4 +1,4 @@
-import { DIATONIC_DEGREE_CONFIG } from "./KeyConfig";
+import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
 
 export class PhysicalNote {
     absolutePosition: any;
@@ -17,7 +17,7 @@ export class PhysicalNote {
 
         // Calculate frequency
         let f = 440;
-        let distA4 = this.absolutePosition - DIATONIC_DEGREE_CONFIG.data[5].relativePosition;
+        let distA4 = this.absolutePosition - PARAM_diatonicDegree.data[5].homePostition;
         if(distA4 < 0) {
             let dist = Math.abs(distA4);
             for(let i = 0; i < dist; i++) {

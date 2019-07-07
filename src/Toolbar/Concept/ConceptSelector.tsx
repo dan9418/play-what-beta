@@ -6,15 +6,18 @@ import { Chord } from "../../Theory/Concepts/Chord";
 import { Scale } from "../../Theory/Concepts/Scale";
 import { Mode } from "../../Theory/Concepts/Mode";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { CONCEPT_TYPE_CONFIG } from "../../Theory/Concepts/ConceptTypeConfig";
-import { MODE_CONFIG, SCALE_CONFIG, INTERVAL_CONFIG, CHORD_CONFIG } from "../../Theory/Concepts/ConceptDefinitionConfig";
+import { PARAM_conceptType } from "../../Common/Parameters/Base/ConceptTypeConfig";
+import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig";
+import { PARAM_chord } from "../../Common/Parameters/Concepts/ChordConfig";
+import { PARAM_scale } from "../../Common/Parameters/Concepts/ScaleConfig";
+import { PARAM_mode } from "../../Common/Parameters/Concepts/ModeConfig";
 
 export class ConceptSelector extends React.Component<any> {
 
 	constructor(props) {
 		super(props);
 		(this.state as any) = {
-			conceptType: CONCEPT_TYPE_CONFIG.data[1],
+			conceptType: PARAM_conceptType.data[1],
 			interval: this.props.conceptValue,
 			chord: this.props.conceptValue,
 			scale: this.props.conceptValue,
@@ -72,21 +75,21 @@ export class ConceptSelector extends React.Component<any> {
 		let conceptConfig = null;
 		let ConceptSelector = this.getConceptSelector();
 		switch ((this.state as any).conceptType.id) {
-			case INTERVAL_CONFIG.id:
+			case PARAM_interval.id:
 				conceptClass = Interval;
-				conceptConfig = INTERVAL_CONFIG;
+				conceptConfig = PARAM_interval;
 				break;
-			case CHORD_CONFIG.id:
+			case PARAM_chord.id:
 				conceptClass = Chord;
-				conceptConfig = CHORD_CONFIG;
+				conceptConfig = PARAM_chord;
 				break;
-			case SCALE_CONFIG.id:
+			case PARAM_scale.id:
 				conceptClass = Scale;
-				conceptConfig = SCALE_CONFIG;
+				conceptConfig = PARAM_scale;
 				break;
-			case MODE_CONFIG.id:
+			case PARAM_mode.id:
 				conceptClass = Mode;
-				conceptConfig = MODE_CONFIG;
+				conceptConfig = PARAM_mode;
 				break;
 		}
 		if (!(this.state as any)[(this.state as any).conceptType.id].definition) (this.state as any).concept = new conceptClass(conceptConfig.data[0], null);
@@ -105,9 +108,9 @@ export class ConceptSelector extends React.Component<any> {
 			<div id='master-concept-selector-container'>
 				<BoxSelector
 					updateSelection={(p, v) => { this.setConceptType(v); }}
-					id={CONCEPT_TYPE_CONFIG.id}
-					name={CONCEPT_TYPE_CONFIG.name}
-					data={CONCEPT_TYPE_CONFIG.data}
+					id={PARAM_conceptType.id}
+					name={PARAM_conceptType.name}
+					data={PARAM_conceptType.data}
 					selected={(this.state as any).conceptType}
 				/>
 				{this.getConceptTree()}

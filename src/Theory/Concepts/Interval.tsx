@@ -1,4 +1,4 @@
-import { INTERVAL_CONFIG } from "./ConceptDefinitionConfig";
+import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig";
 
 export class Interval {
     definition: any;
@@ -10,6 +10,6 @@ export class Interval {
     }
 
     getIntervals = () => {
-        return [INTERVAL_CONFIG.data[0], this.definition];
+        return [PARAM_interval.data[0], this.definition];
     }
 }

@@ -1,6 +1,6 @@
-import { SCALE_CONFIG } from "../Concepts/ConceptDefinitionConfig";
-import { DIATONIC_DEGREE_CONFIG } from "./KeyConfig";
-import { INTERVALS } from "../../Common/Common";
+import { INTERVALS } from "../../Common/Parameters/Concepts/IntervalConfig";
+import { PARAM_scale } from "../../Common/Parameters/Concepts/ScaleConfig";
+import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
 
 export class FunctionalNote {
 	key: any;
@@ -16,13 +16,13 @@ export class FunctionalNote {
 				if(interval.id !== INTERVALS.TT.id) {
 					this.absoluteDegree = (key.degree - 1 + interval.degree - 1) % 7 + 1;
 					this.relativePosition = (key.homePosition + interval.semitones) % 12;
-					this.accidental = this.relativePosition - SCALE_CONFIG.data[0].intervals[this.absoluteDegree - 1].semitones;
+					this.accidental = this.relativePosition - PARAM_scale.data[0].intervals[this.absoluteDegree - 1].semitones;
 					if(this.relativePosition === 0 && this.accidental < 0) this.accidental += 12;
 					if(this.relativePosition === -1 && this.accidental < 0) this.relativePosition += 12;
-					this.name = DIATONIC_DEGREE_CONFIG.data[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
+					this.name = PARAM_diatonicDegree.data[this.absoluteDegree - 1].id + this.getAccidentalString(this.accidental);
 				} else {
 					this.absoluteDegree = 0;
-					this.relativePosition = (SCALE_CONFIG.data[0].intervals[key.degree - 1].semitones + 6 + this.key.accidental) % 12;
+					this.relativePosition = (PARAM_scale.data[0].intervals[key.degree - 1].semitones + 6 + this.key.accidental) % 12;
 					this.accidental = 0;
 					this.name = INTERVALS.TT.id;
 				}
