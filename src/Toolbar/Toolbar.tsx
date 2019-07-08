@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../Common/Common.css";
+import "./Toolbar.css";
 import { KeySelector } from "./Key/KeySelector";
 import { ConceptSelector } from "./Concept/ConceptSelector";
 

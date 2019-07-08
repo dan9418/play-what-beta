@@ -9,7 +9,8 @@
 	font-size: 12px;
 	display: inline-block;
 	position: relative;
-	margin: 3px
+	margin: 3px;
+	border: 1px solid black;
 }
 
 .note-row {

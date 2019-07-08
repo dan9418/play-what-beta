@@ -1,0 +1,19 @@
+#key-selector-container {
+	display: inline-block;
+}
+
+#master-concept-selector-container {
+	display: inline-block;
+}
+
+#toolbar {
+	background-color: #c7ecee;
+    text-align: center;
+    width: 25%;
+    height: 90%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-top: 10px
+}

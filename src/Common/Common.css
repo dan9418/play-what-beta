@@ -1,22 +1,8 @@
-#key-selector-container {
-	display: inline-block;
-}
-
-#master-concept-selector-container {
-	display: inline-block;
-}
-
-#toolbar {
-	background-color: #2B4C5F;
-    text-align: center;
-}
-
 * {
 	font-family: sans-serif;
 }
 
 html, body {
-	background-color: lightslategray;
 	margin: 0;
 	padding: 0;
 }
@@ -25,90 +11,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
-#page-title {
+#header {
 	font-size: 20px;
-	color: white;
-}
-
-/* Home Degrees */
-
-.homeDegree-C {
-	background-color: red;
-	color: white;
-}
-
-.homeDegree-D {
-	background-color: orange;
-	color: white;
-}
-
-.homeDegree-E {
-	background-color: yellow;
-	color: black;
-}
-
-.homeDegree-F {
-	background-color: green;
-	color: white;
-}
-
-.homeDegree-G {
-	background-color: blue;
-	color: white;
-}
-
-.homeDegree-A {
-	background-color: indigo;
-	color: white;
-}
-
-.homeDegree-B {
-	background-color: purple;
-	color: white;
-}
-
-/* Accidentals */
-
-.accidental-Flat {
-	background-color: darkred;
-	color: white;
-}
-
-.accidental-Natural {
-	background-color: darkred;
-	color: white;
-}
-
-.accidental-Sharp {
-	background-color: darkred;
-	color: white;
-}
-
-/* Accidentals */
-
-.concept-interval {
-	background-color: darkolivegreen;
-	color: white;
-}
-
-.concept-chord {
-	background-color: darkolivegreen;
-	color: white;
-}
-
-.concept-scale {
-	background-color: darkolivegreen;
-	color: white;
-}
-
-.concept-mode {
-	background-color: darkolivegreen;
-	color: white;
-}
-
-.concept-romanNumeral {
-	background-color: darkolivegreen;
-	color: white;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 10%;
+	background-color: #22a6b3;
+	color: #30336b;
 }
 
 /* Degrees */
