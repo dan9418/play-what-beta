@@ -2,28 +2,32 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./BoxSelector.css";
+import { IParamConfig, IParamDef } from "../Parameters/IParamConfig";
 
-export class BoxSelector extends React.Component<any> {
+interface BoxSelectorProps {
+    param: IParamConfig<any>;
+    selectedValue: IParamDef;
+    updateSelection: (IParamDef) => void;
+}
+
+export class BoxSelector extends React.Component<BoxSelectorProps> {
 
     constructor(props) {
         super(props);
-        (this.state as any) = {
-            selectedId: this.props.defaultId
-        };
     }
 
     getOptions = () => {
         let options = [];
-        for (let i = 0; i < this.props.data.length; i++) {
-            let option = this.props.data[i];
-            let displayProp = this.props.displayProp || 'name';
-            let classes = ['box-selector-option', this.props.id + '-' + option.id];
-            if (this.props.selected && option.id === this.props.selected.id) classes.push('active-setting');
+        for (let i = 0; i < this.props.param.data.length; i++) {
+            let option = this.props.param.data[i];
+            let displayProp = 'name';
+            let classes = ['box-selector-option', this.props.param.id + '-' + option.id];
+            if (this.props.selectedValue && option.id === this.props.selectedValue.id) classes.push('active-setting');
             options.push(
                 <div
-                    key={this.props.id + '-opt-' + i}
+                    key={option.id}
                     className={classes.join(' ')}
-                    onClick={() => { this.setState({ selectedId: option.id }); this.props.updateSelection(this.props.id, option) }}
+                    onClick={() => { this.props.updateSelection(option) }}
                 >{option[displayProp]}</div>
             );
         }
@@ -32,8 +36,8 @@ export class BoxSelector extends React.Component<any> {
 
     render = () => {
         return (
-            <div id={'box-selector-' + this.props.id} className='box-selector'>
-                {<div className='box-selector-label'>{this.props.name}</div>}
+            <div id={'box-selector-' + this.props.param.id} className='box-selector'>
+                {<div className='box-selector-label'>{this.props.param.name}</div>}
                 {this.getOptions()}
             </div>
         );

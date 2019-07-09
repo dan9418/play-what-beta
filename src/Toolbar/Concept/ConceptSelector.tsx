@@ -6,12 +6,13 @@ import { Chord } from "../../Theory/Concepts/Chord";
 import { Scale } from "../../Theory/Concepts/Scale";
 import { Mode } from "../../Theory/Concepts/Mode";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { PARAM_conceptType } from "../../Common/Parameters/Base/ConceptTypeConfig";
+import { PARAM_conceptType, ConceptTypeDef } from "../../Common/Parameters/Base/ConceptTypeConfig";
 import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig";
 import { PARAM_chord } from "../../Common/Parameters/Concepts/ChordConfig";
 import { PARAM_scale } from "../../Common/Parameters/Concepts/ScaleConfig";
 import { PARAM_mode } from "../../Common/Parameters/Concepts/ModeConfig";
 import { InputGroup } from "../../Common/InputGroup/InputGroup";
+import { IParamDef } from "../../Common/Parameters/IParamConfig";
 
 export class ConceptSelector extends React.Component<any> {
 
@@ -33,25 +34,21 @@ export class ConceptSelector extends React.Component<any> {
 			}
 	
 			setConceptDefinition = (conceptDef) => {
-				this.setState({ conceptDef: conceptDef })
-				this.props.setConcept(new this.props.conceptClass(conceptDef, this.props.conceptOptions));
+				this.props.setConcept(new this.props.Concept(conceptDef, this.props.conceptOptions));
 			}
 	
 			setConceptOptions = (conceptOptions) => {
-				this.setState({ conceptOptions: conceptOptions })
-				this.props.setConcept(new this.props.conceptClass(this.props.conceptDef, conceptOptions));
+				this.props.setConcept(new this.props.Concept(this.props.conceptDef, conceptOptions));
 			}
 	
 			render = () => {
 				return (
 					<InputGroup name="Concept Details">
 						<BoxSelector
-							updateSelection={(p, v) => { this.setConceptDefinition(v) }}
 							key={this.props.conceptConfig.id}
-							id={this.props.conceptConfig.id + 'Def'}
-							name={this.props.conceptConfig.name + ' Definition'}
-							data={this.props.conceptConfig.data}
-							selected={this.props.selected}
+							updateSelection={this.setConceptDefinition}
+							param={this.props.conceptConfig}
+							selectedValue={this.props.selectedValue}
 						/>
 					</InputGroup>
 				)
@@ -60,13 +57,13 @@ export class ConceptSelector extends React.Component<any> {
 		return WrappedComponent;
 	}
 
-	setConceptType = (conceptType) => {
+	setConceptType = (conceptType: ConceptTypeDef) => {
 		this.setState({
 			conceptType: conceptType
 		});
 	}
 
-	setConcept = (conceptData) => {
+	setConcept = (conceptData: IParamDef) => {
 		let update = {};
 		update[(this.state as any).conceptType.id] = conceptData;
 		this.props.updateConcept(conceptData);
@@ -98,10 +95,10 @@ export class ConceptSelector extends React.Component<any> {
 		if (!(this.state as any)[(this.state as any).conceptType.id].definition) (this.state as any).concept = new conceptClass(conceptConfig.data[0], null);
 		return (
 			<ConceptSelector
-				conceptClass={conceptClass}
+				Concept={conceptClass}
 				conceptConfig={conceptConfig}
 				setConcept={this.setConcept}
-				selected={(this.state as any)[(this.state as any).conceptType.id].definition}
+				selectedValue={(this.state as any)[(this.state as any).conceptType.id].definition}
 			/>
 		)
 	}
@@ -110,11 +107,9 @@ export class ConceptSelector extends React.Component<any> {
 		return (
 			<InputGroup name="Concept">
 				<BoxSelector
-					updateSelection={(p, v) => { this.setConceptType(v); }}
-					id={PARAM_conceptType.id}
-					name={PARAM_conceptType.name}
-					data={PARAM_conceptType.data}
-					selected={(this.state as any).conceptType}
+					updateSelection={this.setConceptType}
+					param={PARAM_conceptType}
+					selectedValue={(this.state as any).conceptType}
 				/>
 				{this.getConceptTree()}
 			</InputGroup>

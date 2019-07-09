@@ -3,8 +3,8 @@ import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import { Key } from "../../Theory/Base/Key";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
-import { PARAM_accidental } from "../../Common/Parameters/Base/AccidentalConfig";
+import { PARAM_diatonicDegree, DiatonicDegreeDef } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
+import { PARAM_accidental, AccidentalDef } from "../../Common/Parameters/Base/AccidentalConfig";
 import { InputGroup } from "../../Common/InputGroup/InputGroup";
 
 export class KeySelector extends React.Component<any> {
@@ -17,12 +17,12 @@ export class KeySelector extends React.Component<any> {
 		};
 	}
 
-	setDiatonicDegree = (diatonicDegree) => {
+	setDiatonicDegree = (diatonicDegree: DiatonicDegreeDef) => {
 		this.setState({ diatonicDegree: diatonicDegree })
-		this.props.changeKey(new Key(diatonicDegree.diatonicDegree, this.props.keyDef.accidental));
+		this.props.changeKey(new Key(diatonicDegree.degree, this.props.keyDef.accidental));
 	}
 
-	setAccidental = (accidental) => {
+	setAccidental = (accidental: AccidentalDef) => {
 		this.setState({ accidental: accidental })
 		this.props.changeKey(new Key(this.props.keyDef.degree, accidental.offset));
 	}
@@ -31,18 +31,14 @@ export class KeySelector extends React.Component<any> {
 		return (
 			<InputGroup name="Key">
 				<BoxSelector
-					updateSelection={(p, v) => { this.setDiatonicDegree(v); }}
-					id={PARAM_diatonicDegree.id}
-					name={PARAM_diatonicDegree.name}
-					data={PARAM_diatonicDegree.data}
-					selected={(this.state as any).diatonicDegree}
+					updateSelection={this.setDiatonicDegree}
+					param={PARAM_diatonicDegree}
+					selectedValue={(this.state as any).diatonicDegree}
 				/>
 				<BoxSelector
-					updateSelection={(p, v) => { this.setAccidental(v); }}
-					id={PARAM_accidental.id}
-					name={PARAM_accidental.name}
-					data={PARAM_accidental.data}
-					selected={(this.state as any).accidental}
+					updateSelection={this.setAccidental}
+					param={PARAM_accidental}
+					selectedValue={(this.state as any).accidental}
 				/>
 			</InputGroup>
 		);
