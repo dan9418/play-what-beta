@@ -1,0 +1,34 @@
+.input-group-header {
+    background-color: #9E9E9E;
+    color: white;
+    padding: 5px;
+}
+
+.input-group-header:hover {
+    background-color: #757575;
+    cursor: pointer;
+}
+
+.input-group-content {
+    background-color: #BDBDBD;
+}
+
+.input-group-symbol {
+    position: absolute;
+    right: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 5px;
+    height: 15px;
+    vertical-align: middle;
+    width: 15px;
+    color: #EEEEEE;
+    border: 1px solid #757575;
+    border-radius: 5px;
+}
+
+.input-group-symbol:hover {
+    background-color: #FF5A09;
+    font-weight: bold;
+    cursor: pointer;
+}

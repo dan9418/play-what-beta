@@ -7,7 +7,7 @@
 }
 
 #toolbar {
-	background-color: #c7ecee;
+	background-color: #BDBDBD;
     text-align: center;
     width: 25%;
     height: 90%;
@@ -15,5 +15,5 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    padding-top: 10px
+    overflow-y: scroll;
 }

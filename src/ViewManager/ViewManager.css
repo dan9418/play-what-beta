@@ -1,10 +1,10 @@
 #view-manager {
-    background-color: #dff9fb;
+    background-color: #EEEEEE;
     width: 75%;
     height: 90%;
     display: inline-block;
     position: absolute;
     right: 0;
     bottom: 0;
-    padding-top: 10px
+    overflow-y: scroll;
 }

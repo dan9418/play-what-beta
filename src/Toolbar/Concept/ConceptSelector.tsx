@@ -11,6 +11,7 @@ import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig"
 import { PARAM_chord } from "../../Common/Parameters/Concepts/ChordConfig";
 import { PARAM_scale } from "../../Common/Parameters/Concepts/ScaleConfig";
 import { PARAM_mode } from "../../Common/Parameters/Concepts/ModeConfig";
+import { InputGroup } from "../../Common/InputGroup/InputGroup";
 
 export class ConceptSelector extends React.Component<any> {
 
@@ -43,14 +44,16 @@ export class ConceptSelector extends React.Component<any> {
 	
 			render = () => {
 				return (
-					<BoxSelector
-						updateSelection={(p, v) => { this.setConceptDefinition(v) }}
-						key={this.props.conceptConfig.id}
-						id={this.props.conceptConfig.id + 'Def'}
-						name={this.props.conceptConfig.name + ' Definition'}
-						data={this.props.conceptConfig.data}
-						selected={this.props.selected}
-					/>
+					<InputGroup name="Concept Details">
+						<BoxSelector
+							updateSelection={(p, v) => { this.setConceptDefinition(v) }}
+							key={this.props.conceptConfig.id}
+							id={this.props.conceptConfig.id + 'Def'}
+							name={this.props.conceptConfig.name + ' Definition'}
+							data={this.props.conceptConfig.data}
+							selected={this.props.selected}
+						/>
+					</InputGroup>
 				)
 			};
 		}
@@ -105,7 +108,7 @@ export class ConceptSelector extends React.Component<any> {
 
 	render = () => {
 		return (
-			<div id='master-concept-selector-container'>
+			<InputGroup name="Concept">
 				<BoxSelector
 					updateSelection={(p, v) => { this.setConceptType(v); }}
 					id={PARAM_conceptType.id}
@@ -114,7 +117,7 @@ export class ConceptSelector extends React.Component<any> {
 					selected={(this.state as any).conceptType}
 				/>
 				{this.getConceptTree()}
-			</div>
+			</InputGroup>
 		);
 	};
 }

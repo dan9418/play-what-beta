@@ -5,6 +5,7 @@ import { Key } from "../../Theory/Base/Key";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
 import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
 import { PARAM_accidental } from "../../Common/Parameters/Base/AccidentalConfig";
+import { InputGroup } from "../../Common/InputGroup/InputGroup";
 
 export class KeySelector extends React.Component<any> {
 
@@ -28,7 +29,7 @@ export class KeySelector extends React.Component<any> {
 
 	render = () => {
 		return (
-			<div id='key-selector-container'>
+			<InputGroup name="Key">
 				<BoxSelector
 					updateSelection={(p, v) => { this.setDiatonicDegree(v); }}
 					id={PARAM_diatonicDegree.id}
@@ -43,7 +44,7 @@ export class KeySelector extends React.Component<any> {
 					data={PARAM_accidental.data}
 					selected={(this.state as any).accidental}
 				/>
-			</div>
+			</InputGroup>
 		);
 	};
 }

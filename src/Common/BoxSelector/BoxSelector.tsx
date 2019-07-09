@@ -33,9 +33,7 @@ export class BoxSelector extends React.Component<any> {
     render = () => {
         return (
             <div id={'box-selector-' + this.props.id} className='box-selector'>
-                <div className='box-selector-label'>
-                    {this.props.name}
-                </div>
+                {<div className='box-selector-label'>{this.props.name}</div>}
                 {this.getOptions()}
             </div>
         );

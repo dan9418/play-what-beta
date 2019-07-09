@@ -1,11 +1,11 @@
 .box-selector {
     color: white;
+    background-color: #E0E0E0;
     font-size: 12px;
     text-align: center;
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
-    border: 1px solid #30336b;
     border-radius: 5px;
     padding-top: 2px;
     margin: 5px;
@@ -13,20 +13,13 @@
 }
 
 .box-selector-label {
-    color: #30336b;
-    background-color: #c7ecee;
-    font-weight: bold;
-    font-size: 12px;
-    position: absolute;
-    top: -13px;
-    left: 3px;
+    color: #757575;
     padding: 2px;
-    margin: 2px;
 }
 
 .box-selector-option {
     display: inline-block;
-    background-color: #22a6b3;
+    background-color: #757575;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
@@ -35,14 +28,15 @@
     height: 20px;
     min-width: 20px;
     font-size: 12px;
+    border-radius: 5px;
 }
 
 .box-selector-option:hover {
-    background-color: #30336b;
+    background-color: #FF5A09;
     cursor: pointer;
 }
 
 .active-setting {
-    border: 2px solid #30336b;
+    border: 2px solid #FF5A09;
     margin: 5px;
 }
