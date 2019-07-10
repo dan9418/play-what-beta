@@ -22,6 +22,7 @@ export interface IConceptDef extends IParamDef {}
 export interface IConceptOptions {}
 
 export interface IConcept {
+    typeId: string;
     definition: IConceptDef;
     options: IConceptOptions;
     getIntervals(): IntervalDef[];

@@ -14,17 +14,10 @@ import { PARAM_mode } from "../../Common/Parameters/Concepts/ModeConfig";
 import { InputGroup } from "../../Common/InputGroup/InputGroup";
 import { IParamDef } from "../../Common/Parameters/IParamConfig";
 
-export class ConceptSelector extends React.Component<any> {
+export class ConceptSelector extends React.Component<any, any> {
 
 	constructor(props) {
 		super(props);
-		(this.state as any) = {
-			conceptType: PARAM_conceptType.data[1],
-			interval: this.props.conceptValue,
-			chord: this.props.conceptValue,
-			scale: this.props.conceptValue,
-			mode: this.props.conceptValue
-		};
 	}
 
 	getConceptSelector = () => {
@@ -34,11 +27,11 @@ export class ConceptSelector extends React.Component<any> {
 			}
 	
 			setConceptDefinition = (conceptDef) => {
-				this.props.setConcept(new this.props.Concept(conceptDef, this.props.conceptOptions));
+				this.props.changeConcept(new this.props.Concept(conceptDef, this.props.conceptOptions));
 			}
 	
 			setConceptOptions = (conceptOptions) => {
-				this.props.setConcept(new this.props.Concept(this.props.conceptDef, conceptOptions));
+				this.props.changeConcept(new this.props.Concept(this.props.conceptDef, conceptOptions));
 			}
 	
 			render = () => {
@@ -57,24 +50,11 @@ export class ConceptSelector extends React.Component<any> {
 		return WrappedComponent;
 	}
 
-	setConceptType = (conceptType: ConceptTypeDef) => {
-		this.setState({
-			conceptType: conceptType
-		});
-	}
-
-	setConcept = (conceptData: IParamDef) => {
-		let update = {};
-		update[(this.state as any).conceptType.id] = conceptData;
-		this.props.changeConcept(conceptData);
-		this.setState(update);
-	}
-
 	getConceptTree = () => {
 		let conceptClass = null;
 		let conceptConfig = null;
 		let ConceptSelector = this.getConceptSelector();
-		switch ((this.state as any).conceptType.id) {
+		switch (this.props.selectedConcept.typeId) {
 			case PARAM_interval.id:
 				conceptClass = Interval;
 				conceptConfig = PARAM_interval;
@@ -92,24 +72,25 @@ export class ConceptSelector extends React.Component<any> {
 				conceptConfig = PARAM_mode;
 				break;
 		}
-		if (!(this.state as any)[(this.state as any).conceptType.id].definition) (this.state as any).concept = new conceptClass(conceptConfig.data[0], null);
 		return (
 			<ConceptSelector
 				Concept={conceptClass}
 				conceptConfig={conceptConfig}
-				setConcept={this.setConcept}
-				selectedValue={(this.state as any)[(this.state as any).conceptType.id].definition}
+				changeConcept={this.props.changeConcept}
+				selectedValue={this.props.selectedConcept.definition}
 			/>
 		)
 	}
 
 	render = () => {
+		let selectedConceptType = PARAM_conceptType.data.find((x) => { return x.id === this.props.selectedConcept.id });
+
 		return (
 			<InputGroup name="Concept">
 				<BoxSelector
-					updateSelection={this.setConceptType}
+					updateSelection={this.props.changeConcept}
 					param={PARAM_conceptType}
-					selectedValue={(this.state as any).conceptType}
+					selectedValue={selectedConceptType}
 				/>
 				{this.getConceptTree()}
 			</InputGroup>

@@ -15,7 +15,7 @@ export class Toolbar extends React.Component<any> {
 		return (
 			<div id="toolbar">
 				<KeySelector changeKey={this.props.changeKey} selectedKey={this.props.selectedKey} />
-				<ConceptSelector changeConcept={this.props.changeConcept} selectedKey={this.props.selectedKey} conceptValue={this.props.conceptValue} />
+				<ConceptSelector changeConcept={this.props.changeConcept} selectedKey={this.props.selectedKey} selectedConcept={this.props.selectedConcept} />
 			</div>
 		);
 	};

@@ -1,6 +1,7 @@
 import { IConcept } from "../IParamConfig";
 
 export class Scale implements IConcept {
+    typeId: string = 'scale';
     definition: any;
     options: any;
     

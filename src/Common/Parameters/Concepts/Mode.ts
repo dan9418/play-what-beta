@@ -2,6 +2,7 @@ import { IConcept } from "../IParamConfig";
 import { IModeOptions, IModeDef } from "./ModeConfig";
 
 export class Mode implements IConcept {
+    typeId: string = 'mode';
     definition: IModeDef;
     options: IModeOptions;
     

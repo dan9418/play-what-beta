@@ -11,10 +11,6 @@ export class KeySelector extends React.Component<any> {
 
 	constructor(props) {
 		super(props);
-		(this.state as any) = {
-			diatonicDegree: PARAM_diatonicDegree.data[0],
-			accidental: PARAM_accidental.data[2],
-		};
 	}
 
 	setDiatonicDegree = (diatonicDegree: DiatonicDegreeDef) => {
@@ -28,17 +24,20 @@ export class KeySelector extends React.Component<any> {
 	}
 
 	render = () => {
+		let selectedDiatonicDegree = PARAM_diatonicDegree.data.find((x) => { return x.degree === this.props.selectedKey.degree });
+		let selectedAccidental = PARAM_accidental.data.find((x) => { return x.offset === this.props.selectedKey.accidental });
+
 		return (
 			<InputGroup name="Key">
 				<BoxSelector
 					updateSelection={this.setDiatonicDegree}
 					param={PARAM_diatonicDegree}
-					selectedValue={(this.state as any).diatonicDegree}
+					selectedValue={selectedDiatonicDegree}
 				/>
 				<BoxSelector
 					updateSelection={this.setAccidental}
 					param={PARAM_accidental}
-					selectedValue={(this.state as any).accidental}
+					selectedValue={selectedAccidental}
 				/>
 			</InputGroup>
 		);
