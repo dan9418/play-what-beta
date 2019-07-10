@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
-import { Interval } from "../../Theory/Concepts/Interval";
-import { Chord } from "../../Theory/Concepts/Chord";
-import { Scale } from "../../Theory/Concepts/Scale";
-import { Mode } from "../../Theory/Concepts/Mode";
+import { Interval } from "../../Common/Parameters/Concepts/Interval";
+import { Chord } from "../../Common/Parameters/Concepts/Chord";
+import { Scale } from "../../Common/Parameters/Concepts/Scale";
+import { Mode } from "../../Common/Parameters/Concepts/Mode";
 import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
 import { PARAM_conceptType, ConceptTypeDef } from "../../Common/Parameters/Base/ConceptTypeConfig";
 import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig";
@@ -66,7 +66,7 @@ export class ConceptSelector extends React.Component<any> {
 	setConcept = (conceptData: IParamDef) => {
 		let update = {};
 		update[(this.state as any).conceptType.id] = conceptData;
-		this.props.updateConcept(conceptData);
+		this.props.changeConcept(conceptData);
 		this.setState(update);
 	}
 

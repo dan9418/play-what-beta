@@ -19,12 +19,12 @@ export class KeySelector extends React.Component<any> {
 
 	setDiatonicDegree = (diatonicDegree: DiatonicDegreeDef) => {
 		this.setState({ diatonicDegree: diatonicDegree })
-		this.props.changeKey(new Key(diatonicDegree.degree, this.props.keyDef.accidental));
+		this.props.changeKey(new Key(diatonicDegree.degree, this.props.selectedKey.accidental));
 	}
 
 	setAccidental = (accidental: AccidentalDef) => {
 		this.setState({ accidental: accidental })
-		this.props.changeKey(new Key(this.props.keyDef.degree, accidental.offset));
+		this.props.changeKey(new Key(this.props.selectedKey.degree, accidental.offset));
 	}
 
 	render = () => {

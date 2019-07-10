@@ -1,4 +1,6 @@
-export class Mode {
+import { IConcept } from "../IParamConfig";
+
+export class Scale implements IConcept {
     definition: any;
     options: any;
     

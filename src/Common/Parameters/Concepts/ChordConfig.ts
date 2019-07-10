@@ -1,12 +1,16 @@
-import { IParamConfig, IParamDef } from "../IParamConfig";
+import { IParamConfig, IParamDef, IConceptDef, IConceptConfig, IConceptOptions } from "../IParamConfig";
 import { INTERVALS, IntervalDef } from "./IntervalConfig";
-import { PARAM_inversion } from "../Base/InversionConfig";
+import { PARAM_inversion, Inversion, InversionDef } from "../Base/InversionConfig";
 
-export interface ChordDef extends IParamDef {
+export interface IChordOptions extends IConceptOptions {
+    inversion?: InversionDef;
+}
+
+export interface IChordDef extends IConceptDef {
     intervals: IntervalDef[];
 }
 
-export let PARAM_chord: IParamConfig<ChordDef> = {
+export let PARAM_chord: IConceptConfig<IChordDef> = {
     id: 'chord',
     name: 'Chords',
     options: [

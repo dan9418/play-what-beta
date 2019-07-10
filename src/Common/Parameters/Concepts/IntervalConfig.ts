@@ -1,9 +1,13 @@
-import { IParamConfig, IParamDef } from "../IParamConfig";
-import { PARAM_direction } from "../Base/DirectionConfig";
+import { IParamConfig, IParamDef, IConceptDef, IConceptOptions } from "../IParamConfig";
+import { PARAM_direction, Direction } from "../Base/DirectionConfig";
 
-export interface IntervalDef extends IParamDef {
+export interface IntervalDef extends IConceptDef {
     degree: number;
     semitones: number;
+}
+
+export interface IntervalOptions extends IConceptOptions {
+    direction?: Direction;
 }
 
 export let INTERVALS = {

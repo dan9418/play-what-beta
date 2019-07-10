@@ -1,10 +1,9 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../../Common/Common.css";
+import { IConcept } from "../IParamConfig";
+import { IChordDef, IChordOptions } from "./ChordConfig";
 
-export class Chord {
-    definition: any;
-    options: any;
+export class Chord implements IConcept {
+    definition: IChordDef;
+    options: IChordOptions;
     
     constructor(definition, options) {
         this.definition = definition;

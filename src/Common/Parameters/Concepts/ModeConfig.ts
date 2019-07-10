@@ -1,13 +1,17 @@
-import { IParamConfig, IParamDef } from "../IParamConfig";
+import { IParamConfig, IParamDef, IConceptOptions, IConceptDef } from "../IParamConfig";
 import { IntervalDef, INTERVALS } from "./IntervalConfig";
-import { PARAM_direction } from "../Base/DirectionConfig";
+import { PARAM_direction, Direction } from "../Base/DirectionConfig";
 
-export interface ModeDef extends IParamDef {
+export interface IModeDef extends IConceptDef {
     degree: number;
     intervals: IntervalDef[];
 }
 
-export let PARAM_mode: IParamConfig<ModeDef> = {
+export interface IModeOptions extends IConceptOptions {
+    direction?: Direction;
+}
+
+export let PARAM_mode: IParamConfig<IModeDef> = {
     id: 'mode',
     name: 'Modes',
     options: [

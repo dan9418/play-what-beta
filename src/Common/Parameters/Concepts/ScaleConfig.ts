@@ -1,9 +1,13 @@
-import { IParamConfig, IParamDef } from "../IParamConfig";
+import { IParamConfig, IParamDef, IConceptOptions, IConceptDef } from "../IParamConfig";
 import { INTERVALS, IntervalDef } from "./IntervalConfig";
-import { PARAM_direction } from "../Base/DirectionConfig";
+import { PARAM_direction, Direction } from "../Base/DirectionConfig";
 
-export interface ScaleDef extends IParamDef {
+export interface ScaleDef extends IConceptDef {
     intervals: IntervalDef[];
+}
+
+export interface ScaleOptions extends IConceptOptions {
+    direction?: Direction;
 }
 
 export let PARAM_scale: IParamConfig<ScaleDef> = {

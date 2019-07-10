@@ -1,6 +1,9 @@
-export class Scale {
-    definition: any;
-    options: any;
+import { IConcept } from "../IParamConfig";
+import { IModeOptions, IModeDef } from "./ModeConfig";
+
+export class Mode implements IConcept {
+    definition: IModeDef;
+    options: IModeOptions;
     
     constructor(definition, options) {
         this.definition = definition;

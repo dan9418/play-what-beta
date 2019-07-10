@@ -49,7 +49,7 @@ export class App extends React.Component<any> {
 		return (
 			<div id='app-container'>
 				<div id='header'>Play What?</div>
-				<Toolbar changeKey={this.changeKey} updateConcept={this.updatConcept} keyDef={(this.state as any).key} conceptValue={(this.state as any).concept} />
+				<Toolbar changeKey={this.changeKey} changeConcept={this.updatConcept} selectedKey={(this.state as any).key} conceptValue={(this.state as any).concept} />
 				<ViewManager notes={this.getNotes()} />
 			</div>
 		);
