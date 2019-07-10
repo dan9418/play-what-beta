@@ -3,9 +3,10 @@ import * as ReactDOM from "react-dom";
 import "../Common/Common.css";
 import "./ViewManager.css";
 import { NoteCollection } from "./NoteCollection/NoteCollection";
-import { PianoViewDriver } from "./Piano/PianoViewDriver";
-import { GuitarViewDriver } from "./Guitar/GuitarViewDriver";
 import { e } from "../App";
+import { LabelSelector } from "./Common/LabelSelector";
+import { Guitar } from "./Guitar/Guitar";
+import { Piano } from "./Piano/Piano";
 
 export class ViewManager extends React.Component<any> {
 
@@ -13,11 +14,40 @@ export class ViewManager extends React.Component<any> {
         super(props);
     }
 
+    getViewDriver = (ViewClass) => {
+		return class ViewDriver extends React.Component<any, any> {
+			constructor(props) {
+                super(props);
+                this.state = {
+                    label: 'interval'
+                }
+			}
+	
+			updateViewDriverState = (property, value) => {
+                let update = {};
+                update[property] = value;
+                this.setState(update);
+            }
+	
+			render = () => {
+				return (
+					<div className="view-driver">
+                        <ViewClass config={this.state} {...this.props}/>
+						<LabelSelector updateViewDriverState={this.updateViewDriverState} />
+					</div>
+				)
+			};
+		};
+	}
+
 	render = () => {
-        return e('div', { id: 'view-manager' },
-                e(NoteCollection, { notes: this.props.notes }, null),
-                e(PianoViewDriver, { notes: this.props.notes }, null),
-                e(GuitarViewDriver, { notes: this.props.notes }, null)
-            );
+        let NoteCollectionViewDriver = this.getViewDriver(NoteCollection);
+        let PianoViewDriver = this.getViewDriver(Piano);
+        let GuitarViewDriver = this.getViewDriver(Guitar);
+        return <div id='view-manager'>
+                <NoteCollectionViewDriver functionalNotes={this.props.notes} {...this.props} />
+                <PianoViewDriver functionalNotes={this.props.notes} length={25} {...this.props} />
+                <GuitarViewDriver functionalNotes={this.props.notes} {...this.props} />
+            </div>;
     };
 }

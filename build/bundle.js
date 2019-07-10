@@ -170,7 +170,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#view-manager {\\r\\n    background-color: #EEEEEE;\\r\\n    width: 75%;\\r\\n    height: 90%;\\r\\n    display: inline-block;\\r\\n    position: absolute;\\r\\n    right: 0;\\r\\n    bottom: 0;\\r\\n    overflow-y: scroll;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/ViewManager/ViewManager.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#view-manager {\\r\\n    background-color: #EEEEEE;\\r\\n    width: 75%;\\r\\n    height: 90%;\\r\\n    display: inline-block;\\r\\n    position: absolute;\\r\\n    right: 0;\\r\\n    bottom: 0;\\r\\n    overflow-y: scroll;\\r\\n}\\r\\n\\r\\n.view-driver {\\r\\n    text-align: center;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/ViewManager/ViewManager.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -706,18 +706,6 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 
 /***/ }),
 
-/***/ "./src/ViewManager/Guitar/GuitarViewDriver.tsx":
-/*!*****************************************************!*\
-  !*** ./src/ViewManager/Guitar/GuitarViewDriver.tsx ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ../../Common/Common.css */ \"./src/Common/Common.css\");\r\nconst Guitar_1 = __webpack_require__(/*! ./Guitar */ \"./src/ViewManager/Guitar/Guitar.tsx\");\r\nconst LabelSelector_1 = __webpack_require__(/*! ../Common/LabelSelector */ \"./src/ViewManager/Common/LabelSelector.tsx\");\r\nconst App_1 = __webpack_require__(/*! ../../App */ \"./src/App.tsx\");\r\nclass GuitarViewDriver extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.updateViewDriverState = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.render = () => {\r\n            return App_1.e('div', { id: 'guitar-view-driver' }, App_1.e(Guitar_1.Guitar, { functionalNotes: this.props.notes, config: this.state }, null), App_1.e(LabelSelector_1.LabelSelector, { updateViewDriverState: this.updateViewDriverState }, null));\r\n        };\r\n        this.state = {\r\n            label: 'interval'\r\n        };\r\n    }\r\n}\r\nexports.GuitarViewDriver = GuitarViewDriver;\r\n\n\n//# sourceURL=webpack:///./src/ViewManager/Guitar/GuitarViewDriver.tsx?");
-
-/***/ }),
-
 /***/ "./src/ViewManager/NoteCollection/NoteCollection.css":
 /*!***********************************************************!*\
   !*** ./src/ViewManager/NoteCollection/NoteCollection.css ***!
@@ -764,18 +752,6 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 
 /***/ }),
 
-/***/ "./src/ViewManager/Piano/PianoViewDriver.tsx":
-/*!***************************************************!*\
-  !*** ./src/ViewManager/Piano/PianoViewDriver.tsx ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ../../Common/Common.css */ \"./src/Common/Common.css\");\r\nconst Piano_1 = __webpack_require__(/*! ./Piano */ \"./src/ViewManager/Piano/Piano.tsx\");\r\nconst LabelSelector_1 = __webpack_require__(/*! ../Common/LabelSelector */ \"./src/ViewManager/Common/LabelSelector.tsx\");\r\nconst App_1 = __webpack_require__(/*! ../../App */ \"./src/App.tsx\");\r\nclass PianoViewDriver extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.updateViewDriverState = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.render = () => {\r\n            return App_1.e('div', { id: 'piano-view-driver' }, App_1.e(Piano_1.Piano, { functionalNotes: this.props.notes, length: 25, config: this.state }, null), App_1.e(LabelSelector_1.LabelSelector, { updateViewDriverState: this.updateViewDriverState }, null));\r\n        };\r\n        this.state = {\r\n            label: 'interval'\r\n        };\r\n    }\r\n}\r\nexports.PianoViewDriver = PianoViewDriver;\r\n\n\n//# sourceURL=webpack:///./src/ViewManager/Piano/PianoViewDriver.tsx?");
-
-/***/ }),
-
 /***/ "./src/ViewManager/ViewManager.css":
 /*!*****************************************!*\
   !*** ./src/ViewManager/ViewManager.css ***!
@@ -795,7 +771,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ../Common/Common.css */ \"./src/Common/Common.css\");\r\n__webpack_require__(/*! ./ViewManager.css */ \"./src/ViewManager/ViewManager.css\");\r\nconst NoteCollection_1 = __webpack_require__(/*! ./NoteCollection/NoteCollection */ \"./src/ViewManager/NoteCollection/NoteCollection.tsx\");\r\nconst PianoViewDriver_1 = __webpack_require__(/*! ./Piano/PianoViewDriver */ \"./src/ViewManager/Piano/PianoViewDriver.tsx\");\r\nconst GuitarViewDriver_1 = __webpack_require__(/*! ./Guitar/GuitarViewDriver */ \"./src/ViewManager/Guitar/GuitarViewDriver.tsx\");\r\nconst App_1 = __webpack_require__(/*! ../App */ \"./src/App.tsx\");\r\nclass ViewManager extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return App_1.e('div', { id: 'view-manager' }, App_1.e(NoteCollection_1.NoteCollection, { notes: this.props.notes }, null), App_1.e(PianoViewDriver_1.PianoViewDriver, { notes: this.props.notes }, null), App_1.e(GuitarViewDriver_1.GuitarViewDriver, { notes: this.props.notes }, null));\r\n        };\r\n    }\r\n}\r\nexports.ViewManager = ViewManager;\r\n\n\n//# sourceURL=webpack:///./src/ViewManager/ViewManager.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ../Common/Common.css */ \"./src/Common/Common.css\");\r\n__webpack_require__(/*! ./ViewManager.css */ \"./src/ViewManager/ViewManager.css\");\r\nconst NoteCollection_1 = __webpack_require__(/*! ./NoteCollection/NoteCollection */ \"./src/ViewManager/NoteCollection/NoteCollection.tsx\");\r\nconst LabelSelector_1 = __webpack_require__(/*! ./Common/LabelSelector */ \"./src/ViewManager/Common/LabelSelector.tsx\");\r\nconst Guitar_1 = __webpack_require__(/*! ./Guitar/Guitar */ \"./src/ViewManager/Guitar/Guitar.tsx\");\r\nconst Piano_1 = __webpack_require__(/*! ./Piano/Piano */ \"./src/ViewManager/Piano/Piano.tsx\");\r\nclass ViewManager extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getViewDriver = (ViewClass) => {\r\n            return class ViewDriver extends React.Component {\r\n                constructor(props) {\r\n                    super(props);\r\n                    this.updateViewDriverState = (property, value) => {\r\n                        let update = {};\r\n                        update[property] = value;\r\n                        this.setState(update);\r\n                    };\r\n                    this.render = () => {\r\n                        return (React.createElement(\"div\", { className: \"view-driver\" },\r\n                            React.createElement(ViewClass, Object.assign({ config: this.state }, this.props)),\r\n                            React.createElement(LabelSelector_1.LabelSelector, { updateViewDriverState: this.updateViewDriverState })));\r\n                    };\r\n                    this.state = {\r\n                        label: 'interval'\r\n                    };\r\n                }\r\n            };\r\n        };\r\n        this.render = () => {\r\n            let NoteCollectionViewDriver = this.getViewDriver(NoteCollection_1.NoteCollection);\r\n            let PianoViewDriver = this.getViewDriver(Piano_1.Piano);\r\n            let GuitarViewDriver = this.getViewDriver(Guitar_1.Guitar);\r\n            return React.createElement(\"div\", { id: 'view-manager' },\r\n                React.createElement(NoteCollectionViewDriver, Object.assign({ functionalNotes: this.props.notes }, this.props)),\r\n                React.createElement(PianoViewDriver, Object.assign({ functionalNotes: this.props.notes, length: 25 }, this.props)),\r\n                React.createElement(GuitarViewDriver, Object.assign({ functionalNotes: this.props.notes }, this.props)));\r\n        };\r\n    }\r\n}\r\nexports.ViewManager = ViewManager;\r\n\n\n//# sourceURL=webpack:///./src/ViewManager/ViewManager.tsx?");
 
 /***/ }),
 
