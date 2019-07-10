@@ -27,11 +27,11 @@ export class ConceptSelector extends React.Component<any, any> {
 			}
 	
 			setConceptDefinition = (conceptDef) => {
-				this.props.changeConcept(new this.props.Concept(conceptDef, this.props.conceptOptions));
+				this.props.setConcept(this.props.conceptConfig.id, new this.props.Concept(conceptDef, this.props.conceptOptions));
 			}
 	
 			setConceptOptions = (conceptOptions) => {
-				this.props.changeConcept(new this.props.Concept(this.props.conceptDef, conceptOptions));
+				this.props.setConcept(this.props.conceptConfig.id, new this.props.Concept(this.props.conceptDef, conceptOptions));
 			}
 	
 			render = () => {
@@ -54,7 +54,7 @@ export class ConceptSelector extends React.Component<any, any> {
 		let conceptClass = null;
 		let conceptConfig = null;
 		let ConceptSelector = this.getConceptSelector();
-		switch (this.props.selectedConcept.typeId) {
+		switch (this.props.selectedConceptType.id) {
 			case PARAM_interval.id:
 				conceptClass = Interval;
 				conceptConfig = PARAM_interval;
@@ -76,21 +76,21 @@ export class ConceptSelector extends React.Component<any, any> {
 			<ConceptSelector
 				Concept={conceptClass}
 				conceptConfig={conceptConfig}
-				changeConcept={this.props.changeConcept}
-				selectedValue={this.props.selectedConcept.definition}
+				setConcept={this.props.setConcept}
+				selectedValue={this.props.selectedConcepts[this.props.selectedConceptType.id].definition}
 			/>
 		)
 	}
 
 	render = () => {
-		let selectedConceptType = PARAM_conceptType.data.find((x) => { return x.id === this.props.selectedConcept.id });
+		//let selectedConceptType = PARAM_conceptType.data.find((x) => { return x.id === this.props.selectedConcept.id });
 
 		return (
 			<InputGroup name="Concept">
 				<BoxSelector
-					updateSelection={this.props.changeConcept}
+					updateSelection={this.props.changeConceptType}
 					param={PARAM_conceptType}
-					selectedValue={selectedConceptType}
+					selectedValue={this.props.selectedConceptType}
 				/>
 				{this.getConceptTree()}
 			</InputGroup>

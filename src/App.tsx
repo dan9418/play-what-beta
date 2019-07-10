@@ -13,6 +13,11 @@ export const e = React.createElement;
 
 const DEFAULT_KEY = new Key(1, 0);
 
+const DEFAULT_CONCEPT_TYPE = {
+	id: 'scale',
+	name: 'Scales'
+}
+
 const DEFAULT_CONCEPT = {
 	typeId: 'scale',
 	getIntervals: () => { return []; }
@@ -24,7 +29,13 @@ export class App extends React.Component<any, any> {
 		super(props);
 		this.state = {
 			key: DEFAULT_KEY,
-			concept: DEFAULT_CONCEPT
+			conceptType: DEFAULT_CONCEPT_TYPE,
+			concepts: {
+				interval: DEFAULT_CONCEPT,
+				chord: DEFAULT_CONCEPT,
+				scale: DEFAULT_CONCEPT,
+				mode: DEFAULT_CONCEPT
+			}
 		};
 	}
 
@@ -32,13 +43,21 @@ export class App extends React.Component<any, any> {
 		this.setState({ key: key });
 	}
 
-	changeConcept = (concept) => {
-		this.setState({ concept: concept });
+	changeConceptType = (conceptType) => {
+		this.setState({ conceptType: conceptType });
+	}
+
+	setConcept = (conceptType, concept) => {
+		this.setState((oldState) => {
+			let newState = oldState;
+			newState.concepts[conceptType] = concept;
+			return newState;
+		});
 	}
 
 	getNotes = () => {
 		let notes = [];
-		let intervals = this.state.concept.getIntervals();
+		let intervals = this.state.concepts[this.state.conceptType.id].getIntervals();
 		for (let i = 0; i < intervals.length; i++) {
 			let functionalNote = new FunctionalNote(this.state.key, intervals[i]);
 			notes.push(functionalNote);
@@ -50,7 +69,7 @@ export class App extends React.Component<any, any> {
 		return (
 			<div id='app-container'>
 				<div id='header'>Play What?</div>
-				<Toolbar changeKey={this.changeKey} changeConcept={this.changeConcept} selectedKey={this.state.key} selectedConcept={this.state.concept} />
+				<Toolbar changeKey={this.changeKey} changeConceptType={this.changeConceptType} setConcept={this.setConcept} selectedKey={this.state.key} selectedConceptType={this.state.conceptType} selectedConcepts={this.state.concepts} />
 				<ViewManager notes={this.getNotes()} />
 			</div>
 		);
