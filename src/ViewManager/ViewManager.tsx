@@ -7,11 +7,37 @@ import { e } from "../App";
 import { LabelSelector } from "./Common/LabelSelector";
 import { Guitar } from "./Guitar/Guitar";
 import { Piano } from "./Piano/Piano";
+import { IParamConfig, IParamDef } from "../Common/Parameters/IParamConfig";
 
-export class ViewManager extends React.Component<any> {
+export class ViewManager extends React.Component<any, any> {
+
+    PARAM_viewDrivers = {
+        id: 'viewDriver',
+        name: 'View Drivers',
+        data: [
+            {
+                id: 'pitchClasses',
+                name: 'Pitch Classes',
+                class: NoteCollection
+            },
+            {
+                id: 'piano',
+                name: 'Piano',
+                class: Piano
+            },
+            {
+                id: 'guitar',
+                name: 'Guitar',
+                class: Guitar
+            }
+        ]
+    } as IParamConfig<any>
 
 	constructor(props) {
         super(props);
+        this.state = {
+            viewDrivers: this.PARAM_viewDrivers.data
+        };
     }
 
     getViewDriver = (ViewClass) => {
@@ -58,16 +84,18 @@ export class ViewManager extends React.Component<any> {
 				)
 			};
 		};
-	}
+    }
+    
+    getViewDrivers = () => {
+        return this.state.viewDrivers.map((def) => {
+            let ViewDriver = this.getViewDriver(def.class);
+            return <ViewDriver functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>
+        });
+    }
 
 	render = () => {
-        let NoteCollectionViewDriver = this.getViewDriver(NoteCollection);
-        let PianoViewDriver = this.getViewDriver(Piano);
-        let GuitarViewDriver = this.getViewDriver(Guitar);
         return <div id='view-manager'>
-                <NoteCollectionViewDriver functionalNotes={this.props.notes} name="Pitch Classes" {...this.props} />
-                <PianoViewDriver functionalNotes={this.props.notes} name="Piano" length={25} {...this.props} />
-                <GuitarViewDriver functionalNotes={this.props.notes} name="Guitar" {...this.props} />
+                {this.getViewDrivers()}
             </div>;
     };
 }
