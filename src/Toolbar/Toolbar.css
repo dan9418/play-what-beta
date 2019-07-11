@@ -10,10 +10,10 @@
 	background-color: #BDBDBD;
     text-align: center;
     width: 25%;
-    height: 90%;
+    height: 100%;
     display: inline-block;
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 0;
     overflow-y: scroll;
 }

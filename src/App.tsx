@@ -68,9 +68,21 @@ export class App extends React.Component<any, any> {
 	render = () => {
 		return (
 			<div id='app-container'>
-				<div id='header'>Play What?</div>
-				<Toolbar changeKey={this.changeKey} changeConceptType={this.changeConceptType} setConcept={this.setConcept} selectedKey={this.state.key} selectedConceptType={this.state.conceptType} selectedConcepts={this.state.concepts} />
-				<ViewManager notes={this.getNotes()} />
+				<div id='header'>
+					<div className='left link-box'>
+						<a href="" target="_blank">[Hire Me]</a>
+					</div>
+					<div className='center'>
+						Play What?
+					</div>
+					<div className='right link-box'>
+						<a href="" target="_blank">[GitHub]</a>
+					</div>
+				</div>
+				<div id='main'>
+					<Toolbar changeKey={this.changeKey} changeConceptType={this.changeConceptType} setConcept={this.setConcept} selectedKey={this.state.key} selectedConceptType={this.state.conceptType} selectedConcepts={this.state.concepts} />
+					<ViewManager notes={this.getNotes()} />
+				</div>		
 			</div>
 		);
 	};
