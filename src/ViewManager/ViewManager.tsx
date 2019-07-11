@@ -86,14 +86,22 @@ export class ViewManager extends React.Component<any, any> {
 			};
 		};
     }
+
+    insertViewDriver = (index, def) => {
+        this.setState((state) => {
+            return {
+                viewDrivers: [...state.viewDrivers.slice(0, index), def, ...state.viewDrivers.slice(index)]
+            };
+        });
+    }
     
     getViewDrivers = () => {
-        let viewDrivers = [<ViewDriverSelector />];
+        let viewDrivers = [<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(0, newDef)} key={'vds-0'} />];
         for(let i = 0; i < this.state.viewDrivers.length; i++) {
             let def = this.state.viewDrivers[i];
             let ViewDriver = this.getViewDriver(def.class);
-            viewDrivers.push(<ViewDriver functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>);
-            viewDrivers.push(<ViewDriverSelector />);
+            viewDrivers.push(<ViewDriver key={i} functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>);
+            viewDrivers.push(<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(i+1, newDef)} key={'vds-' + i+1} />);
         }
         return viewDrivers;
     }
@@ -125,7 +133,7 @@ export class ViewDriverSelector extends React.Component<any, any> {
                 {this.state.open ? 
                     <div className='view-driver-open' onClick={this.toggle as any}>
                         <BoxSelector
-                            updateSelection={null}
+                            updateSelection={this.props.insertViewDriver}
                             param={PARAM_viewDrivers}
                             selectedValue={null}
                         />
