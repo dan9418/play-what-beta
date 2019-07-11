@@ -19,6 +19,7 @@ export class ViewManager extends React.Component<any> {
 			constructor(props) {
                 super(props);
                 this.state = {
+                    open: true,
                     label: 'interval'
                 }
 			}
@@ -28,6 +29,16 @@ export class ViewManager extends React.Component<any> {
                 update[property] = value;
                 this.setState(update);
             }
+
+            toggle = () => {
+                this.setState((state) => {
+                    return { open: !state.open }
+                });
+            }
+        
+            getSymbol: any = () => {
+                return (this.state.open ? '-' : '+');
+            }
 	
 			render = () => {
 				return (
@@ -35,11 +46,13 @@ export class ViewManager extends React.Component<any> {
                         <div className='view-driver-header'>
                             <div className='corner-button left'></div>
                             <div className='center'>{this.props.name}</div>
-                            <div className='corner-button right'>X</div>
+                            <div className='corner-button right' onClick={this.toggle}>{this.getSymbol()}</div>
                         </div>
-                        <div className='view-driver-body'>
-                            <ViewClass config={this.state} {...this.props}/>
-                            <LabelSelector updateViewDriverState={this.updateViewDriverState} />
+                        <div className='view-driver-body-wrapper'>
+                            {this.state.open && <div className='view-driver-body'>
+                                <ViewClass config={this.state} {...this.props}/>
+                                <LabelSelector updateViewDriverState={this.updateViewDriverState} />
+                            </div>}
                         </div>
 					</div>
 				)

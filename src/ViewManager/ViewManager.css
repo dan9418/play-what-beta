@@ -11,20 +11,19 @@
 
 .view-driver {
     text-align: center;
-    border-bottom: 1px solid #444;
-    padding: 10px;
     position: relative;
 }
 
 .view-driver-header {
-    color: #444;
+    background-color: #AAA;
+    margin-top: 5px;
     height: 25px;
+    padding: 10px;
 }
 
 .view-driver-header .corner-button {
-    background-color: #FFF;
-    color: #888;
-    outline: 1px solid #888;
+    background-color: #BBB;
+    color: white;
     position: absolute;
     top: 10px;
 }
@@ -35,10 +34,17 @@
     cursor: pointer;
 }
 
+.view-driver-body-wrapper {
+    margin-bottom: 5px;
+    background-color: #AAA;
+}
+
 .view-driver-body {
-    margin-top: 25px;
+    background-color: #CCC;
+    padding: 10px;
 }
 
 .view-driver-header .center {
     font-weight: bold;
+    color: white;
 }

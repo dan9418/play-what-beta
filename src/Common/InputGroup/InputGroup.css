@@ -1,9 +1,19 @@
+.input-group {
+    margin: 5px;
+    position: relative;
+}
+
 .input-group-header {
     background-color: #9E9E9E;
     color: white;
     padding: 5px;
     line-height: 25px;
     height: 25px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.input-group.closed .input-group-header {
+    border-radius: 10px 10px 10px 10px;
 }
 
 .input-group-header:hover {
@@ -13,6 +23,9 @@
 
 .input-group-content {
     background-color: #BDBDBD;
+    border-radius: 0px 0px 10px 10px;
+    border: 2px solid #9E9E9E;
+    border-top: none;
 }
 
 .input-group-header .corner-button {
