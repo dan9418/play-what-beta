@@ -73,7 +73,10 @@ export class ViewManager extends React.Component<any, any> {
                         <div className='view-driver-header'>
                             <div className='corner-button left'></div>
                             <div className='center'>{this.props.name}</div>
-                            <div className='corner-button right' onClick={this.toggle}>{this.getSymbol()}</div>
+                            <div className='right'>
+                                <div className='corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
+                                <div className='corner-button' onClick={this.props.removeViewDriver}>X</div>
+                            </div>
                         </div>
                         <div className='view-driver-body-wrapper'>
                             {this.state.open && <div className='view-driver-body'>
@@ -94,13 +97,21 @@ export class ViewManager extends React.Component<any, any> {
             };
         });
     }
+
+    removeViewDriver = (index) => {
+        this.setState((state) => {
+            return {
+                viewDrivers: [...state.viewDrivers.slice(0, index), ...state.viewDrivers.slice(index + 1)]
+            };
+        });
+    }
     
     getViewDrivers = () => {
         let viewDrivers = [<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(0, newDef)} key={'vds-0'} />];
         for(let i = 0; i < this.state.viewDrivers.length; i++) {
             let def = this.state.viewDrivers[i];
             let ViewDriver = this.getViewDriver(def.class);
-            viewDrivers.push(<ViewDriver key={i} functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>);
+            viewDrivers.push(<ViewDriver key={i} removeViewDriver={() => this.removeViewDriver(i)} functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>);
             viewDrivers.push(<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(i+1, newDef)} key={'vds-' + i+1} />);
         }
         return viewDrivers;

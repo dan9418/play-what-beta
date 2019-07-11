@@ -21,11 +21,15 @@
     padding: 10px;
 }
 
+.view-driver-header .right {
+    top: 10px;
+}
+
 .view-driver-header .corner-button {
     background-color: #BBB;
     color: white;
-    position: absolute;
-    top: 10px;
+    display: inline-block;
+    margin-left: 5px;
 }
 
 .view-driver-header .corner-button:hover {
