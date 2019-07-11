@@ -19,7 +19,7 @@ export class InputGroup extends React.Component<any> {
     }
 
     getSymbol: any = () => {
-        return ((this.state as any).open ? 'v' : '>');
+        return ((this.state as any).open ? '-' : '+');
     }
 
     render = () => {
@@ -27,7 +27,7 @@ export class InputGroup extends React.Component<any> {
             <div id={'input-group-' + this.props.name} className='input-group'>
                 <div className='input-group-header'>
                     {this.props.name}
-                    <span className='input-group-symbol' onClick={this.toggle}>
+                    <span className='corner-button right' onClick={this.toggle}>
                         {this.getSymbol()}
                     </span>
                 </div>

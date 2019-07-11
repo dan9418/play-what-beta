@@ -32,8 +32,15 @@ export class ViewManager extends React.Component<any> {
 			render = () => {
 				return (
 					<div className="view-driver">
-                        <ViewClass config={this.state} {...this.props}/>
-						<LabelSelector updateViewDriverState={this.updateViewDriverState} />
+                        <div className='view-driver-header'>
+                            <div className='corner-button left'></div>
+                            <div className='center'>{this.props.name}</div>
+                            <div className='corner-button right'>X</div>
+                        </div>
+                        <div className='view-driver-body'>
+                            <ViewClass config={this.state} {...this.props}/>
+                            <LabelSelector updateViewDriverState={this.updateViewDriverState} />
+                        </div>
 					</div>
 				)
 			};
@@ -45,9 +52,9 @@ export class ViewManager extends React.Component<any> {
         let PianoViewDriver = this.getViewDriver(Piano);
         let GuitarViewDriver = this.getViewDriver(Guitar);
         return <div id='view-manager'>
-                <NoteCollectionViewDriver functionalNotes={this.props.notes} {...this.props} />
-                <PianoViewDriver functionalNotes={this.props.notes} length={25} {...this.props} />
-                <GuitarViewDriver functionalNotes={this.props.notes} {...this.props} />
+                <NoteCollectionViewDriver functionalNotes={this.props.notes} name="Pitch Classes" {...this.props} />
+                <PianoViewDriver functionalNotes={this.props.notes} name="Piano" length={25} {...this.props} />
+                <GuitarViewDriver functionalNotes={this.props.notes} name="Guitar" {...this.props} />
             </div>;
     };
 }

@@ -2,6 +2,8 @@
     background-color: #9E9E9E;
     color: white;
     padding: 5px;
+    line-height: 25px;
+    height: 25px;
 }
 
 .input-group-header:hover {
@@ -13,22 +15,13 @@
     background-color: #BDBDBD;
 }
 
-.input-group-symbol {
-    position: absolute;
-    right: 5px;
-    font-size: 16px;
-    line-height: 16px;
-    padding: 5px;
-    height: 15px;
-    vertical-align: middle;
-    width: 15px;
-    color: #EEEEEE;
-    border: 1px solid #757575;
-    border-radius: 5px;
+.input-group-header .corner-button {
+    background-color: #AAA;
+    color: white;
+    border-radius: 100px;
 }
 
-.input-group-symbol:hover {
+.input-group-header .corner-button:hover {
     background-color: #FF5A09;
-    font-weight: bold;
     cursor: pointer;
 }

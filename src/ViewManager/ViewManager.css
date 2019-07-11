@@ -11,4 +11,34 @@
 
 .view-driver {
     text-align: center;
+    border-bottom: 1px solid #444;
+    padding: 10px;
+    position: relative;
+}
+
+.view-driver-header {
+    color: #444;
+    height: 25px;
+}
+
+.view-driver-header .corner-button {
+    background-color: #FFF;
+    color: #888;
+    outline: 1px solid #888;
+    position: absolute;
+    top: 10px;
+}
+
+.view-driver-header .corner-button:hover {
+    background-color: #FF5A09;
+    color: white;
+    cursor: pointer;
+}
+
+.view-driver-body {
+    margin-top: 25px;
+}
+
+.view-driver-header .center {
+    font-weight: bold;
 }
