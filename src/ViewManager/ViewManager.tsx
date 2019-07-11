@@ -8,10 +8,9 @@ import { LabelSelector } from "./Common/LabelSelector";
 import { Guitar } from "./Guitar/Guitar";
 import { Piano } from "./Piano/Piano";
 import { IParamConfig, IParamDef } from "../Common/Parameters/IParamConfig";
+import { BoxSelector } from "../Common/BoxSelector/BoxSelector";
 
-export class ViewManager extends React.Component<any, any> {
-
-    PARAM_viewDrivers = {
+export let PARAM_viewDrivers = {
         id: 'viewDriver',
         name: 'View Drivers',
         data: [
@@ -33,10 +32,12 @@ export class ViewManager extends React.Component<any, any> {
         ]
     } as IParamConfig<any>
 
+export class ViewManager extends React.Component<any, any> {
+
 	constructor(props) {
         super(props);
         this.state = {
-            viewDrivers: this.PARAM_viewDrivers.data
+            viewDrivers: PARAM_viewDrivers.data
         };
     }
 
@@ -87,10 +88,14 @@ export class ViewManager extends React.Component<any, any> {
     }
     
     getViewDrivers = () => {
-        return this.state.viewDrivers.map((def) => {
+        let viewDrivers = [<ViewDriverSelector />];
+        for(let i = 0; i < this.state.viewDrivers.length; i++) {
+            let def = this.state.viewDrivers[i];
             let ViewDriver = this.getViewDriver(def.class);
-            return <ViewDriver functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>
-        });
+            viewDrivers.push(<ViewDriver functionalNotes={this.props.notes} name={def.name} length={25} {...this.props}/>);
+            viewDrivers.push(<ViewDriverSelector />);
+        }
+        return viewDrivers;
     }
 
 	render = () => {
@@ -98,4 +103,37 @@ export class ViewManager extends React.Component<any, any> {
                 {this.getViewDrivers()}
             </div>;
     };
+}
+
+export class ViewDriverSelector extends React.Component<any, any> {
+
+	constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+    }
+
+    toggle = () => {
+        this.setState((state) => {
+            return { open: !state.open }
+        });
+    }
+
+	render = () => {
+        return  <div className='view-driver-selector'>
+                {this.state.open ? 
+                    <div className='view-driver-open' onClick={this.toggle as any}>
+                        <BoxSelector
+                            updateSelection={null}
+                            param={PARAM_viewDrivers}
+                            selectedValue={null}
+                        />
+                    </div> :
+                    <div className='view-driver-closed' onClick={this.toggle as any}>
+                        <span>+</span>
+                    </div>
+                }
+                </div>;
+    }
 }

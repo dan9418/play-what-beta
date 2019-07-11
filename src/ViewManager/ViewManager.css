@@ -48,3 +48,29 @@
     font-weight: bold;
     color: white;
 }
+
+.view-driver-selector {
+    text-align: center;
+    background-color: #EEE;
+    color: white;
+    margin-top: 5px;
+    font-size: 14px;
+    min-height: 5px
+}
+
+.view-driver-selector span{
+    display: none;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.view-driver-selector:hover {
+    color: #FF5A09;
+    background-color: #CCC;
+    min-height: 10px;
+    cursor: pointer;
+}
+
+.view-driver-selector:hover span{
+    display: inline-block;
+}
