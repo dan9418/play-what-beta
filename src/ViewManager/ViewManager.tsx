@@ -8,7 +8,7 @@ import { LabelSelector } from "./Common/LabelSelector";
 import { Guitar } from "./Guitar/Guitar";
 import { Piano } from "./Piano/Piano";
 import { IParamConfig, IParamDef } from "../Common/Parameters/IParamConfig";
-import { BoxSelector } from "../Common/BoxSelector/BoxSelector";
+import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 
 export let PARAM_viewDrivers = {
         id: 'viewDriver',

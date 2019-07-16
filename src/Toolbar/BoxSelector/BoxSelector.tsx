@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./BoxSelector.css";
-import { IParamConfig, IParamDef } from "../Parameters/IParamConfig";
+import { IParamConfig, IParamDef } from "../../Common/Parameters/IParamConfig";
 
 interface BoxSelectorProps {
     param: IParamConfig<any>;

@@ -1,18 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
-import { Interval } from "../../Common/Parameters/Concepts/Interval";
-import { Chord } from "../../Common/Parameters/Concepts/Chord";
-import { Scale } from "../../Common/Parameters/Concepts/Scale";
-import { Mode } from "../../Common/Parameters/Concepts/Mode";
-import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { PARAM_conceptType, ConceptTypeDef } from "../../Common/Parameters/Base/ConceptTypeConfig";
-import { PARAM_interval } from "../../Common/Parameters/Concepts/IntervalConfig";
-import { PARAM_chord } from "../../Common/Parameters/Concepts/ChordConfig";
-import { PARAM_scale } from "../../Common/Parameters/Concepts/ScaleConfig";
-import { PARAM_mode } from "../../Common/Parameters/Concepts/ModeConfig";
-import { InputGroup } from "../../Common/InputGroup/InputGroup";
-import { IParamDef } from "../../Common/Parameters/IParamConfig";
+import { Interval } from "../Common/Parameters/Concepts/Interval";
+import { Chord } from "../Common/Parameters/Concepts/Chord";
+import { Scale } from "../Common/Parameters/Concepts/Scale";
+import { Mode } from "../Common/Parameters/Concepts/Mode";
+import { BoxSelector } from "./BoxSelector/BoxSelector";
+import { PARAM_conceptType, ConceptTypeDef } from "../Common/Parameters/Base/ConceptTypeConfig";
+import { PARAM_interval } from "../Common/Parameters/Concepts/IntervalConfig";
+import { PARAM_chord } from "../Common/Parameters/Concepts/ChordConfig";
+import { PARAM_scale } from "../Common/Parameters/Concepts/ScaleConfig";
+import { PARAM_mode } from "../Common/Parameters/Concepts/ModeConfig";
+import { InputGroup } from "./InputGroup/InputGroup";
+import { IParamDef } from "../Common/Parameters/IParamConfig";
 
 export class ConceptSelector extends React.Component<any, any> {
 

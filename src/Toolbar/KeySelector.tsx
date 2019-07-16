@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
-import { Key } from "../../Theory/Base/Key";
-import { BoxSelector } from "../../Common/BoxSelector/BoxSelector";
-import { PARAM_diatonicDegree, DiatonicDegreeDef } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
-import { PARAM_accidental, AccidentalDef } from "../../Common/Parameters/Base/AccidentalConfig";
-import { InputGroup } from "../../Common/InputGroup/InputGroup";
+import { Key } from "../Theory/Base/Key";
+import { BoxSelector } from "./BoxSelector/BoxSelector";
+import { PARAM_diatonicDegree, DiatonicDegreeDef } from "../Common/Parameters/Base/DiatonicDegreeConfig";
+import { PARAM_accidental, AccidentalDef } from "../Common/Parameters/Base/AccidentalConfig";
+import { InputGroup } from "./InputGroup/InputGroup";
 
 export class KeySelector extends React.Component<any> {
 

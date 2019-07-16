@@ -5,6 +5,8 @@ import { FunctionalNote } from "./Theory/Base/FunctionalNote";
 import { Key } from "./Theory/Base/Key"
 import { Toolbar } from "./Toolbar/Toolbar";
 import { ViewManager } from "./ViewManager/ViewManager";
+import { PARAM_diatonicDegree } from "./Common/Parameters/Base/DiatonicDegreeConfig";
+import { PARAM_accidental } from "./Common/Parameters/Base/AccidentalConfig";
 
 
 'use strict';
@@ -20,7 +22,7 @@ const DEFAULT_CONCEPT_TYPE = {
 
 const DEFAULT_CONCEPT = {
 	typeId: 'scale',
-	getIntervals: () => { return []; }
+	intervals: []
 };
 
 export class App extends React.Component<any, any> {
@@ -28,38 +30,27 @@ export class App extends React.Component<any, any> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			key: DEFAULT_KEY,
-			conceptType: DEFAULT_CONCEPT_TYPE,
-			concepts: {
-				interval: DEFAULT_CONCEPT,
-				chord: DEFAULT_CONCEPT,
-				scale: DEFAULT_CONCEPT,
-				mode: DEFAULT_CONCEPT
-			}
+			key_diatonicDegree: PARAM_diatonicDegree.data[0],
+			key_accidental: PARAM_accidental.data[2],
+			concept_type: DEFAULT_CONCEPT_TYPE,
+			concept_interval: DEFAULT_CONCEPT,
+			concept_chord: DEFAULT_CONCEPT,
+			concept_scale: DEFAULT_CONCEPT,
+			concept_mode: DEFAULT_CONCEPT
 		};
 	}
 
-	changeKey = (key) => {
-		this.setState({ key: key });
-	}
-
-	changeConceptType = (conceptType) => {
-		this.setState({ conceptType: conceptType });
-	}
-
-	setConcept = (conceptType, concept) => {
-		this.setState((oldState) => {
-			let newState = oldState;
-			newState.concepts[conceptType] = concept;
-			return newState;
-		});
+	setParameter = (property, value) => {
+		let update = {};
+		update[property] = value;
+		this.setState(update);
 	}
 
 	getNotes = () => {
 		let notes = [];
-		let intervals = this.state.concepts[this.state.conceptType.id].getIntervals();
+		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
 		for (let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(this.state.key, intervals[i]);
+			let functionalNote = new FunctionalNote(DEFAULT_KEY, intervals[i]);//TODO
 			notes.push(functionalNote);
 		}
 		return notes;
@@ -80,7 +71,10 @@ export class App extends React.Component<any, any> {
 					</div>
 				</div>
 				<div id='main'>
-					<Toolbar changeKey={this.changeKey} changeConceptType={this.changeConceptType} setConcept={this.setConcept} selectedKey={this.state.key} selectedConceptType={this.state.conceptType} selectedConcepts={this.state.concepts} />
+					<Toolbar
+						setParameter={this.setParameter}
+						{...this.state}
+						/>
 					<ViewManager notes={this.getNotes()} />
 				</div>		
 			</div>

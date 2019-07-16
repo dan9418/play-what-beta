@@ -1,22 +1,24 @@
-Architecture
-    Input
-        Key selection
-        Concept selection
-        Concept options
-    AbstractView
-        Transposition by interval, ascending & descending
-        Label configuration
-        Color congifuration
-        Play all sounds
-        Range filter
-        Multiple views?
-        Octave type?
-    GuitarView
-        Expandable range
-        Tunable strings
+Color pattern
+ViewDriver
+    Insert/Delete
+    Select
+    Lock
+GuitarView
+    Input panel
+        Tunings
         Voicings
-    PianoView
-        Expandable range
-    NoteView
-
+        Fret range
+        Dots
+        Fret label
+PitchClassView
+    Show inactive
+PianoView
+    Key label
+    Key range
+CircleView
+    Implement
 Routing
+Docs
+Icon links
+Bug tracking
+Formal backlog
