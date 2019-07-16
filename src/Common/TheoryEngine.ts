@@ -1,16 +1,18 @@
 import { DiatonicDegreeParameter, DiatonicDegreeDefinitions } from "../Parameters/Key/DiatonicDegreeConfig";
 import { AccidentalParameter } from "../Parameters/Key/AccidentalConfig";
 import { Parameter } from "../Parameters/MasterParameters";
+import { INTERVALS } from "../Parameters/Concept/IntervalDefinitions";
+import { ScaleDefinitions } from "../Parameters/Concept/ScaleDefinitions";
 
 export interface Interval {
     id: string;
-	name: string;
+    name: string;
     degree: number;
-	semitones: number;
+    semitones: number;
 }
 
 export interface ConceptParameter extends Parameter {
-	intervals: Interval[];
+    intervals: Interval[];
 }
 
 export interface Key {
@@ -19,7 +21,7 @@ export interface Key {
     name: string;
 }
 
-export interface Note {
+export interface PhysicalNote {
     // Inputs
     //key: Key;
     //interval: Interval;
@@ -32,10 +34,18 @@ export interface Note {
     //accidental: AccidentalParameter;
     //name: string;
 }
+export interface FunctionalNote {
+    key: any;
+    interval: any;
+    absoluteDegree: number;
+    relativePosition: number;
+    accidental: number;
+    name: string;
+}
 
 export class TheoryEngine {
     static getRelativePotision = (absolutePosition) => {
-        if(absolutePosition >= 0)
+        if (absolutePosition >= 0)
             return absolutePosition % 12;
         else
             return 12 + (absolutePosition % 12);
@@ -44,26 +54,77 @@ export class TheoryEngine {
     static getFrequency = (absolutePosition) => {
         let f = 440;
         let distA4 = absolutePosition - DiatonicDegreeDefinitions[5].homePostition;
-        if(distA4 < 0) {
+        if (distA4 < 0) {
             let dist = Math.abs(distA4);
-            for(let i = 0; i < dist; i++) {
-                f = f / Math.pow(2, 1/12);
+            for (let i = 0; i < dist; i++) {
+                f = f / Math.pow(2, 1 / 12);
             }
         }
         else {
-            for(let i = 0; i < distA4; i++) {
-                f = f * Math.pow(2, 1/12);
+            for (let i = 0; i < distA4; i++) {
+                f = f * Math.pow(2, 1 / 12);
             }
         }
         return Math.round(f);
     }
 
-    static getPhysicalNote = (absolutePosition): Note => {
+    static getAccidentalString = (accidental) => {
+        switch (accidental) {
+            case 0:
+                return ''
+            case 1:
+                return '#';
+            case 2:
+                return 'x';
+            case -1:
+                return 'b';
+            case -2:
+                return 'bb';
+            default:
+                if (accidental < 0) {
+                    return -accidental + 'b';
+                } else if (accidental > 0) {
+                    return accidental + '#';
+                }
+        }
+    };
+
+    static getPhysicalNote = (absolutePosition): PhysicalNote => {
         return {
             absolutePosition: absolutePosition,
             relativePosition: TheoryEngine.getRelativePotision(absolutePosition),
             octave: 4 + Math.floor(absolutePosition / 12),
             frequency: TheoryEngine.getFrequency(absolutePosition)
+        }
+    }
+
+    static getFunctionalNote = (key, interval): FunctionalNote => {
+        if (interval.id !== INTERVALS.TT.id) {
+            let absoluteDegree = (key.degree - 1 + interval.degree - 1) % 7 + 1;
+            let relativePosition = (key.homePosition + interval.semitones) % 12;
+            let accidental = relativePosition - ScaleDefinitions[0].intervals[absoluteDegree - 1].semitones;
+            if (relativePosition === 0 && accidental < 0) accidental += 12;
+            if (relativePosition === -1 && accidental < 0) relativePosition += 12;
+            let name = DiatonicDegreeDefinitions[absoluteDegree - 1].id + TheoryEngine.getAccidentalString(accidental);
+            return {
+                key: key,
+                interval: interval,
+                absoluteDegree: absoluteDegree,
+                relativePosition: relativePosition,
+                accidental: accidental,
+                name: name
+            }
+        }
+        else {
+            let relativePosition = (ScaleDefinitions[0].intervals[key.degree - 1].semitones + 6 + key.accidental) % 12;
+            return {
+                key: key,
+                interval: interval,
+                absoluteDegree: 0,
+                relativePosition: relativePosition,
+                accidental: 0,
+                name: INTERVALS.TT.id
+            }
         }
     }
 }

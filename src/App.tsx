@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./Common/Common.css";
-import { FunctionalNote } from "./Theory/Base/FunctionalNote";
 import { Key } from "./Theory/Base/Key"
 import { Toolbar } from "./Toolbar/Toolbar";
 import { ViewManager } from "./ViewManager/ViewManager";
 import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig";
 import { AccidentalDefinitions } from "./Parameters/Key/AccidentalConfig";
+import { TheoryEngine } from "./Common/TheoryEngine";
 
 
 'use strict';
@@ -51,7 +51,7 @@ export class App extends React.Component<any, any> {
 		let key = new Key(this.state.key_diatonicDegree.degree, this.state.key_accidental.offset);
 		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
 		for (let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(key, intervals[i]);
+			let functionalNote = TheoryEngine.getFunctionalNote(key, intervals[i]);
 			notes.push(functionalNote);
 		}
 		return notes;
