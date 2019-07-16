@@ -4,7 +4,7 @@ import "../../Common/Common.css";
 import "./NoteCollection.css";
 import { PhysicalNote } from "../../Theory/Base/PhysicalNote";
 import { e } from "../../App";
-import { PARAM_diatonicDegree } from "../../Common/Parameters/Base/DiatonicDegreeConfig";
+import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
 
 export class NoteDisplay extends React.Component<any> {
     physicalNote: any;
@@ -32,7 +32,7 @@ export class NoteDisplay extends React.Component<any> {
 
         if(note !== null) {
             classes.push(`degree-${note.interval.degree}`);
-            this.physicalNote = new PhysicalNote(PARAM_diatonicDegree.data[note.key.degree - 1].homePostition + note.interval.semitones);
+            this.physicalNote = new PhysicalNote(DiatonicDegreeDefinitions[note.key.degree - 1].homePostition + note.interval.semitones);
         }
         else {
             classes.push(`degree-0`);
@@ -69,7 +69,7 @@ export class NoteCollection extends React.Component<any> {
 
     getNoteDisplays() {
         let noteDisplays = [];
-        let startingPosition = (this.props.notes.length) ? PARAM_diatonicDegree.data[this.props.notes[0].key.degree - 1].homePostition : 0;
+        let startingPosition = (this.props.notes.length) ? DiatonicDegreeDefinitions[this.props.notes[0].key.degree - 1].homePostition : 0;
         for(let i = startingPosition; i < startingPosition + 12; i++) {
             let note = this.props.notes.find((n) => { return n.relativePosition === (i % 12) }) || null;
             noteDisplays.push(e(NoteDisplay, {

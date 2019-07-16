@@ -2,12 +2,12 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./BoxSelector.css";
-import { IParamConfig, IParamDef } from "../../Common/Parameters/IParamConfig";
+import { ParameterConfig, Parameter } from "../../Parameters/MasterParameters";
 
 interface BoxSelectorProps {
-    param: IParamConfig<any>;
-    selectedValue: IParamDef;
-    updateSelection: (IParamDef) => void;
+    param: ParameterConfig;
+    selectedValue: Parameter;
+    updateSelection: (param) => void;
 }
 
 export class BoxSelector extends React.Component<BoxSelectorProps> {

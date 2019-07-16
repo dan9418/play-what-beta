@@ -1,22 +1,7 @@
-import { IParamConfig, IParamDef, IConceptDef, IConceptConfig, IConceptOptions } from "../IParamConfig";
-import { INTERVALS, IntervalDef } from "./IntervalConfig";
-import { PARAM_inversion, Inversion, InversionDef } from "../Base/InversionConfig";
+import { ConceptParameter } from "../MasterParameters";
+import { INTERVALS } from "./IntervalDefinitions";
 
-export interface IChordOptions extends IConceptOptions {
-    inversion?: InversionDef;
-}
-
-export interface IChordDef extends IConceptDef {
-    intervals: IntervalDef[];
-}
-
-export let PARAM_chord: IConceptConfig<IChordDef> = {
-    id: 'chord',
-    name: 'Chords',
-    options: [
-        PARAM_inversion
-    ],
-    data: [
+export let ChordDefinitions: ConceptParameter[] = [
         {
             id: 'maj',
             name: 'Major Triad',
@@ -107,5 +92,4 @@ export let PARAM_chord: IConceptConfig<IChordDef> = {
             name: 'Half-Diminished 7th',
             intervals: [INTERVALS.PU, INTERVALS.m3, INTERVALS.d5, INTERVALS.m7]
         }
-    ]
-};
+    ];

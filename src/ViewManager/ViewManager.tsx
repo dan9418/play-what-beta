@@ -7,10 +7,10 @@ import { e } from "../App";
 import { LabelSelector } from "./Common/LabelSelector";
 import { Guitar } from "./Guitar/Guitar";
 import { Piano } from "./Piano/Piano";
-import { IParamConfig, IParamDef } from "../Common/Parameters/IParamConfig";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
+import { ParameterConfig } from "../Parameters/MasterParameters";
 
-export let PARAM_viewDrivers = {
+export let ViewDriverDefinitions = {
         id: 'viewDriver',
         name: 'View Drivers',
         data: [
@@ -30,14 +30,14 @@ export let PARAM_viewDrivers = {
                 class: Guitar
             }
         ]
-    } as IParamConfig<any>
+    } as ParameterConfig
 
 export class ViewManager extends React.Component<any, any> {
 
 	constructor(props) {
         super(props);
         this.state = {
-            viewDrivers: PARAM_viewDrivers.data
+            viewDrivers: ViewDriverDefinitions.data
         };
     }
 
@@ -145,7 +145,7 @@ export class ViewDriverSelector extends React.Component<any, any> {
                     <div className='view-driver-open' onClick={this.toggle as any}>
                         <BoxSelector
                             updateSelection={this.props.insertViewDriver}
-                            param={PARAM_viewDrivers}
+                            param={ViewDriverDefinitions}
                             selectedValue={null}
                         />
                     </div> :

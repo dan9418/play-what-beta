@@ -5,8 +5,8 @@ import { FunctionalNote } from "./Theory/Base/FunctionalNote";
 import { Key } from "./Theory/Base/Key"
 import { Toolbar } from "./Toolbar/Toolbar";
 import { ViewManager } from "./ViewManager/ViewManager";
-import { PARAM_diatonicDegree } from "./Common/Parameters/Base/DiatonicDegreeConfig";
-import { PARAM_accidental } from "./Common/Parameters/Base/AccidentalConfig";
+import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig";
+import { AccidentalDefinitions } from "./Parameters/Key/AccidentalConfig";
 
 
 'use strict';
@@ -30,8 +30,8 @@ export class App extends React.Component<any, any> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			key_diatonicDegree: PARAM_diatonicDegree.data[0],
-			key_accidental: PARAM_accidental.data[2],
+			key_diatonicDegree: DiatonicDegreeDefinitions[0],
+			key_accidental: AccidentalDefinitions[2],
 			concept_type: DEFAULT_CONCEPT_TYPE,
 			concept_interval: DEFAULT_CONCEPT,
 			concept_chord: DEFAULT_CONCEPT,
