@@ -1,5 +1,5 @@
-import { ConceptParameter } from "../MasterParameters";
 import { INTERVALS } from "./IntervalDefinitions";
+import { ConceptParameter } from "../../Common/TheoryEngine";
 
 export let ScaleDefinitions: ConceptParameter[] = [
     {

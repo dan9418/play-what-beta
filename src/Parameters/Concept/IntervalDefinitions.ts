@@ -1,4 +1,4 @@
-import { ConceptParameter } from "../MasterParameters";
+import { ConceptParameter } from "../../Common/TheoryEngine";
 
 export let INTERVALS = {
     PU: { id: 'PU', name: 'Perfect Unison', degree: 1, semitones: 0 },

@@ -6,24 +6,11 @@ import { ChordDefinitions } from "./Concept/ChordDefinitions";
 import { ScaleDefinitions } from "./Concept/ScaleDefinitions";
 import { ModeDefinitions } from "./Concept/ModeDefinitions";
 
-/* Base Theory */
-
-export interface Interval {
-    id: string;
-	name: string;
-    degree: number;
-	semitones: number;
-}
-
-/* Parameter Types */
+/* Base Parameter */
 
 export interface Parameter {
     id: string;
 	name: string;
-}
-
-export interface ConceptParameter extends Parameter {
-	intervals: Interval[];
 }
 
 /* Parameter Organization */
