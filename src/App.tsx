@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./Common/Common.css";
-import { Key } from "./Theory/Base/Key"
 import { Toolbar } from "./Toolbar/Toolbar";
 import { ViewManager } from "./ViewManager/ViewManager";
 import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig";
@@ -12,8 +11,6 @@ import { TheoryEngine } from "./Common/TheoryEngine";
 'use strict';
 
 export const e = React.createElement;
-
-const DEFAULT_KEY = new Key(1, 0);
 
 const DEFAULT_CONCEPT_TYPE = {
 	id: 'scale',
@@ -48,7 +45,7 @@ export class App extends React.Component<any, any> {
 
 	getNotes = () => {
 		let notes = [];
-		let key = new Key(this.state.key_diatonicDegree.degree, this.state.key_accidental.offset);
+		let key = TheoryEngine.getKey(this.state.key_diatonicDegree.degree, this.state.key_accidental.offset);
 		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
 		for (let i = 0; i < intervals.length; i++) {
 			let functionalNote = TheoryEngine.getFunctionalNote(key, intervals[i]);

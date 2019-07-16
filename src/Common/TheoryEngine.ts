@@ -14,12 +14,12 @@ export interface Interval {
 export interface ConceptParameter extends Parameter {
     intervals: Interval[];
 }
-
+/*
 export interface Key {
     degree: DiatonicDegreeParameter;
     accidental: AccidentalParameter;
     name: string;
-}
+}*/
 
 export interface PhysicalNote {
     // Inputs
@@ -41,6 +41,12 @@ export interface FunctionalNote {
     relativePosition: number;
     accidental: number;
     name: string;
+}
+
+export interface Key {
+    degree: number;
+    accidental: number;
+    homePosition: number;
 }
 
 export class TheoryEngine {
@@ -88,6 +94,14 @@ export class TheoryEngine {
                 }
         }
     };
+
+    static getKey = (diatonicDegree, accidentalOffset): Key => {
+        return {
+            degree: diatonicDegree,
+            accidental: accidentalOffset,
+            homePosition: ScaleDefinitions[0].intervals[diatonicDegree - 1].semitones + accidentalOffset
+        }
+    }
 
     static getPhysicalNote = (absolutePosition): PhysicalNote => {
         return {
