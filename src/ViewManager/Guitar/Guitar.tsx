@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./Guitar.css";
 import { e } from "../../App";
-import { PhysicalNote } from "../../Theory/Base/PhysicalNote";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 
 export class Guitar extends React.Component<any> {
     strings: any[];
@@ -47,7 +47,7 @@ export class String extends React.Component<any> {
     getFrets = () => {
         let frets = [];
         for(let i = 0; i <= 12; i++) {
-            let physicalNote = new PhysicalNote(this.props.openPosition + i);
+            let physicalNote = TheoryEngine.getPhysicalNote(this.props.openPosition + i);
             frets.push(e(Fret, {
                 key: `fret-${i}`,
                 functionalNotes: this.props.functionalNotes,

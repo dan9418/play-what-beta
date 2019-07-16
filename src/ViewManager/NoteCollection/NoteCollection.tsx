@@ -2,9 +2,9 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./NoteCollection.css";
-import { PhysicalNote } from "../../Theory/Base/PhysicalNote";
 import { e } from "../../App";
 import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 
 export class NoteDisplay extends React.Component<any> {
     physicalNote: any;
@@ -32,12 +32,12 @@ export class NoteDisplay extends React.Component<any> {
 
         if(note !== null) {
             classes.push(`degree-${note.interval.degree}`);
-            this.physicalNote = new PhysicalNote(DiatonicDegreeDefinitions[note.key.degree - 1].homePostition + note.interval.semitones);
+            this.physicalNote = TheoryEngine.getPhysicalNote(DiatonicDegreeDefinitions[note.key.degree - 1].homePostition + note.interval.semitones);
         }
         else {
             classes.push(`degree-0`);
             note = { name: '', interval: { id: '' }};
-            this.physicalNote = new PhysicalNote(this.props.position);
+            this.physicalNote = TheoryEngine.getPhysicalNote(this.props.position);
         }        
 
         return e('div',

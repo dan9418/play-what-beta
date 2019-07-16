@@ -2,8 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./Piano.css";
-import { PhysicalNote } from "../../Theory/Base/PhysicalNote";
 import { e } from "../../App";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 
 export class Piano extends React.Component<any> {
     keys: any;
@@ -20,7 +20,7 @@ export class Piano extends React.Component<any> {
     
     getKeys = () => {
         return this.keys.map((key, index) => {
-            let physicalNote = new PhysicalNote(index);
+            let physicalNote = TheoryEngine.getPhysicalNote(index);
             return e(PianoKey, {
                 key: `key-${(physicalNote as any).absolutePosition}`,
                 type: key.type,
