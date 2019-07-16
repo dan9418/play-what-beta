@@ -1,6 +1,7 @@
 import { ConceptParameter } from "../../Common/TheoryEngine";
 
 export let INTERVALS = {
+    None: { id: '', name: '', degree: 0, semitones: 0 },
     PU: { id: 'PU', name: 'Perfect Unison', degree: 1, semitones: 0 },
     m2: { id: 'm2', name: 'Minor 2nd', degree: 2, semitones: 1 },
     M2: { id: 'M2', name: 'Major 2nd', degree: 2, semitones: 2 },

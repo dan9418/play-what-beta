@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../Common/Common.css";
 import "./ViewManager.css";
-import { NoteCollection } from "./NoteCollection/NoteCollection";
+import { PitchClassSet } from "./PitchClassSet/PitchClassSet";
 import { e } from "../App";
 import { LabelSelector } from "./Common/LabelSelector";
 import { Guitar } from "./Guitar/Guitar";
@@ -15,9 +15,9 @@ export let ViewDriverDefinitions = {
         name: 'View Drivers',
         data: [
             {
-                id: 'pitchClasses',
-                name: 'Pitch Classes',
-                class: NoteCollection
+                id: 'pitchClassSet',
+                name: 'Pitch Class Set',
+                class: PitchClassSet
             },
             {
                 id: 'piano',

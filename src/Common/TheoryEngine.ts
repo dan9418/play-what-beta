@@ -111,7 +111,7 @@ export class TheoryEngine {
         return {
             octave: 4 + Math.floor(absolutePosition / 12),
             key: null,
-            interval: null,
+            interval: INTERVALS.None,
             absoluteDegree: null,
             relativePosition: TheoryEngine.getRelativePotision(absolutePosition),
             absolutePosition: absolutePosition,
