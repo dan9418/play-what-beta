@@ -32,12 +32,12 @@ export class NoteDisplay extends React.Component<any> {
 
         if(note !== null) {
             classes.push(`degree-${note.interval.degree}`);
-            this.physicalNote = TheoryEngine.getPhysicalNote(DiatonicDegreeDefinitions[note.key.diatonicDegree.degree - 1].homePostition + note.interval.semitones);
+            this.physicalNote = TheoryEngine.getNonfunctionalNote(DiatonicDegreeDefinitions[note.key.diatonicDegree.degree - 1].homePostition + note.interval.semitones);
         }
         else {
             classes.push(`degree-0`);
             note = { name: '', interval: { id: '' }};
-            this.physicalNote = TheoryEngine.getPhysicalNote(this.props.position);
+            this.physicalNote = TheoryEngine.getNonfunctionalNote(this.props.position);
         }        
 
         return e('div',

@@ -107,16 +107,22 @@ export class TheoryEngine {
         }
     }
 
-    static getPhysicalNote = (absolutePosition): PhysicalNote => {
+    static getNonfunctionalNote = (absolutePosition): Note => {
         return {
-            absolutePosition: absolutePosition,
-            relativePosition: TheoryEngine.getRelativePotision(absolutePosition),
             octave: 4 + Math.floor(absolutePosition / 12),
+            key: null,
+            interval: null,
+            absoluteDegree: null,
+            relativePosition: TheoryEngine.getRelativePotision(absolutePosition),
+            absolutePosition: absolutePosition,
+            accidental: null,
+            name: '',
+            diatonicDegree: null,
             frequency: TheoryEngine.getFrequency(absolutePosition)
         }
     }
 
-    static getNote = (key: Key, interval: Interval): Note => {
+    static getFunctionalNote = (key: Key, interval: Interval): Note => {
         let octave = 4;
         if (interval.id !== INTERVALS.TT.id) {
             let absoluteDegree = (key.diatonicDegree.degree - 1 + interval.degree - 1) % 7 + 1;

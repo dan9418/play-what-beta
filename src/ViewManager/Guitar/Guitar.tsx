@@ -47,7 +47,7 @@ export class String extends React.Component<any> {
     getFrets = () => {
         let frets = [];
         for(let i = 0; i <= 12; i++) {
-            let physicalNote = TheoryEngine.getPhysicalNote(this.props.openPosition + i);
+            let physicalNote = TheoryEngine.getNonfunctionalNote(this.props.openPosition + i);
             frets.push(e(Fret, {
                 key: `fret-${i}`,
                 functionalNotes: this.props.functionalNotes,

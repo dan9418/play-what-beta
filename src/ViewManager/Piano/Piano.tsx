@@ -20,7 +20,7 @@ export class Piano extends React.Component<any> {
     
     getKeys = () => {
         return this.keys.map((key, index) => {
-            let physicalNote = TheoryEngine.getPhysicalNote(index);
+            let physicalNote = TheoryEngine.getNonfunctionalNote(index);
             return e(PianoKey, {
                 key: `key-${(physicalNote as any).absolutePosition}`,
                 type: key.type,
