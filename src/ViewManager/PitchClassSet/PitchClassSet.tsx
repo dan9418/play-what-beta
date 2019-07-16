@@ -13,24 +13,11 @@ export class PitchClass extends React.Component<any> {
         super(props);
     }
 
-    sound = () => {
-        let duration = 500;
-        let audioCtx = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
-        let oscillator = audioCtx.createOscillator();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.value = this.physicalNote.frequency;
-        oscillator.connect(audioCtx.destination);
-        oscillator.start();
-            
-        setTimeout(() => { oscillator.stop(); }, duration);
-    }
-
 	render = () => {
         let note = this.props.note as Note;
         let classes = ['note', `degree-${note.interval.degree}`];
 
-        return <div className={classes.join(' ')} onClick={this.sound}>
+        return <div className={classes.join(' ')} onClick={() => TheoryEngine.playNote(note)}>
             <div className='note-row note-row-top'>
                 <div className='note-relative-position'>{note.relativePosition}</div>
                 <div className='note-absolute-position'>{note.absolutePosition}</div>
@@ -66,6 +53,7 @@ export class PitchClassSet extends React.Component<any> {
                 <PitchClass
                     key={`note-display-${absolutePosition}`}
                     note={note}
+                    {...this.props}
                 />
             );
         }
@@ -73,6 +61,6 @@ export class PitchClassSet extends React.Component<any> {
     }
 
 	render = () => {
-		return <div>{this.getNoteDisplays()}></div>;
+		return <div>{this.getNoteDisplays()}</div>;
     };
 }

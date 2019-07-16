@@ -25,7 +25,7 @@ export class Piano extends React.Component<any> {
                 key: `key-${(physicalNote as any).absolutePosition}`,
                 type: key.type,
                 physicalNote: physicalNote,
-                functionalNotes: this.props.functionalNotes,
+                notes: this.props.notes,
                 config: this.props.config
             }, null)
         });
@@ -43,19 +43,6 @@ export class PianoKey extends React.Component<any> {
 	
 	constructor(props) {
         super(props);
-    }
-
-    sound = () => {
-        let duration = 500;
-        let audioCtx = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
-        let oscillator = audioCtx.createOscillator();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.value = this.props.physicalNote.frequency;
-        oscillator.connect(audioCtx.destination);
-        oscillator.start();
-            
-        setTimeout(() => { oscillator.stop(); }, duration);
     }
 
     getName = (note) => {
@@ -85,7 +72,7 @@ export class PianoKey extends React.Component<any> {
     }
 
     getFunctionalNote = () => {
-        return this.props.functionalNotes.find((note) => {
+        return this.props.notes.find((note) => {
             return note.relativePosition === this.props.physicalNote.relativePosition;
         }) || null;
     }
@@ -98,18 +85,16 @@ export class PianoKey extends React.Component<any> {
             return e(WhiteKey, {
                 key: `white-key-${this.props.physicalNote.absolutePosition}`,
                 physicalNote: this.props.physicalNote,
-                functionalNote: note,
+                note: note,
                 label: name,
-                sound: this.sound
             }, null);
         }
         else if(this.props.type === 'BLACK') {
             return e(BlackKey, {
                 key: `black-key-${this.props.physicalNote.absolutePosition}`,
                 physicalNote: this.props.physicalNote,
-                functionalNote: note,
+                note: note,
                 label: name,
-                sound: this.sound
             }, null);
         }
     };
@@ -123,14 +108,14 @@ export class WhiteKey extends React.Component<any> {
 
 	render = () => {
         let classes = ['piano-key', 'white-key'];
-        if(this.props.functionalNote != null) {
-            classes.push(`degree-${this.props.functionalNote.interval.degree}`)
+        if(this.props.note != null) {
+            classes.push(`degree-${this.props.note.interval.degree}`)
         } else {
             classes.push(`degree-0`)
         }
 		return e('div', {
             className: classes.join(' '),
-            onClick: () => { this.props.sound(); }
+            onClick: () => { TheoryEngine.playNote(this.props.note); }
         }, this.props.label);
     };
 }
@@ -144,8 +129,8 @@ export class BlackKey extends React.Component<any> {
 	render = () => {
         let containerClasses = ['piano-key','black-key-container'];
         let classes = ['piano-key', 'black-key'];
-        if(this.props.functionalNote != null) {
-            classes.push(`degree-${this.props.functionalNote.interval.degree}`)
+        if(this.props.note != null) {
+            classes.push(`degree-${this.props.note.interval.degree}`)
         }
         else {
             classes.push(`black`)
@@ -155,7 +140,7 @@ export class BlackKey extends React.Component<any> {
                 },
                 e('div', {
                     className: classes.join(' '),
-                    onClick: () => { this.props.sound(); }
+                    onClick: () => { TheoryEngine.playNote(this.props.note); }
                 }, this.props.label));
     };
 }

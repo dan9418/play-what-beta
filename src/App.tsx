@@ -48,8 +48,8 @@ export class App extends React.Component<any, any> {
 		let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
 		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
 		for (let i = 0; i < intervals.length; i++) {
-			let functionalNote = TheoryEngine.getFunctionalNote(key, intervals[i]);
-			notes.push(functionalNote);
+			let note = TheoryEngine.getFunctionalNote(key, intervals[i]);
+			notes.push(note);
 		}
 		return notes;
 	}

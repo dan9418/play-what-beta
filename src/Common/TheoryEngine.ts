@@ -98,6 +98,19 @@ export class TheoryEngine {
         }
     };
 
+    static playNote = (note) => {
+        let duration = 500;
+        let audioCtx = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
+        let oscillator = audioCtx.createOscillator();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.value = note.frequency;
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+            
+        setTimeout(() => { oscillator.stop(); }, duration);
+    }
+
     static getKey = (diatonicDegree: DiatonicDegreeParameter, accidental: AccidentalParameter): Key => {
         return {
             diatonicDegree: diatonicDegree,
@@ -127,7 +140,7 @@ export class TheoryEngine {
         if (interval.id !== INTERVALS.TT.id) {
             let absoluteDegree = (key.diatonicDegree.degree - 1 + interval.degree - 1) % 7 + 1;
             let relativePosition = (key.homePosition + interval.semitones) % 12;
-            let absolutePosition = octave * 12 + relativePosition;
+            let absolutePosition = (octave - 4) * 12 + relativePosition;
             let accidentalOffset = relativePosition - ScaleDefinitions[0].intervals[absoluteDegree - 1].semitones;
             if (relativePosition === 0 && accidentalOffset < 0) accidentalOffset += 12;
             if (relativePosition === -1 && accidentalOffset < 0) relativePosition += 12;

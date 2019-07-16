@@ -24,9 +24,9 @@ export class Guitar extends React.Component<any> {
         return this.strings.map((string, index) => {
             return e(String, {
                 key: `key-${index}`,
-                functionalNotes: this.props.functionalNotes,
+                notes: this.props.notes,
                 openPosition: string.openPosition,
-                config: this.props.config
+                config: this.props.config,
             }, null);
         });
     }
@@ -50,10 +50,10 @@ export class String extends React.Component<any> {
             let physicalNote = TheoryEngine.getNonfunctionalNote(this.props.openPosition + i);
             frets.push(e(Fret, {
                 key: `fret-${i}`,
-                functionalNotes: this.props.functionalNotes,
+                notes: this.props.notes,
                 physicalNote: physicalNote,
                 open: (i === 0),
-                config: this.props.config
+                config: this.props.config,
             }, null));
         }
         return frets;
@@ -69,19 +69,6 @@ export class Fret extends React.Component<any> {
 	
 	constructor(props) {
         super(props);
-    }
-
-    sound = () => {
-        let duration = 500;
-        let audioCtx = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
-        let oscillator = audioCtx.createOscillator();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.value = this.props.physicalNote.frequency;
-        oscillator.connect(audioCtx.destination);
-        oscillator.start();
-            
-        setTimeout(() => { oscillator.stop(); }, duration);
     }
 
     getName = (note) => {
@@ -111,7 +98,7 @@ export class Fret extends React.Component<any> {
     }
 
     getFunctionalNote = () => {
-        return this.props.functionalNotes.find((note) => {
+        return this.props.notes.find((note) => {
             return note.relativePosition === this.props.physicalNote.relativePosition;
         }) || null;
     }
@@ -129,7 +116,7 @@ export class Fret extends React.Component<any> {
 
 		return e('div', {
             className: classes.join(' '),
-            onClick: () => { this.sound(); }
+            onClick: () => { TheoryEngine.playNote(note); }
         }, name);
     };
 }
