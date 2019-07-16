@@ -2,6 +2,10 @@
 	padding: 15px;
 }
 
+.speaker-icon {
+	cursor: pointer;
+}
+
 .note {
 	padding: 5px;
 	height: 40px;

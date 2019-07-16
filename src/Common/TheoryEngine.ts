@@ -98,17 +98,19 @@ export class TheoryEngine {
         }
     };
 
-    static playNote = (note) => {
+    static playNotes = (notes) => {
         let duration = 500;
-        let audioCtx = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
-        let oscillator = audioCtx.createOscillator();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.value = note.frequency;
-        oscillator.connect(audioCtx.destination);
-        oscillator.start();
-            
-        setTimeout(() => { oscillator.stop(); }, duration);
+        let audioContext = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
+
+        for(let i=0; i < notes.length; i++) {
+            let oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.value = notes[i].frequency;
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            setTimeout(() => { oscillator.stop(); }, duration);
+          }
+
     }
 
     static getKey = (diatonicDegree: DiatonicDegreeParameter, accidental: AccidentalParameter): Key => {

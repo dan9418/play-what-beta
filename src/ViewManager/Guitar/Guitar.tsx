@@ -116,7 +116,7 @@ export class Fret extends React.Component<any> {
 
 		return e('div', {
             className: classes.join(' '),
-            onClick: () => { TheoryEngine.playNote(note); }
+            onClick: () => { TheoryEngine.playNotes([note]); }
         }, name);
     };
 }

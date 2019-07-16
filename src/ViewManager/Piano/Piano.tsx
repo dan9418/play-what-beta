@@ -115,7 +115,7 @@ export class WhiteKey extends React.Component<any> {
         }
 		return e('div', {
             className: classes.join(' '),
-            onClick: () => { TheoryEngine.playNote(this.props.note); }
+            onClick: () => { TheoryEngine.playNotes([this.props.note]); }
         }, this.props.label);
     };
 }
@@ -140,7 +140,7 @@ export class BlackKey extends React.Component<any> {
                 },
                 e('div', {
                     className: classes.join(' '),
-                    onClick: () => { TheoryEngine.playNote(this.props.note); }
+                    onClick: () => { TheoryEngine.playNotes([this.props.note]); }
                 }, this.props.label));
     };
 }
