@@ -48,9 +48,10 @@ export class App extends React.Component<any, any> {
 
 	getNotes = () => {
 		let notes = [];
+		let key = new Key(this.state.key_diatonicDegree.degree, this.state.key_accidental.offset);
 		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
 		for (let i = 0; i < intervals.length; i++) {
-			let functionalNote = new FunctionalNote(DEFAULT_KEY, intervals[i]);//TODO
+			let functionalNote = new FunctionalNote(key, intervals[i]);
 			notes.push(functionalNote);
 		}
 		return notes;
