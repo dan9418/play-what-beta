@@ -14,12 +14,13 @@ export interface Interval {
 export interface ConceptParameter extends Parameter {
     intervals: Interval[];
 }
-/*
+
 export interface Key {
-    degree: DiatonicDegreeParameter;
+    diatonicDegree: DiatonicDegreeParameter;
     accidental: AccidentalParameter;
+    homePosition: number;
     name: string;
-}*/
+}
 
 export interface PhysicalNote {
     // Inputs
@@ -41,12 +42,6 @@ export interface FunctionalNote {
     relativePosition: number;
     accidental: number;
     name: string;
-}
-
-export interface Key {
-    degree: number;
-    accidental: number;
-    homePosition: number;
 }
 
 export class TheoryEngine {
@@ -95,11 +90,12 @@ export class TheoryEngine {
         }
     };
 
-    static getKey = (diatonicDegree, accidentalOffset): Key => {
+    static getKey = (diatonicDegree: DiatonicDegreeParameter, accidental: AccidentalParameter): Key => {
         return {
-            degree: diatonicDegree,
-            accidental: accidentalOffset,
-            homePosition: ScaleDefinitions[0].intervals[diatonicDegree - 1].semitones + accidentalOffset
+            diatonicDegree: diatonicDegree,
+            accidental: accidental,
+            homePosition: ScaleDefinitions[0].intervals[diatonicDegree.degree - 1].semitones + accidental.offset,
+            name: diatonicDegree.name + TheoryEngine.getAccidentalString(accidental.offset)
         }
     }
 
@@ -112,9 +108,9 @@ export class TheoryEngine {
         }
     }
 
-    static getFunctionalNote = (key, interval): FunctionalNote => {
+    static getFunctionalNote = (key: Key, interval: Interval): FunctionalNote => {
         if (interval.id !== INTERVALS.TT.id) {
-            let absoluteDegree = (key.degree - 1 + interval.degree - 1) % 7 + 1;
+            let absoluteDegree = (key.diatonicDegree.degree - 1 + interval.degree - 1) % 7 + 1;
             let relativePosition = (key.homePosition + interval.semitones) % 12;
             let accidental = relativePosition - ScaleDefinitions[0].intervals[absoluteDegree - 1].semitones;
             if (relativePosition === 0 && accidental < 0) accidental += 12;
@@ -130,7 +126,7 @@ export class TheoryEngine {
             }
         }
         else {
-            let relativePosition = (ScaleDefinitions[0].intervals[key.degree - 1].semitones + 6 + key.accidental) % 12;
+            let relativePosition = (ScaleDefinitions[0].intervals[key.diatonicDegree.degree - 1].semitones + 6 + key.accidental.offset) % 12;
             return {
                 key: key,
                 interval: interval,
