@@ -2,145 +2,138 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./Piano.css";
-import { e } from "../../App";
-import { TheoryEngine } from "../../Common/TheoryEngine";
+import { TheoryEngine, Note } from "../../Common/TheoryEngine";
 
-export class Piano extends React.Component<any> {
-    keys: any;
-	
-	constructor(props) {
+enum PianoKeyType {
+    Black,
+    White
+}
+
+interface IPianoKey {
+    absolutePosition: number;
+    type: PianoKeyType;
+}
+
+export class Piano extends React.Component<any, any> {
+    static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
+    keys: IPianoKey[];
+
+    constructor(props) {
         super(props);
         this.keys = [];
 
-        for(let i = 0; i < this.props.length; i++) {
-            let type = (([0, 2, 4, 5, 7, 9, 11] as any).includes(i % 12)) ? 'WHITE' : 'BLACK';
-            this.keys.push({absolutePosition: i, type: type});
+        for (let i = 0; i < 25; i++) {
+            let type = Piano.blackKeyIndices.includes(i % 12) ? PianoKeyType.White : PianoKeyType.Black;
+            this.keys.push({ absolutePosition: i, type: type });
         }
     }
-    
-    getKeys = () => {
+
+    getNote = (absolutePosition): Note => {
+        let note = this.props.notes.find((note) => {
+            return note.relativePosition === (absolutePosition % 12);
+        }) || null;
+        if (note === null)
+            note = TheoryEngine.getNonfunctionalNote(absolutePosition);
+        return note;
+    }
+
+    getPianoKeys = () => {
         return this.keys.map((key, index) => {
-            let physicalNote = TheoryEngine.getNonfunctionalNote(index);
-            return e(PianoKey, {
-                key: `key-${(physicalNote as any).absolutePosition}`,
-                type: key.type,
-                physicalNote: physicalNote,
-                notes: this.props.notes,
-                config: this.props.config
-            }, null)
+            return <PianoKey
+                key={index}
+                type={key.type}
+                note={this.getNote(index)}
+                config={this.props.config}
+            />;
         });
     }
 
-	render = () => {
-        return e('span', {},
-            e('div', {className: 'piano'},
-            this.getKeys())
-            )
-    };
+    render = () => {
+        return <div className='piano'>{this.getPianoKeys()}</div>;
+    }
 }
 
 export class PianoKey extends React.Component<any> {
-	
-	constructor(props) {
+
+    constructor(props) {
         super(props);
     }
 
-    getName = (note) => {
-        switch(this.props.config.label)
-        {
+    getLabel = (): string => {
+        let note = this.props.note;
+        switch (this.props.config.label) {
             case 'none':
                 return '';
             case 'name':
-                return (note !== null) ? note.name : '';
+                return note.name;
             case 'interval':
-                return (note !== null) ? note.interval.id : '';
+                return note.interval.id;
             case 'relativePosition':
-                return this.props.physicalNote.relativePosition;
+                return note.relativePosition;
             case 'absolutePosition':
-                return this.props.physicalNote.absolutePosition
+                return note.absolutePosition;
             case 'degree':
-                return (note !== null) ? note.interval.degree : '';
+                return note.interval.degree;
             case 'absoluteDegree':
-                return (note !== null) ? note.absoluteDegree : '';
+                return note.absoluteDegree;
             case 'octave':
-                return this.props.physicalNote.octave;
+                return note.octave;
             case 'frequency':
-                return this.props.physicalNote.frequency;
+                return note.frequency;
             default:
                 return '';
         }
     }
 
-    getFunctionalNote = () => {
-        return this.props.notes.find((note) => {
-            return note.relativePosition === this.props.physicalNote.relativePosition;
-        }) || null;
-    }
-
-	render = () => {
-        let note = this.getFunctionalNote();
-        let name = this.getName(note);
-
-        if(this.props.type === 'WHITE') {
-            return e(WhiteKey, {
-                key: `white-key-${this.props.physicalNote.absolutePosition}`,
-                physicalNote: this.props.physicalNote,
-                note: note,
-                label: name,
-            }, null);
+    render = () => {
+        let note = this.props.note;
+        if (this.props.type === PianoKeyType.White) {
+            return <WhiteKey
+                key={note.absolutePosition}
+                note={note}
+                label={this.getLabel()}
+            />
         }
-        else if(this.props.type === 'BLACK') {
-            return e(BlackKey, {
-                key: `black-key-${this.props.physicalNote.absolutePosition}`,
-                physicalNote: this.props.physicalNote,
-                note: note,
-                label: name,
-            }, null);
+        else if (this.props.type === PianoKeyType.Black) {
+            return <BlackKey
+                key={note.absolutePosition}
+                note={this.props.note}
+                label={this.getLabel()}
+            />
         }
     };
 }
 
 export class WhiteKey extends React.Component<any> {
-	
-	constructor(props) {
+
+    constructor(props) {
         super(props);
     }
 
-	render = () => {
-        let classes = ['piano-key', 'white-key'];
-        if(this.props.note != null) {
-            classes.push(`degree-${this.props.note.interval.degree}`)
-        } else {
-            classes.push(`degree-0`)
-        }
-		return e('div', {
-            className: classes.join(' '),
-            onClick: () => { TheoryEngine.playNotes([this.props.note]); }
-        }, this.props.label);
+    render = () => {
+        let classes = ['piano-key', 'white-key', `degree-${this.props.note.interval.degree}`];
+        return <div
+            className={classes.join(' ')}
+            onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
+        >{this.props.label}</div>
     };
 }
 
 export class BlackKey extends React.Component<any> {
-	
-	constructor(props) {
+
+    constructor(props) {
         super(props);
     }
 
-	render = () => {
-        let containerClasses = ['piano-key','black-key-container'];
-        let classes = ['piano-key', 'black-key'];
-        if(this.props.note != null) {
-            classes.push(`degree-${this.props.note.interval.degree}`)
-        }
-        else {
-            classes.push(`black`)
-        }
-		return e('div', {
-                    className: containerClasses.join(' ')
-                },
-                e('div', {
-                    className: classes.join(' '),
-                    onClick: () => { TheoryEngine.playNotes([this.props.note]); }
-                }, this.props.label));
-    };
+    render = () => {
+        let containerClasses = ['piano-key', 'black-key-container'];
+        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : 'black';
+        let classes = ['piano-key', 'black-key', colorClass];
+        return <div className={containerClasses.join(' ')}>
+            <div
+                className={classes.join(' ')}
+                onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
+            >{this.props.label}</div>
+        </div>;
+    }
 }

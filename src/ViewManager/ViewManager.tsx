@@ -111,7 +111,7 @@ export class ViewManager extends React.Component<any, any> {
         for(let i = 0; i < this.state.viewDrivers.length; i++) {
             let def = this.state.viewDrivers[i];
             let ViewDriver = this.getViewDriver(def.class);
-            viewDrivers.push(<ViewDriver key={i} removeViewDriver={() => this.removeViewDriver(i)} name={def.name} length={25} {...this.props}/>);
+            viewDrivers.push(<ViewDriver key={i} removeViewDriver={() => this.removeViewDriver(i)} name={def.name} {...this.props}/>);
             viewDrivers.push(<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(i+1, newDef)} key={'vds-' + i+1} />);
         }
         return viewDrivers;
