@@ -1,9 +1,4 @@
-#piano-view-driver {
-	text-align: center;
-	vertical-align: middle;
-}
-
-/* Common */
+/* Piano */
 
 .piano {
 	padding: 20px;
@@ -11,10 +6,20 @@
 	font-size: 12px;
 }
 
+/* PianoKey */
+
+/* Container */
+
 .piano-key-container {
 	display: inline-block;
 	height: 100px;
 }
+
+.piano-key-container-black {
+	width: 0px;
+}
+
+/* Key */
 
 .piano-key {
 	display: inline-block;
@@ -28,27 +33,9 @@
 	background-color: darkgray !important;
 }
 
-.piano-key-label {
-	position: absolute;
-	width: 25px;
-	height: 25px;
-    line-height: 25px;
-}
-
-/* Keys */
-
 .piano-key-container-white .piano-key {
 	height: 100px;
 	width: 25px;
-}
-
-.piano-key-container-white .piano-key-label {
-	bottom: 2px;
-	left: 0px;
-}
-
-.piano-key-container-black {
-	width: 0px;
 }
 
 .piano-key-container-black .piano-key {
@@ -57,6 +44,20 @@
 	position: relative;
 	left: -6px;
 	z-index: 10;
+}
+
+/* Label */
+
+.piano-key-label {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+    line-height: 25px;
+}
+
+.piano-key-container-white .piano-key-label {
+	bottom: 2px;
+	left: 0px;
 }
 
 .piano-key-container-black .piano-key-label {

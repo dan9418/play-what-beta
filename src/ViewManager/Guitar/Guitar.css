@@ -1,7 +1,4 @@
-#guitar-view-driver {
-	text-align: center;
-	vertical-align: middle;
-}
+/* Guitar */
 
 .guitar {
 	margin: 20px;
@@ -11,11 +8,15 @@
     border-bottom: 1px solid saddlebrown
 }
 
+/* GuitarString */
+
 .guitar-string {
 	width: 100%;
 	height: 20px;
 	position: relative;
 }
+
+/* GuitarFret */
 
 .guitar-fret {
 	display: inline-block;
