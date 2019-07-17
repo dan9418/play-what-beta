@@ -79,7 +79,10 @@ export class GuitarString extends React.Component<GuitarStringProps> {
     }
 
     render = () => {
-        return <div className='guitar-string'>{this.getFrets()}</div>;
+        return <div className='guitar-string'>
+            {this.getFrets()}
+            <div className='guitar-fret-string' />
+        </div>;
     };
 }
 
@@ -122,14 +125,17 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
     }
 
     render = () => {
-        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : 'wood';
-        let classes = ['guitar-fret', colorClass];
+        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : '';
+        let classes = ['guitar-fret', 'wood'];
+        let labelClasses = [colorClass, 'guitar-fret-label']
         if (this.props.fretNumber === 0)
             classes.push('guitar-fret-open');
 
         return <div
             className={classes.join(' ')}
             onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
-        >{this.getLabel()}</div>;
+        >
+            <div className={labelClasses.join(' ')}>{this.getLabel()}</div>
+        </div>;
     };
 }

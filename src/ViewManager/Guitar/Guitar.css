@@ -3,45 +3,65 @@
 	vertical-align: middle;
 }
 
-.wood {
-	background-color: burlywood;
-	color: black;
-}
-
 .guitar {
-	padding: 20px;
-	display: block;
-	font-size: 12px;
+	margin: 20px;
+    font-size: 12px;
+    display: inline-block;
+    border-top: 1px solid saddlebrown;
+    border-bottom: 1px solid saddlebrown
 }
 
 .guitar-string {
 	width: 100%;
+	height: 20px;
+	position: relative;
 }
 
 .guitar-fret {
 	display: inline-block;
-	font-weight: bold;
+	position: relative;
 	height: 20px;
 	width: 30px;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	border-right: 1px solid grey;
-	border-left: 1px solid grey;
-	vertical-align: top;
+	border-right: 2px solid darkgrey;
 }
 
 .guitar-fret:hover {
 	cursor: pointer;
+	background-color: grey !important;
 }
 
 .guitar-fret-open {
 	border-right: 3px solid grey;
 }
 
-.guitar-fret-active {
-	background-color: red;
+.guitar-fret-label {
+	display: inline-block;
+    z-index: 10;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    height: 18px;
+    line-height: 18px;
+	width: 28px;
+	border-radius: 5px;
 }
 
-.guitar-fret:hover {
-	background-color: darkgray !important;
+.guitar-fret-label:hover {
+	background-color: grey !important;
+}
+
+.guitar-fret-string {
+	position: absolute;
+    top: 10px;
+    left: 0px;
+    height: 1px;
+    background-color: grey;
+    width: 100%;
+}
+
+/* Colors */
+
+.wood {
+	background-color: burlywood;
+	color: black;
 }
