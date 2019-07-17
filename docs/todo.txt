@@ -1,23 +1,49 @@
-Color pattern
-ViewDriver
-    Insert/Delete
-    Select
-    Lock
+ViewDriverManager
+    Better Insert/Delete
+    Select?
+    Lock?
+    Reordering?
+    "all" operations?
+    full screen?
+
+CommonView
+    Inputs
+        Color strategy?
+
+SummaryView
+    Inputs
+        Show inactive
+
 GuitarView
-    Input panel
+    Inputs
+        Add/remove strings
+        Filter octave
+        Show dots
         Tunings
-        Voicings
-        GuitarFret range
-        GuitarFret label
-PitchClassView
-    Show inactive
+        Voicings?
+        Fret range
+        Fret label
+
 PianoView
-    Key label
-    Key range
+    Inputs
+        Shift keys
+        Key label
+        Key range
+
 CircleView
     Implement
-Routing
-Docs
-Icon links
-Bug tracking
-Formal backlog
+
+Toolbar
+    Better controls?
+    "all" operations
+
+Header
+    Icon links
+    Collapsible panel
+    Collapsible groups
+
+Misc
+    Routing
+    Docs
+    Bug tracking
+    Formal backlog
