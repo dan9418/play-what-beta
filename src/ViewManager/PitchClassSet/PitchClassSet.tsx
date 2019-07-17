@@ -2,7 +2,6 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./PitchClassSet.css";
-import { e } from "../../App";
 import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
 import { TheoryEngine, Note } from "../../Common/TheoryEngine";
 

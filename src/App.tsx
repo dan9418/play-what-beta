@@ -7,11 +7,6 @@ import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig
 import { AccidentalDefinitions } from "./Parameters/Key/AccidentalConfig";
 import { TheoryEngine } from "./Common/TheoryEngine";
 
-
-'use strict';
-
-export const e = React.createElement;
-
 const DEFAULT_CONCEPT_TYPE = {
 	id: 'scale',
 	name: 'Scales'
