@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
-import "./PitchClassSet.css";
+import "./SummaryView.css";
 import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
 import { TheoryEngine, Note } from "../../Common/TheoryEngine";
 

@@ -15,6 +15,7 @@
 	position: relative;
 	margin: 3px;
 	border: 1px solid black;
+	box-shadow: 2px 2px 5px #888888;
 }
 
 .note-row {

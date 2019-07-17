@@ -2,10 +2,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../Common/Common.css";
 import "./ViewManager.css";
-import { PitchClassSet } from "./PitchClassSet/PitchClassSet";
+import { PitchClassSet } from "./SummaryView/NoteBox";
 import { LabelSelector } from "./Common/LabelSelector";
-import { Guitar } from "./Guitar/Guitar";
-import { Piano } from "./Piano/Piano";
+import { Guitar } from "./GuitarView/Guitar";
+import { Piano } from "./PianoView/Piano";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 import { ParameterConfig } from "../Parameters/MasterParameters";
 

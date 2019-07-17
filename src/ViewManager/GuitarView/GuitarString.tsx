@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../../Common/Common.css";
-import "./Guitar.css";
+import "./GuitarView.css";
 import { TheoryEngine, Note } from "../../Common/TheoryEngine";
 import { GuitarFret } from "./GuitarFret";
 

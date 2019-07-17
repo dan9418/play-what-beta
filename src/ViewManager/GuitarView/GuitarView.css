@@ -5,7 +5,8 @@
     font-size: 12px;
     display: inline-block;
     border-top: 1px solid saddlebrown;
-    border-bottom: 1px solid saddlebrown
+	border-bottom: 1px solid saddlebrown;
+	box-shadow: 2px 2px 5px #888888;
 }
 
 /* GuitarString */

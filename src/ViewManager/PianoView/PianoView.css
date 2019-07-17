@@ -1,9 +1,10 @@
 /* Piano */
 
 .piano {
-	padding: 20px;
-	display: block;
-	font-size: 12px;
+	margin: 20px;
+    display: inline-block;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px #888888;
 }
 
 /* PianoKey */
