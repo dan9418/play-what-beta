@@ -14,11 +14,17 @@
     position: relative;
 }
 
+/* Header */
+
 .view-driver-header {
-    background-color: #AAA;
     margin-top: 5px;
     height: 25px;
     padding: 10px;
+}
+
+.view-driver-header .center {
+    font-weight: bold;
+    color: #777;
 }
 
 .view-driver-header .right {
@@ -26,8 +32,9 @@
 }
 
 .view-driver-header .corner-button {
-    background-color: #BBB;
-    color: white;
+    background-color: white;
+    color: #777;
+    border: 1px solid #777;
     display: inline-block;
     margin-left: 5px;
 }
@@ -38,28 +45,26 @@
     cursor: pointer;
 }
 
+/* Body */
+
 .view-driver-body-wrapper {
     margin-bottom: 5px;
-    background-color: #AAA;
 }
 
 .view-driver-body {
-    background-color: #CCC;
     padding: 10px;
 }
 
-.view-driver-header .center {
-    font-weight: bold;
-    color: white;
-}
+
+/* Selector */
 
 .view-driver-selector {
     text-align: center;
-    background-color: #EEE;
+    background-color: #BBB;
     color: white;
     margin-top: 5px;
     font-size: 14px;
-    min-height: 5px
+    min-height: 2px
 }
 
 .view-driver-selector span{
@@ -69,8 +74,6 @@
 }
 
 .view-driver-selector:hover {
-    color: #FF5A09;
-    background-color: #CCC;
     min-height: 10px;
     cursor: pointer;
 }
