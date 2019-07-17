@@ -4,7 +4,7 @@ import "../Common/Common.css";
 import "./ViewManager.css";
 import { PitchClassSet } from "./PitchClassSet/PitchClassSet";
 import { LabelSelector } from "./Common/LabelSelector";
-import { GuitarNeck } from "./Guitar/Guitar";
+import { Guitar } from "./Guitar/Guitar";
 import { Piano } from "./Piano/Piano";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 import { ParameterConfig } from "../Parameters/MasterParameters";
@@ -25,8 +25,8 @@ export let ViewDriverDefinitions = {
         },
         {
             id: 'guitar',
-            name: 'GuitarNeck',
-            class: GuitarNeck
+            name: 'Guitar',
+            class: Guitar
         }
     ]
 } as ParameterConfig

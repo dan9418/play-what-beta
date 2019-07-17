@@ -14,7 +14,12 @@ interface IPianoKey {
     type: PianoKeyType;
 }
 
-export class Piano extends React.Component<any, any> {
+type PianoProps = {
+    notes: Note[];
+    config: any;
+}
+
+export class Piano extends React.Component<PianoProps> {
     static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
     keys: IPianoKey[];
 
@@ -53,13 +58,19 @@ export class Piano extends React.Component<any, any> {
     }
 }
 
-export class PianoKey extends React.Component<any> {
+type PianoKeyProps = {
+    type: PianoKeyType;
+    note: Note;
+    config: any;
+}
+
+export class PianoKey extends React.Component<PianoKeyProps> {
 
     constructor(props) {
         super(props);
     }
 
-    getLabel = (): string => {
+    getLabel = (): string | number => {
         let note = this.props.note;
         switch (this.props.config.label) {
             case 'none':
@@ -86,54 +97,17 @@ export class PianoKey extends React.Component<any> {
     }
 
     render = () => {
-        let note = this.props.note;
-        if (this.props.type === PianoKeyType.White) {
-            return <WhiteKey
-                key={note.absolutePosition}
-                note={note}
-                label={this.getLabel()}
-            />
-        }
-        else if (this.props.type === PianoKeyType.Black) {
-            return <BlackKey
-                key={note.absolutePosition}
-                note={this.props.note}
-                label={this.getLabel()}
-            />
-        }
-    };
-}
+        let keyColor = (this.props.type === PianoKeyType.White) ? 'white' : 'black';
+        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : keyColor;
+        let classes = ['piano-key', colorClass];
 
-export class WhiteKey extends React.Component<any> {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render = () => {
-        let classes = ['piano-key', 'white-key', `degree-${this.props.note.interval.degree}`];
-        return <div
-            className={classes.join(' ')}
-            onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
-        >{this.props.label}</div>
-    };
-}
-
-export class BlackKey extends React.Component<any> {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render = () => {
-        let containerClasses = ['piano-key', 'black-key-container'];
-        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : 'black';
-        let classes = ['piano-key', 'black-key', colorClass];
-        return <div className={containerClasses.join(' ')}>
+        return <div className={`piano-key-container piano-key-container-${keyColor}`}>
             <div
                 className={classes.join(' ')}
                 onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
-            >{this.props.label}</div>
+            >
+                <div className="piano-key-label">{this.getLabel()}</div>
+            </div>
         </div>;
-    }
+    };
 }

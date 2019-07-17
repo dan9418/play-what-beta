@@ -3,47 +3,76 @@
 	vertical-align: middle;
 }
 
+/* Common */
+
 .piano {
 	padding: 20px;
 	display: block;
 	font-size: 12px;
 }
 
+.piano-key-container {
+	display: inline-block;
+	height: 100px;
+}
+
 .piano-key {
 	display: inline-block;
 	vertical-align: top;
+	box-shadow:inset 0px 0px 0px 1px black;
+	position: relative;
 }
 
 .piano-key:hover {
 	cursor: pointer;
+	background-color: darkgray !important;
 }
 
-.white-key {
-	box-shadow:inset 0px 0px 0px 1px black;
+.piano-key-label {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+    line-height: 25px;
+}
+
+/* Keys */
+
+.piano-key-container-white .piano-key {
 	height: 100px;
 	width: 25px;
-	padding-top: 5px;
 }
+
+.piano-key-container-white .piano-key-label {
+	bottom: 2px;
+	left: 0px;
+}
+
+.piano-key-container-black {
+	width: 0px;
+}
+
+.piano-key-container-black .piano-key {
+	height: 70px;
+	width: 12px;
+	position: relative;
+	left: -6px;
+	z-index: 10;
+}
+
+.piano-key-container-black .piano-key-label {
+	top: -25px;
+	left: -6px;
+	color: black;
+}
+
+/* Colors */
 
 .black {
 	background-color: black;
 	color: white;
 }
 
-.black-key-container {
-	height: 100px;
-	width: 0px;
-}
-
-.black-key {
-	box-shadow:inset 0px 0px 0px 1px black;
-	height: 70px;
-	width: 12px;
-	position: relative;
-	left: -6px;
-	padding-top: 5px;
-}
-
-.piano-key:hover {
-	background-color: darkgray !important;
+.white {
+	background-color: white;
+	color: black;
 }

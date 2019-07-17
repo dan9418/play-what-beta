@@ -8,18 +8,23 @@ interface IGuitarString {
     openPosition: number
 }
 
-export class GuitarNeck extends React.Component<any> {
+type GuitarProps = {
+    notes: Note[];
+    config: any
+};
+
+export class Guitar extends React.Component<GuitarProps> {
     strings: IGuitarString[];
 
     constructor(props) {
         super(props);
         this.strings = [
-            { openPosition: 16 },  // e
-            { openPosition: 11 },  // B
-            { openPosition: 7 },  // G
-            { openPosition: 2 },  // D
-            { openPosition: -3 },  // A
-            { openPosition: -8 }   // E   
+            { openPosition: 16 },   // e
+            { openPosition: 11 },   // B
+            { openPosition: 7 },    // G
+            { openPosition: 2 },    // D
+            { openPosition: -3 },   // A
+            { openPosition: -8 }    // E   
         ];
     }
 
@@ -39,7 +44,13 @@ export class GuitarNeck extends React.Component<any> {
     };
 }
 
-export class GuitarString extends React.Component<any> {
+type GuitarStringProps = {
+    notes: Note[];
+    openPosition: number;
+    config: any
+};
+
+export class GuitarString extends React.Component<GuitarStringProps> {
 
     constructor(props) {
         super(props);
@@ -72,13 +83,19 @@ export class GuitarString extends React.Component<any> {
     };
 }
 
-export class GuitarFret extends React.Component<any> {
+type GuitarFretProps = {
+    fretNumber: number;
+    note: Note;
+    config: any;
+}
+
+export class GuitarFret extends React.Component<GuitarFretProps> {
 
     constructor(props) {
         super(props);
     }
 
-    getLabel = (): string => {
+    getLabel = (): string | number => {
         let note = this.props.note;
         switch (this.props.config.label) {
             case 'none':
