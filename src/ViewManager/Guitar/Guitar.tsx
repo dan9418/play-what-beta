@@ -2,121 +2,117 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "../../Common/Common.css";
 import "./Guitar.css";
-import { e } from "../../App";
-import { TheoryEngine } from "../../Common/TheoryEngine";
+import { TheoryEngine, Note } from "../../Common/TheoryEngine";
 
-export class Guitar extends React.Component<any> {
-    strings: any[];
-	
-	constructor(props) {
+interface IGuitarString {
+    openPosition: number
+}
+
+export class GuitarNeck extends React.Component<any> {
+    strings: IGuitarString[];
+
+    constructor(props) {
         super(props);
         this.strings = [
-            { openPosition:  16 },  // e
-            { openPosition:  11 },  // B
-            { openPosition:  7  },  // G
-            { openPosition:  2  },  // D
-            { openPosition: -3  },  // A
-            { openPosition: -8  }   // E   
+            { openPosition: 16 },  // e
+            { openPosition: 11 },  // B
+            { openPosition: 7 },  // G
+            { openPosition: 2 },  // D
+            { openPosition: -3 },  // A
+            { openPosition: -8 }   // E   
         ];
     }
 
-    getStrings = () => {
+    getGuitarStrings = () => {
         return this.strings.map((string, index) => {
-            return e(String, {
-                key: `key-${index}`,
-                notes: this.props.notes,
-                openPosition: string.openPosition,
-                config: this.props.config,
-            }, null);
+            return <GuitarString
+                key={index}
+                notes={this.props.notes}
+                openPosition={string.openPosition}
+                config={this.props.config}
+            />;
         });
     }
 
-	render = () => {
-        return e('div', {className: 'guitar'},
-            this.getStrings()
-        );
+    render = () => {
+        return <div className='guitar'>{this.getGuitarStrings()}</div>;
     };
 }
 
-export class String extends React.Component<any> {
-	
-	constructor(props) {
+export class GuitarString extends React.Component<any> {
+
+    constructor(props) {
         super(props);
+    }
+
+    getNote = (absolutePosition): Note => {
+        let note = this.props.notes.find((note) => {
+            return note.relativePosition === (absolutePosition % 12);
+        }) || null;
+        if (note === null)
+            note = TheoryEngine.getNonfunctionalNote(absolutePosition);
+        return note;
     }
 
     getFrets = () => {
         let frets = [];
-        for(let i = 0; i <= 12; i++) {
-            let physicalNote = TheoryEngine.getNonfunctionalNote(this.props.openPosition + i);
-            frets.push(e(Fret, {
-                key: `fret-${i}`,
-                notes: this.props.notes,
-                physicalNote: physicalNote,
-                open: (i === 0),
-                config: this.props.config,
-            }, null));
+        for (let i = 0; i <= 12; i++) {
+            frets.push(<GuitarFret
+                key={i}
+                fretNumber={i}
+                note={this.getNote(this.props.openPosition + i)}
+                config={this.props.config}
+            />);
         }
         return frets;
     }
 
-	render = () => {
-        let classes = ['guitar-string'];
-		return e('div', {className: classes.join(' ')}, this.getFrets());
+    render = () => {
+        return <div className='guitar-string'>{this.getFrets()}</div>;
     };
 }
 
-export class Fret extends React.Component<any> {
-	
-	constructor(props) {
+export class GuitarFret extends React.Component<any> {
+
+    constructor(props) {
         super(props);
     }
 
-    getName = (note) => {
-        switch(this.props.config.label)
-        {
+    getLabel = (): string => {
+        let note = this.props.note;
+        switch (this.props.config.label) {
             case 'none':
                 return '';
             case 'name':
-                return (note !== null) ? note.name : '';
+                return note.name;
             case 'interval':
-                return (note !== null) ? note.interval.id : '';
+                return note.interval.id;
             case 'relativePosition':
-                return this.props.physicalNote.relativePosition;
+                return note.relativePosition;
             case 'absolutePosition':
-                return this.props.physicalNote.absolutePosition
+                return note.absolutePosition;
             case 'degree':
-                return (note !== null) ? note.interval.degree : '';
+                return note.interval.degree;
             case 'absoluteDegree':
-                return (note !== null) ? note.absoluteDegree : '';
+                return note.absoluteDegree;
             case 'octave':
-                return this.props.physicalNote.octave;
+                return note.octave;
             case 'frequency':
-                return this.props.physicalNote.frequency;
+                return note.frequency;
             default:
                 return '';
         }
     }
 
-    getFunctionalNote = () => {
-        return this.props.notes.find((note) => {
-            return note.relativePosition === this.props.physicalNote.relativePosition;
-        }) || null;
-    }
-
     render = () => {
-        let classes = ['guitar-fret'];
-        if(this.props.open)
+        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : 'wood';
+        let classes = ['guitar-fret', colorClass];
+        if (this.props.fretNumber === 0)
             classes.push('guitar-fret-open');
-        let note = this.getFunctionalNote();
-        if(note !== null)
-            classes.push(`degree-${note.interval.degree}`);
-        else
-            classes.push(`wood`);
-        let name = this.getName(note);
 
-		return e('div', {
-            className: classes.join(' '),
-            onClick: () => { TheoryEngine.playNotes([note]); }
-        }, name);
+        return <div
+            className={classes.join(' ')}
+            onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
+        >{this.getLabel()}</div>;
     };
 }

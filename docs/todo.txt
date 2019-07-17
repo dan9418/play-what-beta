@@ -7,9 +7,9 @@ GuitarView
     Input panel
         Tunings
         Voicings
-        Fret range
+        GuitarFret range
         Dots
-        Fret label
+        GuitarFret label
 PitchClassView
     Show inactive
 PianoView
