@@ -32,6 +32,7 @@ export class Guitar extends React.Component<GuitarProps> {
         return this.strings.map((string, index) => {
             return <GuitarString
                 key={index}
+                stringNumber={index + 1}
                 notes={this.props.notes}
                 openPosition={string.openPosition}
                 config={this.props.config}
@@ -46,6 +47,7 @@ export class Guitar extends React.Component<GuitarProps> {
 
 type GuitarStringProps = {
     notes: Note[];
+    stringNumber: number;
     openPosition: number;
     config: any
 };
@@ -71,6 +73,7 @@ export class GuitarString extends React.Component<GuitarStringProps> {
             frets.push(<GuitarFret
                 key={i}
                 fretNumber={i}
+                stringNumber={this.props.stringNumber}
                 note={this.getNote(this.props.openPosition + i)}
                 config={this.props.config}
             />);
@@ -88,6 +91,7 @@ export class GuitarString extends React.Component<GuitarStringProps> {
 
 type GuitarFretProps = {
     fretNumber: number;
+    stringNumber: number;
     note: Note;
     config: any;
 }
@@ -96,6 +100,14 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
 
     constructor(props) {
         super(props);
+    }
+
+    getDots = (fretNumber: number): string => {
+        if(fretNumber === 0)
+            return '• •';
+        else if (([3, 5, 7, 9] as any).includes(fretNumber))
+            return '•';
+        return '';
     }
 
     getLabel = (): string | number => {
@@ -135,6 +147,7 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
             className={classes.join(' ')}
             onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
         >
+            {this.props.stringNumber === 6 && <div className='guitar-fret-dots'>{this.getDots(this.props.fretNumber % 12)}</div>}
             <div className={labelClasses.join(' ')}>{this.getLabel()}</div>
         </div>;
     };

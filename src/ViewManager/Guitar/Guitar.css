@@ -59,6 +59,14 @@
     width: 100%;
 }
 
+.guitar-fret-dots {
+	position: absolute;
+    width: 30px;
+    height: 20px;
+	top: 20px;
+	color: grey;
+}
+
 /* Colors */
 
 .wood {
