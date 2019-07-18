@@ -1,6 +1,4 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../../Common/Common.css";
 import "./InputGroup.css";
 
 export class InputGroup extends React.Component<any, any> {

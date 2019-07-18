@@ -1,9 +1,7 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../../Common/Common.css";
 import "./SummaryView.css";
-import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
-import { TheoryEngine, Note } from "../../Common/TheoryEngine";
+import { DiatonicDegreeDefinitions } from "../../../../Parameters/Key/DiatonicDegreeConfig";
+import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 
 export class PitchClass extends React.Component<any> {
     physicalNote: any;

@@ -1,8 +1,6 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../../Common/Common.css";
 import "./BoxSelector.css";
-import { ParameterConfig, Parameter } from "../../Parameters/MasterParameters";
+import { ParameterConfig, Parameter } from "../../../../Parameters/MasterParameters";
 
 interface BoxSelectorProps {
     param: ParameterConfig;

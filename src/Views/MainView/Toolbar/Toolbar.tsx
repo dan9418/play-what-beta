@@ -1,10 +1,8 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../Common/Common.css";
 import "./Toolbar.css";
 import { InputGroup } from "./InputGroup/InputGroup";
 import { BoxSelector } from "./BoxSelector/BoxSelector";
-import { MASTER_PARAMETERS } from "../Parameters/MasterParameters";
+import { MASTER_PARAMETERS } from "../../../Parameters/MasterParameters";
 
 export class Toolbar extends React.Component<any> {
 

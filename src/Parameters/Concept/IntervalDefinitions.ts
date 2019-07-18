@@ -1,4 +1,4 @@
-import { ConceptParameter } from "../../Common/TheoryEngine";
+import { ConceptParameter } from "../../TheoryCore/TheoryEngine";
 
 export let INTERVALS = {
     None: { id: '', name: '', degree: 0, semitones: 0 },

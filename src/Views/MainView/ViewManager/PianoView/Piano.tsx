@@ -1,7 +1,6 @@
 import * as React from "react";
-import "../../Common/Common.css";
 import "./PianoView.css";
-import { TheoryEngine, Note } from "../../Common/TheoryEngine";
+import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { PianoKeyType } from "./PianoCommon";
 import { PianoKey } from "./PianoKey";
 

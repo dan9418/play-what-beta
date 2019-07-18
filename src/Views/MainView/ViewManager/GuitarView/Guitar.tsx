@@ -1,7 +1,6 @@
 import * as React from "react";
-import "../../Common/Common.css";
 import "./GuitarView.css";
-import { Note } from "../../Common/TheoryEngine";
+import { Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarString } from "./GuitarString";
 
 interface IGuitarString {

@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./Common/Common.css";
-import { MainView } from "./MainView";
-import { HeaderView } from "./HeaderView";
+import { MainView } from "./Views/MainView/MainView";
+import { HeaderView } from "./Views/HeaderView/HeaderView";
 
 export class App extends React.Component<any, any> {
 

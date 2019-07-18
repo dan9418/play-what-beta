@@ -1,10 +1,10 @@
 import * as React from "react";
-import "./Common/Common.css";
+import "./MainView.css";
 import { Toolbar } from "./Toolbar/Toolbar";
 import { ViewManager } from "./ViewManager/ViewManager";
-import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig";
-import { AccidentalDefinitions } from "./Parameters/Key/AccidentalConfig";
-import { TheoryEngine } from "./Common/TheoryEngine";
+import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
+import { AccidentalDefinitions } from "../../Parameters/Key/AccidentalConfig";
+import { TheoryEngine } from "../../TheoryCore/TheoryEngine";
 
 const DEFAULT_CONCEPT_TYPE = {
 	id: 'scale',

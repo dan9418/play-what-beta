@@ -1,7 +1,5 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import "../../Common/Common.css";
-import { LABEL_CONFIG } from "../../Common/Common";
+import { LABEL_CONFIG } from "../../../../TheoryCore/Labels";
 
 export class LabelSelector extends React.Component<any> {
     config: any;

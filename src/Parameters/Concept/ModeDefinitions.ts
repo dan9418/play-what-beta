@@ -1,5 +1,5 @@
 import { INTERVALS } from "./IntervalDefinitions";
-import { ConceptParameter } from "../../Common/TheoryEngine";
+import { ConceptParameter } from "../../TheoryCore/TheoryEngine";
 
 export let ModeDefinitions: ConceptParameter[] = [
     {
