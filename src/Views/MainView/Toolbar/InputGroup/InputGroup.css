@@ -1,11 +1,11 @@
 .input-group {
     position: relative;
     display: inline-block;
-    width: 500px;
+    width: 50%;
 }
 
 .input-group-header {
-    background-color: #9E9E9E;
+    background-color: #999;
     color: white;
     padding: 5px;
     line-height: 25px;
@@ -17,7 +17,7 @@
 }
 
 .input-group-header:hover {
-    background-color: #757575;
+    background-color: #777;
     cursor: pointer;
 }
 
@@ -26,11 +26,11 @@
     position: absolute;
     top: 35px;
     left: 0px;
-    width: 500px;
+    width: 100%;
     z-index: 100;
-    box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px #888;
     border-radius: 0px 0px 10px 10px;
-    background-color: #BBB;
+    background-color: #DDD;
 }
 
 .input-group-header .corner-button {

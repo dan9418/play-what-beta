@@ -6,13 +6,13 @@
 }
 
 .box-selector-label {
-    color: #757575;
+    color: #777;
     padding: 2px;
 }
 
 .box-selector-option {
     display: inline-block;
-    background-color: #757575;
+    background-color: #777;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
