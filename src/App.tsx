@@ -1,76 +1,21 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./Common/Common.css";
-import { Toolbar } from "./Toolbar/Toolbar";
-import { ViewManager } from "./ViewManager/ViewManager";
-import { DiatonicDegreeDefinitions } from "./Parameters/Key/DiatonicDegreeConfig";
-import { AccidentalDefinitions } from "./Parameters/Key/AccidentalConfig";
-import { TheoryEngine } from "./Common/TheoryEngine";
-
-const DEFAULT_CONCEPT_TYPE = {
-	id: 'scale',
-	name: 'Scales'
-}
-
-const DEFAULT_CONCEPT = {
-	typeId: 'scale',
-	intervals: []
-};
+import { MainView } from "./MainView";
+import { HeaderView } from "./HeaderView";
 
 export class App extends React.Component<any, any> {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			key_diatonicDegree: DiatonicDegreeDefinitions[0],
-			key_accidental: AccidentalDefinitions[2],
-			concept_type: DEFAULT_CONCEPT_TYPE,
-			concept_interval: DEFAULT_CONCEPT,
-			concept_chord: DEFAULT_CONCEPT,
-			concept_scale: DEFAULT_CONCEPT,
-			concept_mode: DEFAULT_CONCEPT
-		};
-	}
-
-	setParameter = (property, value) => {
-		let update = {};
-		update[property] = value;
-		this.setState(update);
-	}
-
-	getNotes = () => {
-		let notes = [];
-		let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
-		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
-		for (let i = 0; i < intervals.length; i++) {
-			let note = TheoryEngine.getFunctionalNote(key, intervals[i]);
-			notes.push(note);
-		}
-		return notes;
 	}
 
 	render = () => {
 		return (
-			<div id='app-container'>
-				<div id='header'>
-					<div className='left link-box'>
-						<a href="" target="_blank">[Hire Me]</a>
-					</div>
-					<div className='center'>
-						Play What?
-					</div>
-					<div className='right link-box'>
-						<a href="" target="_blank">[GitHub]</a>
-					</div>
-				</div>
-				<div id='main'>
-					<Toolbar
-						setParameter={this.setParameter}
-						{...this.state}
-						/>
-					<ViewManager notes={this.getNotes()} />
-				</div>		
-			</div>
+			<>
+				<HeaderView/>
+				<MainView/>
+			</>
 		);
 	};
 }

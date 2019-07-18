@@ -19,7 +19,7 @@ export class GuitarString extends React.Component<GuitarStringProps> {
 
     getNote = (absolutePosition): Note => {
         let note = this.props.notes.find((note) => {
-            return note.relativePosition === (absolutePosition % 12);
+            return (absolutePosition > 0) ? note.relativePosition === (absolutePosition % 12) : note.relativePosition === (absolutePosition % -12);
         }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(absolutePosition);
