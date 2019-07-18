@@ -53,6 +53,16 @@ export interface FunctionalNote {
 }
 
 export class TheoryEngine {
+
+    static getNotesFromIntervals = (key: Key, intervals: Interval[]) => {
+		let notes = [];
+		for (let i = 0; i < intervals.length; i++) {
+			let note = TheoryEngine.getFunctionalNote(key, intervals[i]);
+			notes.push(note);
+		}
+		return notes;
+	}
+
     static getRelativePotision = (absolutePosition) => {
         if (absolutePosition >= 0)
             return absolutePosition % 12;

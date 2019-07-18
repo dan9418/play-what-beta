@@ -38,14 +38,9 @@ export class MainView extends React.Component<any, any> {
 	}
 
 	getNotes = () => {
-		let notes = [];
 		let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
 		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
-		for (let i = 0; i < intervals.length; i++) {
-			let note = TheoryEngine.getFunctionalNote(key, intervals[i]);
-			notes.push(note);
-		}
-		return notes;
+		return TheoryEngine.getNotesFromIntervals(key, intervals);
 	}
 
 	render = () => {
