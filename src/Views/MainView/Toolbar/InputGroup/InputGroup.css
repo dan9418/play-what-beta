@@ -1,6 +1,7 @@
 .input-group {
-    margin: 5px;
     position: relative;
+    display: inline-block;
+    width: 500px;
 }
 
 .input-group-header {
@@ -21,8 +22,15 @@
 }
 
 .input-group-content {
-    border: 2px solid #9E9E9E;
     border-top: none;
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    width: 500px;
+    z-index: 100;
+    box-shadow: 2px 2px 5px #888888;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #BBB;
 }
 
 .input-group-header .corner-button {

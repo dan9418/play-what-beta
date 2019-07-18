@@ -1,14 +1,7 @@
 .box-selector {
     color: white;
-    background-color: #E0E0E0;
     font-size: 12px;
     text-align: center;
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 5px;
-    padding-top: 2px;
-    margin: 5px;
     position: relative;
 }
 

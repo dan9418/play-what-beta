@@ -22,7 +22,7 @@ export class InputGroup extends React.Component<any, any> {
 
     render = () => {
         let classes = ['input-group'];
-        if(!this.state.open)
+        if (!this.state.open)
             classes.push('closed')
         return (
             <div id={'input-group-' + this.props.name} className={classes.join(' ')}>
@@ -31,10 +31,10 @@ export class InputGroup extends React.Component<any, any> {
                     <span className='corner-button right' onClick={this.toggle}>
                         {this.getSymbol()}
                     </span>
+                    {this.state.open && <div className='input-group-content'>
+                        {this.props.children}
+                    </div>}
                 </div>
-                {this.state.open && <div className='input-group-content'>
-                    {this.props.children}
-                </div>}
             </div>
         );
     };

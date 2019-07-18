@@ -21,6 +21,7 @@ export class MainView extends React.Component<any, any> {
 	constructor(props) {
 		super(props);
 		this.state = {
+			toolbarOpen: true,
 			key_diatonicDegree: DiatonicDegreeDefinitions[0],
 			key_accidental: AccidentalDefinitions[2],
 			concept_type: DEFAULT_CONCEPT_TYPE,

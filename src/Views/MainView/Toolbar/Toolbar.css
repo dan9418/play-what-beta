@@ -1,11 +1,6 @@
 #toolbar {
 	background-color: #E0E0E0;
     text-align: center;
-    width: 25%;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    overflow-y: scroll;
+    width: 100%;
+    display: block;
 }
