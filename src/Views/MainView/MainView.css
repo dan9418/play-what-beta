@@ -6,3 +6,48 @@
     bottom: 0px;
     overflow-y: scroll;
 }
+
+
+/* Common UI Styles */
+
+.corner-button {
+	font-size: 15px;
+    line-height: 15px;
+    padding: 5px;
+    height: 15px;
+    width: 15px;
+    color: #EEEEEE;
+}
+
+.corner-button:hover {
+    background-color: #FF5A09;
+    cursor: pointer;
+}
+
+.left {
+	position: absolute;
+	left: 10px
+}
+
+.right {
+	position: absolute;
+	right: 10px
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }

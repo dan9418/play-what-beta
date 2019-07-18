@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./SummaryView.css";
+import "../../../../TheoryCore/TheoryStyles.css";
 import { DiatonicDegreeDefinitions } from "../../../../Parameters/Key/DiatonicDegreeConfig";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 
