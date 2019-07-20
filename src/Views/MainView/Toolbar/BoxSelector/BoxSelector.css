@@ -3,11 +3,11 @@
     font-size: 12px;
     text-align: center;
     position: relative;
+    padding: 5px;
 }
 
 .box-selector-label {
-    color: #777;
-    padding: 2px;
+    
 }
 
 .box-selector-option {

@@ -4,6 +4,7 @@
     height: 100%;
     display: block;
     overflow-y: scroll;
+    margin-left: 50px
 }
 
 .view-driver {

@@ -1,45 +1,67 @@
+
 .input-group {
     position: relative;
-    display: inline-block;
-    width: 50%;
+    width: 100%;
+    display: block;
 }
+
+/* header */
 
 .input-group-header {
-    background-color: #999;
-    color: white;
-    padding: 5px;
-    line-height: 25px;
-    height: 25px;
-}
-
-.input-group.closed .input-group-header {
-    
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #DDD;
+    background-color: #333;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #555;
 }
 
 .input-group-header:hover {
-    background-color: #777;
-    cursor: pointer;
+    border-left: 1px solid #FF5A09;
+    color: #FF5A09;
+}
+
+.input-group-icon {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.input-group-title {
+    display: inline-block;
+}
+
+.input-group-header:hover .input-group-title {
+    color: white;
+}
+
+.input-group-status {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+/* content */
+
+.input-group-content-preview {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 400px;
+    z-index: 100;
+    box-shadow: 2px 2px 5px #888;
+    background-color: #444;
 }
 
 .input-group-content {
-    border-top: none;
-    position: absolute;
-    top: 35px;
-    left: 0px;
-    width: 100%;
-    z-index: 100;
-    box-shadow: 2px 2px 5px #888;
-    border-radius: 0px 0px 10px 10px;
-    background-color: #DDD;
-}
-
-.input-group-header .corner-button {
-    background-color: #AAA;
-    color: white;
-    border-radius: 100px;
-}
-
-.input-group-header .corner-button:hover {
-    background-color: #FF5A09;
-    cursor: pointer;
+    position: relative;
+    width: 450px;
+    background-color: #444;
+    cursor: auto;
 }

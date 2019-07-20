@@ -6,7 +6,8 @@ export class InputGroup extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
-            open: true
+            open: false,
+            preview: false
         };
     }
 
@@ -21,20 +22,28 @@ export class InputGroup extends React.Component<any, any> {
     }
 
     render = () => {
-        let classes = ['input-group'];
-        if (!this.state.open)
-            classes.push('closed')
+        let classes = ['input-group', this.state.open ? 'open' : 'closed', this.props.toolbarOpen ? 'expanded' : 'collapsed'];
+        let openX = this.props.toolbarOpen;
+        let openY = this.state.open;
         return (
-            <div id={'input-group-' + this.props.name} className={classes.join(' ')}>
-                <div className='input-group-header'>
-                    {this.props.name}
-                    <span className='corner-button right' onClick={this.toggle}>
+            <div className={classes.join(' ')}>
+                <div className='input-group-header' onClick={this.props.action || this.toggle} onMouseEnter={() => this.setState({ preview: true })} onMouseLeave={() => this.setState({ preview: false })}>
+                    <div className='input-group-icon'>
+                        {this.props.icon}
+                    </div>
+                    {openX && <div className='input-group-title'>
+                        {this.props.name}
+                    </div>}
+                    {openX && this.props.children && <div className='input-group-status'>
                         {this.getSymbol()}
-                    </span>
-                    {this.state.open && <div className='input-group-content'>
+                    </div>}
+                    {!openX && this.state.preview && <div className='input-group-content-preview'>
                         {this.props.children}
                     </div>}
                 </div>
+                {openX && openY && <div className='input-group-content'>
+                    {this.props.children}
+                </div>}
             </div>
         );
     };
