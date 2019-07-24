@@ -16,15 +16,12 @@ SummaryView
 
 GuitarView
     Inputs
-        Show dots
-        Filter octave
         Add/remove strings + Tune each
         Voicings?
         Fret range
 
 PianoView
     Inputs
-        Filter octave
         Shift keys
         Key range
 
@@ -41,3 +38,4 @@ Misc
     Bug tracking
     Formal backlog
     CircleView?
+    Extended intervals?

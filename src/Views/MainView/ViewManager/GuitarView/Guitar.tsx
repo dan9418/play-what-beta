@@ -9,6 +9,7 @@ import { SwitchSelector } from "../Selectors/SwitchSelector";
 export interface GuitarConfig {
     guitarNoteLabel: string;
     showDots: boolean;
+    filterOctave: boolean;
 }
 
 interface IGuitarString {
@@ -35,7 +36,8 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         ];
         this.state = {
             guitarNoteLabel: 'interval',
-            showDots: false
+            showDots: false,
+            filterOctave: false
         }
     }
 
@@ -65,6 +67,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             <div className='guitar-config'>
                 <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
                 <SwitchSelector parameter={{id: 'showDots', name: 'Show Dots'}} updateParameter={this.updateParameter}/>
+                <SwitchSelector parameter={{id: 'filterOctave', name: 'Filter Octave'}} updateParameter={this.updateParameter}/>
             </div>
         </>;
     };

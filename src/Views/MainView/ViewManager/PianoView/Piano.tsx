@@ -5,9 +5,11 @@ import { PianoKeyType } from "./PianoConfig";
 import { PianoKey } from "./PianoKey";
 import { DropdownSelector } from "../Selectors/DropdownSelector";
 import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
+import { SwitchSelector } from "../Selectors/SwitchSelector";
 
 export interface PianoConfig {
     noteLabel: string;
+    filterOctave: boolean;
 }
 
 interface IPianoKey {
@@ -34,14 +36,24 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
         }
 
         this.state = {
-            noteLabel: 'interval'
+            noteLabel: 'interval',
+            filterOctave: false
+        }
+    }
+
+    isNoteValid = (note: Note, absolutePosition: number): boolean => {
+        if (this.state.filterOctave) {
+            return note.absolutePosition === absolutePosition;
+        }
+        else {
+            return (absolutePosition >= 0) ?
+                note.relativePosition === (absolutePosition % 12) :
+                note.relativePosition === (absolutePosition % 12 + 12);
         }
     }
 
     getNote = (absolutePosition): Note => {
-        let note = this.props.notes.find((note) => {
-            return note.relativePosition === (absolutePosition % 12);
-        }) || null;
+        let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition) }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(absolutePosition);
         return note;
@@ -71,6 +83,7 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
             </div>
             <div className='piano-config'>
                 <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                <SwitchSelector parameter={{id: 'filterOctave', name: 'Filter Octave'}} updateParameter={this.updateParameter}/>
             </div>
         </>;
     }

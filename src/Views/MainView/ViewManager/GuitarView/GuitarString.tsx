@@ -17,12 +17,19 @@ export class GuitarString extends React.Component<GuitarStringProps, GuitarConfi
         super(props);
     }
 
-    getNote = (absolutePosition): Note => {
-        let note = this.props.notes.find((note) => {
+    isNoteValid = (note: Note, absolutePosition: number): boolean => {
+        if (this.props.config.filterOctave) {
+            return note.absolutePosition === absolutePosition;
+        }
+        else {
             return (absolutePosition >= 0) ?
                 note.relativePosition === (absolutePosition % 12) :
                 note.relativePosition === (absolutePosition % 12 + 12);
-        }) || null;
+        }
+    }
+
+    getNote = (absolutePosition): Note => {
+        let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition); }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(absolutePosition);
         return note;
