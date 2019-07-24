@@ -45,14 +45,7 @@ export class ViewManager extends React.Component<any, any> {
                 super(props);
                 this.state = {
                     open: true,
-                    noteLabel: 'interval'
                 }
-            }
-
-            updateParameter = (property, value) => {
-                let update = {};
-                update[property] = value;
-                this.setState(update);
             }
 
             toggle = () => {
@@ -78,8 +71,7 @@ export class ViewManager extends React.Component<any, any> {
                         </div>
                         <div className='view-driver-body-wrapper'>
                             {this.state.open && <div className='view-driver-body'>
-                                <ViewClass config={this.state} {...this.props} />
-                                <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                                <ViewClass {...this.props} />
                             </div>}
                         </div>
                     </div>
