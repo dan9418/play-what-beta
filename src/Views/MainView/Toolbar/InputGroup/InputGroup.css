@@ -49,9 +49,21 @@
 
 /* content */
 
-.input-group-content-preview {
+.input-group-content-preview-header {
     position: absolute;
     top: 0px;
+    left: 50px;
+    width: 400px;
+    height: 50px;
+    z-index: 100;
+    box-shadow: 2px 2px 5px #888;
+    background-color: #333;
+    color: white;
+}
+
+.input-group-content-preview {
+    position: absolute;
+    top: 50px;
     left: 50px;
     width: 400px;
     z-index: 100;

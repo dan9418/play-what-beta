@@ -37,7 +37,11 @@ export class InputGroup extends React.Component<any, any> {
                     {openX && this.props.children && <div className='input-group-status'>
                         {this.getSymbol()}
                     </div>}
-                    {!openX && this.state.preview && <div className='input-group-content-preview'>
+                    {!openX && this.state.preview &&<div className='input-group-content-preview-header'>
+                        {this.props.name}
+                    </div>}
+                    {!openX && this.state.preview &&                    
+                    <div className='input-group-content-preview'>
                         {this.props.children}
                     </div>}
                 </div>
