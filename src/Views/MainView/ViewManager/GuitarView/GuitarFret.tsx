@@ -17,14 +17,6 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
         super(props);
     }
 
-    getDots = (fretNumber: number): string => {
-        if (fretNumber === 0)
-            return '• •';
-        else if (([3, 5, 7, 9] as any).includes(fretNumber))
-            return '•';
-        return '';
-    }
-
     getLabel = (): string | number => {
         let note = this.props.note;
         switch (this.props.config.guitarNoteLabel) {
@@ -64,10 +56,6 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
             className={classes.join(' ')}
             onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
         >
-            {this.props.stringNumber === 6 && this.props.config.showDots &&
-                <div className='guitar-fret-dots'>
-                    {this.getDots(this.props.fretNumber % 12)}
-                </div>}
             <div className={labelClasses.join(' ')}>{this.getLabel()}</div>
         </div>;
     };

@@ -18,9 +18,9 @@ export class Tuner extends React.Component<TunerProps, TunerState> {
 
     render = () => {
         return <div className='tuner'>
-            <div className='tuner-control' onClick={() => { this.props.tuneString(this.props.openPosition - 1) }}>-</div>
+            <div className='tuner-control up' onClick={() => { this.props.tuneString(this.props.openPosition + 1) }}>^</div>
             <div className='tuner-label'>{this.props.openPosition}</div>
-            <div className='tuner-control' onClick={() => { this.props.tuneString(this.props.openPosition + 1) }}>+</div>
+            <div className='tuner-control down' onClick={() => { this.props.tuneString(this.props.openPosition - 1) }}>v</div>
         </div>;
     };
 }

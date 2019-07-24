@@ -3,12 +3,10 @@ import "./GuitarView.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarFret } from "./GuitarFret";
 import { GuitarConfig } from "./Guitar";
-import { Tuner } from "./Tuner";
 
 type GuitarStringProps = {
     notes: Note[];
     stringNumber: number;
-    tuneString: any;
     openPosition: number;
     config: GuitarConfig
 };
@@ -37,9 +35,6 @@ export class GuitarString extends React.Component<GuitarStringProps, GuitarConfi
         return note;
     }
 
-    getTuner = () => {
-        return <Tuner openPosition={this.props.openPosition} tuneString={this.props.tuneString} />;
-    }
 
     getFrets = () => {
         let frets = [];
@@ -57,7 +52,6 @@ export class GuitarString extends React.Component<GuitarStringProps, GuitarConfi
 
     render = () => {
         return <div className='guitar-string'>
-            {this.getTuner()}
             {this.getFrets()}
             <div className='guitar-fret-string' />
         </div>;

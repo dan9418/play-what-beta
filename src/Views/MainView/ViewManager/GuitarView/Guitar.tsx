@@ -5,6 +5,7 @@ import { GuitarString } from "./GuitarString";
 import { DropdownSelector } from "../Selectors/DropdownSelector";
 import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";
 import { SwitchSelector } from "../Selectors/SwitchSelector";
+import { Tuner } from "./Tuner";
 
 export interface GuitarConfig {
     guitarNoteLabel: string;
@@ -46,7 +47,6 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             return <GuitarString
                 key={index}
                 stringNumber={index + 1}
-                tuneString={(position) => { this.tuneString(index + 1, position); }}
                 notes={this.props.notes}
                 openPosition={string.openPosition}
                 config={this.state}
@@ -73,12 +73,62 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         });
     }
 
+    getTuners = () => {
+        let tuners = [];
+        for(let i = 0; i < this.state.strings.length; i++) {
+            tuners.push(<Tuner key={i} openPosition={this.state.strings[i].openPosition} tuneString={(position) => { this.tuneString(i + 1, position); }} />);
+        }
+        return tuners;
+    }
+
+    insertString = (index) => {
+        this.setState((oldState) => {
+            return {
+                strings: [...oldState.strings.slice(0, index), {openPosition: 0}, ...oldState.strings.slice(index)]
+            };
+        });
+    }
+
+    removeString = (index) => {
+        this.setState((oldState) => {
+            return {
+                strings: [...oldState.strings.slice(0, index), ...oldState.strings.slice(index + 1)]
+            };
+        });
+    }
+
+    getDotsForFret = (fretNumber: number): string => {
+        if (fretNumber === 0)
+            return '• •';
+        else if (([3, 5, 7, 9] as any).includes(fretNumber))
+            return '•';
+        return '';
+    }
+
+    getDots = () => {
+        let dots = [];
+        for(let i = 0; i <= 12; i++) {
+            dots.push(<div className='guitar-fret-dots' key={i}>
+                {this.getDotsForFret(i % 12)}
+            </div>);
+        }
+        return dots;
+    }
+
     render = () => {
         return <>
             <div className='guitar'>
                 {this.getGuitarStrings()}
             </div>
+             {this.state.showDots && <div className='dots-container'>
+               {this.getDots()}
+            </div>}
             <div className='guitar-config'>
+                <div className='tuner-container'>
+                    <div className='string-button' onClick={() => this.insertString(0)}>+</div>
+                    {this.getTuners()}
+                    <div className='string-button' onClick={() => this.insertString(this.state.strings.length)}>+</div>
+                    </div>
                 <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
                 <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
                 <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
