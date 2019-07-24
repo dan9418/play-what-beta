@@ -3,7 +3,7 @@ import "./GuitarView.css";
 import { Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarString } from "./GuitarString";
 import { DropdownSelector } from "../Common/DropdownSelector";
-import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarParametersConfig";
+import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";
 
 export interface GuitarConfig {
     guitarNoteLabel: string;

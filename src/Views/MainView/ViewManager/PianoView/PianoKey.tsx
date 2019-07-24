@@ -2,15 +2,16 @@ import * as React from "react";
 import "./PianoView.css";
 import "../../../../TheoryCore/TheoryStyles.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
-import { PianoKeyType } from "./PianoCommon";
+import { PianoKeyType } from "./PianoConfig";
+import { PianoConfig } from "./Piano";
 
 type PianoKeyProps = {
     type: PianoKeyType;
     note: Note;
-    config: any;
+    config: PianoConfig;
 }
 
-export class PianoKey extends React.Component<PianoKeyProps> {
+export class PianoKey extends React.Component<PianoKeyProps, PianoConfig> {
 
     constructor(props) {
         super(props);
@@ -18,7 +19,7 @@ export class PianoKey extends React.Component<PianoKeyProps> {
 
     getLabel = (): string | number => {
         let note = this.props.note;
-        switch (this.props.config) {
+        switch (this.props.config.noteLabel) {
             case 'none':
                 return '';
             case 'name':

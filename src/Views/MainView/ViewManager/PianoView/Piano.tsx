@@ -1,8 +1,14 @@
 import * as React from "react";
 import "./PianoView.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
-import { PianoKeyType } from "./PianoCommon";
+import { PianoKeyType } from "./PianoConfig";
 import { PianoKey } from "./PianoKey";
+import { DropdownSelector } from "../Common/DropdownSelector";
+import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
+
+export interface PianoConfig {
+    noteLabel: string;
+}
 
 interface IPianoKey {
     absolutePosition: number;
@@ -14,7 +20,7 @@ type PianoProps = {
     config: any;
 }
 
-export class Piano extends React.Component<PianoProps> {
+export class Piano extends React.Component<PianoProps, PianoConfig> {
     static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
     keys: IPianoKey[];
 
@@ -25,6 +31,10 @@ export class Piano extends React.Component<PianoProps> {
         for (let i = 0; i < 25; i++) {
             let type = Piano.blackKeyIndices.includes(i % 12) ? PianoKeyType.White : PianoKeyType.Black;
             this.keys.push({ absolutePosition: i, type: type });
+        }
+
+        this.state = {
+            noteLabel: 'interval'
         }
     }
 
@@ -43,12 +53,25 @@ export class Piano extends React.Component<PianoProps> {
                 key={index}
                 type={key.type}
                 note={this.getNote(index)}
-                config={this.props.config}
+                config={this.state}
             />;
         });
     }
 
+    updateParameter = (property, value) => {
+        let update = {};
+        update[property] = value;
+        this.setState(update);
+    }
+
     render = () => {
-        return <div className='piano'>{this.getPianoKeys()}</div>;
+        return <>
+            <div className='piano'>
+                {this.getPianoKeys()}
+            </div>
+            <div className='piano-config'>
+                <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+            </div>
+        </>;
     }
 }
