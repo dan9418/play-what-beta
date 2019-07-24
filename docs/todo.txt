@@ -12,26 +12,21 @@ CommonView
 
 SummaryView
     Inputs
-        Chromatic/Diatonic
+        Show inactive pitches
 
 GuitarView
     Inputs
-        Add/remove strings
-        Filter octave
         Show dots
-        Tunings
+        Filter octave
+        Add/remove strings + Tune each
         Voicings?
         Fret range
-        Fret label
 
 PianoView
     Inputs
+        Filter octave
         Shift keys
-        Key label
         Key range
-
-CircleView
-    Implement
 
 Toolbar
     Better controls?
@@ -39,11 +34,10 @@ Toolbar
 
 Header
     Icon links
-    Collapsible panel
-    Collapsible groups
 
 Misc
     Routing
     Docs
     Bug tracking
     Formal backlog
+    CircleView?
