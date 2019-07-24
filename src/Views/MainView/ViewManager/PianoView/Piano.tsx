@@ -3,7 +3,7 @@ import "./PianoView.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { PianoKeyType } from "./PianoConfig";
 import { PianoKey } from "./PianoKey";
-import { DropdownSelector } from "../Common/DropdownSelector";
+import { DropdownSelector } from "../Selectors/DropdownSelector";
 import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
 
 export interface PianoConfig {

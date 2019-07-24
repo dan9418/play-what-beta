@@ -2,11 +2,13 @@ import * as React from "react";
 import "./GuitarView.css";
 import { Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarString } from "./GuitarString";
-import { DropdownSelector } from "../Common/DropdownSelector";
+import { DropdownSelector } from "../Selectors/DropdownSelector";
 import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";
+import { SwitchSelector } from "../Selectors/SwitchSelector";
 
 export interface GuitarConfig {
     guitarNoteLabel: string;
+    showDots: boolean;
 }
 
 interface IGuitarString {
@@ -32,7 +34,8 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             { openPosition: -8 }    // E   
         ];
         this.state = {
-            guitarNoteLabel: 'interval'
+            guitarNoteLabel: 'interval',
+            showDots: false
         }
     }
 
@@ -61,6 +64,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             </div>
             <div className='guitar-config'>
                 <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                <SwitchSelector parameter={{id: 'showDots', name: 'Show Dots'}} updateParameter={this.updateParameter}/>
             </div>
         </>;
     };

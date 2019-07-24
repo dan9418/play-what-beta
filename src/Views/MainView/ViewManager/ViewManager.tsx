@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./ViewManager.css";
 import { PitchClassSet } from "./SummaryView/NoteBox";
-import { DropdownSelector } from "./Common/DropdownSelector";
+import { DropdownSelector } from "./Selectors/DropdownSelector";
 import { Guitar } from "./GuitarView/Guitar";
 import { Piano } from "./PianoView/Piano";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
