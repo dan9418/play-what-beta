@@ -47,6 +47,18 @@
 	z-index: 10;
 }
 
+.piano-keys-controls-container {
+	background-color: #DDD;
+	margin: 10px;
+    padding: 5px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.piano-keys-controls-container-header {
+	font-size: 16px;
+}
+
 /* Label */
 
 .piano-key-label {

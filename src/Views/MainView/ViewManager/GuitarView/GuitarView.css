@@ -2,7 +2,6 @@
 
 .guitar {
 	margin: 20px;
-	margin-bottom: 0px;
     font-size: 12px;
     display: inline-block;
     border-top: 1px solid saddlebrown;
@@ -79,10 +78,26 @@
 
 /* Tuner */
 
-.tuner-container {
+.string-controls-container {
 	font-size: 12px;
 	line-height: 60px;
+	height: 100px;
 	vertical-align: middle;
+	display: inline-block;
+	margin: 10px;
+	background-color: #DDD;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.fret-controls-container {
+	font-size: 16px;
+	vertical-align: middle;
+	display: inline-block;
+	margin: 10px;
+	background-color: #DDD;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .tuner {
@@ -109,6 +124,10 @@
 	top: 20px;
 }
 
+.tuner-control.remove {
+	top: 40px;
+}
+
 .tuner:hover .tuner-control {
 	display: inline-block;
 }
@@ -133,6 +152,13 @@
 	display: none;
 }
 
-.tuner-container:hover .string-button {
+.string-controls-container:hover .string-button {
 	display: inline-block
+}
+
+
+.string-controls-header {
+	font-size: 16px;
+	line-height: 20px;
+	height: 20px;
 }

@@ -82,8 +82,12 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
                 {this.getPianoKeys()}
             </div>
             <div className='piano-config'>
-                <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                <SwitchSelector parameter={{id: 'filterOctave', name: 'Filter Octave'}} updateParameter={this.updateParameter}/>
+                <div className='piano-keys-controls-container'>
+                    <div className='piano-keys-controls-container-header'>Keys</div>
+                    <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                </div>
+
             </div>
         </>;
     }

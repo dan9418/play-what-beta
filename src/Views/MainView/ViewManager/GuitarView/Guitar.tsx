@@ -75,8 +75,13 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
 
     getTuners = () => {
         let tuners = [];
-        for(let i = 0; i < this.state.strings.length; i++) {
-            tuners.push(<Tuner key={i} openPosition={this.state.strings[i].openPosition} tuneString={(position) => { this.tuneString(i + 1, position); }} />);
+        for (let i = 0; i < this.state.strings.length; i++) {
+            tuners.push(<Tuner
+                key={i}
+                openPosition={this.state.strings[i].openPosition}
+                tuneString={(position) => { this.tuneString(i + 1, position); }}
+                removeString={() => { this.removeString(i); }}
+            />);
         }
         return tuners;
     }
@@ -84,7 +89,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
     insertString = (index) => {
         this.setState((oldState) => {
             return {
-                strings: [...oldState.strings.slice(0, index), {openPosition: 0}, ...oldState.strings.slice(index)]
+                strings: [...oldState.strings.slice(0, index), { openPosition: 0 }, ...oldState.strings.slice(index)]
             };
         });
     }
@@ -107,7 +112,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
 
     getDots = () => {
         let dots = [];
-        for(let i = 0; i <= 12; i++) {
+        for (let i = 0; i <= 12; i++) {
             dots.push(<div className='guitar-fret-dots' key={i}>
                 {this.getDotsForFret(i % 12)}
             </div>);
@@ -120,18 +125,22 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             <div className='guitar'>
                 {this.getGuitarStrings()}
             </div>
-             {this.state.showDots && <div className='dots-container'>
-               {this.getDots()}
+            {this.state.showDots && <div className='dots-container'>
+                {this.getDots()}
             </div>}
             <div className='guitar-config'>
-                <div className='tuner-container'>
+                <div className='string-controls-container'>
+                    <div className='string-controls-header'>Strings</div>
                     <div className='string-button' onClick={() => this.insertString(0)}>+</div>
                     {this.getTuners()}
                     <div className='string-button' onClick={() => this.insertString(this.state.strings.length)}>+</div>
-                    </div>
-                <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
-                <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                </div>
+                <div className='fret-controls-container'>
+                    <div className='fret-controls-header'>Frets</div>
+                    <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
+                    <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                </div>  
             </div>
         </>;
     };
