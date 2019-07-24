@@ -75,3 +75,35 @@
 	background-color: burlywood;
 	color: black;
 }
+
+/* Tuner */
+
+.tuner {
+	display: inline-block;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+    left: -50px;
+    top: 0px;
+}
+
+.tuner-control {
+	display: inline-block;
+	width: 10px;
+	cursor: pointer;
+}
+
+.tuner-controlLhover {
+	font-weight: bold;
+}
+
+.tuner-label {
+	display: inline-block;
+    width: 20px;
+    background: grey;
+    color: white;
+    border-radius: 100px;
+    height: 18px;
+    margin: 1px;
+}

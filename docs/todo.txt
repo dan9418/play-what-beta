@@ -1,37 +1,28 @@
-ViewDriverManager
-    Better Insert/Delete
-    Select?
-    Lock?
-    Reordering?
-    "all" operations?
-    full screen?
+1 Embedded View
 
 CommonView
     Inputs
-        Color strategy?
+        2 Color strategy
 
 GuitarView
     Inputs
-        Add/remove strings + Tune each
-        Voicings?
-        Fret range
+        1 Add/remove strings
+        1 Shift frets
+        1 Fret range
+        2 Voicings
 
 PianoView
     Inputs
-        Shift keys
-        Key range
-
-Toolbar
-    Better controls?
-    "all" operations
+        1 Shift keys
+        1 Key range
 
 Header
-    Icon links
+    1 Icon links
 
 Misc
-    Routing
-    Docs
-    Bug tracking
-    Formal backlog
-    CircleView?
-    Extended intervals?
+    2 Routing
+    2 Docs
+    2 Bug tracking
+    2 Formal backlog
+    2 CircleView
+    2 Extended intervals

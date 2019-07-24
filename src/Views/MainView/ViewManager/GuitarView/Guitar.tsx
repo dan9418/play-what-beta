@@ -10,6 +10,7 @@ export interface GuitarConfig {
     guitarNoteLabel: string;
     showDots: boolean;
     filterOctave: boolean;
+    strings: IGuitarString[];
 }
 
 interface IGuitarString {
@@ -22,30 +23,30 @@ type GuitarProps = {
 };
 
 export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
-    strings: IGuitarString[];
 
     constructor(props) {
         super(props);
-        this.strings = [
-            { openPosition: 16 },   // e
-            { openPosition: 11 },   // B
-            { openPosition: 7 },    // G
-            { openPosition: 2 },    // D
-            { openPosition: -3 },   // A
-            { openPosition: -8 }    // E   
-        ];
         this.state = {
             guitarNoteLabel: 'interval',
             showDots: false,
-            filterOctave: false
+            filterOctave: false,
+            strings: [
+                { openPosition: 16 },   // e
+                { openPosition: 11 },   // B
+                { openPosition: 7 },    // G
+                { openPosition: 2 },    // D
+                { openPosition: -3 },   // A
+                { openPosition: -8 }    // E   
+            ]
         }
     }
 
     getGuitarStrings = () => {
-        return this.strings.map((string, index) => {
+        return this.state.strings.map((string, index) => {
             return <GuitarString
                 key={index}
                 stringNumber={index + 1}
+                tuneString={(position) => { this.tuneString(index + 1, position); }}
                 notes={this.props.notes}
                 openPosition={string.openPosition}
                 config={this.state}
@@ -59,6 +60,19 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         this.setState(update);
     }
 
+    tuneString = (stringNumber, openPosition) => {
+        this.setState((oldState) => {
+            let newStrings = [];
+            for (let i = 0; i < oldState.strings.length; i++) {
+                let newString = ((i + 1) === stringNumber) ? { openPosition: openPosition } : oldState.strings[i];
+                newStrings.push(newString);
+            }
+            return {
+                strings: newStrings
+            }
+        });
+    }
+
     render = () => {
         return <>
             <div className='guitar'>
@@ -66,8 +80,8 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             </div>
             <div className='guitar-config'>
                 <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                <SwitchSelector parameter={{id: 'showDots', name: 'Show Dots'}} updateParameter={this.updateParameter}/>
-                <SwitchSelector parameter={{id: 'filterOctave', name: 'Filter Octave'}} updateParameter={this.updateParameter}/>
+                <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
+                <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
             </div>
         </>;
     };
