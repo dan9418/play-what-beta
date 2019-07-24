@@ -6,7 +6,6 @@ CommonView
 
 GuitarView
     Inputs
-        1 Add/remove strings
         1 Shift frets
         1 Fret range
         2 Voicings

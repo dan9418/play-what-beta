@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../CommonView.css";
 import "./GuitarView.css";
 import { Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarString } from "./GuitarString";
@@ -124,23 +125,23 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         return <>
             <div className='guitar'>
                 {this.getGuitarStrings()}
-            </div>
-            {this.state.showDots && <div className='dots-container'>
-                {this.getDots()}
-            </div>}
-            <div className='guitar-config'>
-                <div className='string-controls-container'>
-                    <div className='string-controls-header'>Strings</div>
-                    <div className='string-button' onClick={() => this.insertString(0)}>+</div>
-                    {this.getTuners()}
-                    <div className='string-button' onClick={() => this.insertString(this.state.strings.length)}>+</div>
+                <div className='dots-container'>
+                    {this.state.showDots && this.getDots()}
                 </div>
-                <div className='fret-controls-container'>
-                    <div className='fret-controls-header'>Frets</div>
-                    <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
-                    <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
-                </div>  
+            </div>
+            <div className='guitar-config'>
+                <div className='controls-container'>
+                    <div className='controls-container-header'>Strings</div>
+                    <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(0)}>+</div></div>
+                    {this.getTuners()}
+                    <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(this.state.strings.length)}>+</div></div>
+                </div>
+                <div className='controls-container'>
+                    <div className='controls-container-header'>Frets</div>
+                    <div className='controls-container-label'>Label</div><DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} /><br />
+                    <div className='controls-container-label'>Show Dots</div><SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} /><br />
+                    <div className='controls-container-label'>Filter Octave</div><SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                </div>
             </div>
         </>;
     };

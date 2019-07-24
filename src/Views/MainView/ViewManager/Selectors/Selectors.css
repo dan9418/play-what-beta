@@ -1,10 +1,15 @@
 .dropdown-selector {
     margin: 2px;
+    width: 150px;
+    text-align: left;
+    display: inline-block;
 }
-
 
 .switch-selector {
     margin: 2px;
+    width: 150px;
+    text-align: left;
+    display: inline-block;
 }
 
 .switch-selector-label {

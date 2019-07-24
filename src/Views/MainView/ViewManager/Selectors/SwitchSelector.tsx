@@ -32,9 +32,9 @@ export class SwitchSelector extends React.Component<SwitchSelectorProps, SwitchS
     render = () => {
         return (
             <div className='switch-selector'>
-                <div className='switch-selector-label'>
+                {/**<div className='switch-selector-label'>
                     {this.props.parameter.name}
-                </div>
+                </div>*/}
                 <label className='switch'>
                     <input type='checkbox' />
                     <span className='slider round' onClick={this.toggle}/>

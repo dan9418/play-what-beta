@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../CommonView.css";
 import "./PianoView.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { PianoKeyType } from "./PianoConfig";
@@ -82,10 +83,10 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
                 {this.getPianoKeys()}
             </div>
             <div className='piano-config'>
-                <div className='piano-keys-controls-container'>
-                    <div className='piano-keys-controls-container-header'>Keys</div>
-                    <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                <div className='controls-container'>
+                    <div className='controls-container-header'>Keys</div>
+                    <div className='controls-container-label'>Label</div><DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} /><br />
+                    <div className='controls-container-label'>Filter Octave</div><SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
                 </div>
 
             </div>
