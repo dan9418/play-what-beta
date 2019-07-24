@@ -10,10 +10,6 @@ CommonView
     Inputs
         Color strategy?
 
-SummaryView
-    Inputs
-        Show inactive pitches
-
 GuitarView
     Inputs
         Add/remove strings + Tune each

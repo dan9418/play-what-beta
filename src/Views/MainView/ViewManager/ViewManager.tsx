@@ -1,21 +1,19 @@
 import * as React from "react";
 import "./ViewManager.css";
-import { PitchClassSet } from "./SummaryView/NoteBox";
-import { DropdownSelector } from "./Selectors/DropdownSelector";
 import { Guitar } from "./GuitarView/Guitar";
 import { Piano } from "./PianoView/Piano";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 import { ParameterConfig } from "../../../Parameters/MasterParameters";
-import { NOTE_LABEL_PARAMETER } from "../../../Parameters/DisplayParameters";
+import { NoteSummarySet } from "./SummaryView/NoteSummarySet";
 
 export let ViewDriverDefinitions = {
     id: 'viewDriver',
     name: 'View Drivers',
     data: [
         {
-            id: 'pitchClassSet',
-            name: 'Pitch Class Set',
-            class: PitchClassSet
+            id: 'noteSummary',
+            name: 'Note Summary',
+            class: NoteSummarySet
         },
         {
             id: 'piano',
