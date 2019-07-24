@@ -12,7 +12,7 @@ CommonView
 
 SummaryView
     Inputs
-        Show inactive
+        Chromatic/Diatonic
 
 GuitarView
     Inputs

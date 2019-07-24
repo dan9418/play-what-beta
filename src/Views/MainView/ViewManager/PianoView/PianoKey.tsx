@@ -18,7 +18,7 @@ export class PianoKey extends React.Component<PianoKeyProps> {
 
     getLabel = (): string | number => {
         let note = this.props.note;
-        switch (this.props.config.label) {
+        switch (this.props.config.noteLabel) {
             case 'none':
                 return '';
             case 'name':

@@ -1,11 +1,12 @@
 import * as React from "react";
 import "./ViewManager.css";
 import { PitchClassSet } from "./SummaryView/NoteBox";
-import { LabelSelector } from "./Common/LabelSelector";
+import { DropdownSelector } from "./Common/DropdownSelector";
 import { Guitar } from "./GuitarView/Guitar";
 import { Piano } from "./PianoView/Piano";
 import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 import { ParameterConfig } from "../../../Parameters/MasterParameters";
+import { NOTE_LABEL_PARAMETER } from "../../../Parameters/DisplayParameters";
 
 export let ViewDriverDefinitions = {
     id: 'viewDriver',
@@ -44,11 +45,11 @@ export class ViewManager extends React.Component<any, any> {
                 super(props);
                 this.state = {
                     open: true,
-                    label: 'interval'
+                    noteLabel: 'interval'
                 }
             }
 
-            updateViewDriverState = (property, value) => {
+            updateParameter = (property, value) => {
                 let update = {};
                 update[property] = value;
                 this.setState(update);
@@ -78,7 +79,7 @@ export class ViewManager extends React.Component<any, any> {
                         <div className='view-driver-body-wrapper'>
                             {this.state.open && <div className='view-driver-body'>
                                 <ViewClass config={this.state} {...this.props} />
-                                <LabelSelector updateViewDriverState={this.updateViewDriverState} />
+                                <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
                             </div>}
                         </div>
                     </div>
