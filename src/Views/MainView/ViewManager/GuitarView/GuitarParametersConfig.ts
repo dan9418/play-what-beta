@@ -8,8 +8,8 @@ let GuitarNoteLabelDefinitions: Parameter[] = [
     }
 ]
 
-export let GUITAR_NOTE_LABEL_PARAMETER: ParameterConfig = Object.assign(NOTE_LABEL_PARAMETER, {
+export let GUITAR_NOTE_LABEL_PARAMETER: ParameterConfig = {
     id: 'guitarNoteLabel',
     name: 'Guitar Note Label',
-    data: GuitarNoteLabelDefinitions
-});
+    data: NOTE_LABEL_PARAMETER.data.concat(GuitarNoteLabelDefinitions)
+};

@@ -2,12 +2,13 @@ import * as React from "react";
 import "./GuitarView.css";
 import "../../../../TheoryCore/TheoryStyles.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
+import { GuitarConfig } from "./Guitar";
 
 type GuitarFretProps = {
     fretNumber: number;
     stringNumber: number;
     note: Note;
-    config: any;
+    config: GuitarConfig;
 }
 
 export class GuitarFret extends React.Component<GuitarFretProps> {
@@ -26,7 +27,7 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
 
     getLabel = (): string | number => {
         let note = this.props.note;
-        switch (this.props.config.noteLabel) {
+        switch (this.props.config.guitarNoteLabel) {
             case 'none':
                 return '';
             case 'name':
@@ -45,6 +46,8 @@ export class GuitarFret extends React.Component<GuitarFretProps> {
                 return note.octave;
             case 'frequency':
                 return note.frequency;
+            case 'fretNumber':
+                return this.props.fretNumber;
             default:
                 return '';
         }

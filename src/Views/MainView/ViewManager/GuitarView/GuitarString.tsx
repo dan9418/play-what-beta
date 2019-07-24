@@ -2,15 +2,16 @@ import * as React from "react";
 import "./GuitarView.css";
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { GuitarFret } from "./GuitarFret";
+import { GuitarConfig } from "./Guitar";
 
 type GuitarStringProps = {
     notes: Note[];
     stringNumber: number;
     openPosition: number;
-    config: any
+    config: GuitarConfig
 };
 
-export class GuitarString extends React.Component<GuitarStringProps> {
+export class GuitarString extends React.Component<GuitarStringProps, GuitarConfig> {
 
     constructor(props) {
         super(props);
