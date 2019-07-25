@@ -8,6 +8,7 @@ import { InputGroup } from "./Selectors/InputGroup/InputGroup";
 import { ViewerDefinitions, DEFAULT_CONCEPT_TYPE, DEFAULT_CONCEPT } from "./Viewers/CommonView";
 import { MASTER_PARAMETERS } from "../../Parameters/MasterParameters";
 import { DropdownSelector } from "./Selectors/DropdownSelector";
+import { InputWrapper } from "./Selectors/InputGroup/InputWrapper";
 
 export class ViewManager extends React.Component<any, any> {
 
@@ -69,11 +70,12 @@ export class ViewManager extends React.Component<any, any> {
                 if (typeof (child.conditions) === 'undefined' || this.state[child.conditions[0].property].id === child.conditions[0].value) {
                     let childId = parameter.id + '_' + child.id;
                     children.push(
-                        <DropdownSelector
-                            key={childId}
-                            updateParameter={(name, param) => { this.setParameter(childId, param); }}
-                            parameter={child}
-                        />);
+                        <InputWrapper key={childId} name={child.name}>
+                            <DropdownSelector
+                                updateParameter={(name, param) => { this.setParameter(childId, param); }}
+                                parameter={child}
+                            />
+                        </InputWrapper>);
                 }
             }
             selectors.push(

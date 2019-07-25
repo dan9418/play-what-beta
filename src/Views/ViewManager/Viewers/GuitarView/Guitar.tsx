@@ -7,9 +7,12 @@ import { DropdownSelector } from "../../Selectors/DropdownSelector";
 import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";
 import { SwitchSelector } from "../../Selectors/SwitchSelector";
 import { Tuner } from "./Tuner";
+import { InputWrapper } from "../../Selectors/InputGroup/InputWrapper";
+import { InputGroup } from "../../Selectors/InputGroup/InputGroup";
+import { Parameter } from "../../../../Parameters/MasterParameters";
 
 export interface GuitarConfig {
-    guitarNoteLabel: string;
+    guitarNoteLabel: Parameter;
     showDots: boolean;
     filterOctave: boolean;
     strings: IGuitarString[];
@@ -29,7 +32,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
     constructor(props) {
         super(props);
         this.state = {
-            guitarNoteLabel: 'interval',
+            guitarNoteLabel: {id: 'interval'} as any,
             showDots: false,
             filterOctave: false,
             strings: [
@@ -130,18 +133,23 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                 </div>
             </div>
             <div className='guitar-config'>
-                <div className='controls-container'>
-                    <div className='controls-container-header'>Strings</div>
+                <InputGroup name='Strings'>
                     <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(0)}>+</div></div>
                     {this.getTuners()}
                     <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(this.state.strings.length)}>+</div></div>
-                </div>
-                <div className='controls-container'>
-                    <div className='controls-container-header'>Frets</div>
-                    <div className='controls-container-label'>Label</div><DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} /><br />
-                    <div className='controls-container-label'>Show Dots</div><SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} /><br />
-                    <div className='controls-container-label'>Filter Octave</div><SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
-                </div>
+                </InputGroup>
+
+                <InputGroup name='Frets'>
+                    <InputWrapper name='Label'>
+                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Show Dots'>
+                        <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Filter Octave'>
+                        <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                </InputGroup>
             </div>
         </>;
     };

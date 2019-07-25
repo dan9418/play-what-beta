@@ -19,25 +19,27 @@
     height: 25px;
     padding: 10px;
     position: relative;
+    background-color: #777;
+    color: #EEE;
 }
 
 .view-manager-header-title {
     font-weight: bold;
-    color: #777;
     display: inline-block;
 }
 
 .view-manager-header .view-manager-header-corner-button {
-    background-color: white;
+    background-color: #EEE;
     color: #777;
     border: 1px solid #777;
     margin-left: 5px;
     float: right;
+    text-align: center
 }
 
 .view-manager-header .view-manager-header-corner-button:hover {
     background-color: #FF5A09;
-    color: white;
+    color: #EEE;
     cursor: pointer;
 }
 

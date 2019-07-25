@@ -10,11 +10,10 @@
 /* header */
 
 .input-group-header {
-    
+    font-size: 16px;
 }
 
 .input-group-header-icon {
-    display: inline-block;
     float: left;
 }
 
@@ -25,5 +24,22 @@
 /* content */
 
 .input-group-content {
+    font-size: 12px;
+}
 
+/* Input Wrapper */
+
+.input-wrapper {
+    margin: 2px;
+}
+
+.input-wrapper-name {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.input-wrapper-child {
+    display: inline-block;
+    width: 100px;
 }
