@@ -17,23 +17,21 @@
     margin-top: 5px;
     height: 25px;
     padding: 10px;
+    position: relative;
 }
 
-.view-driver-header .center {
+.view-driver-header-title {
     font-weight: bold;
     color: #777;
-}
-
-.view-driver-header .right {
-    top: 10px;
+    display: inline-block;
 }
 
 .view-driver-header .corner-button {
     background-color: white;
     color: #777;
     border: 1px solid #777;
-    display: inline-block;
     margin-left: 5px;
+    float: right;
 }
 
 .view-driver-header .corner-button:hover {

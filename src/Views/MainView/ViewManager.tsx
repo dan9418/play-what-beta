@@ -11,13 +11,13 @@ import { TheoryEngine } from "../../TheoryCore/TheoryEngine";
 import { Toolbar } from "./Toolbar/Toolbar";
 
 const DEFAULT_CONCEPT_TYPE = {
-	id: 'scale',
-	name: 'Scales'
+    id: 'scale',
+    name: 'Scales'
 }
 
 const DEFAULT_CONCEPT = {
-	typeId: 'scale',
-	intervals: []
+    typeId: 'scale',
+    intervals: []
 };
 
 
@@ -87,62 +87,14 @@ export class ViewManager extends React.Component<any, any> {
         super(props);
         this.state = {
             viewDriver: ViewDriverDefinitions.data[3],
+            open: true,
             key_diatonicDegree: DiatonicDegreeDefinitions[0],
-			key_accidental: AccidentalDefinitions[2],
-			concept_type: DEFAULT_CONCEPT_TYPE,
-			concept_interval: DEFAULT_CONCEPT,
-			concept_chord: DEFAULT_CONCEPT,
-			concept_scale: DEFAULT_CONCEPT,
-			concept_mode: DEFAULT_CONCEPT
-        };
-    }
-
-    /* View Driver Creation */
-
-    getViewDriver = () => {
-        let def = this.state.viewDriver;
-        let ViewDriver = this.getViewDriverClass(def.class);
-        return <ViewDriver insertViewDriver={this.insertViewDriver} removeViewDriver={this.removeViewDriver} name={def.name} notes={this.getNotes()} {...this.props} />
-    }
-
-    getViewDriverClass = (ViewClass) => {
-        return class ViewDriver extends React.Component<any, any> {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    open: true,
-                }
-            }
-
-            toggle = () => {
-                this.setState((state) => {
-                    return { open: !state.open }
-                });
-            }
-
-            getSymbol: any = () => {
-                return (this.state.open ? '-' : '+');
-            }
-
-            render = () => {
-                return (
-                    <div className="view-driver">
-                        <div className='view-driver-header'>
-                            <div className='corner-button left'></div>
-                            <div className='center'>{this.props.name}</div>
-                            <div className='right'>
-                                <div className='corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
-                                <div className='corner-button' onClick={this.props.removeViewDriver}>X</div>
-                            </div>
-                        </div>
-                        <div className='view-driver-body-wrapper'>
-                            {this.state.open && <div className='view-driver-body'>
-                                <ViewClass {...this.props} />
-                            </div>}
-                        </div>
-                    </div>
-                )
-            };
+            key_accidental: AccidentalDefinitions[2],
+            concept_type: DEFAULT_CONCEPT_TYPE,
+            concept_interval: DEFAULT_CONCEPT,
+            concept_chord: DEFAULT_CONCEPT,
+            concept_scale: DEFAULT_CONCEPT,
+            concept_mode: DEFAULT_CONCEPT
         };
     }
 
@@ -165,23 +117,48 @@ export class ViewManager extends React.Component<any, any> {
     }
 
     setParameter = (property, value) => {
-		let update = {};
-		update[property] = value;
-		this.setState(update);
-	}
+        let update = {};
+        update[property] = value;
+        this.setState(update);
+    }
 
-	getNotes = () => {
-		let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
-		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
-		return TheoryEngine.getNotesFromIntervals(key, intervals);
-	}
+    toggle = () => {
+        this.setState((state) => {
+            return { open: !state.open }
+        });
+    }
+
+    getSymbol: any = () => {
+        return (this.state.open ? '-' : '+');
+    }
+
+    /* Processing */
+
+    getNotes = () => {
+        let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
+        let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
+        return TheoryEngine.getNotesFromIntervals(key, intervals);
+    }
 
     /* Render */
 
     render = () => {
+        let ViewDriver = this.state.viewDriver.class;
+
         return <div className='view-manager'>
+            <div className='view-driver-header'>
+                <div className='view-driver-header-title'>{this.state.viewDriver.name}</div>
+                <div className='corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
+                <div className='corner-button' onClick={this.removeViewDriver}>X</div>
+            </div>
             <Toolbar setParameter={this.setParameter} {...this.state} />
-            {this.getViewDriver()}
+            <div className="view-driver">
+                <div className='view-driver-body-wrapper'>
+                    {this.state.open && <div className='view-driver-body'>
+                        <ViewDriver insertViewDriver={this.insertViewDriver} notes={this.getNotes()} {...this.props} />
+                    </div>}
+                </div>
+            </div>
         </div>;
     };
 }
