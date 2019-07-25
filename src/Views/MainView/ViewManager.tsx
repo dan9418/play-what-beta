@@ -179,11 +179,8 @@ export class ViewManager extends React.Component<any, any> {
     /* Render */
 
     render = () => {
-        return <div id='view-manager'>
-            <Toolbar
-                setParameter={this.setParameter}
-                {...this.state}
-                />
+        return <div className='view-manager'>
+            <Toolbar setParameter={this.setParameter} {...this.state} />
             {this.getViewDriver()}
         </div>;
     };

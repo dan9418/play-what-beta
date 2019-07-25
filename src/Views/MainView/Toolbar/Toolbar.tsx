@@ -40,7 +40,7 @@ export class Toolbar extends React.Component<any, any> {
  
 	render = () => {
 		return (
-			<div id='toolbar'>
+			<div className='toolbar'>
 				{this.getParameterSelectors()}
 			</div>
 		);

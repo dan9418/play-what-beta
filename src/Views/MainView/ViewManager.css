@@ -1,9 +1,10 @@
-#view-manager {
+.view-manager {
     background-color: #EEEEEE;
-    width: 100%;
-    height: 100%;
+    width: 500px;
     display: block;
-    overflow-y: scroll;}
+    margin: auto;
+    margin-top: 100px;
+}
 
 .view-driver {
     text-align: center;

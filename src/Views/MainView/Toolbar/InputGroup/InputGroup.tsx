@@ -29,9 +29,6 @@ export class InputGroup extends React.Component<any, any> {
                     <div className='input-group-icon'>
                         {this.props.icon}
                     </div>
-                    {/*<div className='input-group-status'>
-                        {this.getSymbol()}
-                    </div>*/}
                     {this.state.preview &&
                         <div className='input-group-content-preview'>
                             {this.props.children}
