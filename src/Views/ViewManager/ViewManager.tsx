@@ -100,17 +100,17 @@ export class ViewManager extends React.Component<any, any> {
 
         return (
             <div className='view-manager'>
-                <div className='viewer-header'>
-                    <div className='viewer-header-title'>{this.state.viewer.name}</div>
-                    <div className='corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
-                    <div className='corner-button' onClick={this.removeViewer}>X</div>
+                <div className='view-manager-header'>
+                    <div className='view-manager-header-title'>{this.state.viewer.name}</div>
+                    <div className='view-manager-header-corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
+                    <div className='view-manager-header-corner-button' onClick={this.removeViewer}>X</div>
                 </div>
-                <div className='toolbar'>
+                <div className='view-manager-toolbar'>
                     {this.getParameterSelectors()}
                 </div>
-                <div className="viewer">
-                    <div className='viewer-body-wrapper'>
-                        {this.state.open && <div className='viewer-body'>
+                <div className="view-manager-viewer">
+                    <div className='view-manager-viewer-container'>
+                        {this.state.open && <div className='view-manager-viewer'>
                             <Viewer insertViewer={this.insertViewer} notes={this.getNotes()} {...this.props} />
                         </div>}
                     </div>
