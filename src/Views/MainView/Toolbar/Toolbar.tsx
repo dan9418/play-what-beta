@@ -8,21 +8,6 @@ export class Toolbar extends React.Component<any, any> {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			expanded: false
-		}
-	}
-
-	getExpandedIcon = () => {
-		return (this.state.expanded) ? '<' : '>';
-	}
-
-	toggle = () => {
-		this.setState((oldState) => {
-			return {
-				expanded: !oldState.expanded
-			}
-		});
 	}
 
 	getParameterSelectors = () => {
@@ -45,7 +30,7 @@ export class Toolbar extends React.Component<any, any> {
 				}
 			}
 			selectors.push(
-				<InputGroup key={parameter.name} name={parameter.name} toolbarOpen={this.state.expanded} icon={parameter.name.charAt(0)}>
+				<InputGroup key={parameter.name} name={parameter.name} icon={parameter.name.charAt(0)}>
 					{children}
 				</InputGroup>
 			);
@@ -55,8 +40,7 @@ export class Toolbar extends React.Component<any, any> {
  
 	render = () => {
 		return (
-			<div id='toolbar' className={this.state.expanded ? 'expanded' : 'collapsed'}>
-				<InputGroup action={this.toggle} name='Controls' toolbarOpen={this.state.expanded} icon={this.getExpandedIcon()}/>
+			<div id='toolbar'>
 				{this.getParameterSelectors()}
 			</div>
 		);

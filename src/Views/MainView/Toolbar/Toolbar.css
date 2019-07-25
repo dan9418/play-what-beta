@@ -1,20 +1,11 @@
 #toolbar {
 	background-color: #444;
     text-align: center;
-    width: 50px;
-    height: 100%;
+    height: 50px;
+    width: 100%;
     display: inline-block;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     z-index: 100;
     box-shadow: 2px 2px 5px #888888;
-}
-
-#toolbar.expanded {
-    text-align: center;
-    width: 450px;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    cursor: pointer;
 }
