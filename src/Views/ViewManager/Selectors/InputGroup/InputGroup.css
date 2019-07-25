@@ -33,13 +33,28 @@
     margin: 2px;
 }
 
-.input-wrapper-name {
+.input-wrapper.x .input-wrapper-name {
     display: inline-block;
     width: 100px;
     text-align: right;
+    height: 30px;
+    line-height: 30px;
 }
 
-.input-wrapper-child {
+.input-wrapper.x .input-wrapper-child {
     display: inline-block;
     width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.input-wrapper.y .input-wrapper-name {
+    display: block;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
+.input-wrapper.y .input-wrapper-child {
+    display: block;
 }

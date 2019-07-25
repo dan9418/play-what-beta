@@ -10,6 +10,7 @@ import { Tuner } from "./Tuner";
 import { InputWrapper } from "../../Selectors/InputGroup/InputWrapper";
 import { InputGroup } from "../../Selectors/InputGroup/InputGroup";
 import { Parameter } from "../../../../Parameters/MasterParameters";
+import { RangeSelector } from "../../Selectors/RangeSelector";
 
 export interface GuitarConfig {
     guitarNoteLabel: Parameter;
@@ -148,6 +149,9 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                     </InputWrapper>
                     <InputWrapper name='Filter Octave'>
                         <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Range' vertical={true}>
+                        <RangeSelector low={0} high={12} updateLow={this.updateParameter} updateHigh={this.updateParameter} />
                     </InputWrapper>
                 </InputGroup>
             </div>

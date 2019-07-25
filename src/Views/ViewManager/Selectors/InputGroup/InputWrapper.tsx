@@ -8,8 +8,9 @@ export class InputWrapper extends React.Component<any, any> {
     }
 
     render = () => {
+        let classes = ['input-wrapper', this.props.vertical ? 'y' : 'x'];
         return (
-            <div className='input-wrapper'>
+            <div className={classes.join(' ')}>
                 <div className='input-wrapper-name'>
                     {this.props.name}
                 </div>
