@@ -18,16 +18,16 @@ export class ViewerSelector extends React.Component<any, any> {
     }
 
     render = () => {
-        return <div className='viewer-selector'>
+        return <div className='view-manager-viewer-selector'>
             {this.state.open ?
-                <div className='viewer-open' onClick={this.toggle as any}>
+                <div className='view-manager-viewer-selector-open' onClick={this.toggle as any}>
                     <BoxSelector
                         updateSelection={this.props.insertViewer}
                         param={ViewerDefinitions}
                         selectedValue={null}
                     />
                 </div> :
-                <div className='viewer-closed' onClick={this.toggle as any}>
+                <div className='view-manager-viewer-selector-closed' onClick={this.toggle as any}>
                     <span>+</span>
                 </div>
             }

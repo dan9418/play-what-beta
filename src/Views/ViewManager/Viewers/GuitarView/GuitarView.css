@@ -138,6 +138,6 @@
 	visibility: visible;
 }
 
-.controls-container:hover .string-button.insert {
+.input-group:hover .string-button.insert {
 	visibility: visible;
 }

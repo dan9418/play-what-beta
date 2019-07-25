@@ -4,6 +4,8 @@ import { DiatonicDegreeDefinitions } from "../../../../Parameters/Key/DiatonicDe
 import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 import { SwitchSelector } from "../../Selectors/SwitchSelector";
 import { NoteSummary } from "./NoteSummary";
+import { InputGroup } from "../../Selectors/InputGroup/InputGroup";
+import { InputWrapper } from "../../Selectors/InputGroup/InputWrapper";
 
 type NoteSummaryProps = {
     notes: Note[];
@@ -53,10 +55,14 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
         return <div className="summary">
             {this.getNoteDisplays()}
             <div className='summary-config'>
-                <div className="controls-container">
-                    <div className='controls-container-label'>Play</div><div className="speaker-icon" onClick={() => TheoryEngine.playNotes(this.props.notes)}>🔊</div><br/>
-                    <div className='controls-container-label'>Show Inactive</div><SwitchSelector parameter={{ id: 'showInactive', name: 'Show Inactive' }} updateParameter={this.updateParameter} />
-                </div>
+                <InputGroup name='Keys'>
+                    <InputWrapper name='Play'>
+                        <div className="speaker-icon" onClick={() => TheoryEngine.playNotes(this.props.notes)}>🔊</div>
+                    </InputWrapper>
+                    <InputWrapper name='Show Inactive'>
+                        <SwitchSelector parameter={{ id: 'showInactive', name: 'Show Inactive' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                </InputGroup>
             </div>
         </div>;
     };

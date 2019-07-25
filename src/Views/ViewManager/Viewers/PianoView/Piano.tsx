@@ -7,9 +7,12 @@ import { PianoKey } from "./PianoKey";
 import { DropdownSelector } from "../../Selectors/DropdownSelector";
 import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
 import { SwitchSelector } from "../../Selectors/SwitchSelector";
+import { InputGroup } from "../../Selectors/InputGroup/InputGroup";
+import { InputWrapper } from "../../Selectors/InputGroup/InputWrapper";
+import { Parameter } from "../../../../Parameters/MasterParameters";
 
 export interface PianoConfig {
-    noteLabel: string;
+    noteLabel: Parameter;
     filterOctave: boolean;
 }
 
@@ -37,7 +40,7 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
         }
 
         this.state = {
-            noteLabel: 'interval',
+            noteLabel: {id: 'interval'} as any,
             filterOctave: false
         }
     }
@@ -83,12 +86,14 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
                 {this.getPianoKeys()}
             </div>
             <div className='piano-config'>
-                <div className='controls-container'>
-                    <div className='controls-container-header'>Keys</div>
-                    <div className='controls-container-label'>Label</div><DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} /><br />
-                    <div className='controls-container-label'>Filter Octave</div><SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
-                </div>
-
+                <InputGroup name='Keys'>
+                    <InputWrapper name='Label'>
+                        <DropdownSelector parameter={NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Filter Octave'>
+                        <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                </InputGroup>
             </div>
         </>;
     }
