@@ -4,6 +4,7 @@
     display: block;
     margin: auto;
     margin-top: 100px;
+    box-shadow: 2px 2px 5px #888;
 }
 
 .view-manager-viewer {
@@ -69,28 +70,6 @@
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#main {
-	position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-}
-
-
 /* Common UI Styles */
 
 .view-manager-header-corner-button {
@@ -105,16 +84,6 @@
 .view-manager-header-corner-button:hover {
     background-color: #FF5A09;
     cursor: pointer;
-}
-
-.left {
-	position: absolute;
-	left: 10px
-}
-
-.right {
-	position: absolute;
-	right: 50px
 }
 
 /* Scrollbar */
@@ -135,10 +104,9 @@
 	background: #555; 
   }
 
-
+  /* Toolbar */
 
   .view-manager-toolbar {
-	background-color: #444;
     text-align: center;
     height: 50px;
     width: 100%;
@@ -146,5 +114,4 @@
     position: relative;
     cursor: pointer;
     z-index: 100;
-    box-shadow: 2px 2px 5px #888;
 }

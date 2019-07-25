@@ -26,7 +26,7 @@ export class DropdownSelector extends React.Component<DropdownSelectorProps> {
             <div className='dropdown-selector'>
                 <select
                     defaultValue={null}
-                    onChange={(event) => { this.props.updateParameter(this.props.parameter.id, event.target.value) }}>
+                    onChange={(event) => { this.props.updateParameter(this.props.parameter.id, this.props.parameter.data[event.target.selectedIndex]); }}>
                     {this.getOptions()}
                 </select>
             </div>)

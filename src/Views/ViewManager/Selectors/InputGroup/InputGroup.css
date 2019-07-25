@@ -1,66 +1,29 @@
 
 .input-group {
-    position: relative;
-    width: 50px;
+    background-color: #DDD;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
     display: inline-block;
 }
 
 /* header */
 
 .input-group-header {
-    width: 100%;
-    height: 49px;
-    line-height: 50px;
-    font-size: 20px;
-    color: #DDD;
-    background-color: #333;
-    border-top: 1px solid #333;
+    
 }
 
-.input-group-header:hover {
-    border-top: 1px solid #FF5A09;
-    color: #FF5A09;
-}
-
-.input-group-icon {
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-}
-
-.input-group-title {
+.input-group-header-icon {
     display: inline-block;
+    float: left;
 }
 
-.input-group-header:hover .input-group-title {
-    color: white;
-}
-
-.input-group-status {
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    right: 0px;
-    top: 0px;
+.input-group-header-name {
+    display: inline-block;
 }
 
 /* content */
 
-.input-group-content-preview {
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    width: 400px;
-    z-index: 100;
-    box-shadow: 2px 2px 5px #888;
-    background-color: #444;
-}
-
 .input-group-content {
-    position: relative;
-    width: 450px;
-    background-color: #444;
-    cursor: auto;
+
 }
