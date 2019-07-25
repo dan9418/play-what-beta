@@ -101,21 +101,23 @@
 	font-size: 18px;
 	visibility: hidden;
 	position: absolute;
+	background-color: #DDD;
+	color: black;
+	z-index: 20;
 }
 
 .string-button:hover {
-	font-weight: bold;
+	color: #FF5A09;
 	cursor: pointer;
 }
 
 .string-button.name {
+	color: black;
+	cursor: auto;
 	visibility: visible;
 	font-weight: normal;
 	top: 20px;
-	background-color: grey;
     font-size: 12px;
-    color: white;
-    border-radius: 100px;
 }
 
 .string-button.insert {
@@ -140,4 +142,13 @@
 
 .input-group:hover .string-button.insert {
 	visibility: visible;
+}
+
+.tuner-string {
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	width: 9px;
+	border-right: 1px solid grey;
+	z-index: 10;
 }

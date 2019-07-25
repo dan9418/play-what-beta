@@ -32,7 +32,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
     constructor(props) {
         super(props);
         this.state = {
-            guitarNoteLabel: {id: 'interval'} as any,
+            guitarNoteLabel: { id: 'interval' } as any,
             showDots: false,
             filterOctave: false,
             strings: [
