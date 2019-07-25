@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
 import { HeaderView } from "./Views/HeaderView/HeaderView";
-import { ViewManager } from "./Views/MainView/ViewManager";
+import { ViewManager } from "./Views/ViewManager/ViewManager";
 
 export class App extends React.Component<any, any> {
 

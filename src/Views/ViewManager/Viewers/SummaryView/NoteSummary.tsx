@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./SummaryView.css";
-import "../../../TheoryCore/TheoryStyles.css";
-import { TheoryEngine, Note } from "../../../TheoryCore/TheoryEngine";
+import "../../../../TheoryCore/TheoryStyles.css";
+import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
 
 export class NoteSummary extends React.Component<any> {
     physicalNote: any;

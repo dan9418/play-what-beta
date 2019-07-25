@@ -1,5 +1,5 @@
-import { NOTE_LABEL_PARAMETER } from "../../../Parameters/DisplayParameters";
-import { Parameter, ParameterConfig } from "../../../Parameters/MasterParameters";
+import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
+import { Parameter, ParameterConfig } from "../../../../Parameters/MasterParameters";
 
 let GuitarNoteLabelDefinitions: Parameter[] = [
 	{
