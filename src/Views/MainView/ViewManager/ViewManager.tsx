@@ -6,10 +6,48 @@ import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
 import { ParameterConfig } from "../../../Parameters/MasterParameters";
 import { NoteSummarySet } from "./SummaryView/NoteSummarySet";
 
+export class ViewDriverSelector extends React.Component<any, any> {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+    }
+
+    toggle = () => {
+        this.setState((state) => {
+            return { open: !state.open }
+        });
+    }
+
+    render = () => {
+        return <div className='view-driver-selector'>
+            {this.state.open ?
+                <div className='view-driver-open' onClick={this.toggle as any}>
+                    <BoxSelector
+                        updateSelection={this.props.insertViewDriver}
+                        param={ViewDriverDefinitions}
+                        selectedValue={null}
+                    />
+                </div> :
+                <div className='view-driver-closed' onClick={this.toggle as any}>
+                    <span>+</span>
+                </div>
+            }
+        </div>;
+    }
+}
+
 export let ViewDriverDefinitions = {
     id: 'viewDriver',
     name: 'View Drivers',
     data: [
+        {
+            id: 'selector',
+            name: 'Selector',
+            class: ViewDriverSelector
+        },
         {
             id: 'noteSummary',
             name: 'Note Summary',
@@ -33,11 +71,19 @@ export class ViewManager extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
-            viewDrivers: ViewDriverDefinitions.data
+            viewDriver: ViewDriverDefinitions.data[3]
         };
     }
 
-    getViewDriver = (ViewClass) => {
+    /* View Driver Creation */
+
+    getViewDriver = () => {
+        let def = this.state.viewDriver;
+        let ViewDriver = this.getViewDriverClass(def.class);
+        return <ViewDriver insertViewDriver={this.insertViewDriver} removeViewDriver={this.removeViewDriver} name={def.name} {...this.props} />
+    }
+
+    getViewDriverClass = (ViewClass) => {
         return class ViewDriver extends React.Component<any, any> {
             constructor(props) {
                 super(props);
@@ -78,69 +124,29 @@ export class ViewManager extends React.Component<any, any> {
         };
     }
 
-    insertViewDriver = (index, def) => {
+    /* View Driver Management */
+
+    insertViewDriver = (def) => {
         this.setState((state) => {
             return {
-                viewDrivers: [...state.viewDrivers.slice(0, index), def, ...state.viewDrivers.slice(index)]
+                viewDriver: def
             };
         });
     }
 
-    removeViewDriver = (index) => {
+    removeViewDriver = () => {
         this.setState((state) => {
             return {
-                viewDrivers: [...state.viewDrivers.slice(0, index), ...state.viewDrivers.slice(index + 1)]
+                viewDriver: ViewDriverDefinitions.data[0]
             };
         });
     }
 
-    getViewDrivers = () => {
-        let viewDrivers = [<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(0, newDef)} key={'vds-0'} />];
-        for (let i = 0; i < this.state.viewDrivers.length; i++) {
-            let def = this.state.viewDrivers[i];
-            let ViewDriver = this.getViewDriver(def.class);
-            viewDrivers.push(<ViewDriver key={i} removeViewDriver={() => this.removeViewDriver(i)} name={def.name} {...this.props} />);
-            viewDrivers.push(<ViewDriverSelector insertViewDriver={(newDef) => this.insertViewDriver(i + 1, newDef)} key={'vds-' + i + 1} />);
-        }
-        return viewDrivers;
-    }
+    /* Render */
 
     render = () => {
         return <div id='view-manager'>
-            {this.getViewDrivers()}
+            {this.getViewDriver()}
         </div>;
     };
-}
-
-export class ViewDriverSelector extends React.Component<any, any> {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false
-        }
-    }
-
-    toggle = () => {
-        this.setState((state) => {
-            return { open: !state.open }
-        });
-    }
-
-    render = () => {
-        return <div className='view-driver-selector'>
-            {this.state.open ?
-                <div className='view-driver-open' onClick={this.toggle as any}>
-                    <BoxSelector
-                        updateSelection={this.props.insertViewDriver}
-                        param={ViewDriverDefinitions}
-                        selectedValue={null}
-                    />
-                </div> :
-                <div className='view-driver-closed' onClick={this.toggle as any}>
-                    <span>+</span>
-                </div>
-            }
-        </div>;
-    }
 }
