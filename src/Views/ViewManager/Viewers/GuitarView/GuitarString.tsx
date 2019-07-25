@@ -38,7 +38,7 @@ export class GuitarString extends React.Component<GuitarStringProps, GuitarConfi
 
     getFrets = () => {
         let frets = [];
-        for (let i = 0; i <= 12; i++) {
+        for (let i = this.props.config.fretLow; i <= this.props.config.fretHigh; i++) {
             frets.push(<GuitarFret
                 key={i}
                 fretNumber={i}

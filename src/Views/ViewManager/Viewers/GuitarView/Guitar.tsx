@@ -17,6 +17,8 @@ export interface GuitarConfig {
     showDots: boolean;
     filterOctave: boolean;
     strings: IGuitarString[];
+    fretLow: number;
+    fretHigh: number;
 }
 
 interface IGuitarString {
@@ -36,6 +38,8 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             guitarNoteLabel: { id: 'interval' } as any,
             showDots: false,
             filterOctave: false,
+            fretLow: 0,
+            fretHigh: 12,
             strings: [
                 { openPosition: 16 },   // e
                 { openPosition: 11 },   // B
@@ -107,6 +111,22 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         });
     }
 
+    changeHighFret= (hi) => {
+        this.setState((oldState) => {
+            return {
+                fretHigh: hi
+            };
+        });
+    }
+
+    changeLowFret= (lo) => {
+        this.setState((oldState) => {
+            return {
+                fretLow: lo
+            };
+        });
+    }
+
     getDotsForFret = (fretNumber: number): string => {
         if (fretNumber === 0)
             return '• •';
@@ -117,7 +137,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
 
     getDots = () => {
         let dots = [];
-        for (let i = 0; i <= 12; i++) {
+        for (let i = this.state.fretLow; i <= this.state.fretHigh; i++) {
             dots.push(<div className='guitar-fret-dots' key={i}>
                 {this.getDotsForFret(i % 12)}
             </div>);
@@ -151,7 +171,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                         <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
                     </InputWrapper>
                     <InputWrapper name='Range' vertical={true}>
-                        <RangeSelector low={0} high={12} updateLow={this.updateParameter} updateHigh={this.updateParameter} />
+                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} min={0} max={100}/>
                     </InputWrapper>
                 </InputGroup>
             </div>
