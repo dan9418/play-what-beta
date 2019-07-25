@@ -8,7 +8,6 @@
     padding: 10px;
 }
 
-
 #header div {
 	display: inline-block;
 }
@@ -22,6 +21,14 @@
 .link-box {
 	font-size: 15px;
     line-height: 30px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
 
 a {

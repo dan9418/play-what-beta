@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"* {\\r\\n\\tfont-family: sans-serif;\\r\\n}\\r\\n\\r\\nhtml, body {\\r\\n\\tmargin: 0;\\r\\n\\tpadding: 0;\\r\\n\\toverflow: hidden;\\r\\n}\\r\\n\\r\\n#app {\\r\\n\\tposition: absolute;\\r\\n\\theight: 100%;\\r\\n    width: 100%;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"* {\\r\\n\\tfont-family: sans-serif;\\r\\n}\\r\\n\\r\\nhtml, body {\\r\\n\\tmargin: 0;\\r\\n\\tpadding: 0;\\r\\n\\toverflow: hidden;\\r\\n}\\r\\n\\r\\n#app {\\r\\n\\tposition: absolute;\\r\\n\\theight: 100%;\\r\\n\\twidth: 100%;\\r\\n\\tbackground-color: #AAA;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -105,6 +105,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loa
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n/* Degrees */\\r\\n\\r\\n.degree-0 {\\r\\n\\tbackground-color: white;\\r\\n\\tcolor: grey;\\r\\n}\\r\\n\\r\\n.degree-1 {\\r\\n\\tbackground-color: red;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-2 {\\r\\n\\tbackground-color: orange;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-3 {\\r\\n\\tbackground-color: yellow;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-4 {\\r\\n\\tbackground-color: green;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-5 {\\r\\n\\tbackground-color: blue;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-6 {\\r\\n\\tbackground-color: indigo;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-7 {\\r\\n\\tbackground-color: purple;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-9 {\\r\\n\\tbackground-color: lightsalmon;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-11 {\\r\\n\\tbackground-color: lightgreen;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-13 {\\r\\n\\tbackground-color: lightsteelblue;\\r\\n\\tcolor: black;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/TheoryCore/TheoryStyles.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Views/HeaderView/HeaderView.css":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Views/HeaderView/HeaderView.css ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n#header {\\r\\n    text-align: center;\\r\\n    width: 100%;\\r\\n    height: 30px;\\r\\n    background-color: #444;\\r\\n    color: #DDD;\\r\\n    padding: 10px;\\r\\n}\\r\\n\\r\\n#header div {\\r\\n\\tdisplay: inline-block;\\r\\n}\\r\\n\\r\\n#header .center {\\r\\n\\tfont-size: 20px;\\r\\n    line-height: 30px;\\r\\n    font-weight: bold;\\r\\n}\\r\\n\\r\\n.link-box {\\r\\n\\tfont-size: 15px;\\r\\n    line-height: 30px;\\r\\n}\\r\\n\\r\\n.float-left {\\r\\n    float: left;\\r\\n}\\r\\n\\r\\n.float-right {\\r\\n    float: right;\\r\\n}\\r\\n\\r\\na {\\r\\n\\tcolor:white;\\r\\n}\\r\\n\\r\\na:hover {\\r\\n\\tfont-weight: bold;\\r\\n\\tcolor:#FF5A09;\\r\\n\\tcursor: pointer;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Views/HeaderView/HeaderView.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -392,7 +403,7 @@ eval("\nvar content = __webpack_require__(/*! !../node_modules/css-loader/dist/c
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\n__webpack_require__(/*! ./App.css */ \"./src/App.css\");\r\nconst ViewManager_1 = __webpack_require__(/*! ./Views/ViewManager/ViewManager */ \"./src/Views/ViewManager/ViewManager.tsx\");\r\nclass App extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return (React.createElement(React.Fragment, null,\r\n                React.createElement(ViewManager_1.ViewManager, null)));\r\n        };\r\n    }\r\n}\r\nexports.App = App;\r\nconst domContainer = document.querySelector('#app');\r\nReactDOM.render(React.createElement(App, null), domContainer);\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\n__webpack_require__(/*! ./App.css */ \"./src/App.css\");\r\nconst HeaderView_1 = __webpack_require__(/*! ./Views/HeaderView/HeaderView */ \"./src/Views/HeaderView/HeaderView.tsx\");\r\nconst ViewManager_1 = __webpack_require__(/*! ./Views/ViewManager/ViewManager */ \"./src/Views/ViewManager/ViewManager.tsx\");\r\nclass App extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return (React.createElement(React.Fragment, null,\r\n                React.createElement(HeaderView_1.HeaderView, null),\r\n                React.createElement(ViewManager_1.ViewManager, null)));\r\n        };\r\n    }\r\n}\r\nexports.App = App;\r\nconst domContainer = document.querySelector('#app');\r\nReactDOM.render(React.createElement(App, null), domContainer);\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
 
 /***/ }),
 
@@ -536,6 +547,29 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./TheoryStyles.css */ \"./node_modules/css-loader/dist/cjs.js!./src/TheoryCore/TheoryStyles.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/TheoryCore/TheoryStyles.css?");
+
+/***/ }),
+
+/***/ "./src/Views/HeaderView/HeaderView.css":
+/*!*********************************************!*\
+  !*** ./src/Views/HeaderView/HeaderView.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./HeaderView.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Views/HeaderView/HeaderView.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Views/HeaderView/HeaderView.css?");
+
+/***/ }),
+
+/***/ "./src/Views/HeaderView/HeaderView.tsx":
+/*!*********************************************!*\
+  !*** ./src/Views/HeaderView/HeaderView.tsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./HeaderView.css */ \"./src/Views/HeaderView/HeaderView.css\");\r\nclass HeaderView extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { id: 'header' },\r\n                React.createElement(\"div\", { className: 'link-box float-left' },\r\n                    React.createElement(\"a\", { href: \"\", target: \"_blank\" }, \"[Hire Me]\")),\r\n                React.createElement(\"div\", { className: 'center' }, \"Play What?\"),\r\n                React.createElement(\"div\", { className: 'link-box float-right' },\r\n                    React.createElement(\"a\", { href: \"\", target: \"_blank\" }, \"[GitHub]\"))));\r\n        };\r\n    }\r\n}\r\nexports.HeaderView = HeaderView;\r\n\n\n//# sourceURL=webpack:///./src/Views/HeaderView/HeaderView.tsx?");
 
 /***/ }),
 

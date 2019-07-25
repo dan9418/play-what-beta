@@ -10,13 +10,13 @@ export class HeaderView extends React.Component<any, any> {
 	render = () => {
 		return (
 				<div id='header'>
-					<div className='left link-box'>
+					<div className='link-box float-left'>
 						<a href="" target="_blank">[Hire Me]</a>
 					</div>
 					<div className='center'>
 						Play What?
 					</div>
-					<div className='right link-box'>
+					<div className='link-box float-right'>
 						<a href="" target="_blank">[GitHub]</a>
 					</div>
 				</div>

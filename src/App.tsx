@@ -13,7 +13,7 @@ export class App extends React.Component<any, any> {
 	render = () => {
 		return (
 			<>
-				{/*<HeaderView/>*/}
+				<HeaderView/>
 				<ViewManager/>
 			</>
 		);
