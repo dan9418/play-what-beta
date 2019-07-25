@@ -2,13 +2,13 @@ import * as React from "react";
 import "./ViewManager.css";
 import { Guitar } from "./GuitarView/Guitar";
 import { Piano } from "./PianoView/Piano";
-import { BoxSelector } from "./Toolbar/BoxSelector/BoxSelector";
-import { ParameterConfig } from "../../Parameters/MasterParameters";
+import { BoxSelector } from "./Selectors/BoxSelector/BoxSelector";
+import { ParameterConfig, MASTER_PARAMETERS } from "../../Parameters/MasterParameters";
 import { NoteSummarySet } from "./SummaryView/NoteSummarySet";
 import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
 import { AccidentalDefinitions } from "../../Parameters/Key/AccidentalConfig";
 import { TheoryEngine } from "../../TheoryCore/TheoryEngine";
-import { Toolbar } from "./Toolbar/Toolbar";
+import { InputGroup } from "./Selectors/InputGroup/InputGroup";
 
 const DEFAULT_CONCEPT_TYPE = {
     id: 'scale',
@@ -132,6 +132,36 @@ export class ViewManager extends React.Component<any, any> {
         return (this.state.open ? '-' : '+');
     }
 
+    /* Build Inputs */
+
+    getParameterSelectors = () => {
+        let selectors = [];
+        for (let i = 0; i < MASTER_PARAMETERS.length; i++) {
+            let parameter = MASTER_PARAMETERS[i];
+            let children = [];
+            for (let j = 0; j < parameter.children.length; j++) {
+                let child = parameter.children[j];
+                // TODO support multiple conditions
+                if (typeof (child.conditions) === 'undefined' || this.state[child.conditions[0].property].id === child.conditions[0].value) {
+                    let childId = parameter.id + '_' + child.id;
+                    children.push(
+                        <BoxSelector
+                            key={childId}
+                            updateSelection={(param) => { this.setParameter(childId, param); }}
+                            param={child}
+                            selectedValue={this.state[childId]}
+                        />);
+                }
+            }
+            selectors.push(
+                <InputGroup key={parameter.name} name={parameter.name} icon={parameter.name.charAt(0)}>
+                    {children}
+                </InputGroup>
+            );
+        }
+        return selectors;
+    }
+
     /* Processing */
 
     getNotes = () => {
@@ -151,7 +181,9 @@ export class ViewManager extends React.Component<any, any> {
                 <div className='corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
                 <div className='corner-button' onClick={this.removeViewDriver}>X</div>
             </div>
-            <Toolbar setParameter={this.setParameter} {...this.state} />
+            <div className='toolbar'>
+                {this.getParameterSelectors()}
+            </div>
             <div className="view-driver">
                 <div className='view-driver-body-wrapper'>
                     {this.state.open && <div className='view-driver-body'>

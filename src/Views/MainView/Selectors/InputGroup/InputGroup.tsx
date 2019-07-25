@@ -25,7 +25,7 @@ export class InputGroup extends React.Component<any, any> {
         let classes = ['input-group', this.state.open ? 'open' : 'closed'];
         return (
             <div className={classes.join(' ')}>
-                <div className='input-group-header' onClick={this.props.action || this.toggle} onMouseEnter={() => this.setState({ preview: true })} onMouseLeave={() => this.setState({ preview: false })}>
+                <div className='input-group-header' onMouseEnter={() => this.setState({ preview: true })} onMouseLeave={() => this.setState({ preview: false })}>
                     <div className='input-group-icon'>
                         {this.props.icon}
                     </div>
