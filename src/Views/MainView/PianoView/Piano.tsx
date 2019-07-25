@@ -1,11 +1,11 @@
 import * as React from "react";
 import "../CommonView.css";
 import "./PianoView.css";
-import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
+import { TheoryEngine, Note } from "../../../TheoryCore/TheoryEngine";
 import { PianoKeyType } from "./PianoConfig";
 import { PianoKey } from "./PianoKey";
 import { DropdownSelector } from "../Selectors/DropdownSelector";
-import { NOTE_LABEL_PARAMETER } from "../../../../Parameters/DisplayParameters";
+import { NOTE_LABEL_PARAMETER } from "../../../Parameters/DisplayParameters";
 import { SwitchSelector } from "../Selectors/SwitchSelector";
 
 export interface PianoConfig {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Parameter } from "../../../../Parameters/MasterParameters";
+import { Parameter } from "../../../Parameters/MasterParameters";
 import "./Selectors.css";
 
 type SwitchSelectorProps = {

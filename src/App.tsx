@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
-import { MainView } from "./Views/MainView/MainView";
 import { HeaderView } from "./Views/HeaderView/HeaderView";
+import { ViewManager } from "./Views/MainView/ViewManager";
 
 export class App extends React.Component<any, any> {
 
@@ -14,7 +14,7 @@ export class App extends React.Component<any, any> {
 		return (
 			<>
 				<HeaderView/>
-				<MainView/>
+				<ViewManager/>
 			</>
 		);
 	};

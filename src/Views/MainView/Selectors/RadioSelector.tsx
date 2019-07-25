@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ParameterConfig } from "../../../../Parameters/MasterParameters";
+import { ParameterConfig } from "../../../Parameters/MasterParameters";
 
 type RadioSelectorProps = {
     parameter: ParameterConfig;

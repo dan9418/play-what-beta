@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./GuitarView.css";
-import "../../../../TheoryCore/TheoryStyles.css";
-import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
+import "../../../TheoryCore/TheoryStyles.css";
+import { TheoryEngine, Note } from "../../../TheoryCore/TheoryEngine";
 import { GuitarConfig } from "./Guitar";
 
 type GuitarFretProps = {

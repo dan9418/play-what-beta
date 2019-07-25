@@ -2,9 +2,24 @@ import * as React from "react";
 import "./ViewManager.css";
 import { Guitar } from "./GuitarView/Guitar";
 import { Piano } from "./PianoView/Piano";
-import { BoxSelector } from "../Toolbar/BoxSelector/BoxSelector";
-import { ParameterConfig } from "../../../Parameters/MasterParameters";
+import { BoxSelector } from "./Toolbar/BoxSelector/BoxSelector";
+import { ParameterConfig } from "../../Parameters/MasterParameters";
 import { NoteSummarySet } from "./SummaryView/NoteSummarySet";
+import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeConfig";
+import { AccidentalDefinitions } from "../../Parameters/Key/AccidentalConfig";
+import { TheoryEngine } from "../../TheoryCore/TheoryEngine";
+import { Toolbar } from "./Toolbar/Toolbar";
+
+const DEFAULT_CONCEPT_TYPE = {
+	id: 'scale',
+	name: 'Scales'
+}
+
+const DEFAULT_CONCEPT = {
+	typeId: 'scale',
+	intervals: []
+};
+
 
 export class ViewDriverSelector extends React.Component<any, any> {
 
@@ -71,7 +86,14 @@ export class ViewManager extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
-            viewDriver: ViewDriverDefinitions.data[3]
+            viewDriver: ViewDriverDefinitions.data[3],
+            key_diatonicDegree: DiatonicDegreeDefinitions[0],
+			key_accidental: AccidentalDefinitions[2],
+			concept_type: DEFAULT_CONCEPT_TYPE,
+			concept_interval: DEFAULT_CONCEPT,
+			concept_chord: DEFAULT_CONCEPT,
+			concept_scale: DEFAULT_CONCEPT,
+			concept_mode: DEFAULT_CONCEPT
         };
     }
 
@@ -80,7 +102,7 @@ export class ViewManager extends React.Component<any, any> {
     getViewDriver = () => {
         let def = this.state.viewDriver;
         let ViewDriver = this.getViewDriverClass(def.class);
-        return <ViewDriver insertViewDriver={this.insertViewDriver} removeViewDriver={this.removeViewDriver} name={def.name} {...this.props} />
+        return <ViewDriver insertViewDriver={this.insertViewDriver} removeViewDriver={this.removeViewDriver} name={def.name} notes={this.getNotes()} {...this.props} />
     }
 
     getViewDriverClass = (ViewClass) => {
@@ -142,10 +164,26 @@ export class ViewManager extends React.Component<any, any> {
         });
     }
 
+    setParameter = (property, value) => {
+		let update = {};
+		update[property] = value;
+		this.setState(update);
+	}
+
+	getNotes = () => {
+		let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
+		let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
+		return TheoryEngine.getNotesFromIntervals(key, intervals);
+	}
+
     /* Render */
 
     render = () => {
         return <div id='view-manager'>
+            <Toolbar
+                setParameter={this.setParameter}
+                {...this.state}
+                />
             {this.getViewDriver()}
         </div>;
     };

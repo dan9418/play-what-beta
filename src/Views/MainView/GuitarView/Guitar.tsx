@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../CommonView.css";
 import "./GuitarView.css";
-import { Note } from "../../../../TheoryCore/TheoryEngine";
+import { Note } from "../../../TheoryCore/TheoryEngine";
 import { GuitarString } from "./GuitarString";
 import { DropdownSelector } from "../Selectors/DropdownSelector";
 import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";

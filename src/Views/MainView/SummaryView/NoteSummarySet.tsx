@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./SummaryView.css";
-import { DiatonicDegreeDefinitions } from "../../../../Parameters/Key/DiatonicDegreeConfig";
-import { TheoryEngine, Note } from "../../../../TheoryCore/TheoryEngine";
+import { DiatonicDegreeDefinitions } from "../../../Parameters/Key/DiatonicDegreeConfig";
+import { TheoryEngine, Note } from "../../../TheoryCore/TheoryEngine";
 import { SwitchSelector } from "../Selectors/SwitchSelector";
 import { NoteSummary } from "./NoteSummary";
 

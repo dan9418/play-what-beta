@@ -3,9 +3,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    overflow-y: scroll;
-    margin-left: 50px
-}
+    overflow-y: scroll;}
 
 .view-driver {
     text-align: center;
@@ -71,3 +69,69 @@
     padding: 5px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main {
+	position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+
+/* Common UI Styles */
+
+.corner-button {
+	font-size: 15px;
+    line-height: 15px;
+    padding: 5px;
+    height: 15px;
+    width: 15px;
+    color: #EEEEEE;
+}
+
+.corner-button:hover {
+    background-color: #FF5A09;
+    cursor: pointer;
+}
+
+.left {
+	position: absolute;
+	left: 10px
+}
+
+.right {
+	position: absolute;
+	right: 50px
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
