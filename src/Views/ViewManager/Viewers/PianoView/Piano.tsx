@@ -10,10 +10,14 @@ import { SwitchSelector } from "../../Selectors/SwitchSelector";
 import { InputGroup } from "../../Selectors/InputGroup/InputGroup";
 import { InputWrapper } from "../../Selectors/InputGroup/InputWrapper";
 import { Parameter } from "../../../../Parameters/MasterParameters";
+import { RangeSelector } from "../../Selectors/RangeSelector";
 
 export interface PianoConfig {
     noteLabel: Parameter;
     filterOctave: boolean;
+    keyLow: number;
+    keyHigh: number;
+    keys: IPianoKey[];
 }
 
 interface IPianoKey {
@@ -32,17 +36,23 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
 
     constructor(props) {
         super(props);
-        this.keys = [];
-
-        for (let i = 0; i < 25; i++) {
-            let type = Piano.blackKeyIndices.includes(i % 12) ? PianoKeyType.White : PianoKeyType.Black;
-            this.keys.push({ absolutePosition: i, type: type });
-        }
 
         this.state = {
             noteLabel: {id: 'interval'} as any,
-            filterOctave: false
+            filterOctave: false,
+            keyLow: 0,
+            keyHigh: 24,
+            keys: this.getKeys(0, 24)
         }
+    }
+    
+    getKeys = (lo: number, hi: number): IPianoKey[] => {
+        let keys = [];
+        for (let i = lo; i <= hi; i++) {
+            let type = Piano.blackKeyIndices.includes(i % 12) ? PianoKeyType.White : PianoKeyType.Black;
+            keys.push({ absolutePosition: i, type: type });
+        }
+        return keys;
     }
 
     isNoteValid = (note: Note, absolutePosition: number): boolean => {
@@ -64,13 +74,39 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
     }
 
     getPianoKeys = () => {
-        return this.keys.map((key, index) => {
+        return this.getKeys(this.state.keyLow, this.state.keyHigh)
+        .map((key, index) => {
             return <PianoKey
                 key={index}
                 type={key.type}
                 note={this.getNote(index)}
                 config={this.state}
             />;
+        });
+    }
+
+    changeHighKey= (hi) => {
+        this.setState((oldState) => {
+            return {
+                keyHigh: hi
+            };
+        });
+    }
+
+    changeLowKey= (lo) => {
+        this.setState((oldState) => {
+            return {
+                keyLow: lo
+            };
+        });
+    }
+
+    changeKeyRange = (delta) => {
+        this.setState((oldState) => {
+            return {
+                keyLow: oldState.keyLow + delta,
+                keyHigh: oldState.keyHigh + delta
+            };
         });
     }
 
@@ -92,6 +128,9 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
                     </InputWrapper>
                     <InputWrapper name='Filter Octave'>
                         <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Range' vertical={true}>
+                        <RangeSelector low={this.state.keyLow} high={this.state.keyHigh} updateLow={this.changeLowKey} updateHigh={this.changeHighKey} updateBoth={this.changeKeyRange} min={-100} max={100}/>
                     </InputWrapper>
                 </InputGroup>
             </div>

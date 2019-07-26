@@ -1,10 +1,6 @@
-Viewers
-    Guitar
-        2 Voicings
-
-    Piano
-        1 Shift keys
-        1 Key range
+Guitar
+    Tuning presets
+    Voicings
 
 Header
     1 Icon links  
