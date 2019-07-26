@@ -79,7 +79,7 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
             return <PianoKey
                 key={index}
                 type={key.type}
-                note={this.getNote(index)}
+                note={this.getNote(this.state.keyLow + index)}
                 config={this.state}
             />;
         });

@@ -20,9 +20,9 @@ export class RangeSelector extends React.Component<any, any> {
                 {this.props.high > this.props.low && <div className='range-button down' onClick={() => { this.props.updateHigh(this.props.high - 1); }}>⯆</div>}
             </div>
             <div className='both'>
-                {this.props.high < this.props.max && <div className='range-button up' onClick={() => { this.props.updateBoth(1); }}>⯅</div>}
+                <div className='range-button up' onClick={() => { this.props.updateBoth(1); }}>⯅</div>
                 <div className='range-button name'>*</div>
-                {this.props.high > this.props.low && <div className='range-button down' onClick={() => { this.props.updateBoth(-1); }}>⯆</div>}
+                <div className='range-button down' onClick={() => { this.props.updateBoth(-1); }}>⯆</div>
             </div>
         </div>;
     };
