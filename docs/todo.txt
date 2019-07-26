@@ -1,21 +1,19 @@
-1 Embedded View
-
-CommonView
-    Inputs
-        2 Color strategy
-
-GuitarView
-    Inputs
-        1 Shift frets
+Viewers
+    Guitar
         2 Voicings
 
-PianoView
-    Inputs
+    Piano
         1 Shift keys
         1 Key range
 
 Header
-    1 Icon links
+    1 Icon links  
+
+Concept Options
+    1 Inversions
+    1 Roman Numerals
+    1 Direction
+    2 Cadences
 
 Misc
     2 Routing
@@ -24,3 +22,4 @@ Misc
     2 Formal backlog
     2 CircleView
     2 Extended intervals
+    2 Color strategy

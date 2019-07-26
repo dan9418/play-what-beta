@@ -127,6 +127,15 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         });
     }
 
+    changeFretRange = (delta) => {
+        this.setState((oldState) => {
+            return {
+                fretLow: oldState.fretLow + delta,
+                fretHigh: oldState.fretHigh + delta
+            };
+        });
+    }
+
     getDotsForFret = (fretNumber: number): string => {
         if (fretNumber === 0)
             return '• •';
@@ -171,7 +180,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                         <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
                     </InputWrapper>
                     <InputWrapper name='Range' vertical={true}>
-                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} min={0} max={100}/>
+                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} updateBoth={this.changeFretRange} min={0} max={100}/>
                     </InputWrapper>
                 </InputGroup>
             </div>

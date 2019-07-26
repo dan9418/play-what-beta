@@ -101,7 +101,12 @@ input:checked + .slider:before {
 
 .range-selector .high {
   position: absolute;
-  right: 0px
+  left: 20px
+}
+
+.range-selector .both {
+  position: absolute;
+  left: 40px
 }
 
 .range-button {
