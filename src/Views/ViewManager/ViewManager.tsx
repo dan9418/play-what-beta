@@ -9,6 +9,7 @@ import { ViewerDefinitions, DEFAULT_CONCEPT_TYPE, DEFAULT_CONCEPT } from "./View
 import { MASTER_PARAMETERS } from "../../Parameters/MasterParameters";
 import { DropdownSelector } from "./Selectors/DropdownSelector";
 import { InputWrapper } from "./Selectors/InputGroup/InputWrapper";
+import { NumericSelector } from "./Selectors/NumericSelector";
 
 export class ViewManager extends React.Component<any, any> {
 
@@ -23,7 +24,8 @@ export class ViewManager extends React.Component<any, any> {
             concept_interval: DEFAULT_CONCEPT,
             concept_chord: DEFAULT_CONCEPT,
             concept_scale: DEFAULT_CONCEPT,
-            concept_mode: DEFAULT_CONCEPT
+            concept_mode: DEFAULT_CONCEPT,
+            octave: 4
         };
     }
 
@@ -84,6 +86,13 @@ export class ViewManager extends React.Component<any, any> {
                 </InputGroup>
             );
         }
+        selectors.push(
+            <InputGroup name='Octave' icon='O'>
+                <InputWrapper name='Value'>
+                    <NumericSelector updateValue={(value) => this.setParameter('octave', value) } value={this.state.octave} />
+                </InputWrapper>
+            </InputGroup>
+        );
         return selectors;
     }
 
@@ -92,7 +101,7 @@ export class ViewManager extends React.Component<any, any> {
     getNotes = () => {
         let key = TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental);
         let intervals = this.state['concept_' + this.state.concept_type.id].intervals;
-        return TheoryEngine.getNotesFromIntervals(key, intervals);
+        return TheoryEngine.getNotesFromIntervals(key, intervals, this.state.octave);
     }
 
     /* Render */

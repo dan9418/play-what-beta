@@ -54,10 +54,10 @@ export interface FunctionalNote {
 
 export class TheoryEngine {
 
-    static getNotesFromIntervals = (key: Key, intervals: Interval[]) => {
+    static getNotesFromIntervals = (key: Key, intervals: Interval[], octave: number) => {
 		let notes = [];
 		for (let i = 0; i < intervals.length; i++) {
-			let note = TheoryEngine.getFunctionalNote(key, intervals[i]);
+			let note = TheoryEngine.getFunctionalNote(key, intervals[i], octave);
 			notes.push(note);
 		}
 		return notes;
@@ -147,8 +147,7 @@ export class TheoryEngine {
         }
     }
 
-    static getFunctionalNote = (key: Key, interval: Interval): Note => {
-        let octave = 4;
+    static getFunctionalNote = (key: Key, interval: Interval, octave: number): Note => {
         if (interval.id !== INTERVALS.TT.id) {
             let absoluteDegree = (key.diatonicDegree.degree - 1 + interval.degree - 1) % 7 + 1;
             let relativePosition = (key.homePosition + interval.semitones) % 12;
