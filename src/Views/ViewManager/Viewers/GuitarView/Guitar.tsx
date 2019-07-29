@@ -16,13 +16,14 @@ export interface GuitarConfig {
     guitarNoteLabel: Parameter;
     showDots: boolean;
     filterOctave: boolean;
-    strings: IGuitarString[];
+    strings: GuitarStringConfig[];
     fretLow: number;
     fretHigh: number;
 }
 
-interface IGuitarString {
+interface GuitarStringConfig {
     openPosition: number
+    voicing?: Note;
 }
 
 type GuitarProps = {
@@ -111,7 +112,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         });
     }
 
-    changeHighFret= (hi) => {
+    changeHighFret = (hi) => {
         this.setState((oldState) => {
             return {
                 fretHigh: hi
@@ -119,7 +120,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
         });
     }
 
-    changeLowFret= (lo) => {
+    changeLowFret = (lo) => {
         this.setState((oldState) => {
             return {
                 fretLow: lo
@@ -164,9 +165,19 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             </div>
             <div className='guitar-config'>
                 <InputGroup name='Strings'>
-                    <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(0)}>+</div></div>
+                    {/*<div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(0)}>+</div></div>
                     {this.getTuners()}
                     <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(this.state.strings.length)}>+</div></div>
+                    */}
+                    <InputWrapper name='String Count'>
+                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Tuning'>
+                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    </InputWrapper>
+                    <InputWrapper name='Voicing'>
+                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
+                    </InputWrapper>
                 </InputGroup>
 
                 <InputGroup name='Frets'>
@@ -180,7 +191,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                         <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
                     </InputWrapper>
                     <InputWrapper name='Range' vertical={true}>
-                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} updateBoth={this.changeFretRange} min={0} max={100}/>
+                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} updateBoth={this.changeFretRange} min={0} max={100} />
                     </InputWrapper>
                 </InputGroup>
             </div>

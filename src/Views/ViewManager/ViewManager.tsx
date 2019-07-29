@@ -5,18 +5,19 @@ import { DiatonicDegreeDefinitions } from "../../Parameters/Key/DiatonicDegreeCo
 import { AccidentalDefinitions } from "../../Parameters/Key/AccidentalConfig";
 import { TheoryEngine } from "../../TheoryCore/TheoryEngine";
 import { InputGroup } from "./Selectors/InputGroup/InputGroup";
-import { ViewerDefinitions, DEFAULT_CONCEPT_TYPE, DEFAULT_CONCEPT } from "./Viewers/CommonView";
+import { DEFAULT_CONCEPT_TYPE, DEFAULT_CONCEPT } from "./Viewers/CommonView";
 import { MASTER_PARAMETERS } from "../../Parameters/MasterParameters";
 import { DropdownSelector } from "./Selectors/DropdownSelector";
 import { InputWrapper } from "./Selectors/InputGroup/InputWrapper";
 import { NumericSelector } from "./Selectors/NumericSelector";
+import { ViewerDefinitions } from "../../Parameters/Viewers/ViewerConfig";
 
 export class ViewManager extends React.Component<any, any> {
 
     constructor(props) {
         super(props);
         this.state = {
-            viewer: ViewerDefinitions.data[3],
+            viewer_value: ViewerDefinitions[2],
             open: true,
             key_diatonicDegree: DiatonicDegreeDefinitions[0],
             key_accidental: AccidentalDefinitions[2],
@@ -39,7 +40,7 @@ export class ViewManager extends React.Component<any, any> {
 
     removeViewer = () => {
         this.setState({
-            viewer: ViewerDefinitions.data[0]
+            viewer: ViewerDefinitions[0]
         });
     }
 
@@ -107,12 +108,12 @@ export class ViewManager extends React.Component<any, any> {
     /* Render */
 
     render = () => {
-        let Viewer = this.state.viewer.class;
+        let Viewer = this.state.viewer_value.component;
 
         return (
             <div className='view-manager'>
                 <div className='view-manager-header'>
-                    <div className='view-manager-header-title'>{this.state.viewer.name}</div>
+                    <div className='view-manager-header-title'>{this.state.viewer_value.name}</div>
                     <div className='view-manager-header-corner-button' onClick={this.toggle}>{this.getSymbol()}</div>
                     <div className='view-manager-header-corner-button' onClick={this.removeViewer}>X</div>
                 </div>
