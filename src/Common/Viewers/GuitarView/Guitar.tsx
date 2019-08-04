@@ -141,34 +141,6 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                     {this.state.showDots && this.getDots()}
                 </div>
             </div>
-            {/*<div className='guitar-config'>
-                <InputGroup name='Strings'>
-                    <InputWrapper name='String Count'>
-                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Tuning'>
-                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Voicing'>
-                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                </InputGroup>
-
-                <InputGroup name='Frets'>
-                    <InputWrapper name='Label'>
-                        <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Show Dots'>
-                        <SwitchSelector parameter={{ id: 'showDots', name: 'Show Dots' }} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Filter Octave'>
-                        <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Range' vertical={true}>
-                        <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} updateBoth={this.changeFretRange} min={0} max={100} />
-                    </InputWrapper>
-                </InputGroup>
-            </div>*/}
         </>;
     };
 }

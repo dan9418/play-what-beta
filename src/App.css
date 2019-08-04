@@ -15,3 +15,11 @@ html, body {
 	background-color: #AAA;
 	overflow: auto;
 }
+
+.inputs {
+	background-color: #DDD;
+	text-align: center;
+	width: 500px;
+	padding: 10px;
+	margin: auto;
+}

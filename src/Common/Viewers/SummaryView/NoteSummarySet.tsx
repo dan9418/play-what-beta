@@ -48,18 +48,10 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
     }
 
     render = () => {
-        return <div className="summary">
-            {this.getNoteDisplays()}
-            {/*<div className='summary-config'>
-                <InputGroup name='Keys'>
-                    <InputWrapper name='Play'>
-                        <div className="speaker-icon" onClick={() => TheoryEngine.playNotes(this.props.notes)}>🔊</div>
-                    </InputWrapper>
-                    <InputWrapper name='Show Inactive'>
-                        <SwitchSelector parameter={{ id: 'showInactive', name: 'Show Inactive' }} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                </InputGroup>
-            </div>*/}
-        </div>;
+        return <>
+            <div className="summary">
+                {this.getNoteDisplays()}
+            </div>
+        </>;
     };
 }

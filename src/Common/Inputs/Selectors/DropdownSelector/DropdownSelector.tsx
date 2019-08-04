@@ -1,8 +1,9 @@
 import * as React from "react";
 
 type DropdownSelectorProps = {
-    parameter: any;
-    updateParameter: any;
+    data: any[];
+    value: any;
+    setValue: (value) => void;
 }
 
 export class DropdownSelector extends React.Component<DropdownSelectorProps> {
@@ -13,9 +14,9 @@ export class DropdownSelector extends React.Component<DropdownSelectorProps> {
 
     getOptions = () => {
         let options = [];
-        for (let i = 0; i < this.props.parameter.data.length; i++) {
-            let param = this.props.parameter.data[i];
-            options.push(<option key={param.id} value={param.id} className={'dropdown-option'}>{param.name}</option>);
+        for (let i = 0; i < this.props.data.length; i++) {
+            let datum = this.props.data[i];
+            options.push(<option key={datum.id} value={datum.id} className={'dropdown-option'}>{datum.name}</option>);
         }
         return options;
     }
@@ -24,8 +25,8 @@ export class DropdownSelector extends React.Component<DropdownSelectorProps> {
         return (
             <div className='dropdown-selector'>
                 <select
-                    defaultValue={null}
-                    onChange={(event) => { this.props.updateParameter(this.props.parameter.id, this.props.parameter.data[event.target.selectedIndex]); }}>
+                    defaultValue={this.props.value.id}
+                    onChange={(event) => { this.props.setValue(this.props.data[event.target.selectedIndex]); }}>
                     {this.getOptions()}
                 </select>
             </div>)

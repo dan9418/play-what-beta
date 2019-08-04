@@ -25,7 +25,7 @@ type PianoProps = {
 
 export class Piano extends React.Component<PianoProps, PianoConfig> {
     static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
-    
+
     constructor(props) {
         super(props);
 
@@ -107,19 +107,6 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
             <div className='piano'>
                 {this.getPianoKeys()}
             </div>
-            {/*<div className='piano-config'>
-                <InputGroup name='Keys'>
-                    <InputWrapper name='Label'>
-                        <DropdownSelector parameter={{id: 'noteLabel', name: 'Label', date: ALL_NOTE_LABELS}} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Filter Octave'>
-                        <SwitchSelector parameter={{ id: 'filterOctave', name: 'Filter Octave' }} updateParameter={this.updateParameter} />
-                    </InputWrapper>
-                    <InputWrapper name='Range' vertical={true}>
-                        <RangeSelector low={this.state.keyLow} high={this.state.keyHigh} updateLow={this.changeLowKey} updateHigh={this.changeHighKey} updateBoth={this.changeKeyRange} min={-100} max={100}/>
-                    </InputWrapper>
-                </InputGroup>
-            </div>*/}
         </>;
     }
 }
