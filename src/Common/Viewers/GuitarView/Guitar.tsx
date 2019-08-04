@@ -1,15 +1,8 @@
 import * as React from "react";
-import "../CommonView.css";
 import "./GuitarView.css";
 import { GuitarString } from "./GuitarString";
-import { GUITAR_NOTE_LABEL_PARAMETER } from "./GuitarConfig";
 import { Tuner } from "./Tuner";
 import { Note } from "../../Theory/TheoryDefinitions";
-import { InputGroup } from "../../Inputs/InputGroup/InputGroup";
-import { InputWrapper } from "../../Inputs/InputWrapper/InputWrapper";
-import { DropdownSelector } from "../../Inputs/Selectors/DropdownSelector/DropdownSelector";
-import { SwitchSelector } from "../../Inputs/Selectors/SwitchSelector/SwitchSelector";
-import { RangeSelector } from "../../Inputs/Selectors/RangeSelector/RangeSelector";
 
 export interface GuitarConfig {
     guitarNoteLabel: any;
@@ -27,28 +20,14 @@ interface GuitarStringConfig {
 
 type GuitarProps = {
     notes: Note[];
-    config: any
+    config: GuitarConfig
 };
 
 export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
 
     constructor(props) {
         super(props);
-        this.state = {
-            guitarNoteLabel: { id: 'interval' } as any,
-            showDots: false,
-            filterOctave: false,
-            fretLow: 0,
-            fretHigh: 12,
-            strings: [
-                { openPosition: 16 },   // e
-                { openPosition: 11 },   // B
-                { openPosition: 7 },    // G
-                { openPosition: 2 },    // D
-                { openPosition: -3 },   // A
-                { openPosition: -8 }    // E   
-            ]
-        }
+        this.state = this.props.config;
     }
 
     getGuitarStrings = () => {
@@ -162,12 +141,8 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                     {this.state.showDots && this.getDots()}
                 </div>
             </div>
-            <div className='guitar-config'>
+            {/*<div className='guitar-config'>
                 <InputGroup name='Strings'>
-                    {/*<div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(0)}>+</div></div>
-                    {this.getTuners()}
-                    <div className='string-controls'><div className='string-button insert' onClick={() => this.insertString(this.state.strings.length)}>+</div></div>
-                    */}
                     <InputWrapper name='String Count'>
                         <DropdownSelector parameter={GUITAR_NOTE_LABEL_PARAMETER} updateParameter={this.updateParameter} />
                     </InputWrapper>
@@ -193,7 +168,7 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
                         <RangeSelector low={this.state.fretLow} high={this.state.fretHigh} updateLow={this.changeLowFret} updateHigh={this.changeHighFret} updateBoth={this.changeFretRange} min={0} max={100} />
                     </InputWrapper>
                 </InputGroup>
-            </div>
+            </div>*/}
         </>;
     };
 }

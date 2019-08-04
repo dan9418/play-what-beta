@@ -3,12 +3,10 @@ import "./SummaryView.css";
 import { ALL_DEGREES, Note } from "../../Theory/TheoryDefinitions";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { NoteSummary } from "./NoteSummary";
-import { InputGroup } from "../../Inputs/InputGroup/InputGroup";
-import { InputWrapper } from "../../Inputs/InputWrapper/InputWrapper";
-import { SwitchSelector } from "../../Inputs/Selectors/SwitchSelector/SwitchSelector";
 
 type NoteSummaryProps = {
     notes: Note[];
+    config: NoteSummaryConfig
 }
 
 type NoteSummaryConfig = {
@@ -19,9 +17,7 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
 
     constructor(props) {
         super(props);
-        this.state = {
-            showInactive: false
-        }
+        this.state = this.props.config;
     }
 
     getNoteDisplays() {
@@ -54,7 +50,7 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
     render = () => {
         return <div className="summary">
             {this.getNoteDisplays()}
-            <div className='summary-config'>
+            {/*<div className='summary-config'>
                 <InputGroup name='Keys'>
                     <InputWrapper name='Play'>
                         <div className="speaker-icon" onClick={() => TheoryEngine.playNotes(this.props.notes)}>🔊</div>
@@ -63,7 +59,7 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
                         <SwitchSelector parameter={{ id: 'showInactive', name: 'Show Inactive' }} updateParameter={this.updateParameter} />
                     </InputWrapper>
                 </InputGroup>
-            </div>
+            </div>*/}
         </div>;
     };
 }

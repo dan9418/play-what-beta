@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./PianoView.css";
-import "../../../../TheoryCore/TheoryStyles.css";
+import "../../Theory/TheoryStyles.css";
 import { PianoKeyType } from "./PianoConfig";
 import { PianoConfig } from "./Piano";
 import { Note } from "../../Theory/TheoryDefinitions";

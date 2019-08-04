@@ -97,39 +97,6 @@ eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loa
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputGroup/InputGroup.css":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputGroup/InputGroup.css ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.input-group {\\r\\n    background-color: #DDD;\\r\\n    margin: 10px;\\r\\n    padding: 5px;\\r\\n    border-radius: 10px;\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n/* header */\\r\\n\\r\\n.input-group-header {\\r\\n    font-size: 16px;\\r\\n}\\r\\n\\r\\n.input-group-header-icon {\\r\\n    float: left;\\r\\n}\\r\\n\\r\\n.input-group-header-name {\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n/* content */\\r\\n\\r\\n.input-group-content {\\r\\n    font-size: 12px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputGroup/InputGroup.css?./node_modules/css-loader/dist/cjs.js");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputWrapper/InputWrapper.css":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputWrapper/InputWrapper.css ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"/* Input Wrapper */\\r\\n\\r\\n.input-wrapper {\\r\\n    margin: 2px;\\r\\n}\\r\\n\\r\\n.input-wrapper.x .input-wrapper-name {\\r\\n    display: inline-block;\\r\\n    width: 100px;\\r\\n    text-align: right;\\r\\n    height: 30px;\\r\\n    line-height: 30px;\\r\\n}\\r\\n\\r\\n.input-wrapper.x .input-wrapper-child {\\r\\n    display: inline-block;\\r\\n    width: 100px;\\r\\n    height: 30px;\\r\\n    line-height: 30px;\\r\\n}\\r\\n\\r\\n.input-wrapper.y .input-wrapper-name {\\r\\n    display: block;\\r\\n    text-align: center;\\r\\n    height: 30px;\\r\\n    line-height: 30px;\\r\\n}\\r\\n\\r\\n.input-wrapper.y .input-wrapper-child {\\r\\n    display: block;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputWrapper/InputWrapper.css?./node_modules/css-loader/dist/cjs.js");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css":
-/*!*************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".switch-selector {\\r\\n    margin: 2px;\\r\\n    text-align: left;\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n.switch-selector-label {\\r\\n    font-size: 14px;\\r\\n    line-height: 25px;\\r\\n    margin-right: 4px;\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n/* The switch - the box around the slider */\\r\\n.switch {\\r\\n  position: relative;\\r\\n  display: inline-block;\\r\\n  width: 50px;\\r\\n  height: 25px;\\r\\n}\\r\\n\\r\\n/* Hide default HTML checkbox */\\r\\n.switch input {\\r\\n  opacity: 0;\\r\\n  width: 0;\\r\\n  height: 0;\\r\\n}\\r\\n\\r\\n/* The slider */\\r\\n.slider {\\r\\n  position: absolute;\\r\\n  cursor: pointer;\\r\\n  top: 0;\\r\\n  left: 0;\\r\\n  right: 0;\\r\\n  bottom: 0;\\r\\n  background-color: #ccc;\\r\\n  -webkit-transition: .4s;\\r\\n  transition: .4s;\\r\\n}\\r\\n\\r\\n.slider:before {\\r\\n  position: absolute;\\r\\n  content: \\\"\\\";\\r\\n  height: 21px;\\r\\n  width: 21px;\\r\\n  left: 2px;\\r\\n  bottom: 2px;\\r\\n  background-color: white;\\r\\n  -webkit-transition: .4s;\\r\\n  transition: .4s;\\r\\n}\\r\\n\\r\\ninput:checked + .slider {\\r\\n  background-color: #2196F3;\\r\\n}\\r\\n\\r\\ninput:focus + .slider {\\r\\n  box-shadow: 0 0 1px #2196F3;\\r\\n}\\r\\n\\r\\ninput:checked + .slider:before {\\r\\n  -webkit-transform: translateX(26px);\\r\\n  -ms-transform: translateX(26px);\\r\\n  transform: translateX(26px);\\r\\n}\\r\\n\\r\\n/* Rounded sliders */\\r\\n.slider.round {\\r\\n  border-radius: 100px;\\r\\n}\\r\\n\\r\\n.slider.round:before {\\r\\n  border-radius: 50%;\\r\\n}\\r\\n\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css?./node_modules/css-loader/dist/cjs.js");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Theory/TheoryStyles.css":
 /*!**********************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Theory/TheoryStyles.css ***!
@@ -138,6 +105,28 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../../../node_mod
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n/* Degrees */\\r\\n\\r\\n.degree-0 {\\r\\n\\tbackground-color: white;\\r\\n\\tcolor: grey;\\r\\n}\\r\\n\\r\\n.degree-1 {\\r\\n\\tbackground-color: red;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-2 {\\r\\n\\tbackground-color: orange;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-3 {\\r\\n\\tbackground-color: yellow;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-4 {\\r\\n\\tbackground-color: green;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-5 {\\r\\n\\tbackground-color: blue;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-6 {\\r\\n\\tbackground-color: indigo;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-7 {\\r\\n\\tbackground-color: purple;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.degree-9 {\\r\\n\\tbackground-color: lightsalmon;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-11 {\\r\\n\\tbackground-color: lightgreen;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n.degree-13 {\\r\\n\\tbackground-color: lightsteelblue;\\r\\n\\tcolor: black;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Theory/TheoryStyles.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/GuitarView/GuitarView.css":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/GuitarView/GuitarView.css ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"/* Guitar */\\r\\n\\r\\n.guitar {\\r\\n\\tmargin: 20px;\\r\\n    font-size: 12px;\\r\\n    display: inline-block;\\r\\n    border-top: 1px solid saddlebrown;\\r\\n\\tborder-bottom: 1px solid saddlebrown;\\r\\n\\tbox-shadow: 2px 2px 5px #888888;\\r\\n\\tposition: relative;\\r\\n}\\r\\n\\r\\n/* GuitarString */\\r\\n\\r\\n.guitar-string {\\r\\n\\twidth: 100%;\\r\\n\\theight: 20px;\\r\\n\\tposition: relative;\\r\\n}\\r\\n\\r\\n/* GuitarFret */\\r\\n\\r\\n.guitar-fret {\\r\\n\\tdisplay: inline-block;\\r\\n\\tposition: relative;\\r\\n\\theight: 20px;\\r\\n\\twidth: 30px;\\r\\n\\tborder-right: 2px solid darkgrey;\\r\\n}\\r\\n\\r\\n.guitar-fret:hover {\\r\\n\\tcursor: pointer;\\r\\n\\tbackground-color: grey !important;\\r\\n}\\r\\n\\r\\n.guitar-fret-open {\\r\\n\\tborder-right: 3px solid grey;\\r\\n}\\r\\n\\r\\n.guitar-fret-label {\\r\\n\\tdisplay: inline-block;\\r\\n    z-index: 10;\\r\\n    position: absolute;\\r\\n    left: 1px;\\r\\n    top: 1px;\\r\\n    height: 18px;\\r\\n    line-height: 18px;\\r\\n\\twidth: 28px;\\r\\n\\tborder-radius: 5px;\\r\\n}\\r\\n\\r\\n.guitar-fret-label:hover {\\r\\n\\tbackground-color: grey !important;\\r\\n}\\r\\n\\r\\n.guitar-fret-string {\\r\\n\\tposition: absolute;\\r\\n    top: 10px;\\r\\n    left: 0px;\\r\\n    height: 1px;\\r\\n    background-color: grey;\\r\\n    width: 100%;\\r\\n}\\r\\n\\r\\n.dots-container {\\r\\n\\tposition: absolute;\\r\\n    display: inline-block;\\r\\n    bottom: -16px;\\r\\n    left: 0px;\\r\\n    height: 16px;\\r\\n}\\r\\n\\r\\n.guitar-fret-dots {\\r\\n    width: 30px;\\r\\n\\tcolor: grey;\\r\\n\\tdisplay: inline-block;\\r\\n\\tmargin: 1px;\\r\\n\\tfont-size: 16px;\\r\\n}\\r\\n\\r\\n/* Colors */\\r\\n\\r\\n.wood {\\r\\n\\tbackground-color: burlywood;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n/* String Controls */\\r\\n\\r\\n.string-controls {\\r\\n\\tdisplay: inline-block;\\r\\n\\theight: 80px;\\r\\n\\twidth: 20px;\\r\\n\\tposition: relative;\\r\\n}\\r\\n\\r\\n.string-button {\\r\\n\\theight: 20px;\\r\\n\\twidth: 20px;\\r\\n\\tline-height: 20px;\\r\\n\\tfont-size: 18px;\\r\\n\\tvisibility: hidden;\\r\\n\\tposition: absolute;\\r\\n\\tbackground-color: #DDD;\\r\\n\\tcolor: black;\\r\\n\\tz-index: 20;\\r\\n\\r\\n\\t-webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n.string-button:hover {\\r\\n\\tcolor: #FF5A09;\\r\\n\\tcursor: pointer;\\r\\n}\\r\\n\\r\\n.string-button.name {\\r\\n\\tcolor: black;\\r\\n\\tcursor: auto;\\r\\n\\tvisibility: visible;\\r\\n\\tfont-weight: normal;\\r\\n\\ttop: 20px;\\r\\n    font-size: 12px;\\r\\n}\\r\\n\\r\\n.string-button.insert {\\r\\n\\ttop: 20px;\\r\\n}\\r\\n\\r\\n.string-button.tune-up {\\r\\n\\ttop: 0px;\\r\\n}\\r\\n\\r\\n.string-button.tune-down {\\r\\n\\ttop: 40px;\\r\\n}\\r\\n\\r\\n.string-button.remove {\\r\\n\\ttop: 60px;\\r\\n}\\r\\n\\r\\n.string-controls:hover .string-button {\\r\\n\\tvisibility: visible;\\r\\n}\\r\\n\\r\\n.input-group:hover .string-button.insert {\\r\\n\\tvisibility: visible;\\r\\n}\\r\\n\\r\\n.tuner-string {\\r\\n\\tposition: absolute;\\r\\n\\tleft: 0px;\\r\\n\\theight: 100%;\\r\\n\\twidth: 9px;\\r\\n\\tborder-right: 1px solid grey;\\r\\n\\tz-index: 10;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/GuitarView.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/PianoView/PianoView.css":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/PianoView/PianoView.css ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"/* Piano */\\r\\n\\r\\n.piano {\\r\\n\\tmargin: 20px;\\r\\n    display: inline-block;\\r\\n    font-size: 12px;\\r\\n    box-shadow: 2px 2px 5px #888888;\\r\\n}\\r\\n\\r\\n/* PianoKey */\\r\\n\\r\\n/* Container */\\r\\n\\r\\n.piano-key-container {\\r\\n\\tdisplay: inline-block;\\r\\n\\theight: 100px;\\r\\n}\\r\\n\\r\\n.piano-key-container-black {\\r\\n\\twidth: 0px;\\r\\n}\\r\\n\\r\\n/* Key */\\r\\n\\r\\n.piano-key {\\r\\n\\tdisplay: inline-block;\\r\\n\\tvertical-align: top;\\r\\n\\tbox-shadow:inset 0px 0px 0px 1px black;\\r\\n\\tposition: relative;\\r\\n}\\r\\n\\r\\n.piano-key:hover {\\r\\n\\tcursor: pointer;\\r\\n\\tbackground-color: darkgray !important;\\r\\n}\\r\\n\\r\\n.piano-key-container-white .piano-key {\\r\\n\\theight: 100px;\\r\\n\\twidth: 25px;\\r\\n}\\r\\n\\r\\n.piano-key-container-black .piano-key {\\r\\n\\theight: 70px;\\r\\n\\twidth: 12px;\\r\\n\\tposition: relative;\\r\\n\\tleft: -6px;\\r\\n\\tz-index: 10;\\r\\n}\\r\\n\\r\\n/* Label */\\r\\n\\r\\n.piano-key-label {\\r\\n\\tposition: absolute;\\r\\n\\twidth: 25px;\\r\\n\\theight: 25px;\\r\\n    line-height: 25px;\\r\\n}\\r\\n\\r\\n.piano-key-container-white .piano-key-label {\\r\\n\\tbottom: 2px;\\r\\n\\tleft: 0px;\\r\\n}\\r\\n\\r\\n.piano-key-container-black .piano-key-label {\\r\\n\\ttop: -25px;\\r\\n\\tleft: -6px;\\r\\n\\tcolor: black;\\r\\n}\\r\\n\\r\\n/* Colors */\\r\\n\\r\\n.black {\\r\\n\\tbackground-color: black;\\r\\n\\tcolor: white;\\r\\n}\\r\\n\\r\\n.white {\\r\\n\\tbackground-color: white;\\r\\n\\tcolor: black;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/PianoView/PianoView.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -363,75 +352,6 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 
 /***/ }),
 
-/***/ "./src/Common/Inputs/InputGroup/InputGroup.css":
-/*!*****************************************************!*\
-  !*** ./src/Common/Inputs/InputGroup/InputGroup.css ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./InputGroup.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputGroup/InputGroup.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputGroup/InputGroup.css?");
-
-/***/ }),
-
-/***/ "./src/Common/Inputs/InputGroup/InputGroup.tsx":
-/*!*****************************************************!*\
-  !*** ./src/Common/Inputs/InputGroup/InputGroup.tsx ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./InputGroup.css */ \"./src/Common/Inputs/InputGroup/InputGroup.css\");\r\nclass InputGroup extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'input-group' },\r\n                React.createElement(\"div\", { className: 'input-group-header' },\r\n                    React.createElement(\"div\", { className: 'input-group-header-icon' }),\r\n                    React.createElement(\"div\", { className: 'input-group-header-name' }, this.props.name)),\r\n                React.createElement(\"div\", { className: 'input-group-content' }, this.props.children)));\r\n        };\r\n    }\r\n}\r\nexports.InputGroup = InputGroup;\r\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputGroup/InputGroup.tsx?");
-
-/***/ }),
-
-/***/ "./src/Common/Inputs/InputWrapper/InputWrapper.css":
-/*!*********************************************************!*\
-  !*** ./src/Common/Inputs/InputWrapper/InputWrapper.css ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./InputWrapper.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/InputWrapper/InputWrapper.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputWrapper/InputWrapper.css?");
-
-/***/ }),
-
-/***/ "./src/Common/Inputs/InputWrapper/InputWrapper.tsx":
-/*!*********************************************************!*\
-  !*** ./src/Common/Inputs/InputWrapper/InputWrapper.tsx ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./InputWrapper.css */ \"./src/Common/Inputs/InputWrapper/InputWrapper.css\");\r\nclass InputWrapper extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            let classes = ['input-wrapper', this.props.vertical ? 'y' : 'x'];\r\n            return (React.createElement(\"div\", { className: classes.join(' ') },\r\n                React.createElement(\"div\", { className: 'input-wrapper-name' }, this.props.name),\r\n                React.createElement(\"div\", { className: 'input-wrapper-child' }, this.props.children)));\r\n        };\r\n    }\r\n}\r\nexports.InputWrapper = InputWrapper;\r\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/InputWrapper/InputWrapper.tsx?");
-
-/***/ }),
-
-/***/ "./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css":
-/*!***********************************************************************!*\
-  !*** ./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\nvar content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!./SwitchSelector.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css?");
-
-/***/ }),
-
-/***/ "./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.tsx":
-/*!***********************************************************************!*\
-  !*** ./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.tsx ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./SwitchSelector.css */ \"./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.css\");\r\nclass SwitchSelector extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.toggle = () => {\r\n            this.setState((oldState) => {\r\n                this.props.updateParameter(this.props.parameter.id, !oldState.active);\r\n                return {\r\n                    active: !oldState.active\r\n                };\r\n            });\r\n        };\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'switch-selector' },\r\n                React.createElement(\"label\", { className: 'switch' },\r\n                    React.createElement(\"input\", { type: 'checkbox' }),\r\n                    React.createElement(\"span\", { className: 'slider round', onClick: this.toggle }))));\r\n        };\r\n        this.state = {\r\n            active: false\r\n        };\r\n    }\r\n}\r\nexports.SwitchSelector = SwitchSelector;\r\n\n\n//# sourceURL=webpack:///./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.tsx?");
-
-/***/ }),
-
 /***/ "./src/Common/Theory/TheoryDefinitions.ts":
 /*!************************************************!*\
   !*** ./src/Common/Theory/TheoryDefinitions.ts ***!
@@ -479,6 +399,112 @@ eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/
 
 /***/ }),
 
+/***/ "./src/Common/Viewers/GuitarView/Guitar.tsx":
+/*!**************************************************!*\
+  !*** ./src/Common/Viewers/GuitarView/Guitar.tsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./GuitarView.css */ \"./src/Common/Viewers/GuitarView/GuitarView.css\");\r\nconst GuitarString_1 = __webpack_require__(/*! ./GuitarString */ \"./src/Common/Viewers/GuitarView/GuitarString.tsx\");\r\nconst Tuner_1 = __webpack_require__(/*! ./Tuner */ \"./src/Common/Viewers/GuitarView/Tuner.tsx\");\r\nclass Guitar extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getGuitarStrings = () => {\r\n            return this.state.strings.map((string, index) => {\r\n                return React.createElement(GuitarString_1.GuitarString, { key: index, stringNumber: index + 1, notes: this.props.notes, openPosition: string.openPosition, config: this.state });\r\n            });\r\n        };\r\n        this.updateParameter = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.tuneString = (stringNumber, openPosition) => {\r\n            this.setState((oldState) => {\r\n                let newStrings = [];\r\n                for (let i = 0; i < oldState.strings.length; i++) {\r\n                    let newString = ((i + 1) === stringNumber) ? { openPosition: openPosition } : oldState.strings[i];\r\n                    newStrings.push(newString);\r\n                }\r\n                return {\r\n                    strings: newStrings\r\n                };\r\n            });\r\n        };\r\n        this.getTuners = () => {\r\n            let tuners = [];\r\n            for (let i = 0; i < this.state.strings.length; i++) {\r\n                tuners.push(React.createElement(Tuner_1.Tuner, { key: i, openPosition: this.state.strings[i].openPosition, tuneString: (position) => { this.tuneString(i + 1, position); }, removeString: () => { this.removeString(i); } }));\r\n            }\r\n            return tuners;\r\n        };\r\n        this.insertString = (index) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    strings: [...oldState.strings.slice(0, index), { openPosition: 0 }, ...oldState.strings.slice(index)]\r\n                };\r\n            });\r\n        };\r\n        this.removeString = (index) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    strings: [...oldState.strings.slice(0, index), ...oldState.strings.slice(index + 1)]\r\n                };\r\n            });\r\n        };\r\n        this.changeHighFret = (hi) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    fretHigh: hi\r\n                };\r\n            });\r\n        };\r\n        this.changeLowFret = (lo) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    fretLow: lo\r\n                };\r\n            });\r\n        };\r\n        this.changeFretRange = (delta) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    fretLow: oldState.fretLow + delta,\r\n                    fretHigh: oldState.fretHigh + delta\r\n                };\r\n            });\r\n        };\r\n        this.getDotsForFret = (fretNumber) => {\r\n            if (fretNumber === 0)\r\n                return '• •';\r\n            else if ([3, 5, 7, 9].includes(fretNumber))\r\n                return '•';\r\n            return '';\r\n        };\r\n        this.getDots = () => {\r\n            let dots = [];\r\n            for (let i = this.state.fretLow; i <= this.state.fretHigh; i++) {\r\n                dots.push(React.createElement(\"div\", { className: 'guitar-fret-dots', key: i }, this.getDotsForFret(i % 12)));\r\n            }\r\n            return dots;\r\n        };\r\n        this.render = () => {\r\n            return React.createElement(React.Fragment, null,\r\n                React.createElement(\"div\", { className: 'guitar' },\r\n                    this.getGuitarStrings(),\r\n                    React.createElement(\"div\", { className: 'dots-container' }, this.state.showDots && this.getDots())));\r\n        };\r\n        this.state = this.props.config;\r\n    }\r\n}\r\nexports.Guitar = Guitar;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/Guitar.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/GuitarView/GuitarFret.tsx":
+/*!******************************************************!*\
+  !*** ./src/Common/Viewers/GuitarView/GuitarFret.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./GuitarView.css */ \"./src/Common/Viewers/GuitarView/GuitarView.css\");\r\n__webpack_require__(/*! ../../Theory/TheoryStyles.css */ \"./src/Common/Theory/TheoryStyles.css\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nclass GuitarFret extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getLabel = () => {\r\n            let note = this.props.note;\r\n            switch (this.props.config.guitarNoteLabel.id) {\r\n                case 'none':\r\n                    return '';\r\n                case 'name':\r\n                    return note.name;\r\n                case 'interval':\r\n                    return note.interval.id;\r\n                case 'pitchClass':\r\n                    return note.pitchClass;\r\n                case 'absolutePosition':\r\n                    return note.absolutePosition;\r\n                case 'degree':\r\n                    return note.interval.degree;\r\n                case 'degree':\r\n                    return note.degree.value;\r\n                case 'octave':\r\n                    return note.octave;\r\n                case 'frequency':\r\n                    return note.frequency;\r\n                case 'fretNumber':\r\n                    return this.props.fretNumber;\r\n                default:\r\n                    return '';\r\n            }\r\n        };\r\n        this.render = () => {\r\n            let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : '';\r\n            let classes = ['guitar-fret', 'wood'];\r\n            let labelClasses = [colorClass, 'guitar-fret-label'];\r\n            if (this.props.fretNumber === 0)\r\n                classes.push('guitar-fret-open');\r\n            return React.createElement(\"div\", { className: classes.join(' '), onClick: () => { TheoryEngine_1.TheoryEngine.playNotes([this.props.note]); } },\r\n                React.createElement(\"div\", { className: labelClasses.join(' ') }, this.getLabel()));\r\n        };\r\n    }\r\n}\r\nexports.GuitarFret = GuitarFret;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/GuitarFret.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/GuitarView/GuitarString.tsx":
+/*!********************************************************!*\
+  !*** ./src/Common/Viewers/GuitarView/GuitarString.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./GuitarView.css */ \"./src/Common/Viewers/GuitarView/GuitarView.css\");\r\nconst GuitarFret_1 = __webpack_require__(/*! ./GuitarFret */ \"./src/Common/Viewers/GuitarView/GuitarFret.tsx\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nclass GuitarString extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.isNoteValid = (note, absolutePosition) => {\r\n            if (this.props.config.filterOctave) {\r\n                return note.absolutePosition === absolutePosition;\r\n            }\r\n            else {\r\n                return (absolutePosition >= 0) ?\r\n                    note.pitchClass === (absolutePosition % 12) :\r\n                    note.pitchClass === (absolutePosition % 12 + 12);\r\n            }\r\n        };\r\n        this.getNote = (absolutePosition) => {\r\n            let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition); }) || null;\r\n            if (note === null)\r\n                note = TheoryEngine_1.TheoryEngine.getNonfunctionalNote(absolutePosition);\r\n            return note;\r\n        };\r\n        this.getFrets = () => {\r\n            let frets = [];\r\n            for (let i = this.props.config.fretLow; i <= this.props.config.fretHigh; i++) {\r\n                frets.push(React.createElement(GuitarFret_1.GuitarFret, { key: i, fretNumber: i, stringNumber: this.props.stringNumber, note: this.getNote(this.props.openPosition + i), config: this.props.config }));\r\n            }\r\n            return frets;\r\n        };\r\n        this.render = () => {\r\n            return React.createElement(\"div\", { className: 'guitar-string' },\r\n                this.getFrets(),\r\n                React.createElement(\"div\", { className: 'guitar-fret-string' }));\r\n        };\r\n    }\r\n}\r\nexports.GuitarString = GuitarString;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/GuitarString.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/GuitarView/GuitarView.css":
+/*!******************************************************!*\
+  !*** ./src/Common/Viewers/GuitarView/GuitarView.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./GuitarView.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/GuitarView/GuitarView.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/GuitarView.css?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/GuitarView/Tuner.tsx":
+/*!*************************************************!*\
+  !*** ./src/Common/Viewers/GuitarView/Tuner.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./GuitarView.css */ \"./src/Common/Viewers/GuitarView/GuitarView.css\");\r\nclass Tuner extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            return React.createElement(\"div\", { className: 'string-controls' },\r\n                React.createElement(\"div\", { className: 'string-button tune-up', onClick: () => { this.props.tuneString(this.props.openPosition + 1); } }, \"\\u2BC5\"),\r\n                React.createElement(\"div\", { className: 'string-button name' }, this.props.openPosition),\r\n                React.createElement(\"div\", { className: 'string-button tune-down', onClick: () => { this.props.tuneString(this.props.openPosition - 1); } }, \"\\u2BC6\"),\r\n                React.createElement(\"div\", { className: 'string-button remove', onClick: this.props.removeString }, \"\\uD83D\\uDDD1\"),\r\n                React.createElement(\"div\", { className: 'tuner-string' }));\r\n        };\r\n    }\r\n}\r\nexports.Tuner = Tuner;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/GuitarView/Tuner.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/PianoView/Piano.tsx":
+/*!************************************************!*\
+  !*** ./src/Common/Viewers/PianoView/Piano.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./PianoView.css */ \"./src/Common/Viewers/PianoView/PianoView.css\");\r\nconst PianoConfig_1 = __webpack_require__(/*! ./PianoConfig */ \"./src/Common/Viewers/PianoView/PianoConfig.ts\");\r\nconst PianoKey_1 = __webpack_require__(/*! ./PianoKey */ \"./src/Common/Viewers/PianoView/PianoKey.tsx\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nclass Piano extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getKeys = (lo, hi) => {\r\n            let keys = [];\r\n            for (let i = lo; i <= hi; i++) {\r\n                let type = Piano.blackKeyIndices.includes(i % 12) ? PianoConfig_1.PianoKeyType.White : PianoConfig_1.PianoKeyType.Black;\r\n                keys.push({ absolutePosition: i, type: type });\r\n            }\r\n            return keys;\r\n        };\r\n        this.isNoteValid = (note, absolutePosition) => {\r\n            if (this.state.filterOctave) {\r\n                return note.absolutePosition === absolutePosition;\r\n            }\r\n            else {\r\n                return (absolutePosition >= 0) ?\r\n                    note.pitchClass === (absolutePosition % 12) :\r\n                    note.pitchClass === (absolutePosition % 12 + 12);\r\n            }\r\n        };\r\n        this.getNote = (absolutePosition) => {\r\n            let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition); }) || null;\r\n            if (note === null)\r\n                note = TheoryEngine_1.TheoryEngine.getNonfunctionalNote(absolutePosition);\r\n            return note;\r\n        };\r\n        this.getPianoKeys = () => {\r\n            return this.getKeys(this.state.keyLow, this.state.keyHigh)\r\n                .map((key, index) => {\r\n                return React.createElement(PianoKey_1.PianoKey, { key: index, type: key.type, note: this.getNote(this.state.keyLow + index), config: this.state });\r\n            });\r\n        };\r\n        this.changeHighKey = (hi) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    keyHigh: hi\r\n                };\r\n            });\r\n        };\r\n        this.changeLowKey = (lo) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    keyLow: lo\r\n                };\r\n            });\r\n        };\r\n        this.changeKeyRange = (delta) => {\r\n            this.setState((oldState) => {\r\n                return {\r\n                    keyLow: oldState.keyLow + delta,\r\n                    keyHigh: oldState.keyHigh + delta\r\n                };\r\n            });\r\n        };\r\n        this.updateParameter = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.render = () => {\r\n            return React.createElement(React.Fragment, null,\r\n                React.createElement(\"div\", { className: 'piano' }, this.getPianoKeys()));\r\n        };\r\n        this.state = this.props.config;\r\n    }\r\n}\r\nPiano.blackKeyIndices = [0, 2, 4, 5, 7, 9, 11];\r\nexports.Piano = Piano;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/PianoView/Piano.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/PianoView/PianoConfig.ts":
+/*!*****************************************************!*\
+  !*** ./src/Common/Viewers/PianoView/PianoConfig.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar PianoKeyType;\r\n(function (PianoKeyType) {\r\n    PianoKeyType[PianoKeyType[\"Black\"] = 0] = \"Black\";\r\n    PianoKeyType[PianoKeyType[\"White\"] = 1] = \"White\";\r\n})(PianoKeyType = exports.PianoKeyType || (exports.PianoKeyType = {}));\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/PianoView/PianoConfig.ts?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/PianoView/PianoKey.tsx":
+/*!***************************************************!*\
+  !*** ./src/Common/Viewers/PianoView/PianoKey.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./PianoView.css */ \"./src/Common/Viewers/PianoView/PianoView.css\");\r\n__webpack_require__(/*! ../../Theory/TheoryStyles.css */ \"./src/Common/Theory/TheoryStyles.css\");\r\nconst PianoConfig_1 = __webpack_require__(/*! ./PianoConfig */ \"./src/Common/Viewers/PianoView/PianoConfig.ts\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nclass PianoKey extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getLabel = () => {\r\n            let note = this.props.note;\r\n            switch (this.props.config.noteLabel.id) {\r\n                case 'none':\r\n                    return '';\r\n                case 'name':\r\n                    return note.name;\r\n                case 'interval':\r\n                    return note.interval.id;\r\n                case 'pitchClass':\r\n                    return note.pitchClass;\r\n                case 'absolutePosition':\r\n                    return note.absolutePosition;\r\n                case 'degree':\r\n                    return note.interval.degree;\r\n                case 'degree':\r\n                    return note.degree.value;\r\n                case 'octave':\r\n                    return note.octave;\r\n                case 'frequency':\r\n                    return note.frequency;\r\n                default:\r\n                    return '';\r\n            }\r\n        };\r\n        this.render = () => {\r\n            let keyColor = (this.props.type === PianoConfig_1.PianoKeyType.White) ? 'white' : 'black';\r\n            let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : keyColor;\r\n            let classes = ['piano-key', colorClass];\r\n            return React.createElement(\"div\", { className: `piano-key-container piano-key-container-${keyColor}` },\r\n                React.createElement(\"div\", { className: classes.join(' '), onClick: () => { TheoryEngine_1.TheoryEngine.playNotes([this.props.note]); } },\r\n                    React.createElement(\"div\", { className: \"piano-key-label\" }, this.getLabel())));\r\n        };\r\n    }\r\n}\r\nexports.PianoKey = PianoKey;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/PianoView/PianoKey.tsx?");
+
+/***/ }),
+
+/***/ "./src/Common/Viewers/PianoView/PianoView.css":
+/*!****************************************************!*\
+  !*** ./src/Common/Viewers/PianoView/PianoView.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./PianoView.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Common/Viewers/PianoView/PianoView.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/Common/Viewers/PianoView/PianoView.css?");
+
+/***/ }),
+
 /***/ "./src/Common/Viewers/SummaryView/NoteSummary.tsx":
 /*!********************************************************!*\
   !*** ./src/Common/Viewers/SummaryView/NoteSummary.tsx ***!
@@ -499,7 +525,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./SummaryView.css */ \"./src/Common/Viewers/SummaryView/SummaryView.css\");\r\nconst TheoryDefinitions_1 = __webpack_require__(/*! ../../Theory/TheoryDefinitions */ \"./src/Common/Theory/TheoryDefinitions.ts\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nconst NoteSummary_1 = __webpack_require__(/*! ./NoteSummary */ \"./src/Common/Viewers/SummaryView/NoteSummary.tsx\");\r\nconst InputGroup_1 = __webpack_require__(/*! ../../Inputs/InputGroup/InputGroup */ \"./src/Common/Inputs/InputGroup/InputGroup.tsx\");\r\nconst InputWrapper_1 = __webpack_require__(/*! ../../Inputs/InputWrapper/InputWrapper */ \"./src/Common/Inputs/InputWrapper/InputWrapper.tsx\");\r\nconst SwitchSelector_1 = __webpack_require__(/*! ../../Inputs/Selectors/SwitchSelector/SwitchSelector */ \"./src/Common/Inputs/Selectors/SwitchSelector/SwitchSelector.tsx\");\r\nclass NoteSummarySet extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.updateParameter = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.render = () => {\r\n            return React.createElement(\"div\", { className: \"summary\" },\r\n                this.getNoteDisplays(),\r\n                React.createElement(\"div\", { className: 'summary-config' },\r\n                    React.createElement(InputGroup_1.InputGroup, { name: 'Keys' },\r\n                        React.createElement(InputWrapper_1.InputWrapper, { name: 'Play' },\r\n                            React.createElement(\"div\", { className: \"speaker-icon\", onClick: () => TheoryEngine_1.TheoryEngine.playNotes(this.props.notes) }, \"\\uD83D\\uDD0A\")),\r\n                        React.createElement(InputWrapper_1.InputWrapper, { name: 'Show Inactive' },\r\n                            React.createElement(SwitchSelector_1.SwitchSelector, { parameter: { id: 'showInactive', name: 'Show Inactive' }, updateParameter: this.updateParameter })))));\r\n        };\r\n        this.state = {\r\n            showInactive: false\r\n        };\r\n    }\r\n    getNoteDisplays() {\r\n        let noteDisplays = [];\r\n        let startingPosition = (this.props.notes.length) ? TheoryDefinitions_1.ALL_DEGREES[this.props.notes[0].key.degree.value - 1].index : 0;\r\n        for (let absolutePosition = startingPosition; absolutePosition < startingPosition + 12; absolutePosition++) {\r\n            // Find or create note\r\n            let note = this.props.notes.find((n) => { return n.pitchClass === (absolutePosition % 12); }) || null;\r\n            if (note === null && this.state.showInactive)\r\n                note = TheoryEngine_1.TheoryEngine.getNonfunctionalNote(absolutePosition);\r\n            // Add note\r\n            if (note !== null)\r\n                noteDisplays.push(React.createElement(NoteSummary_1.NoteSummary, Object.assign({ key: `note-display-${absolutePosition}`, note: note }, this.props)));\r\n        }\r\n        return noteDisplays;\r\n    }\r\n}\r\nexports.NoteSummarySet = NoteSummarySet;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/SummaryView/NoteSummarySet.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./SummaryView.css */ \"./src/Common/Viewers/SummaryView/SummaryView.css\");\r\nconst TheoryDefinitions_1 = __webpack_require__(/*! ../../Theory/TheoryDefinitions */ \"./src/Common/Theory/TheoryDefinitions.ts\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../../Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nconst NoteSummary_1 = __webpack_require__(/*! ./NoteSummary */ \"./src/Common/Viewers/SummaryView/NoteSummary.tsx\");\r\nclass NoteSummarySet extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.updateParameter = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.render = () => {\r\n            return React.createElement(\"div\", { className: \"summary\" }, this.getNoteDisplays());\r\n        };\r\n        this.state = this.props.config;\r\n    }\r\n    getNoteDisplays() {\r\n        let noteDisplays = [];\r\n        let startingPosition = (this.props.notes.length) ? TheoryDefinitions_1.ALL_DEGREES[this.props.notes[0].key.degree.value - 1].index : 0;\r\n        for (let absolutePosition = startingPosition; absolutePosition < startingPosition + 12; absolutePosition++) {\r\n            // Find or create note\r\n            let note = this.props.notes.find((n) => { return n.pitchClass === (absolutePosition % 12); }) || null;\r\n            if (note === null && this.state.showInactive)\r\n                note = TheoryEngine_1.TheoryEngine.getNonfunctionalNote(absolutePosition);\r\n            // Add note\r\n            if (note !== null)\r\n                noteDisplays.push(React.createElement(NoteSummary_1.NoteSummary, Object.assign({ key: `note-display-${absolutePosition}`, note: note }, this.props)));\r\n        }\r\n        return noteDisplays;\r\n    }\r\n}\r\nexports.NoteSummarySet = NoteSummarySet;\r\n\n\n//# sourceURL=webpack:///./src/Common/Viewers/SummaryView/NoteSummarySet.tsx?");
 
 /***/ }),
 
@@ -533,7 +559,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./MasterViewer.css */ \"./src/MasterViewer/MasterViewer.css\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../Common/Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nconst NoteSummarySet_1 = __webpack_require__(/*! ../Common/Viewers/SummaryView/NoteSummarySet */ \"./src/Common/Viewers/SummaryView/NoteSummarySet.tsx\");\r\nclass MasterViewer extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        /* Processing */\r\n        this.getNotes = () => {\r\n            return TheoryEngine_1.TheoryEngine.getNotesFromIntervals(this.props.keyDef, this.props.intervals, this.props.octave);\r\n        };\r\n        /* Render */\r\n        this.render = () => {\r\n            let notes = this.getNotes();\r\n            return (React.createElement(\"div\", { className: 'master-viewer' },\r\n                notes.map((note) => { return note.name + ' '; }),\r\n                React.createElement(NoteSummarySet_1.NoteSummarySet, { notes: notes })));\r\n        };\r\n        this.state = {};\r\n    }\r\n}\r\nexports.MasterViewer = MasterViewer;\r\n\n\n//# sourceURL=webpack:///./src/MasterViewer/MasterViewer.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./MasterViewer.css */ \"./src/MasterViewer/MasterViewer.css\");\r\nconst TheoryEngine_1 = __webpack_require__(/*! ../Common/Theory/TheoryEngine */ \"./src/Common/Theory/TheoryEngine.ts\");\r\nconst NoteSummarySet_1 = __webpack_require__(/*! ../Common/Viewers/SummaryView/NoteSummarySet */ \"./src/Common/Viewers/SummaryView/NoteSummarySet.tsx\");\r\nconst Guitar_1 = __webpack_require__(/*! ../Common/Viewers/GuitarView/Guitar */ \"./src/Common/Viewers/GuitarView/Guitar.tsx\");\r\nconst Piano_1 = __webpack_require__(/*! ../Common/Viewers/PianoView/Piano */ \"./src/Common/Viewers/PianoView/Piano.tsx\");\r\nclass MasterViewer extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        /* Processing */\r\n        this.getNotes = () => {\r\n            return TheoryEngine_1.TheoryEngine.getNotesFromIntervals(this.props.keyDef, this.props.intervals, this.props.octave);\r\n        };\r\n        /* Render */\r\n        this.render = () => {\r\n            let notes = this.getNotes();\r\n            return (React.createElement(\"div\", { className: 'master-viewer' },\r\n                React.createElement(NoteSummarySet_1.NoteSummarySet, { notes: notes, config: {\r\n                        showInactive: true\r\n                    } }),\r\n                React.createElement(Guitar_1.Guitar, { notes: notes, config: {\r\n                        guitarNoteLabel: { id: 'interval' },\r\n                        showDots: false,\r\n                        filterOctave: false,\r\n                        fretLow: 0,\r\n                        fretHigh: 12,\r\n                        strings: [\r\n                            { openPosition: 16 },\r\n                            { openPosition: 11 },\r\n                            { openPosition: 7 },\r\n                            { openPosition: 2 },\r\n                            { openPosition: -3 },\r\n                            { openPosition: -8 } // E   \r\n                        ]\r\n                    } }),\r\n                React.createElement(Piano_1.Piano, { notes: notes, config: {\r\n                        noteLabel: { id: 'interval' },\r\n                        filterOctave: false,\r\n                        keyLow: 0,\r\n                        keyHigh: 24\r\n                    } })));\r\n        };\r\n        this.state = {};\r\n    }\r\n}\r\nexports.MasterViewer = MasterViewer;\r\n\n\n//# sourceURL=webpack:///./src/MasterViewer/MasterViewer.tsx?");
 
 /***/ }),
 

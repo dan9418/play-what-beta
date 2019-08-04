@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./Selectors.css";
+import "./RangeSelector.css";
 
 export class RangeSelector extends React.Component<any, any> {
 
