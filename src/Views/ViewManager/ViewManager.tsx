@@ -120,7 +120,7 @@ export class ViewManager extends React.Component<any, any> {
                 </div>
                 <div className='view-manager-toolbar'>
                     {this.getParameterSelectors()}
-                    <IntervalSelector degree={this.state.key_diatonicDegree.degree} offset={this.state.key_accidental.offset}/>
+                    <IntervalSelector keyDef={TheoryEngine.getKey(this.state.key_diatonicDegree, this.state.key_accidental)}/>
                 </div>
                 <div className="view-manager-viewer">
                     <div className='view-manager-viewer-container'>
