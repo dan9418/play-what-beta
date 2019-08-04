@@ -1,0 +1,21 @@
+
+
+.numeric-selector {
+	display: block;
+}
+
+.numeric-selector .up, .numeric-selector .down, .numeric-selector .value{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+
+  -webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+
+.numeric-selector .up:hover, .numeric-selector .down:hover{
+  font-weight: bold;
+}

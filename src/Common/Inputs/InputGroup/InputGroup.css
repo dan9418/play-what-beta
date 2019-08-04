@@ -1,0 +1,28 @@
+
+.input-group {
+    background-color: #DDD;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* header */
+
+.input-group-header {
+    font-size: 16px;
+}
+
+.input-group-header-icon {
+    float: left;
+}
+
+.input-group-header-name {
+    display: inline-block;
+}
+
+/* content */
+
+.input-group-content {
+    font-size: 12px;
+}

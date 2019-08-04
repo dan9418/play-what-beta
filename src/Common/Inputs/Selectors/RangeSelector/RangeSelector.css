@@ -1,0 +1,65 @@
+
+.range-selector {
+	display: inline-block;
+	height: 60px;
+	width: 40px;
+	position: relative;
+}
+
+.range-selector .low {
+  position: absolute;
+  left: 0px
+}
+
+.range-selector .high {
+  position: absolute;
+  left: 20px
+}
+
+.range-selector .both {
+  position: absolute;
+  left: 40px
+}
+
+.range-button {
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	font-size: 18px;
+	visibility: hidden;
+	position: absolute;
+	background-color: #DDD;
+	color: black;
+	z-index: 20;
+
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+.range-button:hover {
+	color: #FF5A09;
+	cursor: pointer;
+}
+
+.range-button.name {
+	color: black;
+	cursor: auto;
+	visibility: visible;
+	font-weight: normal;
+	top: 20px;
+  font-size: 12px;
+}
+
+.range-button.up {
+	top: 0px;
+}
+
+.range-button.down {
+	top: 40px;
+}
+
+.range-selector:hover .range-button {
+	visibility: visible;
+}
