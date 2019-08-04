@@ -11,6 +11,7 @@ import { DropdownSelector } from "./Selectors/DropdownSelector";
 import { InputWrapper } from "./Selectors/InputGroup/InputWrapper";
 import { NumericSelector } from "./Selectors/NumericSelector";
 import { ViewerDefinitions } from "../../Parameters/Viewers/ViewerConfig";
+import { IntervalSelector } from "./Selectors/IntervalSelector";
 
 export class ViewManager extends React.Component<any, any> {
 
@@ -119,6 +120,7 @@ export class ViewManager extends React.Component<any, any> {
                 </div>
                 <div className='view-manager-toolbar'>
                     {this.getParameterSelectors()}
+                    <IntervalSelector degree={this.state.key_diatonicDegree.degree} offset={this.state.key_accidental.offset}/>
                 </div>
                 <div className="view-manager-viewer">
                     <div className='view-manager-viewer-container'>

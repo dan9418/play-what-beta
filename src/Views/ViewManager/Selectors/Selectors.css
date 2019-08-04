@@ -174,3 +174,13 @@ input:checked + .slider:before {
 .numeric-selector .up:hover, .numeric-selector .down:hover{
   font-weight: bold;
 }
+
+/* Interval Selector */
+
+.interval-selector table {
+  margin: auto;
+}
+
+.interval-selector td {
+  
+}
