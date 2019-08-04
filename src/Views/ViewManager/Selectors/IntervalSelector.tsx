@@ -29,7 +29,8 @@ export class IntervalSelector extends React.Component<IntervalSelectorProps> {
 
             for (let semitones = 0; semitones < degreeIntervals.length; semitones++) {
                 let interval = degreeIntervals[semitones];
-                cells.push(<td key={degree + '-' + semitones} className={'degree-' + (degree + 1)}>{interval}</td>);
+                let className = (interval !== null) ? 'degree-' + (degree + 1) : 'inactive';
+                cells.push(<td key={degree + '-' + semitones} className={className}>{interval}</td>);
             }
             rows.push(<tr key={degree} >{...cells}</tr>)
         }
