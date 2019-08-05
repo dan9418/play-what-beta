@@ -10,7 +10,7 @@ export class TheoryEngine2 {
     static getFunctionalNote = (key: Key, interval: any, octave: number): Note => {
             let spellingDegree = TheoryEngine2.moduloAddition(key.degree.value, interval.degree, 7, 1);
 
-            let pitchClass = TheoryEngine2.moduloAddition(ALL_DEGREES[key.degree.value - 1].index, interval.semitones, 12);
+            let pitchClass = TheoryEngine2.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12);
             let absolutePosition = (octave - 4) * 12 + pitchClass;
 
             let accidentalOffset = pitchClass - ALL_DEGREES[spellingDegree - 1].index;

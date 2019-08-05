@@ -22,7 +22,7 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
 
     getNoteDisplays() {
         let noteDisplays = [];
-        let startingPosition = (this.props.notes.length) ? ALL_DEGREES[this.props.notes[0].key.degree.value - 1].index : 0;
+        let startingPosition = (this.props.notes.length) ? ALL_DEGREES[this.props.notes[0].key.degree.value - 1].index + this.props.notes[0].key.accidental.offset : 0;
         for (let absolutePosition = startingPosition; absolutePosition < startingPosition + 12; absolutePosition++) {
             // Find or create note
             let note = this.props.notes.find((n) => { return n.pitchClass === (absolutePosition % 12) }) || null;
