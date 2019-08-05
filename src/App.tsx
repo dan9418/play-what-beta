@@ -5,6 +5,7 @@ import { MasterViewer } from "./MasterViewer/MasterViewer";
 import { ACCIDENTAL, DEGREE, INTERVAL, ALL_DEGREES, ALL_ACCIDENTALS } from "./Common/Theory/TheoryDefinitions";
 import { DropdownSelector } from "./Common/Inputs/Selectors/DropdownSelector/DropdownSelector";
 import { NumericSelector } from "./Common/Inputs/Selectors/NumericSelector/NumericSelector";
+import { IntervalSelector } from "./Common/Inputs/Selectors/IntervalSelector/IntervalSelector";
 
 export class App extends React.Component<any, any> {
 
@@ -37,6 +38,7 @@ export class App extends React.Component<any, any> {
                     Degree <DropdownSelector data={ALL_DEGREES} value={this.state.degree} setValue={(value) => { this.setValue('degree', value); }} />
 					Accidental <DropdownSelector data={ALL_ACCIDENTALS} value={this.state.accidental} setValue={(value) => { this.setValue('accidental', value); }} />
 					Octave <NumericSelector value={this.state.octave} setValue={(value) => { this.setValue('octave', value); }} />
+					Intervals <IntervalSelector keyDef={keyDef} value={this.state.intervals} setValue={(value) => { this.setValue('intervals', value); }} />
 				</div>
 				<MasterViewer
 					keyDef={keyDef}

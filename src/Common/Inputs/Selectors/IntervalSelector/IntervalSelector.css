@@ -1,14 +1,22 @@
 .interval-selector table {
-    margin: auto;
-  }
+  margin: auto;
+}
   
-  .interval-selector td {
-    font-size: 16px;
-    height: 30px;
-    width: 30px;
-  }
-  
-  .interval-selector td.inactive {
-    background-color: #DDD;
-    cursor: normal;
-  }
+.interval-selector td {
+  font-size: 16px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.interval-selector td.inactive {
+  background-color: #EEE;
+  cursor: normal;
+}
+
+.interval-selector td.selected {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  font-weight: bold;
+}

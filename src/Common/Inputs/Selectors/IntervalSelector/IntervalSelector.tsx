@@ -1,9 +1,13 @@
 import * as React from "react";
-import { Key } from "../../../Theory/TheoryDefinitions";
+import './IntervalSelector.css';
+import { Key, Interval } from "../../../Theory/TheoryDefinitions";
 import { TheoryEngine2 } from "../../../Theory/TheoryEngine2";
+import { setMaxListeners } from "cluster";
 
 type IntervalSelectorProps = {
     keyDef: Key;
+    value: Interval[];
+    setValue: (value: Interval[]) => void;
 }
 
 let INTERVAL_TABLE = [
@@ -22,6 +26,26 @@ export class IntervalSelector extends React.Component<IntervalSelectorProps> {
         super(props);
     }
 
+    isIntervalSelected = (degree: number, semitones: number): boolean => {
+       let interval = this.props.value.find((interval) => { return interval.degree === degree && interval.semitones === semitones; } );
+       return typeof(interval) !== 'undefined';
+    }
+
+    toggleInterval = (degree: number, semitones: number, name: string) => {
+        for(let i = 0; i < this.props.value.length; i++) {
+            let interval = this.props.value[i];
+            if(interval.degree === degree && interval.semitones === semitones) {
+                this.props.setValue([...this.props.value.slice(0, i), ...this.props.value.slice(i + 1)]);
+                return;
+            }
+            else if (interval.degree > degree && interval.semitones > semitones) {
+                this.props.setValue([...this.props.value.slice(0, i), { id: name, name: name, degree: degree, semitones: semitones }, ...this.props.value.slice(i)]);
+                return;
+            }
+        }
+        this.props.setValue([...this.props.value, { id: name, name: name, degree: degree, semitones: semitones }]);
+    }
+
     getTableCells = () => {
         let rows = [];
         for (let degree = 1; degree <= INTERVAL_TABLE.length; degree++) {
@@ -30,9 +54,16 @@ export class IntervalSelector extends React.Component<IntervalSelectorProps> {
 
             for (let semitones = 0; semitones < degreeIntervals.length; semitones++) {
                 let interval = degreeIntervals[semitones];
-                let className = (interval !== null) ? 'degree-' + degree : 'inactive';
+                let classes = [];
+                if(this.isIntervalSelected(degree, semitones)) {
+                    classes.push('selected');
+                }
+                else {
+                    classes.push((interval !== null) ? 'degree-' + degree : 'inactive');
+                }
+               
                 cells.push(
-                    <td key={degree + '-' + semitones} className={className}>
+                    <td key={degree + '-' + semitones} className={classes.join(' ')} onClick={() => this.toggleInterval(degree, semitones, interval)}>
                         {TheoryEngine2.getFunctionalNote(this.props.keyDef, { degree: degree, semitones: semitones, id: interval, name: interval }, 4).name}
                     </td>);
             }
