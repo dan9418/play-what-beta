@@ -4,6 +4,7 @@ import "./App.css";
 import { MasterViewer } from "./MasterViewer/MasterViewer";
 import { ACCIDENTAL, DEGREE, INTERVAL, ALL_DEGREES, ALL_ACCIDENTALS } from "./Common/Theory/TheoryDefinitions";
 import { DropdownSelector } from "./Common/Inputs/Selectors/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "./Common/Inputs/Selectors/NumericSelector/NumericSelector";
 
 export class App extends React.Component<any, any> {
 
@@ -13,6 +14,7 @@ export class App extends React.Component<any, any> {
 		this.state = {
 			degree: DEGREE.C,
 			accidental: ACCIDENTAL.natural,
+			octave: 4,
 			intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5]
 		}
 	}
@@ -34,7 +36,8 @@ export class App extends React.Component<any, any> {
 				<div className='inputs'>
                     Degree <DropdownSelector data={ALL_DEGREES} value={this.state.degree} setValue={(value) => { this.setValue('degree', value); }} />
 					Accidental <DropdownSelector data={ALL_ACCIDENTALS} value={this.state.accidental} setValue={(value) => { this.setValue('accidental', value); }} />
-                </div>
+					Octave <NumericSelector value={this.state.octave} setValue={(value) => { this.setValue('octave', value); }} />
+				</div>
 				<MasterViewer
 					keyDef={keyDef}
 					intervals={this.state.intervals}

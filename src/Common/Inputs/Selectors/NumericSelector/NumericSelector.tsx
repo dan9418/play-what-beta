@@ -1,7 +1,12 @@
 import * as React from "react";
-import "./Selectors.css";
+import "./NumericSelector.css";
 
-export class NumericSelector extends React.Component<any, any> {
+type NumericSelectorProps = {
+    value: number;
+    setValue: (value: number) => void;
+}
+
+export class NumericSelector extends React.Component<NumericSelectorProps, any> {
 
     constructor(props) {
         super(props);
@@ -10,9 +15,9 @@ export class NumericSelector extends React.Component<any, any> {
     render = () => {
         return (
             <div className='numeric-selector'>
-                <div className='numeric-selector down' onClick={() => { this.props.updateValue(this.props.value - 1); }}>-</div>
+                <div className='numeric-selector down' onClick={() => { this.props.setValue(this.props.value - 1); }}>-</div>
                 <div className='numeric-selector value'>{this.props.value}</div>
-                <div className='numeric-selector up' onClick={() => { this.props.updateValue(this.props.value + 1); }}>+</div>
+                <div className='numeric-selector up' onClick={() => { this.props.setValue(this.props.value + 1); }}>+</div>
             </div>
         );
     };
