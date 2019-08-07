@@ -2,10 +2,18 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
 import { MasterViewer } from "./MasterViewer/MasterViewer";
-import { ACCIDENTAL, DEGREE, INTERVAL, ALL_DEGREES, ALL_ACCIDENTALS } from "./Common/Theory/TheoryDefinitions";
+import { ACCIDENTAL, DEGREE, ConceptType, Concept, ALL_CONCEPTS, Accidental, Degree } from "./Common/Theory/TheoryDefinitions";
 import { InputPanel } from "./InputPanel/InputPanel";
 
-export class App extends React.Component<any, any> {
+type AppState = {
+	degree: Degree,
+	accidental: Accidental,
+    octave: number,
+    conceptType: ConceptType,
+    concept: Concept,
+}
+
+export class App extends React.Component<any, AppState> {
 
 	constructor(props) {
 		super(props);
@@ -14,7 +22,8 @@ export class App extends React.Component<any, any> {
 			degree: DEGREE.C,
 			accidental: ACCIDENTAL.natural,
 			octave: 4,
-			intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5]
+			conceptType: ALL_CONCEPTS[0],
+			concept: ALL_CONCEPTS[0].presets[0]
 		}
 	}
 
@@ -34,13 +43,14 @@ export class App extends React.Component<any, any> {
 			<>
 				<InputPanel
 					keyDef={keyDef}
-					intervals={this.state.intervals}
 					octave={this.state.octave}
+					conceptType={this.state.conceptType}
+					concept={this.state.concept}
 					setValue={this.setValue}
 				/>
 				<MasterViewer
 					keyDef={keyDef}
-					intervals={this.state.intervals}
+					intervals={this.state.concept.intervals}
 					octave={this.state.octave}
 				/>
 			</>

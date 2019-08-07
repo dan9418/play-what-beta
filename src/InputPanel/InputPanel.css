@@ -18,9 +18,13 @@
     padding: 5px;
 }
 
-.input-panel-header-cell {
+.input-panel .cell {
     display: inline-block;
-    width: 30%;
+    width: 20%;
+}
+
+.input-panel .cell select {
+    width: 90%;
 }
 
 /* Content */
@@ -28,9 +32,4 @@
 .input-panel-content-row {
     background-color: #DDD;
     padding: 5px;
-}
-
-.input-panel-content-row-cell {
-    display: inline-block;
-    width: 30%;
 }
