@@ -28,8 +28,6 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
 
     constructor(props) {
         super(props);
-
-        this.state = this.props.config;
     }
 
     getKeys = (lo: number, hi: number): IPianoKey[] => {
@@ -42,7 +40,7 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
     }
 
     isNoteValid = (note: Note, absolutePosition: number): boolean => {
-        if (this.state.filterOctave) {
+        if (this.props.config.filterOctave) {
             return note.absolutePosition === absolutePosition;
         }
         else {
@@ -60,47 +58,47 @@ export class Piano extends React.Component<PianoProps, PianoConfig> {
     }
 
     getPianoKeys = () => {
-        return this.getKeys(this.state.keyLow, this.state.keyHigh)
+        return this.getKeys(this.props.config.keyLow, this.props.config.keyHigh)
             .map((key, index) => {
                 return <PianoKey
                     key={index}
                     type={key.type}
-                    note={this.getNote(this.state.keyLow + index)}
-                    config={this.state}
+                    note={this.getNote(this.props.config.keyLow + index)}
+                    config={this.props.config}
                 />;
             });
     }
 
-    changeHighKey = (hi) => {
+    /*changeHighKey = (hi) => {
         this.setState((oldState) => {
             return {
                 keyHigh: hi
             };
         });
-    }
+    }*/
 
-    changeLowKey = (lo) => {
+    /*changeLowKey = (lo) => {
         this.setState((oldState) => {
             return {
                 keyLow: lo
             };
         });
-    }
+    }*/
 
-    changeKeyRange = (delta) => {
+    /*changeKeyRange = (delta) => {
         this.setState((oldState) => {
             return {
                 keyLow: oldState.keyLow + delta,
                 keyHigh: oldState.keyHigh + delta
             };
         });
-    }
+    }*/
 
-    updateParameter = (property, value) => {
+    /*updateParameter = (property, value) => {
         let update = {};
         update[property] = value;
         this.setState(update);
-    }
+    }*/
 
     render = () => {
         return <>

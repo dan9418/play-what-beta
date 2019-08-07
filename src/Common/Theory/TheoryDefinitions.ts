@@ -1,4 +1,7 @@
 import { PRESET_CHORDS, PRESET_INTERVALS, PRESET_SCALES, PRESET_MODES, INTERVAL } from "./TheoryPresets";
+import { NoteSummarySet } from "../Viewers/SummaryView/NoteSummarySet";
+import { Piano } from "../Viewers/PianoView/Piano";
+import { Guitar } from "../Viewers/GuitarView/Guitar";
 
 export interface Degree {
     id: string;
@@ -245,6 +248,115 @@ export const ALL_CONCEPTS: ConceptType[] = [
         name: 'Roman Numerals',
         presets: null
     }*/
+];
+
+
+export interface Viewer {
+    id: string;
+    name: string;
+    config: any;
+    [key: string]: any;
+}
+
+export interface ViewerType {
+    id: string;
+    name: string;
+    component: any;
+    presets: Viewer[];
+}
+
+export const ALL_VIEWERS: ViewerType[] = [
+    {
+        id: 'summary',
+        name: 'Summary',
+        component: NoteSummarySet,
+        presets: [
+            {
+                id: 'default',
+                name: 'Default',
+                config: {
+                    showInactive: true
+                }
+            },
+            {
+                id: 'activeOnly',
+                name: 'Active Only',
+                config: {
+                    showInactive: false
+                }
+            }
+        ]
+    },
+    {
+        id: 'piano',
+        name: 'Piano',
+        component: Piano,
+        presets: [
+            {
+                id: 'default',
+                name: 'Default',
+                config: {
+                    noteLabel: { id: 'interval' } as any,
+                    filterOctave: false,
+                    keyLow: 0,
+                    keyHigh: 24
+                }
+            },
+            {
+                id: 'singleOctave',
+                name: 'Single Octave',
+                config: {
+                    noteLabel: { id: 'interval' } as any,
+                    filterOctave: false,
+                    keyLow: 0,
+                    keyHigh: 11
+                }
+            }
+        ]
+    },
+    {
+        id: 'neck',
+        name: 'Neck',
+        component: Guitar,
+        presets: [
+            {
+                id: 'guitar',
+                name: 'Guitar',
+                config: {
+                    guitarNoteLabel: { id: 'interval' } as any,
+                    showDots: false,
+                    filterOctave: false,
+                    fretLow: 0,
+                    fretHigh: 12,
+                    strings: [
+                        { openPosition: 16 },   // e
+                        { openPosition: 11 },   // B
+                        { openPosition: 7 },    // G
+                        { openPosition: 2 },    // D
+                        { openPosition: -3 },   // A
+                        { openPosition: -8 }    // E   
+                    ]
+                }
+            },
+            {
+                id: 'bass',
+                name: 'Bass',
+                config: {
+                    guitarNoteLabel: { id: 'name' } as any,
+                    showDots: false,
+                    filterOctave: false,
+                    fretLow: 0,
+                    fretHigh: 12,
+                    strings: [
+                        { openPosition: 7 },    // G
+                        { openPosition: 2 },    // D
+                        { openPosition: -3 },   // A
+                        { openPosition: -8 }    // E   
+                    ]
+                }
+            }
+        ]
+    }
 ];
 
 export interface Note {

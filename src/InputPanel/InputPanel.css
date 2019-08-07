@@ -20,7 +20,7 @@
 
 .input-panel .cell {
     display: inline-block;
-    width: 20%;
+    width: 25%;
 }
 
 .input-panel .cell select {
@@ -43,4 +43,11 @@
 .input-panel-content-row.add:hover {
     background-color: #CCC;
     color: #555;
+}
+
+/* Concept */
+
+.input-panel-content-row {
+    background-color: #DDD;
+    padding: 5px;
 }

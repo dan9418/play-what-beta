@@ -12,24 +12,6 @@ export const DEFAULT_CONCEPT = {
     intervals: []
 };
 
-export let ALL_VIEWERS = [
-    {
-        id: 'summary',
-        name: 'Summmary',
-        component: NoteSummary,
-    },
-    {
-        id: 'piano',
-        name: 'Piano',
-        component: Piano,
-    },
-    {
-        id: 'guitar',
-        name: 'Guitar',
-        component: Guitar,
-    }
-];
-
 export let ALL_NOTE_LABELS = [
 	{
 		id: 'none',

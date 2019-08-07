@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
-import { MasterViewer } from "./MasterViewer/MasterViewer";
-import { ACCIDENTAL, DEGREE, ConceptType, Concept, ALL_CONCEPTS, Accidental, Degree } from "./Common/Theory/TheoryDefinitions";
+import { ACCIDENTAL, DEGREE, ConceptType, Concept, ALL_CONCEPTS, Accidental, Degree, ViewerType, ALL_VIEWERS, Viewer } from "./Common/Theory/TheoryDefinitions";
 import { InputPanel } from "./InputPanel/InputPanel";
+import { TheoryEngine } from "./Common/Theory/TheoryEngine";
 
 export type ViewerProps = {
+	viewerType: ViewerType,
+	viewer: Viewer;
 	degree: Degree,
 	accidental: Accidental,
 	octave: number,
@@ -25,6 +27,8 @@ export class App extends React.Component<any, AppState> {
 		this.state = {
 			viewers: [
 				{
+					viewerType: ALL_VIEWERS[2],
+					viewer: ALL_VIEWERS[2].presets[0],
 					degree: DEGREE.C,
 					accidental: ACCIDENTAL.natural,
 					octave: 4,
@@ -40,11 +44,20 @@ export class App extends React.Component<any, AppState> {
 		update[property] = value;
 		this.setState(update);*/
 		this.setState((oldState) => {
-			let oldViewer = {...oldState.viewers[index]};
+			let oldViewer = { ...oldState.viewers[index] };
 			oldViewer[property] = value;
-			return {
-				viewers: [...oldState.viewers.slice(0, index), oldViewer, ...oldState.viewers.slice(index + 1)]
-			};
+			if (property !== 'viewerType') {
+				return {
+					viewers: [...oldState.viewers.slice(0, index), oldViewer, ...oldState.viewers.slice(index + 1)]
+				};
+			}
+			// temp ineffecient workaround
+			else {
+				oldViewer['viewer'] = ALL_VIEWERS.find((viewer) => { return viewer.id === value.id }).presets[0];
+				return {
+					viewers: [...oldState.viewers.slice(0, index), oldViewer, ...oldState.viewers.slice(index + 1)]
+				};
+			}
 		})
 	}
 
@@ -63,15 +76,20 @@ export class App extends React.Component<any, AppState> {
 		}
 	}
 
+	getNotes = (index: number) => {
+		let key = this.getKey(index);
+		return TheoryEngine.getNotesFromIntervals(key, this.state.viewers[index].concept.intervals, this.state.viewers[index].octave);
+	}
+
 	getViewers = () => {
 		let viewers = []
 		for (let i = 0; i < this.state.viewers.length; i++) {
+			let Viewer = this.state.viewers[i].viewerType.component;
 			viewers.push(
-				<MasterViewer
+				<Viewer
 					key={i}
-					keyDef={this.getKey(i)}
-					intervals={this.state.viewers[i].concept.intervals}
-					octave={this.state.viewers[i].octave}
+					notes={this.getNotes(i)}
+					config={this.state.viewers[i].viewer.config}
 				/>);
 		}
 		return viewers;
@@ -85,7 +103,9 @@ export class App extends React.Component<any, AppState> {
 					setValue={this.setValue}
 					add={this.add}
 				/>
-				{this.getViewers()}
+				<div className='viewer-panel'>
+					{this.getViewers()}
+				</div>
 			</>
 		);
 	};

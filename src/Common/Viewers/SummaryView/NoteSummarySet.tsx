@@ -17,7 +17,6 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
 
     constructor(props) {
         super(props);
-        this.state = this.props.config;
     }
 
     getNoteDisplays() {
@@ -26,7 +25,7 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
         for (let absolutePosition = startingPosition; absolutePosition < startingPosition + 12; absolutePosition++) {
             // Find or create note
             let note = this.props.notes.find((n) => { return n.pitchClass === (absolutePosition % 12) }) || null;
-            if (note === null && this.state.showInactive)
+            if (note === null && this.props.config.showInactive)
                 note = TheoryEngine.getNonfunctionalNote(absolutePosition);
             // Add note
             if (note !== null)
@@ -41,15 +40,15 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
         return noteDisplays;
     }
 
-    updateParameter = (property, value) => {
+    /*updateParameter = (property, value) => {
         let update = {};
         update[property] = value;
         this.setState(update);
-    }
+    }*/
 
     render = () => {
         return <>
-            <div className="summary">
+            <div className='summary'>
                 {this.getNoteDisplays()}
             </div>
         </>;

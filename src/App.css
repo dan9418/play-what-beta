@@ -23,3 +23,14 @@ html, body {
 	padding: 10px;
 	margin: auto;
 }
+
+.viewer-panel {
+	background-color: #EEEEEE;
+	text-align: center;
+	width: 500px;
+	padding: 10px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 2px 2px 5px #888;
+}
