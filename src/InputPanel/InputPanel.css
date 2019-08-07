@@ -3,6 +3,7 @@
     width: 500px;
     padding: 10px;
     text-align: center;
+    font-size: 16px;
     display: block;
     margin: auto;
     margin-top: 10px;
@@ -13,6 +14,8 @@
 
 .input-panel-header {
     font-weight: bold;
+    background-color: #CCC;
+    padding: 5px;
 }
 
 .input-panel-header-cell {
@@ -21,6 +24,11 @@
 }
 
 /* Content */
+
+.input-panel-content-row {
+    background-color: #DDD;
+    padding: 5px;
+}
 
 .input-panel-content-row-cell {
     display: inline-block;
