@@ -12,6 +12,47 @@ Scale Categories
     Diatonic
     Pentatonic
     Chromatic
+
+Static Concepts
+    Intervals
+    Chords
+    Scales
+    Modes
+    RomanNumerals
+
+Multi Concepts
+    Cadences
+    ChordProgressions
+
+Top Inputs
+    Key
+        Degree
+        Accidental
+    Octave
+    Concept
+        Presets
+        Custom
+        
+Bottom Inputs
+    Viewer
+        Default
+            Label
+            ShowInactive
+        Guitar
+            FilterOctave
+            FretLabel
+            FretLow
+            FretHigh
+            ShowDots
+        Piano
+            FilterOctave
+            KeyLabel
+            KeyLow
+            KeyHigh
+            Strings
+                Number (Inherent)
+                Tuning
+                Voicings
     
 
 

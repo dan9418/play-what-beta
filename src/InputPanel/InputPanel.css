@@ -1,0 +1,28 @@
+.input-panel {
+    background-color: #EEEEEE;
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px #888;
+}
+
+/* Header */
+
+.input-panel-header {
+    font-weight: bold;
+}
+
+.input-panel-header-cell {
+    display: inline-block;
+    width: 30%;
+}
+
+/* Content */
+
+.input-panel-content-row-cell {
+    display: inline-block;
+    width: 30%;
+}

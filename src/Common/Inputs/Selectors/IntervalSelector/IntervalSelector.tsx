@@ -2,7 +2,6 @@ import * as React from "react";
 import './IntervalSelector.css';
 import { Key, Interval } from "../../../Theory/TheoryDefinitions";
 import { TheoryEngine2 } from "../../../Theory/TheoryEngine2";
-import { setMaxListeners } from "cluster";
 
 type IntervalSelectorProps = {
     keyDef: Key;
