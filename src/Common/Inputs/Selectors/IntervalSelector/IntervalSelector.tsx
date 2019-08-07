@@ -1,7 +1,8 @@
 import * as React from "react";
 import './IntervalSelector.css';
-import { Key, Interval } from "../../../Theory/TheoryDefinitions";
+import { Key } from "../../../Theory/TheoryDefinitions";
 import { TheoryEngine2 } from "../../../Theory/TheoryEngine2";
+import { Interval } from "../../../Concepts/IntervalConfig";
 
 type IntervalSelectorProps = {
     keyDef: Key;

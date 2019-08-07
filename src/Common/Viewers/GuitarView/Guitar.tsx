@@ -1,29 +1,15 @@
 import * as React from "react";
 import "./GuitarView.css";
 import { GuitarString } from "./GuitarString";
-import { Tuner } from "./Tuner";
 import { Note } from "../../Theory/TheoryDefinitions";
-
-export interface GuitarConfig {
-    guitarNoteLabel: any;
-    showDots: boolean;
-    filterOctave: boolean;
-    strings: GuitarStringConfig[];
-    fretLow: number;
-    fretHigh: number;
-}
-
-interface GuitarStringConfig {
-    openPosition: number
-    voicing?: Note;
-}
+import { GuitarConfig } from "./GuitarConfig";
 
 type GuitarProps = {
     notes: Note[];
     config: GuitarConfig
 };
 
-export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
+export class Guitar extends React.Component<GuitarProps, null> {
 
     constructor(props) {
         super(props);
@@ -40,79 +26,6 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
             />;
         });
     }
-
-    /*updateParameter = (property, value) => {
-        let update = {};
-        update[property] = value;
-        this.setState(update);
-    }*/
-
-    /*tuneString = (stringNumber, openPosition) => {
-        this.setState((oldState) => {
-            let newStrings = [];
-            for (let i = 0; i < oldState.strings.length; i++) {
-                let newString = ((i + 1) === stringNumber) ? { openPosition: openPosition } : oldState.strings[i];
-                newStrings.push(newString);
-            }
-            return {
-                strings: newStrings
-            }
-        });
-    }*/
-
-    /*getTuners = () => {
-        let tuners = [];
-        for (let i = 0; i < this.state.strings.length; i++) {
-            tuners.push(<Tuner
-                key={i}
-                openPosition={this.state.strings[i].openPosition}
-                tuneString={(position) => { this.tuneString(i + 1, position); }}
-                removeString={() => { this.removeString(i); }}
-            />);
-        }
-        return tuners;
-    }*/
-
-    /*insertString = (index) => {
-        this.setState((oldState) => {
-            return {
-                strings: [...oldState.strings.slice(0, index), { openPosition: 0 }, ...oldState.strings.slice(index)]
-            };
-        });
-    }*/
-
-    /*removeString = (index) => {
-        this.setState((oldState) => {
-            return {
-                strings: [...oldState.strings.slice(0, index), ...oldState.strings.slice(index + 1)]
-            };
-        });
-    }*/
-
-    /*changeHighFret = (hi) => {
-        this.setState((oldState) => {
-            return {
-                fretHigh: hi
-            };
-        });
-    }*/
-
-    /*changeLowFret = (lo) => {
-        this.setState((oldState) => {
-            return {
-                fretLow: lo
-            };
-        });
-    }*/
-
-    /*changeFretRange = (delta) => {
-        this.setState((oldState) => {
-            return {
-                fretLow: oldState.fretLow + delta,
-                fretHigh: oldState.fretHigh + delta
-            };
-        });
-    }*/
 
     getDotsForFret = (fretNumber: number): string => {
         if (fretNumber === 0)
@@ -133,13 +46,13 @@ export class Guitar extends React.Component<GuitarProps, GuitarConfig> {
     }
 
     render = () => {
-        return <>
+        return (
             <div className='guitar'>
                 {this.getGuitarStrings()}
                 <div className='dots-container'>
                     {this.props.config.showDots && this.getDots()}
                 </div>
             </div>
-        </>;
+        );
     };
 }

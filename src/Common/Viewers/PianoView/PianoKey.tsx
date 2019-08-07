@@ -1,8 +1,7 @@
 import * as React from "react";
 import "./PianoView.css";
 import "../../Theory/TheoryStyles.css";
-import { PianoKeyType } from "./PianoConfig";
-import { PianoConfig } from "./Piano";
+import { PianoKeyType, PianoConfig } from "./PianoConfig";
 import { Note } from "../../Theory/TheoryDefinitions";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 
@@ -12,7 +11,7 @@ type PianoKeyProps = {
     config: PianoConfig;
 }
 
-export class PianoKey extends React.Component<PianoKeyProps, PianoConfig> {
+export class PianoKey extends React.Component<PianoKeyProps, null> {
 
     constructor(props) {
         super(props);

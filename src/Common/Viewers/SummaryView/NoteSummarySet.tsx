@@ -1,19 +1,17 @@
 import * as React from "react";
 import "./SummaryView.css";
-import { ALL_DEGREES, Note } from "../../Theory/TheoryDefinitions";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { NoteSummary } from "./NoteSummary";
+import { NoteSummaryConfig } from "./NoteSummaryConfig";
+import { Note } from "../../Theory/TheoryDefinitions";
+import { ALL_DEGREES } from "../../Theory/DegreeConfig";
 
 type NoteSummaryProps = {
     notes: Note[];
     config: NoteSummaryConfig
 }
 
-type NoteSummaryConfig = {
-    showInactive: boolean;
-}
-
-export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummaryConfig> {
+export class NoteSummarySet extends React.Component<NoteSummaryProps, null> {
 
     constructor(props) {
         super(props);
@@ -40,17 +38,11 @@ export class NoteSummarySet extends React.Component<NoteSummaryProps, NoteSummar
         return noteDisplays;
     }
 
-    /*updateParameter = (property, value) => {
-        let update = {};
-        update[property] = value;
-        this.setState(update);
-    }*/
-
     render = () => {
-        return <>
+        return (
             <div className='summary'>
                 {this.getNoteDisplays()}
             </div>
-        </>;
+        );
     };
 }

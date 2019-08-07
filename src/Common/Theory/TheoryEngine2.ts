@@ -1,5 +1,7 @@
-import { Note, Key, ALL_ACCIDENTALS, ALL_DEGREES } from "./TheoryDefinitions";
+import { Note, Key } from "./TheoryDefinitions";
 import { TheoryEngine } from "./TheoryEngine";
+import { ALL_DEGREES } from "./DegreeConfig";
+import { ALL_ACCIDENTALS } from "./AccidentalConfig";
 
 export class TheoryEngine2 {
 

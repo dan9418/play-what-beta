@@ -1,18 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
-import { ACCIDENTAL, DEGREE, ConceptType, Concept, ALL_CONCEPTS, Accidental, Degree, ViewerType, ALL_VIEWERS, Viewer } from "./Common/Theory/TheoryDefinitions";
 import { InputPanel } from "./InputPanel/InputPanel";
 import { TheoryEngine } from "./Common/Theory/TheoryEngine";
+import { ViewerType, ALL_VIEWERS } from "./Common/Viewers/ViewerConfig";
+import { ConceptType, ALL_CONCEPTS } from "./Common/Concepts/ConceptConfig";
+import { Accidental, ACCIDENTAL } from "./Common/Theory/AccidentalConfig";
+import { Degree, DEGREE } from "./Common/Theory/DegreeConfig";
+import { Preset, ConceptConfig } from "./Common/Theory/TheoryDefinitions";
 
 export type ViewerProps = {
 	viewerType: ViewerType,
-	viewer: Viewer;
+	viewer: Preset<any>;
 	degree: Degree,
 	accidental: Accidental,
 	octave: number,
 	conceptType: ConceptType,
-	concept: Concept,
+	concept: Preset<ConceptConfig>,
 }
 
 type AppState = {
@@ -78,7 +82,7 @@ export class App extends React.Component<any, AppState> {
 
 	getNotes = (index: number) => {
 		let key = this.getKey(index);
-		return TheoryEngine.getNotesFromIntervals(key, this.state.viewers[index].concept.intervals, this.state.viewers[index].octave);
+		return TheoryEngine.getNotesFromIntervals(key, this.state.viewers[index].concept.config.intervals, this.state.viewers[index].octave);
 	}
 
 	getViewers = () => {

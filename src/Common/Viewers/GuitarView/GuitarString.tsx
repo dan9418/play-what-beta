@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./GuitarView.css";
 import { GuitarFret } from "./GuitarFret";
-import { GuitarConfig } from "./Guitar";
 import { Note } from "../../Theory/TheoryDefinitions";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
+import { GuitarConfig } from "./GuitarConfig";
 
 type GuitarStringProps = {
     notes: Note[];
@@ -12,7 +12,7 @@ type GuitarStringProps = {
     config: GuitarConfig
 };
 
-export class GuitarString extends React.Component<GuitarStringProps, GuitarConfig> {
+export class GuitarString extends React.Component<GuitarStringProps, null> {
 
     constructor(props) {
         super(props);
