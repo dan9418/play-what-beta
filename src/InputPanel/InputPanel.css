@@ -33,3 +33,14 @@
     background-color: #DDD;
     padding: 5px;
 }
+
+.input-panel-content-row.add {
+    color: #777;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-panel-content-row.add:hover {
+    background-color: #CCC;
+    color: #555;
+}

@@ -1,15 +1,14 @@
 import * as React from "react";
 import "./InputPanel.css";
-import { Accidental, Interval, Key, ALL_DEGREES, ALL_ACCIDENTALS, ALL_CONCEPTS, ConceptType, Concept } from "../Common/Theory/TheoryDefinitions";
+import { ALL_DEGREES, ALL_ACCIDENTALS, ALL_CONCEPTS } from "../Common/Theory/TheoryDefinitions";
 import { DropdownSelector } from "../Common/Inputs/Selectors/DropdownSelector/DropdownSelector";
 import { NumericSelector } from "../Common/Inputs/Selectors/NumericSelector/NumericSelector";
+import { ViewerProps } from "../App";
 
 type InputPanelProps = {
-    keyDef: Key,
-    octave: number,
-    conceptType: ConceptType,
-    concept: Concept,
-    setValue: (property: string, value: any) => void
+    viewers: ViewerProps[],
+    setValue: (index: number, property: string, value: any) => void,
+    add: () => void
 }
 
 export class InputPanel extends React.Component<InputPanelProps, any> {
@@ -19,6 +18,32 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
     }
 
     /* Render */
+
+    getRows = () => {
+        let rows = []
+        for (let i = 0; i < this.props.viewers.length; i++) {
+            rows.push(
+                <div key={i} className='input-panel-content-row'>
+                    <div className='cell'>
+                        <DropdownSelector data={ALL_DEGREES} value={this.props.viewers[i].degree} setValue={(value) => { this.props.setValue(i, 'degree', value); }} />
+                    </div>
+                    <div className='cell'>
+                        <DropdownSelector data={ALL_ACCIDENTALS} value={this.props.viewers[i].accidental} setValue={(value) => { this.props.setValue(i, 'accidental', value); }} />
+                    </div>
+                    <div className='cell'>
+                        <NumericSelector value={this.props.viewers[i].octave} setValue={(value) => { this.props.setValue(i, 'octave', value); }} />
+                    </div>
+                    <div className='cell'>
+                        <DropdownSelector data={ALL_CONCEPTS} value={this.props.viewers[i].conceptType} setValue={(value) => { this.props.setValue(i, 'conceptType', value); }} />
+                    </div>
+                    <div className='cell'>
+                        <DropdownSelector data={this.props.viewers[i].conceptType.presets} value={this.props.viewers[i].concept} setValue={(value) => { this.props.setValue(i, 'concept', value); }} />
+                    </div>
+                </div>
+            );
+        }
+        return rows;
+    }
 
     render = () => {
         return (
@@ -31,22 +56,9 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                     <div className='cell'>Presets</div>
                 </div>
                 <div className='input-panel-content'>
-                    <div className='input-panel-content-row'>
-                        <div className='cell'>
-                            <DropdownSelector data={ALL_DEGREES} value={this.props.keyDef.degree} setValue={(value) => { this.props.setValue('degree', value); }} />
-                        </div>
-                        <div className='cell'>
-                            <DropdownSelector data={ALL_ACCIDENTALS} value={this.props.keyDef.accidental} setValue={(value) => { this.props.setValue('accidental', value); }} />
-                        </div>
-                        <div className='cell'>
-                            <NumericSelector value={this.props.octave} setValue={(value) => { this.props.setValue('octave', value); }} />
-                        </div>
-                        <div className='cell'>
-                            <DropdownSelector data={ALL_CONCEPTS} value={this.props.conceptType} setValue={(value) => { this.props.setValue('conceptType', value); }} />
-                        </div>
-                        <div className='cell'>
-                            <DropdownSelector data={this.props.conceptType.presets} value={this.props.concept} setValue={(value) => { this.props.setValue('concept', value); }} />
-                        </div>
+                    {this.getRows()}
+                    <div className='input-panel-content-row add' onClick={this.props.add}>
+                        + Add
                     </div>
                 </div>
                 {/*<IntervalSelector keyDef={keyDef} value={this.state.intervals} setValue={(value) => { this.setValue('intervals', value); }} />*/}
