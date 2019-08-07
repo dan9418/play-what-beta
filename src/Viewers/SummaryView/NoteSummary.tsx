@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./SummaryView.css";
-import "../../Theory/TheoryStyles.css";
-import { Note } from "../../Theory/TheoryDefinitions";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
+import "../../Common/Theory/TheoryStyles.css";
+import { Note } from "../../Common/Theory/TheoryConfig";
+import { TheoryEngine } from "../../Common/Theory/TheoryEngine";
 
 export class NoteSummary extends React.Component<any> {
     physicalNote: any;

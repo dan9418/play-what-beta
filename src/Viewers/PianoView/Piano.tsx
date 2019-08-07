@@ -2,8 +2,8 @@ import * as React from "react";
 import "./PianoView.css";
 import { PianoKeyType, PianoKeyConfig } from "./PianoConfig";
 import { PianoKey } from "./PianoKey";
-import { Note } from "../../Theory/TheoryDefinitions";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
+import { Note } from "../../Common/Theory/TheoryConfig";
+import { TheoryEngine } from "../../Common/Theory/TheoryEngine";
 
 type PianoProps = {
     notes: Note[];

@@ -1,6 +1,6 @@
-import { Interval, INTERVAL } from "../Concepts/IntervalConfig";
-import { Degree } from "./DegreeConfig";
-import { Accidental } from "./AccidentalConfig";
+import { Interval, INTERVAL } from "./Concepts/IntervalConfig";
+import { Degree } from "./Key/DegreeConfig";
+import { Accidental } from "./Key/AccidentalConfig";
 
 export interface Preset<T> {
     id: string;

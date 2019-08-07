@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./PianoView.css";
-import "../../Theory/TheoryStyles.css";
+import "../../Common/Theory/TheoryStyles.css";
 import { PianoKeyType, PianoConfig } from "./PianoConfig";
-import { Note } from "../../Theory/TheoryDefinitions";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
+import { Note } from "../../Common/Theory/TheoryConfig";
+import { TheoryEngine } from "../../Common/Theory/TheoryEngine";
 
 type PianoKeyProps = {
     type: PianoKeyType;

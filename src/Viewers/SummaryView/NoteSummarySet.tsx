@@ -1,10 +1,10 @@
 import * as React from "react";
 import "./SummaryView.css";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
+import { TheoryEngine } from "../../Common/Theory/TheoryEngine";
 import { NoteSummary } from "./NoteSummary";
 import { NoteSummaryConfig } from "./NoteSummaryConfig";
-import { Note } from "../../Theory/TheoryDefinitions";
-import { ALL_DEGREES } from "../../Theory/DegreeConfig";
+import { Note } from "../../Common/Theory/TheoryConfig";
+import { ALL_DEGREES } from "../../Common/Theory/Key/DegreeConfig";
 
 type NoteSummaryProps = {
     notes: Note[];

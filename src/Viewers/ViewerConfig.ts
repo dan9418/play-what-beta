@@ -4,7 +4,7 @@ import { Guitar } from "./GuitarView/Guitar";
 import { PRESETS_GUITAR_CONFIG } from "./GuitarView/GuitarConfig";
 import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
 import { PRESETS_NOTE_SUMMARY_CONFIG } from "./SummaryView/NoteSummaryConfig";
-import { Preset } from "../Theory/TheoryDefinitions";
+import { Preset } from "../Common/Theory/TheoryConfig";
 
 export interface ViewerType {
     id: string;

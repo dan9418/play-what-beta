@@ -3,11 +3,11 @@ import * as ReactDOM from "react-dom";
 import "./App.css";
 import { InputPanel } from "./InputPanel/InputPanel";
 import { TheoryEngine } from "./Common/Theory/TheoryEngine";
-import { ViewerType, ALL_VIEWERS } from "./Common/Viewers/ViewerConfig";
-import { ConceptType, ALL_CONCEPTS } from "./Common/Concepts/ConceptConfig";
-import { Accidental, ACCIDENTAL } from "./Common/Theory/AccidentalConfig";
-import { Degree, DEGREE } from "./Common/Theory/DegreeConfig";
-import { Preset, ConceptConfig } from "./Common/Theory/TheoryDefinitions";
+import { ViewerType, ALL_VIEWERS } from "./Viewers/ViewerConfig";
+import { ConceptType, ALL_CONCEPTS } from "./Common/Theory/Concepts/ConceptConfig";
+import { Accidental, ACCIDENTAL } from "./Common/Theory/Key/AccidentalConfig";
+import { Degree, DEGREE } from "./Common/Theory/Key/DegreeConfig";
+import { Preset, ConceptConfig } from "./Common/Theory/TheoryConfig";
 
 export type ViewerProps = {
 	viewerType: ViewerType,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./GuitarView.css";
 import { GuitarString } from "./GuitarString";
-import { Note } from "../../Theory/TheoryDefinitions";
+import { Note } from "../../Common/Theory/TheoryConfig";
 import { GuitarConfig } from "./GuitarConfig";
 
 type GuitarProps = {

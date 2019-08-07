@@ -1,12 +1,12 @@
 import * as React from "react";
 import "./InputPanel.css";
-import { DropdownSelector } from "../Common/Inputs/Selectors/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "../Common/Inputs/Selectors/NumericSelector/NumericSelector";
+import { DropdownSelector } from "./Selectors/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "./Selectors/NumericSelector/NumericSelector";
 import { ViewerProps } from "../App";
-import { ALL_DEGREES } from "../Common/Theory/DegreeConfig";
-import { ALL_ACCIDENTALS } from "../Common/Theory/AccidentalConfig";
-import { ALL_CONCEPTS } from "../Common/Concepts/ConceptConfig";
-import { ALL_VIEWERS } from "../Common/Viewers/ViewerConfig";
+import { ALL_DEGREES } from "../Common/Theory/Key/DegreeConfig";
+import { ALL_ACCIDENTALS } from "../Common/Theory/Key/AccidentalConfig";
+import { ALL_CONCEPTS } from "../Common/Theory/Concepts/ConceptConfig";
+import { ALL_VIEWERS } from "../Viewers/ViewerConfig";
 
 type InputPanelProps = {
     viewers: ViewerProps[],
