@@ -7,6 +7,7 @@ import { ALL_DEGREES } from "../Common/Theory/Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../Common/Theory/Key/AccidentalConfig";
 import { ALL_CONCEPTS } from "../Common/Theory/Concepts/ConceptConfig";
 import { ALL_VIEWERS } from "../Viewers/ViewerConfig";
+import { InputRow } from "./InputRow";
 
 type InputPanelProps = {
     viewers: ViewerProps[],
@@ -27,24 +28,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
         for (let i = 0; i < this.props.viewers.length; i++) {
             rows.push(
                 <div key={i} className='input-panel-content-row'>
-                    <div className='cell key'>
-                        <DropdownSelector data={ALL_DEGREES} value={this.props.viewers[i].degree} setValue={(value) => { this.props.setValue(i, 'degree', value); }} />
-                        <DropdownSelector data={ALL_ACCIDENTALS} value={this.props.viewers[i].accidental} setValue={(value) => { this.props.setValue(i, 'accidental', value); }} />
-                    </div>
-                    <div className='cell octave'>
-                        <NumericSelector value={this.props.viewers[i].octave} setValue={(value) => { this.props.setValue(i, 'octave', value); }} />
-                    </div>
-                    <div className='cell concept'>
-                        <DropdownSelector data={ALL_CONCEPTS} value={this.props.viewers[i].conceptType} setValue={(value) => { this.props.setValue(i, 'conceptType', value); }} />
-                        <DropdownSelector data={this.props.viewers[i].conceptType.presets} value={this.props.viewers[i].concept} setValue={(value) => { this.props.setValue(i, 'concept', value); }} />
-                    </div>
-                    <div className='cell viewer'>
-                        <DropdownSelector data={ALL_VIEWERS} value={this.props.viewers[i].viewerType} setValue={(value) => { this.props.setValue(i, 'viewerType', value); }} />
-                        <DropdownSelector data={this.props.viewers[i].viewerType.presets} value={this.props.viewers[i].viewer} setValue={(value) => { this.props.setValue(i, 'viewer', value); }} />
-                    </div>
-                    <div className='input-panel-content-row-concept'>
-
-                    </div>
+                    <InputRow viewer={this.props.viewers[i]} setValue={(property: string, value: any) => { this.props.setValue(i, property, value); }} />
                 </div>
             );
         }
