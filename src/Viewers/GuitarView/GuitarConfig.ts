@@ -74,7 +74,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
         name: 'Guitar',
         config: {
             guitarNoteLabel: { id: 'interval' } as any,
-            showDots: false,
+            showDots: true,
             filterOctave: false,
             fretLow: 0,
             fretHigh: 12,
@@ -93,7 +93,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
         name: 'Bass',
         config: {
             guitarNoteLabel: { id: 'name' } as any,
-            showDots: false,
+            showDots: true,
             filterOctave: false,
             fretLow: 0,
             fretHigh: 12,

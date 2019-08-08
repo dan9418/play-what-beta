@@ -101,16 +101,14 @@ export class App extends React.Component<any, AppState> {
 
 	render = () => {
 		return (
-			<>
+			<div className='app-container'>
 				<InputPanel
 					viewers={this.state.viewers}
 					setValue={this.setValue}
 					add={this.add}
 				/>
-				<div className='viewer-panel'>
-					{this.getViewers()}
-				</div>
-			</>
+				{this.getViewers()}
+			</div>
 		);
 	};
 }

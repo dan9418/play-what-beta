@@ -24,7 +24,7 @@ html, body {
 	margin: auto;
 }
 
-.viewer-panel {
+.app-container {
 	background-color: #EEEEEE;
 	text-align: center;
 	width: 500px;
