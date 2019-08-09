@@ -42,6 +42,12 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
         });
     }*/
 
+    setValue = (property: string, value: any) => {
+        let mergedViewer = { ...this.props.viewer };
+        mergedViewer.config[property] = value;
+        this.props.setValue(mergedViewer);
+    }
+
     render = () => {
         return (
             <div className='piano-config-panel'>
@@ -50,11 +56,17 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
                         <DropdownSelector
                             data={ALL_PIANO_KEY_LABELS}
                             value={this.props.viewer.config.noteLabel}
-                            setValue={(value) => {
-                                let mergedViewer = {...this.props.viewer};
-                                mergedViewer.config.noteLabel = value;
-                                this.props.setValue(mergedViewer);
-                                }} />
+                            setValue={(value) => { this.setValue('noteLabel', value); }} />
+                    </InputGroup>
+                    <InputGroup label='Key Range'>
+                        Low (
+                        <NumericSelector
+                            value={this.props.viewer.config.keyLow}
+                            setValue={(value) => { this.setValue('keyLow', value); }} />)
+                        High (
+                        <NumericSelector
+                            value={this.props.viewer.config.keyHigh}
+                            setValue={(value) => { this.setValue('keyHigh', value); }} />)
                     </InputGroup>
                 </InputSubrow>
             </div>
