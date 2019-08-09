@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./DropdownSelector.css";
 
 type DropdownSelectorProps = {
     data: any[];

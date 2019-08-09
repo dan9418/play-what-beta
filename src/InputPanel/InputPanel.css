@@ -1,45 +1,24 @@
+
+/* Input Panel */
 .input-panel {
 
 }
 
-/* Header */
+/* Input Row */
 
-.input-panel-header {
-    font-weight: bold;
-    background-color: #CCC;
-    padding: 5px;
+.input-row {
+    text-align: left;
+    margin: 5px;
 }
 
-.input-panel .cell {
+.row-item {
+    margin: 5px;
     display: inline-block;
-    width: 25%;
 }
 
-.input-panel .cell select {
-    width: 90%;
-}
-
-/* Content */
-
-.input-panel-content-row {
-    background-color: #DDD;
-    padding: 5px;
-}
-
-.input-panel-content-row.add {
-    color: #777;
+.row-item-label {
+    font-size: 14px;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.input-panel-content-row.add:hover {
-    background-color: #CCC;
-    color: #555;
-}
-
-/* Concept */
-
-.input-panel-content-row {
-    background-color: #DDD;
-    padding: 5px;
+    width: 60px;
+    text-align: right;
 }

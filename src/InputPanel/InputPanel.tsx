@@ -27,7 +27,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
         let rows = []
         for (let i = 0; i < this.props.viewers.length; i++) {
             rows.push(
-                <div key={i} className='input-panel-content-row'>
+                <div key={i}>
                     <InputRow viewer={this.props.viewers[i]} setValue={(property: string, value: any) => { this.props.setValue(i, property, value); }} />
                 </div>
             );
@@ -38,18 +38,10 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
     render = () => {
         return (
             <div className='input-panel'>
-                <div className='input-panel-header'>
-                    <div className='cell'>Key</div>
-                    <div className='cell'>Octave</div>
-                    <div className='cell'>Concept</div>
-                    <div className='cell'>Viewer</div>
-                </div>
-                <div className='input-panel-content'>
-                    {this.getRows()}
-                    <div className='input-panel-content-row add' onClick={this.props.add}>
+                {this.getRows()}
+                {/*<div className='input-panel-content-row add' onClick={this.props.add}>
                         + Add
-                    </div>
-                </div>
+                    </div>*/}
                 {/*<IntervalSelector keyDef={keyDef} value={this.state.intervals} setValue={(value) => { this.setValue('intervals', value); }} />*/}
             </div>
         );

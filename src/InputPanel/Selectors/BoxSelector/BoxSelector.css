@@ -2,8 +2,7 @@
     color: white;
     font-size: 12px;
     text-align: center;
-    position: relative;
-    padding: 5px;
+    display: inline-block;
 }
 
 .box-selector-label {
@@ -12,24 +11,20 @@
 
 .box-selector-option {
     display: inline-block;
-    background-color: #777;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px;
-    margin: 7px;
+    background-color: #888;
+    margin: 1px;
     line-height: 20px;
     height: 20px;
-    min-width: 20px;
+    width: 20px;
     font-size: 12px;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .box-selector-option:hover {
-    background-color: #FF5A09;
+    background-color: #777;
     cursor: pointer;
 }
 
 .active-setting {
-    border: 2px solid #FF5A09;
-    margin: 5px;
+    background-color: #FF5A09;
 }
