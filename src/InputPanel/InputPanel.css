@@ -10,15 +10,3 @@
     text-align: left;
     margin: 5px;
 }
-
-.row-item {
-    margin: 5px;
-    display: inline-block;
-}
-
-.row-item-label {
-    font-size: 14px;
-    font-weight: bold;
-    width: 60px;
-    text-align: right;
-}

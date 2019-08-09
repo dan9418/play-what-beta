@@ -1,28 +1,21 @@
 
 .input-group {
-    background-color: #DDD;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 10px;
+   display: inline-block;
+}
+
+.input-group-label {
     display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: right;
 }
-
-/* header */
-
-.input-group-header {
-    font-size: 16px;
-}
-
-.input-group-header-icon {
-    float: left;
-}
-
-.input-group-header-name {
-    display: inline-block;
-}
-
-/* content */
 
 .input-group-content {
-    font-size: 12px;
+    display: inline-block;
+}
+
+.input-group-item {
+    margin: 5px;
+    display: inline-block;
 }
