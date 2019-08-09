@@ -7,7 +7,7 @@ import { ALL_DEGREES } from "../Common/Theory/Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../Common/Theory/Key/AccidentalConfig";
 import { ALL_CONCEPTS } from "../Common/Theory/Concepts/ConceptConfig";
 import { ALL_VIEWERS } from "../Viewers/ViewerConfig";
-import { InputRow } from "./InputRow";
+import { InputRow } from "./InputRow/InputRow";
 
 type InputPanelProps = {
     viewers: ViewerProps[],

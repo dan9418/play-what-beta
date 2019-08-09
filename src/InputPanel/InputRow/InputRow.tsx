@@ -1,15 +1,16 @@
 import * as React from "react";
-import "./InputPanel.css";
-import { DropdownSelector } from "./Selectors/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "./Selectors/NumericSelector/NumericSelector";
-import { ViewerProps } from "../App";
-import { ALL_DEGREES } from "../Common/Theory/Key/DegreeConfig";
-import { ALL_ACCIDENTALS } from "../Common/Theory/Key/AccidentalConfig";
-import { ALL_CONCEPTS } from "../Common/Theory/Concepts/ConceptConfig";
-import { ALL_VIEWERS } from "../Viewers/ViewerConfig";
-import { BoxSelector } from "./Selectors/BoxSelector/BoxSelector";
-import { InputGroup } from "./InputGroup/InputGroup";
-import { InputSubrow } from "./InputSubrow/InputSubrow";
+import "./InputRow.css";
+import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
+import { ViewerProps } from "../../App";
+import { ALL_DEGREES } from "../../Common/Theory/Key/DegreeConfig";
+import { ALL_ACCIDENTALS } from "../../Common/Theory/Key/AccidentalConfig";
+import { ALL_CONCEPTS } from "../../Common/Theory/Concepts/ConceptConfig";
+import { ALL_VIEWERS } from "../../Viewers/ViewerConfig";
+import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
+import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
+import { InputGroup } from "../InputGroup/InputGroup";
+import { InputSubrow } from "../InputSubrow/InputSubrow";
 
 type InputRowProps = {
     viewer: ViewerProps,
@@ -36,7 +37,16 @@ export class InputRow extends React.Component<InputRowProps, any> {
                         <NumericSelector value={this.props.viewer.octave} setValue={(value) => { this.props.setValue('octave', value); }} />
                     </InputGroup>
                 </InputSubrow>
-                <InputSubrow details={<div>OPEN</div>}>
+                <InputSubrow details={
+                    <IntervalSelector
+                        value={this.props.viewer.concept.config.intervals}
+                        setValue={(value) => { this.props.setValue('intervals', { id: 'custom', name: 'Custom', config: { intervals: value } }); }}
+                        keyDef={{
+                            degree: this.props.viewer.degree,
+                            accidental: this.props.viewer.accidental
+                        }}
+                    />}
+                >
                     <InputGroup label='Concept'>
                         <DropdownSelector data={ALL_CONCEPTS} value={this.props.viewer.conceptType} setValue={(value) => { this.props.setValue('conceptType', value); }} />
                         <DropdownSelector data={this.props.viewer.conceptType.presets} value={this.props.viewer.concept} setValue={(value) => { this.props.setValue('concept', value); }} />

@@ -1,11 +1,13 @@
 .interval-selector table {
   margin: auto;
+  background: #AAA;
 }
   
 .interval-selector td {
-  font-size: 16px;
-  height: 30px;
-  width: 30px;
+  font-size: 14px;
+  height: 16px;
+  line-height: 16px;
+  width: 32px;
   cursor: pointer;
 }
 
@@ -17,6 +19,5 @@
 .interval-selector td.selected {
   background-color: white;
   color: red;
-  border: 1px solid red;
   font-weight: bold;
 }
