@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./PianoView.css";
-import { PianoConfig, ALL_PIANO_KEY_LABELS } from "./PianoConfig";
+import { ALL_PIANO_KEY_LABELS } from "./PianoConfig";
 import { InputSubrow } from "../../InputPanel/InputSubrow/InputSubrow";
 import { InputGroup } from "../../InputPanel/InputGroup/InputGroup";
 import { NumericSelector } from "../../InputPanel/Selectors/NumericSelector/NumericSelector";
@@ -17,31 +17,6 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
     constructor(props) {
         super(props);
     }
-
-    /*changeHighKey = (hi) => {
-    this.setState((oldState) => {
-        return {
-            keyHigh: hi
-        };
-    });
-}*/
-
-    /*changeLowKey = (lo) => {
-        this.setState((oldState) => {
-            return {
-                keyLow: lo
-            };
-        });
-    }*/
-
-    /*changeKeyRange = (delta) => {
-        this.setState((oldState) => {
-            return {
-                keyLow: oldState.keyLow + delta,
-                keyHigh: oldState.keyHigh + delta
-            };
-        });
-    }*/
 
     setValue = (property: string, value: any) => {
         let mergedViewer = { ...this.props.viewer };

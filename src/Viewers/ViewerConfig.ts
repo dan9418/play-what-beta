@@ -6,6 +6,7 @@ import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
 import { PRESETS_NOTE_SUMMARY_CONFIG } from "./SummaryView/NoteSummaryConfig";
 import { Preset } from "../Common/Theory/TheoryConfig";
 import { PianoConfigPanel } from "./PianoView/PianoConfigPanel";
+import { SummaryConfigPanel } from "./SummaryView/SummaryConfigPanel";
 
 export interface ViewerType {
     id: string;
@@ -20,6 +21,7 @@ export const ALL_VIEWERS: ViewerType[] = [
         id: 'summary',
         name: 'Summary',
         component: NoteSummarySet,
+        configComponent: SummaryConfigPanel,
         presets: PRESETS_NOTE_SUMMARY_CONFIG
     },
     {
