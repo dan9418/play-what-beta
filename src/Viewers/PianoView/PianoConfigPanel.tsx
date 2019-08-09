@@ -5,6 +5,7 @@ import { InputSubrow } from "../../InputPanel/InputSubrow/InputSubrow";
 import { InputGroup } from "../../InputPanel/InputGroup/InputGroup";
 import { NumericSelector } from "../../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputPanel/Selectors/DropdownSelector/DropdownSelector";
+import { SwitchSelector } from "../../InputPanel/Selectors/SwitchSelector/SwitchSelector";
 
 type PianoConfigPanelProps = {
     setValue: (value: any) => void,
@@ -67,6 +68,11 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
                         <NumericSelector
                             value={this.props.viewer.config.keyHigh}
                             setValue={(value) => { this.setValue('keyHigh', value); }} />)
+                    </InputGroup>
+                    <InputGroup label='Filter Octave'>
+                        <SwitchSelector
+                            value={this.props.viewer.config.filterOctave}
+                            setValue={(value) => { this.setValue('filterOctave', value); }} />
                     </InputGroup>
                 </InputSubrow>
             </div>
