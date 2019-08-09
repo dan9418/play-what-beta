@@ -1,6 +1,6 @@
 
 .input-subrow {
-    
+
 }
 
 .input-group-main {
@@ -9,4 +9,17 @@
 
 .input-group-details {
 
+}
+
+.input-subrow-toggle {
+    float: right;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-subrow-toggle:hover {
+    color: #555;
 }

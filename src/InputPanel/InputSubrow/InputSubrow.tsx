@@ -6,10 +6,29 @@ type InputSubrowProps = {
     details?: any;
 }
 
-export class InputSubrow extends React.Component<InputSubrowProps, null> {
+type InputSubrowState = {
+    open: boolean;
+}
+
+export class InputSubrow extends React.Component<InputSubrowProps, InputSubrowState> {
 
     constructor(props) {
         super(props);
+        this.state = {
+            open: false
+        }
+    }
+
+    toggle = () => {
+        this.setState((oldState) => {
+            return {
+                open: !oldState.open
+            }
+        })
+    }
+
+    getToggleSymbol = () => {
+        return this.state.open ? '-' : '+';
     }
 
     render = () => {
@@ -17,8 +36,11 @@ export class InputSubrow extends React.Component<InputSubrowProps, null> {
             <div className='input-subrow'>
                 <div className='input-subrow-main'>
                     {this.props.children}
+                    {this.props.details &&
+                        <div className='input-subrow-toggle' onClick={this.toggle}>{this.getToggleSymbol()}</div>
+                    }
                 </div>
-                {this.props.details &&
+                {this.state.open &&
                     <div className='input-subrow-details'>
                         {this.props.details}
                     </div>
