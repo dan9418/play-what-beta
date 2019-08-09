@@ -5,11 +5,13 @@ import { PRESETS_GUITAR_CONFIG } from "./GuitarView/GuitarConfig";
 import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
 import { PRESETS_NOTE_SUMMARY_CONFIG } from "./SummaryView/NoteSummaryConfig";
 import { Preset } from "../Common/Theory/TheoryConfig";
+import { PianoConfigPanel } from "./PianoView/PianoConfigPanel";
 
 export interface ViewerType {
     id: string;
     name: string;
     component: any;
+    configComponent?: any;
     presets: Preset<any>[];
 }
 
@@ -24,6 +26,7 @@ export const ALL_VIEWERS: ViewerType[] = [
         id: 'piano',
         name: 'Piano',
         component: Piano,
+        configComponent: PianoConfigPanel,
         presets: PRESETS_PIANO_CONFIG
     },
     {

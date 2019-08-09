@@ -26,6 +26,8 @@ export class InputRow extends React.Component<InputRowProps, any> {
     /* Render */
 
     render = () => {
+        let ViewerConfigPanel = this.props.viewer.viewerConfigPanel;
+
         return (
             <div className='input-row'>
                 <InputSubrow>
@@ -52,7 +54,11 @@ export class InputRow extends React.Component<InputRowProps, any> {
                         <DropdownSelector data={this.props.viewer.conceptType.presets} value={this.props.viewer.concept} setValue={(value) => { this.props.setValue('concept', value); }} />
                     </InputGroup>
                 </InputSubrow>
-                <InputSubrow details={<div>OPEN</div>}>
+                <InputSubrow details={
+                    <ViewerConfigPanel
+                        viewer={this.props.viewer.viewer}
+                        setValue={(value) => { this.props.setValue('viewer', value); }} />
+                }>
                     <InputGroup label='Viewer'>
                         <DropdownSelector data={ALL_VIEWERS} value={this.props.viewer.viewerType} setValue={(value) => { this.props.setValue('viewerType', value); }} />
                         <DropdownSelector data={this.props.viewer.viewerType.presets} value={this.props.viewer.viewer} setValue={(value) => { this.props.setValue('viewer', value); }} />

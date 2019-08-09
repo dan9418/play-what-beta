@@ -1,0 +1,8 @@
+/*
+INPUT TYPES
+single select
+multi select
+boolean
+numeric
+range
+*/

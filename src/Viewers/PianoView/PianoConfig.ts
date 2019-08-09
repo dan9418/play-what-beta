@@ -17,6 +17,17 @@ export interface PianoConfig {
     keys: PianoKeyConfig[];
 }
 
+export const ALL_PIANO_KEY_LABELS = [
+    {
+        id: 'interval',
+        name: 'Interval'
+    },
+    {
+        id: 'name',
+        name: 'Name'
+    }
+]
+
 export const PRESETS_PIANO_CONFIG = [
     {
         id: 'default',
@@ -38,4 +49,4 @@ export const PRESETS_PIANO_CONFIG = [
             keyHigh: 11
         }
     }
-]
+];

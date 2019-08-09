@@ -11,7 +11,8 @@ import { Preset, ConceptConfig } from "./Common/Theory/TheoryConfig";
 
 export type ViewerProps = {
 	viewerType: ViewerType,
-	viewer: Preset<any>;
+	viewer: Preset<any>,
+	viewerConfigPanel: any,
 	degree: Degree,
 	accidental: Accidental,
 	octave: number,
@@ -31,8 +32,9 @@ export class App extends React.Component<any, AppState> {
 		this.state = {
 			viewers: [
 				{
-					viewerType: ALL_VIEWERS[2],
-					viewer: ALL_VIEWERS[2].presets[0],
+					viewerType: ALL_VIEWERS[1],
+					viewer: ALL_VIEWERS[1].presets[0],
+					viewerConfigPanel: ALL_VIEWERS[1].configComponent,
 					degree: DEGREE.C,
 					accidental: ACCIDENTAL.natural,
 					octave: 4,
