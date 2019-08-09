@@ -40,7 +40,7 @@ export class InputRow extends React.Component<InputRowProps, any> {
                 <InputSubrow details={
                     <IntervalSelector
                         value={this.props.viewer.concept.config.intervals}
-                        setValue={(value) => { this.props.setValue('intervals', { id: 'custom', name: 'Custom', config: { intervals: value } }); }}
+                        setValue={(value) => { this.props.setValue('concept', { id: 'custom', name: 'Custom', config: { intervals: value } }); }}
                         keyDef={{
                             degree: this.props.viewer.degree,
                             accidental: this.props.viewer.accidental
