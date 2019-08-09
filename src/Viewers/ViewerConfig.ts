@@ -7,6 +7,7 @@ import { PRESETS_NOTE_SUMMARY_CONFIG } from "./SummaryView/NoteSummaryConfig";
 import { Preset } from "../Common/Theory/TheoryConfig";
 import { PianoConfigPanel } from "./PianoView/PianoConfigPanel";
 import { SummaryConfigPanel } from "./SummaryView/SummaryConfigPanel";
+import { GuitarConfigPanel } from "./GuitarView/GuitarConfigPanel";
 
 export interface ViewerType {
     id: string;
@@ -35,6 +36,7 @@ export const ALL_VIEWERS: ViewerType[] = [
         id: 'neck',
         name: 'Neck',
         component: Guitar,
+        configComponent: GuitarConfigPanel,
         presets: PRESETS_GUITAR_CONFIG
     }
 ];

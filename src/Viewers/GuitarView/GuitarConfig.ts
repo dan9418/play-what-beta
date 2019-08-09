@@ -55,7 +55,7 @@ export let GUITAR_NOTE_LABEL_PARAMETER: any = {
 };*/
 
 export interface GuitarConfig {
-    guitarNoteLabel: any;
+    fretLabel: any;
     showDots: boolean;
     filterOctave: boolean;
     strings: GuitarStringConfig[];
@@ -67,13 +67,23 @@ export interface GuitarStringConfig {
     openPosition: number
     voicing?: any;
 }
+export const ALL_GUITAR_FRET_LABELS = [
+    {
+        id: 'interval',
+        name: 'Interval'
+    },
+    {
+        id: 'name',
+        name: 'Name'
+    }
+]
 
 export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
     {
         id: 'guitar',
         name: 'Guitar',
         config: {
-            guitarNoteLabel: { id: 'interval' } as any,
+            fretLabel: { id: 'interval' } as any,
             showDots: true,
             filterOctave: false,
             fretLow: 0,
@@ -92,7 +102,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
         id: 'bass',
         name: 'Bass',
         config: {
-            guitarNoteLabel: { id: 'name' } as any,
+            fretLabel: { id: 'name' } as any,
             showDots: true,
             filterOctave: false,
             fretLow: 0,

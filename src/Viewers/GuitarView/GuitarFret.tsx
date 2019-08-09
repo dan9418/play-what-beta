@@ -20,7 +20,7 @@ export class GuitarFret extends React.Component<GuitarFretProps, null> {
 
     getLabel = (): string | number => {
         let note = this.props.note;
-        switch (this.props.config.guitarNoteLabel.id) {
+        switch (this.props.config.fretLabel.id) {
             case 'none':
                 return '';
             case 'name':

@@ -32,9 +32,9 @@ export class App extends React.Component<any, AppState> {
 		this.state = {
 			viewers: [
 				{
-					viewerType: ALL_VIEWERS[0],
-					viewer: ALL_VIEWERS[0].presets[0],
-					viewerConfigPanel: ALL_VIEWERS[0].configComponent,
+					viewerType: ALL_VIEWERS[2],
+					viewer: ALL_VIEWERS[2].presets[0],
+					viewerConfigPanel: ALL_VIEWERS[2].configComponent,
 					degree: DEGREE.C,
 					accidental: ACCIDENTAL.natural,
 					octave: 4,
