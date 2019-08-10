@@ -115,7 +115,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.input-group {\\r\\n   display: inline-block;\\r\\n}\\r\\n\\r\\n.input-group-label {\\r\\n    display: inline-block;\\r\\n    font-size: 14px;\\r\\n    font-weight: bold;\\r\\n    min-width: 60px;\\r\\n    text-align: right;\\r\\n}\\r\\n\\r\\n.input-group-content {\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n.input-group-item {\\r\\n    margin: 5px;\\r\\n    display: inline-block;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/InputGroup/InputGroup.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.input-group {\\r\\n   display: inline-block;\\r\\n}\\r\\n\\r\\n.input-group-label {\\r\\n    display: inline-block;\\r\\n    font-size: 14px;\\r\\n    font-weight: bold;\\r\\n    text-align: right;\\r\\n}\\r\\n\\r\\n.input-group-content {\\r\\n    display: inline-block;\\r\\n}\\r\\n\\r\\n.input-group-item {\\r\\n    margin: 5px;\\r\\n    display: inline-block;\\r\\n    font-size: 14px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/InputGroup/InputGroup.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.input-subrow {\\r\\n\\r\\n}\\r\\n\\r\\n.input-group-main {\\r\\n\\r\\n}\\r\\n\\r\\n.input-group-details {\\r\\n\\r\\n}\\r\\n\\r\\n.input-subrow-toggle {\\r\\n    float: right;\\r\\n    width: 20px;\\r\\n    height: 20px;\\r\\n    line-height: 20px;\\r\\n    font-weight: bold;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.input-subrow-toggle:hover {\\r\\n    color: #555;\\r\\n}\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/InputSubrow/InputSubrow.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".input-subrow {\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.input-subrow-details {\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.input-subrow-toggle {\\r\\n    display: inline-block;\\r\\n    font-weight: bold;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.input-subrow-toggle:hover {\\r\\n    color: #555;\\r\\n}\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/InputSubrow/InputSubrow.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -192,7 +192,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../../node_module
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n\\r\\n.numeric-selector {\\r\\n\\tdisplay: inline-block;\\r\\n}\\r\\n\\r\\n.numeric-selector .up, .numeric-selector .down, .numeric-selector .value{\\r\\n  display: inline-block;\\r\\n  height: 20px;\\r\\n  width: 20px;\\r\\n\\r\\n  -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n\\r\\n.numeric-selector .up:hover, .numeric-selector .down:hover{\\r\\n  font-weight: bold;\\r\\n}\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/NumericSelector/NumericSelector.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n\\r\\n.numeric-selector {\\r\\n  display: inline-block;\\r\\n  font-size: 14px;\\r\\n}\\r\\n\\r\\n.numeric-selector .up, .numeric-selector .down, .numeric-selector .value{\\r\\n  display: inline-block;\\r\\n  margin: 2px;\\r\\n\\r\\n  -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n\\r\\n.numeric-selector .up:hover, .numeric-selector .down:hover{\\r\\n  font-weight: bold;\\r\\n}\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/NumericSelector/NumericSelector.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 

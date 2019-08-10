@@ -1,13 +1,13 @@
 
 
 .numeric-selector {
-	display: inline-block;
+  display: inline-block;
+  font-size: 14px;
 }
 
 .numeric-selector .up, .numeric-selector .down, .numeric-selector .value{
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  margin: 2px;
 
   -webkit-user-select: none; /* Safari */        
 	-moz-user-select: none; /* Firefox */

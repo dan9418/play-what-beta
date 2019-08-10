@@ -1,21 +1,13 @@
-
 .input-subrow {
-
+    text-align: center;
 }
 
-.input-group-main {
-
-}
-
-.input-group-details {
-
+.input-subrow-details {
+    text-align: center;
 }
 
 .input-subrow-toggle {
-    float: right;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    display: inline-block;
     font-weight: bold;
     cursor: pointer;
 }
