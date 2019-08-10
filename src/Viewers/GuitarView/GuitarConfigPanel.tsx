@@ -97,7 +97,7 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
                         <NumericSelector
                             value={this.props.viewer.config.fretLow}
                             setValue={(value) => { this.setValue('fretLow', value); }} />)
-                    High (
+            High (
                         <NumericSelector
                             value={this.props.viewer.config.fretHigh}
                             setValue={(value) => { this.setValue('fretHigh', value); }} />)
@@ -113,6 +113,14 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
                             setValue={(value) => { this.setValue('showDots', value); }} />
                     </InputGroup>
                     <InputGroup label='Strings'>
+                        [<NumericSelector
+                            value={this.props.viewer.config.strings.length}
+                            setValue={(value) => {
+                                if (value > this.props.viewer.config.strings.length)
+                                    this.setValue('strings', [...this.props.viewer.config.strings, { openPosition: 0 }]);
+                                else
+                                    this.setValue('strings', this.props.viewer.config.strings.splice(0, value));
+                            }} />]
                         {this.getStringInputs()}
                     </InputGroup>
                 </InputSubrow>
