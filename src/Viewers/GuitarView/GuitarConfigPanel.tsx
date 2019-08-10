@@ -65,6 +65,23 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
         this.props.setValue(mergedViewer);
     }
 
+    getStringInputs = () => {
+        let items = [];
+        for (let i = 0; i < this.props.viewer.config.strings.length; i++) {
+            let child = this.props.viewer.config.strings[i];
+            items.push(<div key={i} className='string'>(
+                <NumericSelector
+                    value={this.props.viewer.config.strings[i].openPosition}
+                    setValue={(value) => {
+                        let s = this.props.viewer.config.strings;
+                        s[i].openPosition = value;
+                        this.setValue('strings', s);
+                    }} />)
+                    </div>);
+        }
+        return items;
+    }
+
     render = () => {
         return (
             <div className='guitar-config-panel'>
@@ -80,7 +97,7 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
                         <NumericSelector
                             value={this.props.viewer.config.fretLow}
                             setValue={(value) => { this.setValue('fretLow', value); }} />)
-                        High (
+                    High (
                         <NumericSelector
                             value={this.props.viewer.config.fretHigh}
                             setValue={(value) => { this.setValue('fretHigh', value); }} />)
@@ -94,6 +111,9 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
                         <SwitchSelector
                             value={this.props.viewer.config.showDots}
                             setValue={(value) => { this.setValue('showDots', value); }} />
+                    </InputGroup>
+                    <InputGroup label='Strings'>
+                        {this.getStringInputs()}
                     </InputGroup>
                 </InputSubrow>
             </div>
