@@ -47,7 +47,7 @@ export class ViewerManager extends React.Component<any, ViewerManagerState> {
     setValue = (property: string, value: any) => {
         let update = {};
         if (property === 'viewerDefinition')
-            update['viewerConfig'] = VIEWER_DEFINITIONS.find((v) => { return v.id === value.id }).presets[0].config;
+            update['viewerConfig'] = value.presets[0].config;
         update[property] = value;
         this.setState(update);
     }
