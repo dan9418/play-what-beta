@@ -32,21 +32,29 @@ export class InputRow extends React.Component<InputRowProps, any> {
             <div className='input-row'>
                 <InputSubrow>
                     <InputGroup label='Key'>
-                        <BoxSelector data={ALL_DEGREES} value={this.props.viewer.degree} setValue={(value) => { this.props.setValue('degree', value); }} />
-                        <BoxSelector data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })} value={this.props.viewer.accidental} setValue={(value) => { this.props.setValue('accidental', value); }} />
+                        <BoxSelector
+                            data={ALL_DEGREES}
+                            value={this.props.viewer.degree}
+                            setValue={(value) => { this.props.setValue('degree', value); }}
+                        />
+                        <BoxSelector
+                            data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
+                            value={this.props.viewer.accidental}
+                            setValue={(value) => { this.props.setValue('accidental', value); }}
+                        />
                     </InputGroup>
                     <InputGroup label='Octave'>
-                        <NumericSelector value={this.props.viewer.octave} setValue={(value) => { this.props.setValue('octave', value); }} />
+                        <NumericSelector
+                            value={this.props.viewer.octave}
+                            setValue={(value) => { this.props.setValue('octave', value); }}
+                        />
                     </InputGroup>
                 </InputSubrow>
                 <InputSubrow details={
                     <IntervalSelector
-                        value={this.props.viewer.concept.config.intervals}
-                        setValue={(value) => { this.props.setValue('concept', { id: 'custom', name: 'Custom', config: { intervals: value } }); }}
-                        keyDef={{
-                            degree: this.props.viewer.degree,
-                            accidental: this.props.viewer.accidental
-                        }}
+                        value={this.props.viewer.concept}
+                        setValue={(value) => { this.props.setValue('concept', value); }}
+                        keyDef={{ degree: this.props.viewer.degree, accidental: this.props.viewer.accidental }}
                     />}
                 >
                     <InputGroup label='Concept'>
@@ -57,11 +65,20 @@ export class InputRow extends React.Component<InputRowProps, any> {
                 <InputSubrow details={
                     <ViewerConfigPanel
                         viewer={this.props.viewer.viewer}
-                        setValue={(value) => { this.props.setValue('viewer', value); }} />
+                        setValue={(value) => { this.props.setValue('viewer', value); }}
+                    />
                 }>
                     <InputGroup label='Viewer'>
-                        <DropdownSelector data={ALL_VIEWERS} value={this.props.viewer.viewerType} setValue={(value) => { this.props.setValue('viewerType', value); }} />
-                        <DropdownSelector data={this.props.viewer.viewerType.presets} value={this.props.viewer.viewer} setValue={(value) => { this.props.setValue('viewer', value); }} />
+                        <DropdownSelector
+                            data={ALL_VIEWERS}
+                            value={this.props.viewer.viewerType}
+                            setValue={(value) => { this.props.setValue('viewerType', value); }}
+                        />
+                        <DropdownSelector
+                            data={this.props.viewer.viewerType.presets}
+                            value={this.props.viewer.viewer}
+                            setValue={(value) => { this.props.setValue('viewer', value); }}
+                        />
                     </InputGroup>
                 </InputSubrow>
             </div>);
