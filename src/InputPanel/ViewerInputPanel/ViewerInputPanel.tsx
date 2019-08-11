@@ -10,46 +10,16 @@ import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
 import { InputGroup } from "../InputGroup/InputGroup";
 import { InputSubrow } from "../InputSubrow/InputSubrow";
-import { ViewerDriverProps, KeyProps } from "../../Viewers/ViewerDriver";
-import { Interval } from "../../Common/Theory/Concepts/IntervalConfig";
-import { Preset } from "../../Common/Theory/TheoryConfig";
+import { ViewerManagerState } from "../../Viewers/ViewerManager";
 
-
-export type ConceptInputProps = {
-    intervals: Interval[],
-    config: any
-}
-
-export type ViewerInputProps = {
-    configComponent: any,
-    config: any
-}
-
-export type ViewerInputPanelProps = {
-    keyProps: KeyProps,
-    conceptInputProps: ConceptInputProps,
-    viewerInputProps: ViewerInputProps,
+export interface ViewerInputPanelProps extends ViewerManagerState {
     setValue: (property: string, value: any) => void
 }
 
-export type ViewerInputPanelState = {
-    conceptDefinition: ConceptDefinition,
-    conceptPreset: Preset<any>,
-    viewerDefinition: ViewerDefinition,
-    viewerPreset: Preset<any>
-}
-
-export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, any> {
+export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, null> {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            conceptDefinition: CONCEPT_DEFINITIONS[1],
-            conceptPreset: CONCEPT_DEFINITIONS[1].presets[0],
-            viewerDefinition: VIEWER_DEFINITIONS[2],
-            viewerPreset: VIEWER_DEFINITIONS[2].presets[0]
-        };
     }
 
     setNestedValue = (object: any, parentProperty: string, property: string, value: any) => {
@@ -61,7 +31,7 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, any
     /* Render */
 
     render = () => {
-        let ViewerConfigPanel = this.props.viewerInputProps.configComponent;
+        let ViewerConfigPanel = this.props.viewerDefinition.configComponent;
 
         return (
             <div className='viewer-input-panel'>
@@ -69,63 +39,79 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, any
                     <InputGroup label='Key'>
                         <BoxSelector
                             data={ALL_DEGREES}
-                            value={this.props.keyProps.degree}
-                            setValue={(value) => { this.props.setValue('degree', value); }}
+                            value={this.props.degree}
+                            setValue={(value) => {
+                                this.props.setValue('degree', value);
+                            }}
                         />
                         <BoxSelector
                             data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
-                            value={this.props.keyProps.accidental}
-                            setValue={(value) => { this.props.setValue('accidental', value); }}
+                            value={this.props.accidental}
+                            setValue={(value) => {
+                                this.props.setValue('accidental', value);
+                            }}
                         />
                     </InputGroup>
                     <InputGroup label='Octave'>
                         <NumericSelector
-                            value={this.props.keyProps.octave}
-                            setValue={(value) => { this.props.setValue('octave', value); }}
+                            value={this.props.octave}
+                            setValue={(value) => {
+                                this.props.setValue('octave', value);
+                            }}
                         />
                     </InputGroup>
                 </InputSubrow>
                 <InputSubrow details={
                     <IntervalSelector
                         propertyId='conceptIntervals'
-                        value={this.props.conceptInputProps.intervals as any}
+                        value={this.props.conceptIntervals as any}
                         setValue={this.props.setValue}
                         keyDef={{
-                            degree: this.props.keyProps.degree,
-                            accidental: this.props.keyProps.accidental,
-                            octave: this.props.keyProps.octave
+                            degree: this.props.degree,
+                            accidental: this.props.accidental,
+                            octave: this.props.octave
                         }}
                     />}
                 >
                     <InputGroup label='Concept'>
                         <DropdownSelector
                             data={CONCEPT_DEFINITIONS}
-                            value={this.state.conceptDefinition}
-                            setValue={(value) => { this.setState('conceptDefinition', value); }}
+                            value={this.props.conceptDefinition}
+                            setValue={(value) => {
+                                this.props.setValue('conceptDefinition', value);
+                            }}
                         />
                         <DropdownSelector
-                            data={this.state.conceptDefinition.presets}
-                            value={this.state.conceptPreset}
-                            setValue={(value) => { this.setState('conceptPreset', value); }}
+                            data={this.props.conceptDefinition.presets}
+                            value={this.props.conceptDefinition}//
+                            setValue={(value) => {
+                                this.props.setValue('conceptIntervals', value.config.intervals);
+                            }}
                         />
                     </InputGroup>
                 </InputSubrow>
                 <InputSubrow details={
                     <ViewerConfigPanel
-                        viewerConfig={this.props.viewerInputProps.config}
-                        setValue={(property, value) => { this.setNestedValue(this.props.viewerInputProps.config, 'viewerConfig', property, value); }}
+                        viewerConfig={this.props.viewerConfig}
+                        setValue={(property, value) => {
+                            this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
+                        }}
                     />
                 }>
                     <InputGroup label='Viewer'>
                         <DropdownSelector
                             data={VIEWER_DEFINITIONS}
-                            value={this.state.viewerDefinition}
-                            setValue={(value) => { this.setState('viewerDefinition', value); }}
+                            value={this.props.viewerDefinition}
+                            setValue={(value) => {
+                                this.props.setValue('viewerDefinition', value);
+                            }}
                         />
                         <DropdownSelector
-                            data={this.state.viewerDefinition.presets}
-                            value={this.state.viewerPreset}
-                            setValue={(value) => { this.setState('viewerPreset', value); }}
+                            data={this.props.viewerDefinition.presets}
+                            value={this.props.viewerConfig}//
+                            setValue={(value) => {
+                                this.props.setValue('viewerConfig', value.config);
+                            }}
                         />
                     </InputGroup>
                 </InputSubrow>
