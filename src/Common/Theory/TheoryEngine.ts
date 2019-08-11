@@ -6,10 +6,10 @@ import { Accidental, ALL_ACCIDENTALS, ACCIDENTAL } from "./Key/AccidentalConfig"
 
 export class TheoryEngine {
 
-    static getNotesFromIntervals = (key: Key, intervals: Interval[], octave: number) => {
+    static getNotesFromIntervals = (key: Key, intervals: Interval[]) => {
 		let notes = [];
 		for (let i = 0; i < intervals.length; i++) {
-			let note = TheoryEngine2.getFunctionalNote(key, intervals[i], octave);
+			let note = TheoryEngine2.getFunctionalNote(key, intervals[i]);
 			notes.push(note);
 		}
 		return notes;
@@ -73,15 +73,6 @@ export class TheoryEngine {
             setTimeout(() => { oscillator.stop(); }, duration);
           }
 
-    }
-
-    static getKey = (degree: Degree, accidental: Accidental): Key => {
-        return {
-            degree: degree,
-            accidental: accidental
-            //homePosition: ScaleDefinitions[0].intervals[degree.degree - 1].semitones + accidental.offset,
-            //name: degree.name + TheoryEngine.getAccidentalString(accidental.offset)
-        }
     }
 
     static getNonfunctionalNote = (absolutePosition): Note => {

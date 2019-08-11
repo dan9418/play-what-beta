@@ -1,14 +1,13 @@
 import * as React from "react";
 import './IntervalSelector.css';
-import { Key } from "../../../Common/Theory/TheoryConfig";
+import { Key, Preset } from "../../../Common/Theory/TheoryConfig";
 import { TheoryEngine2 } from "../../../Common/Theory/TheoryEngine2";
-import { Interval } from "../../../Common/Theory/Concepts/IntervalConfig";
+import { SelectorProps } from "../SelectorConfig";
+import { Concept } from "../../../Common/Theory/Concepts/ConceptConfig";
 
-type IntervalSelectorProps = {
-    keyDef: Key;
-    value: any;
-    setValue: (value) => void;
-}
+interface IntervalSelectorProps extends SelectorProps<Preset<Concept>> {
+    keyDef: Key
+} 
 
 let INTERVAL_TABLE = [
     ['PU', null, null, null, null, null, null, null, null, null, null, null],
@@ -21,9 +20,12 @@ let INTERVAL_TABLE = [
 ]
 
 export class IntervalSelector extends React.Component<IntervalSelectorProps> {
+    setValue: (value: Preset<Concept>) => void;
 
     constructor(props) {
         super(props);
+
+        this.setValue = (value: Preset<Concept>) => this.props.setValue(this.props.propertyId, value);
     }
 
     isIntervalSelected = (degree: number, semitones: number): boolean => {
@@ -35,36 +37,36 @@ export class IntervalSelector extends React.Component<IntervalSelectorProps> {
         for (let i = 0; i < this.props.value.config.intervals.length; i++) {
             let interval = this.props.value.config.intervals[i];
             if (interval.degree === degree && interval.semitones === semitones) {
-                this.props.setValue(
+                this.setValue(
                     {
                         id: 'custom',
                         name: 'Custom',
                         config: {
                             intervals: [...this.props.value.config.intervals.slice(0, i), ...this.props.value.config.intervals.slice(i + 1)]
-                        }
+                        } as any
                     }
                 );
                 return;
             }
             else if (interval.degree > degree && interval.semitones > semitones) {
-                this.props.setValue({
+                this.setValue({
                     id: 'custom',
                     name: 'Custom',
                     config: {
                         intervals: [...this.props.value.config.intervals.slice(0, i), { id: name, name: name, degree: degree, semitones: semitones }, ...this.props.value.config.intervals.slice(i)]
-                    }
+                    } as any
                 }
                 );
                 return;
             }
         }
-        this.props.setValue(
+        this.setValue(
             {
                 id: 'custom',
                 name: 'Custom',
                 config: {
                     intervals: [...this.props.value.config.intervals, { id: name, name: name, degree: degree, semitones: semitones }]
-                }
+                } as any
             });
     }
 
@@ -86,7 +88,7 @@ export class IntervalSelector extends React.Component<IntervalSelectorProps> {
 
                 cells.push(
                     <td key={degree + '-' + semitones} className={classes.join(' ')} onClick={() => this.toggleInterval(degree, semitones, interval)}>
-                        {TheoryEngine2.getFunctionalNote(this.props.keyDef, { degree: degree, semitones: semitones, id: interval, name: interval }, 4).name}
+                        {TheoryEngine2.getFunctionalNote(this.props.keyDef, { degree: degree, semitones: semitones, id: interval, name: interval }).name}
                     </td>);
             }
             rows.push(<tr key={degree} >{...cells}</tr>)

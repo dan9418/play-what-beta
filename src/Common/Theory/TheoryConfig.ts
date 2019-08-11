@@ -15,6 +15,7 @@ export interface ConceptConfig {
 export interface Key {
     degree: Degree;
     accidental: Accidental;
+    octave: number;
 }
 
 

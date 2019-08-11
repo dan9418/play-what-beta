@@ -9,11 +9,11 @@ export class TheoryEngine2 {
         return ((a - offset) + (b - offset)) % limit + offset;
     }
 
-    static getFunctionalNote = (key: Key, interval: any, octave: number): Note => {
+    static getFunctionalNote = (key: Key, interval: any): Note => {
             let spellingDegree = TheoryEngine2.moduloAddition(key.degree.value, interval.degree, 7, 1);
 
             let pitchClass = TheoryEngine2.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12);
-            let absolutePosition = (octave - 4) * 12 + pitchClass;
+            let absolutePosition = (key.octave - 4) * 12 + pitchClass;
 
             let accidentalOffset = pitchClass - ALL_DEGREES[spellingDegree - 1].index;
             let accidental = ALL_ACCIDENTALS.find((a) => { return a.offset === accidentalOffset });
@@ -23,7 +23,7 @@ export class TheoryEngine2 {
             let degree = ALL_DEGREES.find((dd) => { return dd.value === key.degree.value });
 
             return {
-                octave: octave,
+                octave: key.octave,
                 key: key,
                 interval: interval,
                 spellingDegree: spellingDegree,

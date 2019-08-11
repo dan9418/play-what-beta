@@ -10,13 +10,13 @@ export interface Concept {
     intervals: Interval[];
 }
 
-export interface ConceptType {
+export interface ConceptDefinition {
     id: string;
     name: string;
     presets: Preset<ConceptConfig>[];
 }
 
-export const ALL_CONCEPTS: ConceptType[] = [
+export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
     {
         id: 'interval',
         name: 'Intervals',
