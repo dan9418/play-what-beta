@@ -1,22 +1,33 @@
-Octave
-View container
-Header buttons
 
-Guitar
-    Tuning presets
-    Voicings
+============V1============
 
-Concept Options
-    Inversions
+Universal Input Styles / Schema
+Universal Color Scheme
+Clean up / verify theory engine
+Final file cleanup
+
+Concept Config
+    Inversions / Circular rotation
     Roman Numerals
     Direction
-    Cadences
+    Melodic inversion
 
-Misc
-    Routing
+Viewer Config
+    Guitar Voicings
+    Better UI
+
+Meta
     Docs
     Bug tracking
     Formal backlog
-    CircleView
+        Branch unfinished features
+  
+============V2============
+    Resizable viewers
+    MultiViewer
+        Roman Numerals
+        Cadences
+        MultiControl
     Extended intervals
     Color strategy
+    Sound
