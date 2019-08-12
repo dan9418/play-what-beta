@@ -33,8 +33,8 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
         presets: PRESETS_PIANO_CONFIG
     },
     {
-        id: 'neck',
-        name: 'Neck',
+        id: 'fretboard',
+        name: 'Fretboard',
         component: Guitar,
         configComponent: GuitarConfigPanel,
         presets: PRESETS_GUITAR_CONFIG

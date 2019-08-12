@@ -164,21 +164,6 @@
 	grid-gap: 2px;
 }
 
-.config-panel-header {
-	font-size: 14px;
-	font-weight: bold;;
-	grid-area: auto / auto / auto / span 2;
-}
-
-.config-panel-row-label {
-	font-size: 14px;
-	text-align: right;
-}
-
-.config-panel-row-contents {
-	text-align: left;
-}
-
 .string-config-panel {
 	grid-area: auto / auto / auto / span 2;
 }
