@@ -15,6 +15,7 @@ Concept Config
 Viewer Config
     Guitar Voicings
     Better UI
+    Range Input
 
 Meta
     Docs

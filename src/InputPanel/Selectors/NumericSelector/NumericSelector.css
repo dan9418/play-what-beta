@@ -6,6 +6,7 @@
   vertical-align: top;
   color: white;
   display: inline-block;
+  text-align: center;
 }
 
 .numeric-selector .up, .numeric-selector .down, .numeric-selector .value {

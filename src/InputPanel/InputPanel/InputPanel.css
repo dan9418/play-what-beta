@@ -33,5 +33,5 @@
 }
 
 .input-row-config-panel {
-    grid-area: auto / auto / span 3;
+    grid-area: auto / auto / auto / span 3;
 }
