@@ -26,8 +26,8 @@ export class ViewerManager extends React.Component<any, ViewerManagerState> {
     constructor(props) {
         super(props);
 
-        const CONCEPT_INDEX = 1;
-        const VIEWER_INDEX = 2;
+        const CONCEPT_INDEX = 2;
+        const VIEWER_INDEX = 1;
 
         this.state = {
             // Key
