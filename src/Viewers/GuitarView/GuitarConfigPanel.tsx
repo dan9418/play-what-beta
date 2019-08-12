@@ -41,8 +41,6 @@
 }*/
 
 import * as React from "react";
-import { InputRow } from "../../InputPanel/InputRow/InputRow";
-import { InputGroup } from "../../InputPanel/InputGroup/InputGroup";
 import { NumericSelector } from "../../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputPanel/Selectors/DropdownSelector/DropdownSelector";
 import { SwitchSelector } from "../../InputPanel/Selectors/SwitchSelector/SwitchSelector";
@@ -85,45 +83,33 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
     render = () => {
         return (
             <div className='guitar-config-panel'>
-                <InputRow title='Guitar Config'>
-                    <InputGroup label='Fret Label'>
-                        <DropdownSelector
-                            data={ALL_GUITAR_FRET_LABELS}
-                            value={this.props.viewerConfig.fretLabel}
-                            setValue={(value) => { this.props.setValue('fretLabel', value); }} />
-                    </InputGroup>
-                    <InputGroup label='Fret Range'>
-                        Low (
+                <DropdownSelector
+                    data={ALL_GUITAR_FRET_LABELS}
+                    value={this.props.viewerConfig.fretLabel}
+                    setValue={(value) => { this.props.setValue('fretLabel', value); }} />
+                Low (
                         <NumericSelector
-                            value={this.props.viewerConfig.fretLow}
-                            setValue={(value) => { this.props.setValue('fretLow', value); }} />)
-        High (
+                    value={this.props.viewerConfig.fretLow}
+                    setValue={(value) => { this.props.setValue('fretLow', value); }} />)
+High (
                         <NumericSelector
-                            value={this.props.viewerConfig.fretHigh}
-                            setValue={(value) => { this.props.setValue('fretHigh', value); }} />)
-                    </InputGroup>
-                    <InputGroup label='Filter Octave'>
+                    value={this.props.viewerConfig.fretHigh}
+                    setValue={(value) => { this.props.setValue('fretHigh', value); }} />)
                         <SwitchSelector
-                            value={this.props.viewerConfig.filterOctave}
-                            setValue={(value) => { this.props.setValue('filterOctave', value); }} />
-                    </InputGroup>
-                    <InputGroup label='Show Dots'>
-                        <SwitchSelector
-                            value={this.props.viewerConfig.showDots}
-                            setValue={(value) => { this.props.setValue('showDots', value); }} />
-                    </InputGroup>
-                    <InputGroup label='Strings'>
-                        [<NumericSelector
-                            value={this.props.viewerConfig.strings.length}
-                            setValue={(value) => {
-                                if (value > this.props.viewerConfig.strings.length)
-                                    this.props.setValue('strings', [...this.props.viewerConfig.strings, { openPosition: 0 }]);
-                                else
-                                    this.props.setValue('strings', this.props.viewerConfig.strings.splice(0, value));
-                            }} />]
+                    value={this.props.viewerConfig.filterOctave}
+                    setValue={(value) => { this.props.setValue('filterOctave', value); }} />
+                <SwitchSelector
+                    value={this.props.viewerConfig.showDots}
+                    setValue={(value) => { this.props.setValue('showDots', value); }} />
+                [<NumericSelector
+                    value={this.props.viewerConfig.strings.length}
+                    setValue={(value) => {
+                        if (value > this.props.viewerConfig.strings.length)
+                            this.props.setValue('strings', [...this.props.viewerConfig.strings, { openPosition: 0 }]);
+                        else
+                            this.props.setValue('strings', this.props.viewerConfig.strings.splice(0, value));
+                    }} />]
                         {this.getStringInputs()}
-                    </InputGroup>
-                </InputRow>
             </div>
         );
     }

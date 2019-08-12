@@ -145,7 +145,7 @@
 	visibility: visible;
 }
 
-.input-group:hover .string-button.insert {
+.input-wrapper:hover .string-button.insert {
 	visibility: visible;
 }
 

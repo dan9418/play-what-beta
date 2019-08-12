@@ -1,4 +1,36 @@
 .input-panel {
-    text-align: left;
-    margin: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto;
+}
+
+.input-row-label {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.input-column-label {
+    font-size: 12px;
+}
+
+.input-row-label.key {
+
+}
+
+.input-row-label.concept {
+
+}
+
+.input-row-label.viewer {
+    
+}
+
+.input-row-toggle {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-row-toggle:hover {
+    color: #555;
 }

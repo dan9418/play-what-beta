@@ -8,9 +8,35 @@ import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../../Common/Theory/Conc
 import { VIEWER_DEFINITIONS, ViewerDefinition } from "../../Viewers/ViewerConfig";
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
-import { InputGroup } from "../InputGroup/InputGroup";
-import { InputRow } from "../InputRow/InputRow";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
+
+/*
+<IntervalSelector
+    propertyId='conceptIntervals'
+    value={this.props.conceptIntervals as any}
+    setValue={this.props.setValue}
+    keyDef={{
+        degree: this.props.degree,
+        accidental: this.props.accidental,
+        octave: this.props.octave
+    }}
+/>
+
+<ViewerConfigPanel
+    viewerConfig={this.props.viewerConfig}
+    setValue={(property, value) => {
+        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
+    }}
+/>
+
+<ViewerConfigPanel
+                    viewerConfig={this.props.viewerConfig}
+                    setValue={(property, value) => {
+                        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
+                    }}
+                />
+
+*/
 
 export interface InputPanelProps extends ViewerManagerState {
     setValue: (property: string, value: any) => void
@@ -35,86 +61,74 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
 
         return (
             <div className='input-panel'>
-                <InputRow title='key'>
-                    <InputGroup label='Key'>
-                        <BoxSelector
-                            data={ALL_DEGREES}
-                            value={this.props.degree}
-                            setValue={(value) => {
-                                this.props.setValue('degree', value);
-                            }}
-                        />
-                        <BoxSelector
-                            data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
-                            value={this.props.accidental}
-                            setValue={(value) => {
-                                this.props.setValue('accidental', value);
-                            }}
-                        />
-                    </InputGroup>
-                    <InputGroup label='Octave'>
-                        <NumericSelector
-                            value={this.props.octave}
-                            setValue={(value) => {
-                                this.props.setValue('octave', value);
-                            }}
-                        />
-                    </InputGroup>
-                </InputRow>
-                <InputRow title='Concept' details={
-                    <IntervalSelector
-                        propertyId='conceptIntervals'
-                        value={this.props.conceptIntervals as any}
-                        setValue={this.props.setValue}
-                        keyDef={{
-                            degree: this.props.degree,
-                            accidental: this.props.accidental,
-                            octave: this.props.octave
-                        }}
-                    />}
-                >
-                    <InputGroup label='Concept'>
-                        <DropdownSelector
-                            data={CONCEPT_DEFINITIONS}
-                            value={this.props.conceptDefinition}
-                            setValue={(value) => {
-                                this.props.setValue('conceptDefinition', value);
-                            }}
-                        />
-                        <DropdownSelector
-                            data={this.props.conceptDefinition.presets}
-                            value={this.props.conceptDefinition}//
-                            setValue={(value) => {
-                                this.props.setValue('conceptIntervals', value.config.intervals);
-                            }}
-                        />
-                    </InputGroup>
-                </InputRow>
-                <InputRow title='Viewer' details={
-                    <ViewerConfigPanel
-                        viewerConfig={this.props.viewerConfig}
-                        setValue={(property, value) => {
-                            this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
-                        }}
-                    />
-                }>
-                    <InputGroup label='Viewer'>
-                        <DropdownSelector
-                            data={VIEWER_DEFINITIONS}
-                            value={this.props.viewerDefinition}
-                            setValue={(value) => {
-                                this.props.setValue('viewerDefinition', value);
-                            }}
-                        />
-                        <DropdownSelector
-                            data={this.props.viewerDefinition.presets}
-                            value={this.props.viewerConfig}//
-                            setValue={(value) => {
-                                this.props.setValue('viewerConfig', value.config);
-                            }}
-                        />
-                    </InputGroup>
-                </InputRow>
-            </div>);
+                <div className='input-row-label'></div>
+                <div className='input-column-label'>Degree</div>
+                <div className='input-column-label'>Accidental</div>
+                <div className='input-column-label'>Octave</div>
+
+                <div className='input-row-label key'>Key</div>
+                <BoxSelector
+                    data={ALL_DEGREES}
+                    value={this.props.degree}
+                    setValue={(value) => {
+                        this.props.setValue('degree', value);
+                    }}
+                />
+                <BoxSelector
+                    data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
+                    value={this.props.accidental}
+                    setValue={(value) => {
+                        this.props.setValue('accidental', value);
+                    }}
+                />
+
+                <NumericSelector
+                    value={this.props.octave}
+                    setValue={(value) => {
+                        this.props.setValue('octave', value);
+                    }}
+                />
+
+                <div className='input-row-label'></div>
+                <div className='input-column-label'>Type</div>
+                <div className='input-column-label'>Preset</div>
+                <div className='input-column-label'>Configure</div>
+
+                <div className='input-row-label concept'>Concept</div>
+                <DropdownSelector
+                    data={CONCEPT_DEFINITIONS}
+                    value={this.props.conceptDefinition}
+                    setValue={(value) => {
+                        this.props.setValue('conceptDefinition', value);
+                    }}
+                />
+
+                <DropdownSelector
+                    data={this.props.conceptDefinition.presets}
+                    value={this.props.conceptDefinition}//
+                    setValue={(value) => {
+                        this.props.setValue('conceptIntervals', value.config.intervals);
+                    }}
+                />
+                <div className='input-row-toggle'>...</div>
+
+                <div className='input-row-label viewer'>Viewer</div>
+                <DropdownSelector
+                    data={VIEWER_DEFINITIONS}
+                    value={this.props.viewerDefinition}
+                    setValue={(value) => {
+                        this.props.setValue('viewerDefinition', value);
+                    }}
+                />
+
+                <DropdownSelector
+                    data={this.props.viewerDefinition.presets}
+                    value={this.props.viewerConfig}//
+                    setValue={(value) => {
+                        this.props.setValue('viewerConfig', value.config);
+                    }}
+                />
+                <div className='input-row-toggle'>...</div>
+            </div >);
     };
 }
