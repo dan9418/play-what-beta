@@ -21,18 +21,6 @@
     margin-top: 5px;
 }
 
-.input-row-label.key {
-
-}
-
-.input-row-label.concept {
-
-}
-
-.input-row-label.viewer {
-    
-}
-
 .input-row-toggle {
     font-weight: bold;
     cursor: pointer;
@@ -42,4 +30,8 @@
 
 .input-row-toggle:hover {
     color: #555;
+}
+
+.input-row-config-panel {
+    grid-area: auto / auto / span 3;
 }

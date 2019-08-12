@@ -155,3 +155,10 @@
 	border-right: 1px solid grey;
 	z-index: 10;
 }
+
+/* Config */
+
+.piano-config-panel {
+	display: grid;
+	grid-template-columns: auto auto;
+}

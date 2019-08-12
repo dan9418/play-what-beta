@@ -80,3 +80,10 @@
 	vertical-align: middle;
 	margin: 5px;
 }
+
+/* Config */
+
+.summary-config-panel {
+	display: grid;
+	grid-template-columns: auto auto;
+}

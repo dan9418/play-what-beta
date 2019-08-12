@@ -67,14 +67,15 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
         let items = [];
         for (let i = 0; i < this.props.viewerConfig.strings.length; i++) {
             let child = this.props.viewerConfig.strings[i];
-            items.push(<div key={i} className='string'>(
+            items.push(<div key={i} className='string'>
+                <div className='input-row-label'>{i}</div>
                 <NumericSelector
                     value={this.props.viewerConfig.strings[i].openPosition}
                     setValue={(value) => {
                         let s = this.props.viewerConfig.strings;
                         s[i].openPosition = value;
                         this.props.setValue('strings', s);
-                    }} />)
+                    }} />
                     </div>);
         }
         return items;
@@ -83,33 +84,37 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
     render = () => {
         return (
             <div className='guitar-config-panel'>
+                <div className='input-row-label'>Fret Label</div>
                 <DropdownSelector
                     data={ALL_GUITAR_FRET_LABELS}
                     value={this.props.viewerConfig.fretLabel}
                     setValue={(value) => { this.props.setValue('fretLabel', value); }} />
-                Low (
-                        <NumericSelector
+                <div className='input-row-label'>Low Fret</div>
+                <NumericSelector
                     value={this.props.viewerConfig.fretLow}
-                    setValue={(value) => { this.props.setValue('fretLow', value); }} />)
-High (
-                        <NumericSelector
+                    setValue={(value) => { this.props.setValue('fretLow', value); }} />
+                <div className='input-row-label'>High Fret</div>
+                <NumericSelector
                     value={this.props.viewerConfig.fretHigh}
-                    setValue={(value) => { this.props.setValue('fretHigh', value); }} />)
-                        <SwitchSelector
+                    setValue={(value) => { this.props.setValue('fretHigh', value); }} />
+                <div className='input-row-label'>Filter Octave</div>
+                <SwitchSelector
                     value={this.props.viewerConfig.filterOctave}
                     setValue={(value) => { this.props.setValue('filterOctave', value); }} />
+                <div className='input-row-label'>Show Dots</div>
                 <SwitchSelector
                     value={this.props.viewerConfig.showDots}
                     setValue={(value) => { this.props.setValue('showDots', value); }} />
-                [<NumericSelector
+                <div className='input-row-label'>Strings</div>
+                <NumericSelector
                     value={this.props.viewerConfig.strings.length}
                     setValue={(value) => {
                         if (value > this.props.viewerConfig.strings.length)
                             this.props.setValue('strings', [...this.props.viewerConfig.strings, { openPosition: 0 }]);
                         else
                             this.props.setValue('strings', this.props.viewerConfig.strings.splice(0, value));
-                    }} />]
-                        {this.getStringInputs()}
+                    }} />
+                {this.getStringInputs()}
             </div>
         );
     }

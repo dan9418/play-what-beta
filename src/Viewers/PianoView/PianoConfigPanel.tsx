@@ -19,19 +19,21 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
     render = () => {
         return (
             <div className='piano-config-panel'>
+                <div className='input-row-label'>Key Label</div>
                 <DropdownSelector
                     data={ALL_PIANO_KEY_LABELS}
                     value={this.props.viewerConfig.noteLabel}
                     setValue={(value) => { this.props.setValue('noteLabel', value); }} />
-                Low (
-                        <NumericSelector
+                <div className='input-row-label'>Low Key</div>
+                <NumericSelector
                     value={this.props.viewerConfig.keyLow}
-                    setValue={(value) => { this.props.setValue('keyLow', value); }} />)
-            High (
-                        <NumericSelector
+                    setValue={(value) => { this.props.setValue('keyLow', value); }} />
+                <div className='input-row-label'>High Key</div>
+                <NumericSelector
                     value={this.props.viewerConfig.keyHigh}
-                    setValue={(value) => { this.props.setValue('keyHigh', value); }} />)
-                        <SwitchSelector
+                    setValue={(value) => { this.props.setValue('keyHigh', value); }} />
+                <div className='input-row-label'>Filter Octave</div>
+                <SwitchSelector
                     value={this.props.viewerConfig.filterOctave}
                     setValue={(value) => { this.props.setValue('filterOctave', value); }} />
             </div>

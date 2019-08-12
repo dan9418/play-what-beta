@@ -78,3 +78,10 @@
 	background-color: white;
 	color: black;
 }
+
+/* Config */
+
+.piano-config-panel {
+	display: grid;
+	grid-template-columns: auto auto;
+}

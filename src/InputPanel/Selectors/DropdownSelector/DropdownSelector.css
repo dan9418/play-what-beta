@@ -1,5 +1,6 @@
 .dropdown-selector {
     height: 20px;
+    display: inline-block;
 }
 
 .dropdown-selector select {

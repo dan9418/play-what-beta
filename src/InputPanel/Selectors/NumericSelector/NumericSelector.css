@@ -5,6 +5,7 @@
   line-height: 20px;
   vertical-align: top;
   color: white;
+  display: inline-block;
 }
 
 .numeric-selector .up, .numeric-selector .down, .numeric-selector .value {

@@ -42,10 +42,15 @@ export interface InputPanelProps extends ViewerManagerState {
     setValue: (property: string, value: any) => void
 }
 
-export class InputPanel extends React.Component<InputPanelProps, null> {
+export class InputPanel extends React.Component<InputPanelProps, any> {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            conceptOpen: false,
+            viewerOpen: false
+        }
     }
 
     setNestedValue = (object: any, parentProperty: string, property: string, value: any) => {
@@ -110,7 +115,12 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         this.props.setValue('conceptIntervals', value.config.intervals);
                     }}
                 />
-                <div className='input-row-toggle'>+</div>
+                <div className='input-row-toggle' onClick={() => { this.setState((oldState) => { return { conceptOpen: !oldState.conceptOpen } }) }}>{this.state.conceptOpen ? '-' : '+'}</div>
+                {this.state.conceptOpen && <div className='input-row-label'></div>}
+                {this.state.conceptOpen &&
+                    <div className='input-row-config-panel'>
+                        COMING SOON!
+                    </div>}
 
                 <div className='input-row-label viewer'>Viewer</div>
                 <DropdownSelector
@@ -128,7 +138,18 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         this.props.setValue('viewerConfig', value.config);
                     }}
                 />
-                <div className='input-row-toggle'>+</div>
+                <div className='input-row-toggle' onClick={() => { this.setState((oldState) => { return { viewerOpen: !oldState.viewerOpen } }) }}>{this.state.viewerOpen ? '-' : '+'}</div>
+                {this.state.viewerOpen && <div className='input-row-label'></div>}
+                {this.state.viewerOpen &&
+                    <div className='input-row-config-panel'>
+                        <ViewerConfigPanel
+                            viewerConfig={this.props.viewerConfig}
+                            setValue={(property, value) => {
+                                this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
+                            }}
+                        />
+                    </div>}
+
             </div >);
     };
 }
