@@ -1,17 +1,24 @@
 .input-panel {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 2px;
     grid-template-columns: auto auto auto auto;
+    margin: 5px;
 }
 
 .input-row-label {
     font-size: 14px;
     font-weight: bold;
     text-align: right;
+    line-height: 20px;
+    height: 20px;
+    vertical-align: top;
 }
 
 .input-column-label {
     font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 5px;
 }
 
 .input-row-label.key {
@@ -29,6 +36,8 @@
 .input-row-toggle {
     font-weight: bold;
     cursor: pointer;
+    height: 20px;
+    line-height: 20px;
 }
 
 .input-row-toggle:hover {

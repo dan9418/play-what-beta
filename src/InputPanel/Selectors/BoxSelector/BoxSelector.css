@@ -1,8 +1,6 @@
 .box-selector {
     color: white;
-    font-size: 12px;
-    text-align: center;
-    display: inline-block;
+    height: 20px;
 }
 
 .box-selector-label {
@@ -12,12 +10,13 @@
 .box-selector-option {
     display: inline-block;
     background-color: #888;
-    margin: 1px;
+    margin-left: 2px;
     line-height: 20px;
     height: 20px;
     width: 20px;
     font-size: 12px;
     border-radius: 2px;
+    vertical-align: top;
 }
 
 .box-selector-option:hover {

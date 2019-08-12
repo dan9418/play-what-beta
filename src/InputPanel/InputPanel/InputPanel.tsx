@@ -92,7 +92,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 <div className='input-row-label'></div>
                 <div className='input-column-label'>Type</div>
                 <div className='input-column-label'>Preset</div>
-                <div className='input-column-label'>Configure</div>
+                <div className='input-column-label'></div>
 
                 <div className='input-row-label concept'>Concept</div>
                 <DropdownSelector
@@ -110,7 +110,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         this.props.setValue('conceptIntervals', value.config.intervals);
                     }}
                 />
-                <div className='input-row-toggle'>...</div>
+                <div className='input-row-toggle'>+</div>
 
                 <div className='input-row-label viewer'>Viewer</div>
                 <DropdownSelector
@@ -128,7 +128,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         this.props.setValue('viewerConfig', value.config);
                     }}
                 />
-                <div className='input-row-toggle'>...</div>
+                <div className='input-row-toggle'>+</div>
             </div >);
     };
 }

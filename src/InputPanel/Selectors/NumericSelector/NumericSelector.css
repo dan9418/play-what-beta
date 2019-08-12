@@ -1,13 +1,21 @@
 
 
 .numeric-selector {
-  display: inline-block;
-  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: top;
+  color: white;
 }
 
-.numeric-selector .up, .numeric-selector .down, .numeric-selector .value{
+.numeric-selector .up, .numeric-selector .down, .numeric-selector .value {
   display: inline-block;
-  margin: 2px;
+  margin-left: 2px;
+  line-height: 20px;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  border-radius: 2px;
+  vertical-align: top;
 
   -webkit-user-select: none; /* Safari */        
 	-moz-user-select: none; /* Firefox */
@@ -15,7 +23,16 @@
 	user-select: none; /* Standard */
 }
 
+.numeric-selector .up, .numeric-selector .down {
+  background-color: #AAA;
+}
 
-.numeric-selector .up:hover, .numeric-selector .down:hover{
+.numeric-selector .value {
   font-weight: bold;
+  background-color: #888;
+}
+
+.numeric-selector .up:hover, .numeric-selector .down:hover {
+  background-color: #777;
+  cursor: pointer;
 }

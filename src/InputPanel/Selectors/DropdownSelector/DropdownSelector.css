@@ -1,7 +1,9 @@
 .dropdown-selector {
-    display: inline-block;
+    height: 20px;
 }
 
 .dropdown-selector select {
-    width: 100px;
+    width: 150px;
+    height: 100%;
+    vertical-align: top;
 }
