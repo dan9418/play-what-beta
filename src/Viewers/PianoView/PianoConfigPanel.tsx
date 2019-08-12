@@ -19,23 +19,33 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
     render = () => {
         return (
             <div className='piano-config-panel'>
-                <div className='input-row-label'>Key Label</div>
-                <DropdownSelector
-                    data={ALL_PIANO_KEY_LABELS}
-                    value={this.props.viewerConfig.noteLabel}
-                    setValue={(value) => { this.props.setValue('noteLabel', value); }} />
-                <div className='input-row-label'>Low Key</div>
-                <NumericSelector
-                    value={this.props.viewerConfig.keyLow}
-                    setValue={(value) => { this.props.setValue('keyLow', value); }} />
-                <div className='input-row-label'>High Key</div>
-                <NumericSelector
-                    value={this.props.viewerConfig.keyHigh}
-                    setValue={(value) => { this.props.setValue('keyHigh', value); }} />
-                <div className='input-row-label'>Filter Octave</div>
-                <SwitchSelector
-                    value={this.props.viewerConfig.filterOctave}
-                    setValue={(value) => { this.props.setValue('filterOctave', value); }} />
+                <div className='config-panel-header'>Keys</div>
+                <div className='config-panel-row-label'>Label</div>
+                <div className='config-panel-row-contents'>
+                    <DropdownSelector
+                        data={ALL_PIANO_KEY_LABELS}
+                        value={this.props.viewerConfig.noteLabel}
+                        setValue={(value) => { this.props.setValue('noteLabel', value); }} />
+                </div>
+                <div className='config-panel-row-label'>Low</div>
+                <div className='config-panel-row-contents'>
+                    <NumericSelector
+                        value={this.props.viewerConfig.keyLow}
+                        setValue={(value) => { this.props.setValue('keyLow', value); }} />
+                </div>
+                <div className='config-panel-row-label'>High</div>
+                <div className='config-panel-row-contents'>
+                    <NumericSelector
+                        value={this.props.viewerConfig.keyHigh}
+                        setValue={(value) => { this.props.setValue('keyHigh', value); }} />
+                </div>
+                <div className='config-panel-row-label'>Filter Octave</div>
+                <div className='config-panel-row-contents'>
+                    <SwitchSelector
+                        value={this.props.viewerConfig.filterOctave}
+                        setValue={(value) => { this.props.setValue('filterOctave', value); }} />
+                </div>
+
             </div>
         );
     }
