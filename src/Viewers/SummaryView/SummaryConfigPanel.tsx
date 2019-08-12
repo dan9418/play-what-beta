@@ -18,7 +18,7 @@ export class SummaryConfigPanel extends React.Component<SummaryConfigPanelProps,
     render = () => {
         return (
             <div className='summary-config-panel'>
-                <InputRow>
+                <InputRow title='Summary Config'>
                     <InputGroup label='Show Inactive'>
                         <SwitchSelector
                             value={this.props.viewerConfig.showInactive}

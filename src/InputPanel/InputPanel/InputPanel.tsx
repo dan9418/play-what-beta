@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./ViewerInputPanel.css";
+import "./InputPanel.css";
 import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector";
 import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
 import { ALL_DEGREES } from "../../Common/Theory/Key/DegreeConfig";
@@ -12,11 +12,11 @@ import { InputGroup } from "../InputGroup/InputGroup";
 import { InputRow } from "../InputRow/InputRow";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
 
-export interface ViewerInputPanelProps extends ViewerManagerState {
+export interface InputPanelProps extends ViewerManagerState {
     setValue: (property: string, value: any) => void
 }
 
-export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, null> {
+export class InputPanel extends React.Component<InputPanelProps, null> {
 
     constructor(props) {
         super(props);
@@ -34,8 +34,8 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
         let ViewerConfigPanel = this.props.viewerDefinition.configComponent;
 
         return (
-            <div className='viewer-input-panel'>
-                <InputRow>
+            <div className='input-panel'>
+                <InputRow title='key'>
                     <InputGroup label='Key'>
                         <BoxSelector
                             data={ALL_DEGREES}
@@ -61,7 +61,7 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
                         />
                     </InputGroup>
                 </InputRow>
-                <InputRow details={
+                <InputRow title='Concept' details={
                     <IntervalSelector
                         propertyId='conceptIntervals'
                         value={this.props.conceptIntervals as any}
@@ -90,7 +90,7 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
                         />
                     </InputGroup>
                 </InputRow>
-                <InputRow details={
+                <InputRow title='Viewer' details={
                     <ViewerConfigPanel
                         viewerConfig={this.props.viewerConfig}
                         setValue={(property, value) => {

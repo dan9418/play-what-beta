@@ -85,7 +85,7 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
     render = () => {
         return (
             <div className='guitar-config-panel'>
-                <InputRow>
+                <InputRow title='Guitar Config'>
                     <InputGroup label='Fret Label'>
                         <DropdownSelector
                             data={ALL_GUITAR_FRET_LABELS}

@@ -21,7 +21,7 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
     render = () => {
         return (
             <div className='piano-config-panel'>
-                <InputRow>
+                <InputRow title='Piano Config'>
                     <InputGroup label='Key Label'>
                         <DropdownSelector
                             data={ALL_PIANO_KEY_LABELS}

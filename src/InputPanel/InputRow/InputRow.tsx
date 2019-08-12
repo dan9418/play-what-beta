@@ -2,6 +2,7 @@ import * as React from "react";
 import "./InputRow.css";
 
 type InputRowProps = {
+    title: string;
     children: any;
     details?: any;
 }
@@ -34,6 +35,9 @@ export class InputRow extends React.Component<InputRowProps, InputRowState> {
     render = () => {
         return (
             <div className='input-row'>
+                <div className='input-row-title'>
+                    {this.props.title}
+                </div>
                 <div className='input-row-main'>
                     {this.props.children}
                     {this.props.details &&

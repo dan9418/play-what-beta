@@ -3,7 +3,7 @@ import { DEGREE, Degree } from "../Common/Theory/Key/DegreeConfig";
 import { ACCIDENTAL, Accidental } from "../Common/Theory/Key/AccidentalConfig";
 import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../Common/Theory/Concepts/ConceptConfig";
 import { VIEWER_DEFINITIONS, ViewerDefinition } from "./ViewerConfig";
-import { ViewerInputPanel } from "../InputPanel/ViewerInputPanel/ViewerInputPanel";
+import { InputPanel } from "../InputPanel/InputPanel/InputPanel";
 import { ViewerDriver } from "./ViewerDriver";
 import { Interval } from "../Common/Theory/Concepts/IntervalConfig";
 
@@ -55,7 +55,7 @@ export class ViewerManager extends React.Component<any, ViewerManagerState> {
     render = () => {
         return (
             <>
-                <ViewerInputPanel
+                <InputPanel
                     {...this.state}
                     setValue={this.setValue}
                 />
