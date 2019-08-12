@@ -41,7 +41,7 @@
 }*/
 
 import * as React from "react";
-import { InputSubrow } from "../../InputPanel/InputSubrow/InputSubrow";
+import { InputRow } from "../../InputPanel/InputRow/InputRow";
 import { InputGroup } from "../../InputPanel/InputGroup/InputGroup";
 import { NumericSelector } from "../../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputPanel/Selectors/DropdownSelector/DropdownSelector";
@@ -85,7 +85,7 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
     render = () => {
         return (
             <div className='guitar-config-panel'>
-                <InputSubrow>
+                <InputRow>
                     <InputGroup label='Fret Label'>
                         <DropdownSelector
                             data={ALL_GUITAR_FRET_LABELS}
@@ -123,7 +123,7 @@ export class GuitarConfigPanel extends React.Component<GuitarConfigPanelProps, n
                             }} />]
                         {this.getStringInputs()}
                     </InputGroup>
-                </InputSubrow>
+                </InputRow>
             </div>
         );
     }

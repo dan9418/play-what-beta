@@ -1,17 +1,17 @@
-.input-subrow {
+.input-row {
     text-align: center;
 }
 
-.input-subrow-details {
+.input-row-details {
     text-align: center;
 }
 
-.input-subrow-toggle {
+.input-row-toggle {
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
 }
 
-.input-subrow-toggle:hover {
+.input-row-toggle:hover {
     color: #555;
 }

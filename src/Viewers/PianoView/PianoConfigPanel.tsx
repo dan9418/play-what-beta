@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./PianoView.css";
 import { ALL_PIANO_KEY_LABELS, PianoConfig } from "./PianoConfig";
-import { InputSubrow } from "../../InputPanel/InputSubrow/InputSubrow";
+import { InputRow } from "../../InputPanel/InputRow/InputRow";
 import { InputGroup } from "../../InputPanel/InputGroup/InputGroup";
 import { NumericSelector } from "../../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputPanel/Selectors/DropdownSelector/DropdownSelector";
@@ -21,7 +21,7 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
     render = () => {
         return (
             <div className='piano-config-panel'>
-                <InputSubrow>
+                <InputRow>
                     <InputGroup label='Key Label'>
                         <DropdownSelector
                             data={ALL_PIANO_KEY_LABELS}
@@ -43,7 +43,7 @@ export class PianoConfigPanel extends React.Component<PianoConfigPanelProps, nul
                             value={this.props.viewerConfig.filterOctave}
                             setValue={(value) => { this.props.setValue('filterOctave', value); }} />
                     </InputGroup>
-                </InputSubrow>
+                </InputRow>
             </div>
         );
     }

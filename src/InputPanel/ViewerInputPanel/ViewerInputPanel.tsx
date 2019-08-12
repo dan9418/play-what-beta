@@ -9,7 +9,7 @@ import { VIEWER_DEFINITIONS, ViewerDefinition } from "../../Viewers/ViewerConfig
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
 import { InputGroup } from "../InputGroup/InputGroup";
-import { InputSubrow } from "../InputSubrow/InputSubrow";
+import { InputRow } from "../InputRow/InputRow";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
 
 export interface ViewerInputPanelProps extends ViewerManagerState {
@@ -35,7 +35,7 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
 
         return (
             <div className='viewer-input-panel'>
-                <InputSubrow>
+                <InputRow>
                     <InputGroup label='Key'>
                         <BoxSelector
                             data={ALL_DEGREES}
@@ -60,8 +60,8 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
                             }}
                         />
                     </InputGroup>
-                </InputSubrow>
-                <InputSubrow details={
+                </InputRow>
+                <InputRow details={
                     <IntervalSelector
                         propertyId='conceptIntervals'
                         value={this.props.conceptIntervals as any}
@@ -89,8 +89,8 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
                             }}
                         />
                     </InputGroup>
-                </InputSubrow>
-                <InputSubrow details={
+                </InputRow>
+                <InputRow details={
                     <ViewerConfigPanel
                         viewerConfig={this.props.viewerConfig}
                         setValue={(property, value) => {
@@ -114,7 +114,7 @@ export class ViewerInputPanel extends React.Component<ViewerInputPanelProps, nul
                             }}
                         />
                     </InputGroup>
-                </InputSubrow>
+                </InputRow>
             </div>);
     };
 }
