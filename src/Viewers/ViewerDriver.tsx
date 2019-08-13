@@ -42,8 +42,22 @@ export class ViewerDriver extends React.Component<ViewerDriverProps, null> {
 
 	getNotes = () => {
 		let key = this.getKey();
-		return TheoryEngine.getNotesFromIntervals(key, this.props.conceptProps.intervals);
+		let keyUp = { ...key };
+		keyUp.octave = key.octave + 1;
+		let intervals = this.props.conceptProps.intervals;
+		let inversion = this.props.conceptProps.config.inversion.rotation;
+		let notes = TheoryEngine.getNotesFromIntervals(key, intervals);
+		let notesUp = TheoryEngine.getNotesFromIntervals(keyUp, intervals);
+		let finalNotes = [...notes.slice(inversion), ...notesUp.slice(0, inversion)];
+		return finalNotes;
 	}
+
+	/*arrayRotate = (arr, count) => {
+		count -= arr.length * Math.floor(count / arr.length)
+		arr.push.apply(arr, arr.splice(0, count))
+		console.log(arr);
+		return arr
+	}*/
 
 	render = () => {
 		let Viewer = this.props.viewerProps.component;
