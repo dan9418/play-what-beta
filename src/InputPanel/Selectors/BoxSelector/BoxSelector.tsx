@@ -4,6 +4,7 @@ import "./BoxSelector.css";
 type BoxSelectorProps = {
     data: any[];
     value: any;
+    displayProp?: string;
     setValue: (value) => void;
 }
 
@@ -17,7 +18,7 @@ export class BoxSelector extends React.Component<BoxSelectorProps, null> {
         let options = [];
         for (let i = 0; i < this.props.data.length; i++) {
             let option = this.props.data[i];
-            let displayProp = 'name';
+            let displayProp = this.props.displayProp || 'name';
             let classes = ['box-selector-option'];
             if (option.id === this.props.value.id) {
                 classes.push('active-setting');

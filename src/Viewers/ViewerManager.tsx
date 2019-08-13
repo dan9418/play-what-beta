@@ -26,7 +26,7 @@ export class ViewerManager extends React.Component<any, ViewerManagerState> {
     constructor(props) {
         super(props);
 
-        const CONCEPT_INDEX = 2;
+        const CONCEPT_INDEX = 1;
         const VIEWER_INDEX = 1;
 
         this.state = {
@@ -37,7 +37,7 @@ export class ViewerManager extends React.Component<any, ViewerManagerState> {
             // Concept
             conceptDefinition: CONCEPT_DEFINITIONS[CONCEPT_INDEX],
             conceptIntervals: CONCEPT_DEFINITIONS[CONCEPT_INDEX].presets[0].config.intervals,
-            conceptConfig: {},
+            conceptConfig: CONCEPT_DEFINITIONS[CONCEPT_INDEX].defaults,
             // Viewer
             viewerDefinition: VIEWER_DEFINITIONS[VIEWER_INDEX],
             viewerConfig: VIEWER_DEFINITIONS[VIEWER_INDEX].presets[0].config,

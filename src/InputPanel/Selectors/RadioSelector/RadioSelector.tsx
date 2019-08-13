@@ -1,8 +1,9 @@
 import * as React from "react";
 
 type RadioSelectorProps = {
-    parameter: any;
-    updateParameter: any;
+    data: any[];
+    value: any;
+    setValue: (value) => void;
 }
 
 export class RadioSelector extends React.Component<RadioSelectorProps> {
@@ -13,9 +14,18 @@ export class RadioSelector extends React.Component<RadioSelectorProps> {
 
     getOptions = () => {
         let options = [];
-        for (let i = 0; i < this.props.parameter.data.length; i++) {
-            let param = this.props.parameter.data[i];
-            options.push(<input key={param.id} name={param.id} value={param.id} className={'radio-option'}>{param.name}</input>);
+        for (let i = 0; i < this.props.data.length; i++) {
+            let param = this.props.data[i];
+            options.push(
+                <input
+                    key={param.id}
+                    name={param.id}
+                    value={param.id}
+                    onChange={() => this.props.setValue(param)}
+                    className={'radio-option'}>
+                    {param.name}
+                </input>
+            );
         }
         return options;
     }
