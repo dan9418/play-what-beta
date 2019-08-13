@@ -5,7 +5,7 @@ import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../Concepts/ConceptConfi
 import { VIEWER_DEFINITIONS, ViewerDefinition } from "./ViewerConfig";
 import { InputPanel } from "../InputPanel/InputPanel/InputPanel";
 import { ViewerDriver } from "./ViewerDriver";
-import { Interval } from "../Concepts/IntervalConfig";
+import { Interval } from "../Concepts/Interval/IntervalConfig";
 
 export type ViewerManagerState = {
     // Key

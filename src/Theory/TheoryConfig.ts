@@ -1,4 +1,4 @@
-import { Interval, INTERVAL } from "../Concepts/IntervalConfig";
+import { Interval, INTERVAL } from "../Concepts/Interval/IntervalConfig";
 import { Degree } from "../Key/DegreeConfig";
 import { Accidental } from "../Key/AccidentalConfig";
 

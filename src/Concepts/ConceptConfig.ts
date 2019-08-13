@@ -1,7 +1,7 @@
-import { Interval, PRESET_INTERVALS } from "./IntervalConfig";
-import { PRESET_CHORDS } from "./ChordConfig";
-import { PRESET_SCALES } from "./ScaleConfig";
-import { PRESET_MODES } from "./ModeConfig";
+import { Interval, PRESET_INTERVALS } from "./Interval/IntervalConfig";
+import { PRESET_CHORDS } from "./Chord/ChordConfig";
+import { PRESET_SCALES } from "./Scale/ScaleConfig";
+import { PRESET_MODES } from "./Mode/ModeConfig";
 import { Preset, ConceptConfig } from "../Theory/TheoryConfig";
 
 export interface Concept {

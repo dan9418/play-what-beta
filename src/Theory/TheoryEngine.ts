@@ -1,6 +1,6 @@
 import { Key, Note, MAJOR_SCALE } from "./TheoryConfig";
 import { TheoryEngine2 } from "./TheoryEngine2";
-import { Interval, INTERVAL } from "../Concepts/IntervalConfig";
+import { Interval, INTERVAL } from "../Concepts/Interval/IntervalConfig";
 import { DEGREE, Degree, ALL_DEGREES } from "../Key/DegreeConfig";
 import { Accidental, ALL_ACCIDENTALS, ACCIDENTAL } from "../Key/AccidentalConfig";
 

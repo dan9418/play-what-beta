@@ -1,5 +1,5 @@
-import { ConceptConfig, Preset } from "../Theory/TheoryConfig";
-import { INTERVAL } from "./IntervalConfig";
+import { ConceptConfig, Preset } from "../../Theory/TheoryConfig";
+import { INTERVAL } from "../Interval/IntervalConfig";
 
 // Interface
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Degree } from "../Key/DegreeConfig";
 import { Accidental } from "../Key/AccidentalConfig";
 import { TheoryEngine } from "../Theory/TheoryEngine";
-import { Interval } from "../Concepts/IntervalConfig";
+import { Interval } from "../Concepts/Interval/IntervalConfig";
 
 export type KeyProps = {
 	degree: Degree,

@@ -1,4 +1,4 @@
-import { INTERVAL } from "./IntervalConfig";
+import { INTERVAL } from "../Interval/IntervalConfig";
 
 // Interface
 
