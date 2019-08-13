@@ -59,6 +59,9 @@ export class ViewerDriver extends React.Component<ViewerDriverProps, null> {
 		if(this.props.conceptProps.config.melodicInversion) // currently doesn't support both inversions at the same time
 			finalNotes = [...notes.slice(0, 1), ...notesDown.slice(1)];
 
+		if(this.props.conceptProps.config.reverse)
+			finalNotes.reverse();
+
 		return finalNotes;
 	}
 

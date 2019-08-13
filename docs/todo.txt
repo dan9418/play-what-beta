@@ -12,7 +12,6 @@ Final file cleanup
 
 Concept Config
     Roman Numerals
-    Direction
 
 Meta
     Docs
