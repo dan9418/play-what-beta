@@ -26,7 +26,7 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
         presets: PRESET_INTERVALS,
         configComponent: null,
         defaults: {
-            direction: 'ascending'
+            melodicInversion: false
         }
     },
     {
@@ -39,7 +39,8 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 id: 'none',
                 name: 'None',
                 rotation: 0
-            }
+            },
+            melodicInversion: false
         }
     },
     {
@@ -48,7 +49,7 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
         presets: PRESET_SCALES,
         configComponent: null,
         defaults: {
-            direction: 'ascending'
+            melodicInversion: false
         }
     },
     {
@@ -57,7 +58,7 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
         presets: PRESET_MODES,
         configComponent: null,
         defaults: {
-            direction: 'ascending'
+            melodicInversion: false
         }
     },
     /*{

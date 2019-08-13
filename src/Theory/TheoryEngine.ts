@@ -6,10 +6,10 @@ import { Accidental, ALL_ACCIDENTALS, ACCIDENTAL } from "../Key/AccidentalConfig
 
 export class TheoryEngine {
 
-    static getNotesFromIntervals = (key: Key, intervals: Interval[]) => {
+    static getNotesFromIntervals = (key: Key, intervals: Interval[], melodicInversion: boolean) => {
 		let notes = [];
 		for (let i = 0; i < intervals.length; i++) {
-			let note = TheoryEngine2.getFunctionalNote(key, intervals[i]);
+			let note = TheoryEngine2.getFunctionalNote(key, intervals[i], melodicInversion);
 			notes.push(note);
 		}
 		return notes;
@@ -90,7 +90,7 @@ export class TheoryEngine {
         }
     }
 
-    static getFunctionalNote = (key: Key, interval: Interval, octave: number): Note => {
+    /*static getFunctionalNote = (key: Key, interval: Interval, octave: number): Note => {
         if (interval.id !== INTERVAL.TT.id) {
             let spellingDegree = (key.degree.value - 1 + interval.degree - 1) % 7 + 1;
             let pitchClass = (key.degree.value + interval.semitones) % 12;
@@ -130,5 +130,5 @@ export class TheoryEngine {
                 frequency: TheoryEngine.getFrequency(absolutePosition)
             }
         }
-    }
+    }*/
 }

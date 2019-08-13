@@ -43,12 +43,22 @@ export class ViewerDriver extends React.Component<ViewerDriverProps, null> {
 	getNotes = () => {
 		let key = this.getKey();
 		let keyUp = { ...key };
+		let keyDown = { ...key };
+
 		keyUp.octave = key.octave + 1;
+		keyDown.octave = key.octave - 1;
+
 		let intervals = this.props.conceptProps.intervals;
 		let inversion = this.props.conceptProps.config.inversion.rotation;
-		let notes = TheoryEngine.getNotesFromIntervals(key, intervals);
-		let notesUp = TheoryEngine.getNotesFromIntervals(keyUp, intervals);
+
+		let notes = TheoryEngine.getNotesFromIntervals(key, intervals, this.props.conceptProps.config.melodicInversion);
+		let notesUp = TheoryEngine.getNotesFromIntervals(keyUp, intervals, this.props.conceptProps.config.melodicInversion);
+		let notesDown = TheoryEngine.getNotesFromIntervals(keyDown, intervals, this.props.conceptProps.config.melodicInversion);
+
 		let finalNotes = [...notes.slice(inversion), ...notesUp.slice(0, inversion)];
+		if(this.props.conceptProps.config.melodicInversion) // currently doesn't support both inversions at the same time
+			finalNotes = [...notes.slice(0, 1), ...notesDown.slice(1)];
+
 		return finalNotes;
 	}
 

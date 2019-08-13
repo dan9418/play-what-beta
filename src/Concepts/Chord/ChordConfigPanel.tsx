@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RadioSelector } from "../../InputPanel/Selectors/RadioSelector/RadioSelector";
 import { BoxSelector } from "../../InputPanel/Selectors/BoxSelector/BoxSelector";
+import { SwitchSelector } from "../../InputPanel/Selectors/SwitchSelector/SwitchSelector";
 
 type ChordConfigPanelProps = {
     setValue: (property: string, value: any) => void,
@@ -16,7 +17,7 @@ export class ChordConfigPanel extends React.Component<ChordConfigPanelProps, nul
     render = () => {
         return (
             <div className='chord-config-panel'>
-                <div className='config-panel-row-label'>Inversion</div>
+                <div className='config-panel-row-label'>Chord Inversion</div>
                 <div className='config-panel-row-contents'>
                     <BoxSelector
                         displayProp='rotation'
@@ -39,6 +40,12 @@ export class ChordConfigPanel extends React.Component<ChordConfigPanelProps, nul
                         ]}
                         value={this.props.conceptConfig.inversion}
                         setValue={(value) => { this.props.setValue('inversion', value); }} />
+                </div>
+                <div className='config-panel-row-label'>Melodic Inversion</div>
+                <div className='config-panel-row-contents'>
+                    <SwitchSelector
+                        value={this.props.conceptConfig.melodicInversion}
+                        setValue={(value) => { this.props.setValue('melodicInversion', value); }} />
                 </div>
             </div>
         );
