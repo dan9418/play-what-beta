@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Degree } from "../Common/Theory/Key/DegreeConfig";
-import { Accidental } from "../Common/Theory/Key/AccidentalConfig";
-import { TheoryEngine } from "../Common/Theory/TheoryEngine";
-import { Interval } from "../Common/Theory/Concepts/IntervalConfig";
+import { Degree } from "../Key/DegreeConfig";
+import { Accidental } from "../Key/AccidentalConfig";
+import { TheoryEngine } from "../Theory/TheoryEngine";
+import { Interval } from "../Concepts/IntervalConfig";
 
 export type KeyProps = {
 	degree: Degree,

@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./GuitarView.css";
 import { GuitarFret } from "./GuitarFret";
-import { Note } from "../../Common/Theory/TheoryConfig";
-import { TheoryEngine } from "../../Common/Theory/TheoryEngine";
+import { Note } from "../../Theory/TheoryConfig";
+import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { GuitarConfig } from "./GuitarConfig";
 
 type GuitarStringProps = {

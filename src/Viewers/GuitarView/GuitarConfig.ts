@@ -1,4 +1,4 @@
-import { Preset } from "../../Common/Theory/TheoryConfig";
+import { Preset } from "../../Theory/TheoryConfig";
 
 /*
 

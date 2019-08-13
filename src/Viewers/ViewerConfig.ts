@@ -4,7 +4,7 @@ import { PRESETS_GUITAR_CONFIG } from "./GuitarView/GuitarConfig";
 import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
 import { PianoConfigPanel } from "./PianoView/PianoConfigPanel";
 import { GuitarConfigPanel } from "./GuitarView/GuitarConfigPanel";
-import { Preset } from "../Common/Theory/TheoryConfig";
+import { Preset } from "../Theory/TheoryConfig";
 
 export interface ViewerDefinition {
     id: string;

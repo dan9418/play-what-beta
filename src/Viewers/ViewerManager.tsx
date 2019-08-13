@@ -1,11 +1,11 @@
 import * as React from "react";
-import { DEGREE, Degree } from "../Common/Theory/Key/DegreeConfig";
-import { ACCIDENTAL, Accidental } from "../Common/Theory/Key/AccidentalConfig";
-import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../Common/Theory/Concepts/ConceptConfig";
+import { DEGREE, Degree } from "../Key/DegreeConfig";
+import { ACCIDENTAL, Accidental } from "../Key/AccidentalConfig";
+import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../Concepts/ConceptConfig";
 import { VIEWER_DEFINITIONS, ViewerDefinition } from "./ViewerConfig";
 import { InputPanel } from "../InputPanel/InputPanel/InputPanel";
 import { ViewerDriver } from "./ViewerDriver";
-import { Interval } from "../Common/Theory/Concepts/IntervalConfig";
+import { Interval } from "../Concepts/IntervalConfig";
 
 export type ViewerManagerState = {
     // Key

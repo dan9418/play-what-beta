@@ -1,9 +1,9 @@
 import * as React from "react";
 import './IntervalSelector.css';
-import { Key, Preset } from "../../../Common/Theory/TheoryConfig";
-import { TheoryEngine2 } from "../../../Common/Theory/TheoryEngine2";
+import { Key, Preset } from "../../../Theory/TheoryConfig";
+import { TheoryEngine2 } from "../../../Theory/TheoryEngine2";
 import { SelectorProps } from "../SelectorConfig";
-import { Concept } from "../../../Common/Theory/Concepts/ConceptConfig";
+import { Concept } from "../../../Concepts/ConceptConfig";
 
 interface IntervalSelectorProps extends SelectorProps<Preset<Concept>> {
     keyDef: Key
