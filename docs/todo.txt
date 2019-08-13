@@ -1,17 +1,14 @@
 ============V1============
 
+Roman Numerals
+Clean up config panels
 Universal Input Styles / Schema
     Range input
     Boolean input
-Custom interval input
+    Color Scheme
 Guitar Voicings
-Clean up config panels
-Universal Color Scheme
 Clean up / verify theory engine
 Final file cleanup
-
-Concept Config
-    Roman Numerals
 
 Meta
     Docs
@@ -20,6 +17,7 @@ Meta
         Branch unfinished features
   
 ============V2============
+    Custom interval input
     Resizable viewers
     MultiViewer
         Roman Numerals

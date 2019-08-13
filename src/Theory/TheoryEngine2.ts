@@ -2,6 +2,7 @@ import { Note, Key } from "./TheoryConfig";
 import { TheoryEngine } from "./TheoryEngine";
 import { ALL_DEGREES } from "../Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../Key/AccidentalConfig";
+import { Interval } from "../Concepts/Interval/IntervalConfig";
 
 export class TheoryEngine2 {
 
@@ -15,11 +16,13 @@ export class TheoryEngine2 {
         return preResult + offset;
     }
 
-    static getFunctionalNote = (key: Key, interval: any, melodicInversion: boolean = false): Note => {
+    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): Note => {
+        let octave = (interval.octaveOffset) ? key.octave + interval.octaveOffset: key.octave;
+
         let spellingDegree = TheoryEngine2.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
 
         let pitchClass = TheoryEngine2.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
-        let absolutePosition = (key.octave - 4) * 12 + pitchClass;
+        let absolutePosition = (octave - 4) * 12 + pitchClass;
 
         let accidentalOffset = pitchClass - ALL_DEGREES[spellingDegree - 1].index;
         let accidental = ALL_ACCIDENTALS.find((a) => { return a.offset === accidentalOffset });
@@ -29,7 +32,7 @@ export class TheoryEngine2 {
         let degree = ALL_DEGREES.find((dd) => { return dd.value === key.degree.value });
 
         return {
-            octave: key.octave,
+            octave: octave,
             key: key,
             interval: interval,
             spellingDegree: spellingDegree,

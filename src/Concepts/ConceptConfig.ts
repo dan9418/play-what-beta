@@ -1,4 +1,4 @@
-import { Interval, PRESET_INTERVALS } from "./Interval/IntervalConfig";
+import { Interval, PRESET_INTERVALS, INTERVAL } from "./Interval/IntervalConfig";
 import { PRESET_CHORDS } from "./Chord/ChordConfig";
 import { PRESET_SCALES } from "./Scale/ScaleConfig";
 import { PRESET_MODES } from "./Mode/ModeConfig";
@@ -66,9 +66,26 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
             reverse: false
         }
     },
-    /*{
+    {
         id: 'romanNumeral',
         name: 'Roman Numerals',
-        presets: null
-    }*/
+        presets: [
+            {
+                id: 'major_1',
+                name: 'Major 1',
+                config: {
+                    intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5]
+                }
+            },
+            {
+                id: 'major_2',
+                name: 'Major 2',
+                config: {
+                    intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5]
+                }
+            }
+        ],
+        configComponent: null,
+        defaults: null
+    }
 ];

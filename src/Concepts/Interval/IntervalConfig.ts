@@ -5,6 +5,7 @@ export interface Interval {
     name: string;
     degree: number;
     semitones: number;
+    octaveOffset?: number;
 }
 
 // Definitions
