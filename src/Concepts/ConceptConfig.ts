@@ -120,7 +120,14 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 }
             }
         ],
-        configComponent: null,
-        defaults: null
+        configComponent: ChordConfigPanel,
+        defaults: {
+            inversion: {
+                id: 'none',
+                name: 'None',
+                rotation: 0
+            },
+            melodicInversion: false
+        }
     }
 ];
