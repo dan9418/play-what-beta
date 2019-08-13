@@ -4,6 +4,8 @@ import { PRESET_SCALES } from "./Scale/ScaleConfig";
 import { PRESET_MODES } from "./Mode/ModeConfig";
 import { Preset, ConceptConfig } from "../Theory/TheoryConfig";
 import { ChordConfigPanel } from "./Chord/ChordConfigPanel";
+import { IntervalConfigPanel } from "./Interval/IntervalConfigPanel";
+import { ScaleConfigPanel } from "./Scale/ScaleConfigPanel";
 
 export interface Concept {
     id: string;
@@ -24,9 +26,10 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
         id: 'interval',
         name: 'Intervals',
         presets: PRESET_INTERVALS,
-        configComponent: null,
+        configComponent: IntervalConfigPanel,
         defaults: {
-            melodicInversion: false
+            melodicInversion: false,
+            reverse: false
         }
     },
     {
@@ -47,18 +50,20 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
         id: 'scale',
         name: 'Scales',
         presets: PRESET_SCALES,
-        configComponent: null,
+        configComponent: ScaleConfigPanel,
         defaults: {
-            melodicInversion: false
+            melodicInversion: false,
+            reverse: false
         }
     },
     {
         id: 'mode',
         name: 'Modes',
         presets: PRESET_MODES,
-        configComponent: null,
+        configComponent: ScaleConfigPanel,
         defaults: {
-            melodicInversion: false
+            melodicInversion: false,
+            reverse: false
         }
     },
     /*{

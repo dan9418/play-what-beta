@@ -1,21 +1,18 @@
-
 ============V1============
 
 Universal Input Styles / Schema
+    Range input
+    Boolean input
+Custom interval input
+Guitar Voicings
+Clean up config panels
 Universal Color Scheme
 Clean up / verify theory engine
 Final file cleanup
 
 Concept Config
-    Inversions / Circular rotation
     Roman Numerals
     Direction
-    Melodic inversion
-
-Viewer Config
-    Guitar Voicings
-    Better UI
-    Range Input
 
 Meta
     Docs
