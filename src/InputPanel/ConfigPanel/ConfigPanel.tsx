@@ -19,9 +19,9 @@ export class ConfigPanel extends React.Component<ConfigPanelProps, null> {
         for (let i = 0; i < this.props.options.length; i++) {
             let option = this.props.options[i];
             let InputComp = option.component;
-            inputs.push(<div key={i}>
-                <div className='config-panel-row-label'>{option.label}</div>
-                <div className='config-panel-row-contents'>
+            inputs.push(<div className='config-panel-input' key={i}>
+                <div className='config-panel-input-label'>{option.label}</div>
+                <div className='config-panel-input-contents'>
                     <InputComp
                         value={this.props.config[option.propertyId]}
                         setValue={(value) => { this.props.setValue(option.propertyId, value); }}

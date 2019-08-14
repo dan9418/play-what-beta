@@ -7,6 +7,7 @@
     width: 20px;
     font-size: 12px;
     vertical-align: top;
+    text-align: center;
 
     -webkit-user-select: none; /* Safari */        
 	-moz-user-select: none; /* Firefox */

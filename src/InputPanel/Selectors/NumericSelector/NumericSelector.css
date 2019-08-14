@@ -3,6 +3,7 @@
 .numeric-selector {
   height: 20px;
   display: inline-block;
+  text-align: center;
 }
 
 .numeric-selector .up, .numeric-selector .down {
