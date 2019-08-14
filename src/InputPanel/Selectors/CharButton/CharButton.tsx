@@ -18,6 +18,9 @@ export class CharButton extends React.Component<CharButtonProps, null> {
         if (this.props.active) {
             classes.push('active')
         }
+        else if (!this.props.action) {
+            classes.push('readonly')
+        }
         return (
             <div className={classes.join(' ')} onClick={this.props.action}>
                 {this.props.character}

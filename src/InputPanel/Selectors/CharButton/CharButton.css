@@ -9,6 +9,11 @@
     font-size: 12px;
     border-radius: 2px;
     vertical-align: top;
+
+    -webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
 }
 
 .char-button:hover {
@@ -18,4 +23,9 @@
 
 .char-button.active {
     background-color: #FF5A09;
+}
+
+.char-button.readonly {
+    cursor: normal;
+    background-color: #888;
 }

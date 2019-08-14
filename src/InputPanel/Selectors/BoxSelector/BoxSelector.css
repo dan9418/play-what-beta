@@ -1,3 +1,4 @@
 .box-selector {
+    display: inline-block;
     height: 20px;
 }
