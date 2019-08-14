@@ -22,14 +22,8 @@
 }
 
 .input-row-toggle {
-    font-weight: bold;
-    cursor: pointer;
-    height: 20px;
-    line-height: 20px;
-}
-
-.input-row-toggle:hover {
-    color: #555;
+    width: 60px;
+    border-radius: 5px;
 }
 
 .input-row-config-panel {

@@ -10,6 +10,7 @@ import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { IntervalSelector } from "../Selectors/_Composites/IntervalSelector/IntervalSelector";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
 import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
+import { CharButton } from "../Selectors/CharButton/CharButton";
 
 /*
 <IntervalSelector
@@ -94,12 +95,18 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
 
                 <DropdownSelector
                     data={this.props.conceptDefinition.presets}
-                    value={this.props.conceptDefinition}//
+                    value={this.props.conceptDefinition}
                     setValue={(value) => {
                         this.props.setValue('conceptIntervals', value.config.intervals);
                     }}
                 />
-                <div className='input-row-toggle' onClick={() => { this.setState((oldState) => { return { conceptOpen: !oldState.conceptOpen } }) }}>{this.state.conceptOpen ? '-' : '+'}</div>
+                <CharButton
+                    className='input-row-toggle'
+                    active={this.state.conceptOpen}
+                    character={this.state.conceptOpen ? '-' : '+'}
+                    action={() => { this.setState((oldState) => { return { conceptOpen: !oldState.conceptOpen } }) }}
+                />
+
                 {this.state.conceptOpen && <div className='input-row-label'></div>}
                 {this.state.conceptOpen &&
                     <div className='input-row-config-panel'>
@@ -123,12 +130,18 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
 
                 <DropdownSelector
                     data={this.props.viewerDefinition.presets}
-                    value={this.props.viewerConfig}//
+                    value={this.props.viewerConfig}
                     setValue={(value) => {
                         this.props.setValue('viewerConfig', value.config);
                     }}
                 />
-                <div className='input-row-toggle' onClick={() => { this.setState((oldState) => { return { viewerOpen: !oldState.viewerOpen } }) }}>{this.state.viewerOpen ? '-' : '+'}</div>
+                <CharButton
+                    className='input-row-toggle'
+                    active={this.state.viewerOpen}
+                    character={this.state.viewerOpen ? '-' : '+'}
+                    action={() => { this.setState((oldState) => { return { viewerOpen: !oldState.viewerOpen } }) }}
+                />
+
                 {this.state.viewerOpen && <div className='input-row-label'></div>}
                 {this.state.viewerOpen &&
                     <div className='input-row-config-panel'>
