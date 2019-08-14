@@ -9,7 +9,7 @@ import { INTERVAL } from "../Interval/IntervalConfig";
 
 // Presets
 
-export let PRESET_CHORDS: Preset<ConceptConfig>[] = [
+export const PRESET_CHORDS: Preset<ConceptConfig>[] = [
     {
         id: 'maj',
         name: 'Major Triad',
@@ -101,3 +101,21 @@ export let PRESET_CHORDS: Preset<ConceptConfig>[] = [
         config: { intervals: [INTERVAL.PU, INTERVAL.m3, INTERVAL.d5, INTERVAL.m7] }
     }
 ];
+
+export const PRESET_CHORD_INVERSIONS = [
+    {
+        id: 'none',
+        name: 'None',
+        rotation: 0
+    },
+    {
+        id: 'first',
+        name: 'First',
+        rotation: 1
+    },
+    {
+        id: 'second',
+        name: 'Second',
+        rotation: 2
+    }
+]

@@ -9,6 +9,7 @@ import { VIEWER_DEFINITIONS, ViewerDefinition } from "../../Viewers/ViewerConfig
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
+import { ConfigPanel } from "./ConfigPanel";
 
 /*
 <IntervalSelector
@@ -62,7 +63,6 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
     /* Render */
 
     render = () => {
-        let ConceptConfigPanel = this.props.conceptDefinition.configComponent;
         let ViewerConfigPanel = this.props.viewerDefinition.configComponent;
 
         return (
@@ -120,8 +120,9 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 {this.state.conceptOpen && <div className='input-row-label'></div>}
                 {this.state.conceptOpen &&
                     <div className='input-row-config-panel'>
-                        <ConceptConfigPanel
-                            conceptConfig={this.props.conceptConfig}
+                        <ConfigPanel
+                            options={this.props.conceptDefinition.options}
+                            config={this.props.conceptConfig}
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.conceptConfig, 'conceptConfig', property, value);
                             }}

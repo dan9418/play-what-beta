@@ -1,0 +1,21 @@
+.config-panel {
+    margin: 5px;
+}
+
+.config-panel-header {
+	font-size: 14px;
+	font-weight: bold;;
+	margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #DDD;
+}
+
+.config-panel-row-label {
+	font-size: 14px;
+	text-align: center;
+}
+
+.config-panel-row-contents {
+	text-align: center;
+}

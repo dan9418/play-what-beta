@@ -1,12 +1,10 @@
 ============V1============
 
-Roman Numerals
 Clean up config panels
 Universal Input Styles / Schema
-    Range input
     Boolean input
     Color Scheme
-Guitar Voicings
+Guitar Tunings/Voicings
 Clean up / verify theory engine
 Final file cleanup
 
@@ -24,5 +22,6 @@ Meta
         Cadences
         MultiControl
     Extended intervals
+    Range input
     Color strategy
     Sound

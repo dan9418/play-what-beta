@@ -35,24 +35,3 @@
 .input-row-config-panel {
     grid-area: auto / auto / auto / span 3;
 }
-
-/* Config Panel Common */
-
-.config-panel-header {
-	font-size: 14px;
-	font-weight: bold;;
-	grid-area: auto / auto / auto / span 2;
-	margin: 2px;
-    padding: 2px;
-    border-radius: 5px;
-    background: #DDD;
-}
-
-.config-panel-row-label {
-	font-size: 14px;
-	text-align: right;
-}
-
-.config-panel-row-contents {
-	text-align: left;
-}
