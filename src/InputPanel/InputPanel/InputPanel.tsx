@@ -51,71 +51,78 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
         return (
             <div className='input-panel'>
 
-                <div className='input-panel-cell'>
-                    <div className='input-row-label'>Key</div>
+                <div className='input-panel-col-label col-2'>
+                    Degree
+                </div>
+                <div className='input-panel-col-label col-3'>
+                    Accidental
+                </div>
+                <div className='input-panel-col-label col-4'>
+                    Octave
                 </div>
 
-                <div className='input-panel-cell'>
-                    <BoxSelector
-                        data={ALL_DEGREES}
-                        value={this.props.degree}
-                        setValue={(value) => {
-                            this.props.setValue('degree', value);
-                        }}
-                    />
+                <div className='input-panel-row-label'>
+                    Key
                 </div>
 
-                <div className='input-panel-cell'>
-                    <BoxSelector
-                        data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
-                        value={this.props.accidental}
-                        setValue={(value) => {
-                            this.props.setValue('accidental', value);
-                        }}
-                    />
+                <BoxSelector
+                    data={ALL_DEGREES}
+                    value={this.props.degree}
+                    setValue={(value) => {
+                        this.props.setValue('degree', value);
+                    }}
+                />
+
+                <BoxSelector
+                    data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
+                    value={this.props.accidental}
+                    setValue={(value) => {
+                        this.props.setValue('accidental', value);
+                    }}
+                />
+
+                <NumericSelector
+                    value={this.props.octave}
+                    setValue={(value) => {
+                        this.props.setValue('octave', value);
+                    }}
+                />
+
+                <div className='input-panel-col-label col-2'>
+                    Type
+                </div>
+                <div className='input-panel-col-label col-3'>
+                    Presets
+                </div>
+                <div className='input-panel-col-label col-4'>
                 </div>
 
-                <div className='input-panel-cell'>
-                    <NumericSelector
-                        value={this.props.octave}
-                        setValue={(value) => {
-                            this.props.setValue('octave', value);
-                        }}
-                    />
+                <div className='input-panel-row-label'>
+                    Concept
                 </div>
 
-                <div className='input-panel-cell'>
-                    <div className='input-row-label'>Concept</div>
-                </div>
+                <DropdownSelector
+                    data={CONCEPT_DEFINITIONS}
+                    value={this.props.conceptDefinition}
+                    setValue={(value) => {
+                        this.props.setValue('conceptDefinition', value);
+                    }}
+                />
 
-                <div className='input-panel-cell'>
-                    <DropdownSelector
-                        data={CONCEPT_DEFINITIONS}
-                        value={this.props.conceptDefinition}
-                        setValue={(value) => {
-                            this.props.setValue('conceptDefinition', value);
-                        }}
-                    />
-                </div>
+                <DropdownSelector
+                    data={this.props.conceptDefinition.presets}
+                    value={this.props.conceptDefinition}
+                    setValue={(value) => {
+                        this.props.setValue('conceptIntervals', value.config.intervals);
+                    }}
+                />
 
-                <div className='input-panel-cell'>
-                    <DropdownSelector
-                        data={this.props.conceptDefinition.presets}
-                        value={this.props.conceptDefinition}
-                        setValue={(value) => {
-                            this.props.setValue('conceptIntervals', value.config.intervals);
-                        }}
-                    />
-                </div>
-
-                <div className='input-panel-cell'>
-                    <CharButton
-                        className='input-row-toggle'
-                        active={this.state.conceptOpen}
-                        character={this.state.conceptOpen ? '-' : '+'}
-                        action={() => { this.setState((oldState) => { return { conceptOpen: !oldState.conceptOpen } }) }}
-                    />
-                </div>
+                <CharButton
+                    className='input-row-toggle'
+                    active={this.state.conceptOpen}
+                    character={this.state.conceptOpen ? '-' : '+'}
+                    action={() => { this.setState((oldState) => { return { conceptOpen: !oldState.conceptOpen } }) }}
+                />
 
                 {this.state.conceptOpen &&
                     <div className='input-row-config-panel'>
@@ -128,39 +135,42 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                         />
                     </div>}
 
-
-                <div className='input-panel-cell'>
-                    <div className='input-row-label'>Viewer</div>
+                <div className='input-panel-col-label col-2'>
+                    Type
+                </div>
+                <div className='input-panel-col-label col-3'>
+                    Presets
+                </div>
+                <div className='input-panel-col-label col-4'>
                 </div>
 
-                <div className='input-panel-cell'>
-                    <DropdownSelector
-                        data={VIEWER_DEFINITIONS}
-                        value={this.props.viewerDefinition}
-                        setValue={(value) => {
-                            this.props.setValue('viewerDefinition', value);
-                        }}
-                    />
+                <div className='input-panel-row-label'>
+                    Viewer
                 </div>
 
-                <div className='input-panel-cell'>
-                    <DropdownSelector
-                        data={this.props.viewerDefinition.presets}
-                        value={this.props.viewerConfig}
-                        setValue={(value) => {
-                            this.props.setValue('viewerConfig', value.config);
-                        }}
-                    />
-                </div>
+                <DropdownSelector
+                    data={VIEWER_DEFINITIONS}
+                    value={this.props.viewerDefinition}
+                    setValue={(value) => {
+                        this.props.setValue('viewerDefinition', value);
+                    }}
+                />
 
-                <div className='input-panel-cell'>
-                    <CharButton
-                        className='input-row-toggle'
-                        active={this.state.viewerOpen}
-                        character={this.state.viewerOpen ? '-' : '+'}
-                        action={() => { this.setState((oldState) => { return { viewerOpen: !oldState.viewerOpen } }) }}
-                    />
-                </div>
+                <DropdownSelector
+                    data={this.props.viewerDefinition.presets}
+                    value={this.props.viewerConfig}
+                    setValue={(value) => {
+                        this.props.setValue('viewerConfig', value.config);
+                    }}
+                />
+
+
+                <CharButton
+                    className='input-row-toggle'
+                    active={this.state.viewerOpen}
+                    character={this.state.viewerOpen ? '-' : '+'}
+                    action={() => { this.setState((oldState) => { return { viewerOpen: !oldState.viewerOpen } }) }}
+                />
 
                 {this.state.viewerOpen &&
                     <div className='input-row-config-panel'>
