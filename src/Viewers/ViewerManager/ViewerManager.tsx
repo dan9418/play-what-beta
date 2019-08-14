@@ -5,6 +5,7 @@ import { CONCEPT_DEFINITIONS, } from "../../Concepts/ConceptConfig";
 import { VIEWER_DEFINITIONS, } from "../ViewerConfig";
 import { InputPanel } from "../../InputPanel/InputPanel/InputPanel";
 import { Viewer, ViewerProps } from "../Viewer/Viewer";
+import "./ViewerManager.css"
 
 export class ViewerManager extends React.Component<any, ViewerProps> {
 

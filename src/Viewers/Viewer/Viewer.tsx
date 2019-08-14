@@ -5,6 +5,7 @@ import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { Interval } from "../../Concepts/Interval/IntervalConfig";
 import { ConceptDefinition } from "../../Concepts/ConceptConfig";
 import { ViewerDefinition } from "../ViewerConfig";
+import "./Viewer.css"
 
 export type ViewerProps = {
 	// Key

@@ -55,7 +55,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 <div className='input-column-label'>Accidental</div>
                 <div className='input-column-label'>Octave</div>
 
-                <div className='input-row-label key'>Key</div>
+                <div className='input-row-label'>Key</div>
                 <BoxSelector
                     data={ALL_DEGREES}
                     value={this.props.degree}
@@ -83,7 +83,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 <div className='input-column-label'>Preset</div>
                 <div className='input-column-label'></div>
 
-                <div className='input-row-label concept'>Concept</div>
+                <div className='input-row-label'>Concept</div>
                 <DropdownSelector
                     data={CONCEPT_DEFINITIONS}
                     value={this.props.conceptDefinition}
@@ -118,7 +118,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                         />
                     </div>}
 
-                <div className='input-row-label viewer'>Viewer</div>
+                <div className='input-row-label'>Viewer</div>
                 <DropdownSelector
                     data={VIEWER_DEFINITIONS}
                     value={this.props.viewerDefinition}
