@@ -22,21 +22,6 @@ import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
         octave: this.props.octave
     }}
 />
-
-<ViewerConfigPanel
-    viewerConfig={this.props.viewerConfig}
-    setValue={(property, value) => {
-        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
-    }}
-/>
-
-<ViewerConfigPanel
-    viewerConfig={this.props.viewerConfig}
-    setValue={(property, value) => {
-        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
-    }}
-/>
-
 */
 
 export interface InputPanelProps extends ViewerManagerState {

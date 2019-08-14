@@ -40,7 +40,7 @@
     });
 }*/
 
-/*import * as React from "react";
+import * as React from "react";
 import { NumericSelector } from "../../NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../DropdownSelector/DropdownSelector";
 import { SwitchSelector } from "../../SwitchSelector/SwitchSelector";
@@ -89,4 +89,4 @@ export class GuitarConfigPanel extends React.Component<any, null> {
             </div>
         );
     }
-}*/
+}

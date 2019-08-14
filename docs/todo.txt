@@ -1,10 +1,9 @@
 ============V1============
 
-Clean up config panels
-Universal Input Styles
-    Boolean input
-    Color Scheme
 Guitar Tunings/Voicings
+Universal Input Styles
+Clean up config panels
+Color Scheme
 Clean up / verify theory engine
 Final file cleanup
 
@@ -15,6 +14,7 @@ Meta
         Branch unfinished features
   
 ============V2============
+    Disable inputs
     Custom interval input
     Resizable viewers
     MultiViewer

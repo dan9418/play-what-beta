@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./BoxSelector.css";
 import { SelectorProps } from "../SelectorConfig";
+import { CharButton } from "../CharButton/CharButton";
 
 interface BoxSelectorProps extends SelectorProps {
     data: any[];
@@ -18,16 +19,13 @@ export class BoxSelector extends React.Component<BoxSelectorProps, null> {
         for (let i = 0; i < this.props.data.length; i++) {
             let option = this.props.data[i];
             let displayProp = this.props.displayProp || 'name';
-            let classes = ['box-selector-option'];
-            if (option.id === this.props.value.id) {
-                classes.push('active-setting');
-            }
             options.push(
-                <div
+                <CharButton
                     key={option.id}
-                    className={classes.join(' ')}
-                    onClick={() => { this.props.setValue(option) }}
-                >{option[displayProp]}</div>
+                    character={option[displayProp]}
+                    active={(option.id === this.props.value.id)}
+                    action={() => { this.props.setValue(option) }}
+                />
             );
         }
         return options;

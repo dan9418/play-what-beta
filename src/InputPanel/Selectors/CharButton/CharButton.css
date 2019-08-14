@@ -1,0 +1,21 @@
+.char-button {
+    display: inline-block;
+    background-color: #888;
+    color: white;
+    margin-left: 2px;
+    line-height: 20px;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    border-radius: 2px;
+    vertical-align: top;
+}
+
+.char-button:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.char-button.active {
+    background-color: #FF5A09;
+}

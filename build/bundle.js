@@ -126,7 +126,18 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".box-selector {\\r\\n    color: white;\\r\\n    height: 20px;\\r\\n}\\r\\n\\r\\n.box-selector-label {\\r\\n    color: black;\\r\\n}\\r\\n\\r\\n.box-selector-option {\\r\\n    display: inline-block;\\r\\n    background-color: #888;\\r\\n    margin-left: 2px;\\r\\n    line-height: 20px;\\r\\n    height: 20px;\\r\\n    width: 20px;\\r\\n    font-size: 12px;\\r\\n    border-radius: 2px;\\r\\n    vertical-align: top;\\r\\n}\\r\\n\\r\\n.box-selector-option:hover {\\r\\n    background-color: #777;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.active-setting {\\r\\n    background-color: #FF5A09;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/BoxSelector/BoxSelector.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".box-selector {\\r\\n    height: 20px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/BoxSelector/BoxSelector.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/InputPanel/Selectors/CharButton/CharButton.css":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/InputPanel/Selectors/CharButton/CharButton.css ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".char-button {\\r\\n    display: inline-block;\\r\\n    background-color: #888;\\r\\n    color: white;\\r\\n    margin-left: 2px;\\r\\n    line-height: 20px;\\r\\n    height: 20px;\\r\\n    width: 20px;\\r\\n    font-size: 12px;\\r\\n    border-radius: 2px;\\r\\n    vertical-align: top;\\r\\n}\\r\\n\\r\\n.char-button:hover {\\r\\n    background-color: #777;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.char-button.active {\\r\\n    background-color: #FF5A09;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/CharButton/CharButton.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -533,7 +544,30 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-load
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./BoxSelector.css */ \"./src/InputPanel/Selectors/BoxSelector/BoxSelector.css\");\r\nclass BoxSelector extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getOptions = () => {\r\n            let options = [];\r\n            for (let i = 0; i < this.props.data.length; i++) {\r\n                let option = this.props.data[i];\r\n                let displayProp = this.props.displayProp || 'name';\r\n                let classes = ['box-selector-option'];\r\n                if (option.id === this.props.value.id) {\r\n                    classes.push('active-setting');\r\n                }\r\n                options.push(React.createElement(\"div\", { key: option.id, className: classes.join(' '), onClick: () => { this.props.setValue(option); } }, option[displayProp]));\r\n            }\r\n            return options;\r\n        };\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'box-selector' }, this.getOptions()));\r\n        };\r\n    }\r\n}\r\nexports.BoxSelector = BoxSelector;\r\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/BoxSelector/BoxSelector.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./BoxSelector.css */ \"./src/InputPanel/Selectors/BoxSelector/BoxSelector.css\");\r\nconst CharButton_1 = __webpack_require__(/*! ../CharButton/CharButton */ \"./src/InputPanel/Selectors/CharButton/CharButton.tsx\");\r\nclass BoxSelector extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.getOptions = () => {\r\n            let options = [];\r\n            for (let i = 0; i < this.props.data.length; i++) {\r\n                let option = this.props.data[i];\r\n                let displayProp = this.props.displayProp || 'name';\r\n                options.push(React.createElement(CharButton_1.CharButton, { key: option.id, character: option[displayProp], active: (option.id === this.props.value.id), action: () => { this.props.setValue(option); } }));\r\n            }\r\n            return options;\r\n        };\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'box-selector' }, this.getOptions()));\r\n        };\r\n    }\r\n}\r\nexports.BoxSelector = BoxSelector;\r\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/BoxSelector/BoxSelector.tsx?");
+
+/***/ }),
+
+/***/ "./src/InputPanel/Selectors/CharButton/CharButton.css":
+/*!************************************************************!*\
+  !*** ./src/InputPanel/Selectors/CharButton/CharButton.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./CharButton.css */ \"./node_modules/css-loader/dist/cjs.js!./src/InputPanel/Selectors/CharButton/CharButton.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/CharButton/CharButton.css?");
+
+/***/ }),
+
+/***/ "./src/InputPanel/Selectors/CharButton/CharButton.tsx":
+/*!************************************************************!*\
+  !*** ./src/InputPanel/Selectors/CharButton/CharButton.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./CharButton.css */ \"./src/InputPanel/Selectors/CharButton/CharButton.css\");\r\nclass CharButton extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            let classes = ['char-button'];\r\n            if (this.props.active) {\r\n                classes.push('active');\r\n            }\r\n            return (React.createElement(\"div\", { className: classes.join(' '), onClick: this.props.action }, this.props.character));\r\n        };\r\n    }\r\n}\r\nexports.CharButton = CharButton;\r\n\n\n//# sourceURL=webpack:///./src/InputPanel/Selectors/CharButton/CharButton.tsx?");
 
 /***/ }),
 
