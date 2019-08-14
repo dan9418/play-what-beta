@@ -63,8 +63,6 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
     /* Render */
 
     render = () => {
-        let ViewerConfigPanel = this.props.viewerDefinition.configComponent;
-
         return (
             <div className='input-panel'>
                 <div className='input-row-label'></div>
@@ -149,8 +147,9 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 {this.state.viewerOpen && <div className='input-row-label'></div>}
                 {this.state.viewerOpen &&
                     <div className='input-row-config-panel'>
-                        <ViewerConfigPanel
-                            viewerConfig={this.props.viewerConfig}
+                        <ConfigPanel
+                            options={this.props.viewerDefinition.options}
+                            config={this.props.viewerConfig}
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
                             }}

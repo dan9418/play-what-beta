@@ -1,8 +1,5 @@
 import * as React from "react";
 import "./ConfigPanel.css";
-import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
-import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector";
-import { SwitchSelector } from "../Selectors/SwitchSelector/SwitchSelector";
 import { OptionInput } from "../../Concepts/ConceptConfig";
 
 type ConfigPanelProps = {
@@ -22,7 +19,7 @@ export class ConfigPanel extends React.Component<ConfigPanelProps, null> {
         for (let i = 0; i < this.props.options.length; i++) {
             let option = this.props.options[i];
             let InputComp = option.component;
-            inputs.push(<div>
+            inputs.push(<div key={i}>
                 <div className='config-panel-row-label'>{option.label}</div>
                 <div className='config-panel-row-contents'>
                     <InputComp

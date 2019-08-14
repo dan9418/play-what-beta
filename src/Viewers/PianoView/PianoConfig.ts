@@ -33,7 +33,7 @@ export const PRESETS_PIANO_CONFIG = [
         id: 'default',
         name: 'Default',
         config: {
-            noteLabel: { id: 'interval' } as any,
+            noteLabel: ALL_PIANO_KEY_LABELS[0],
             filterOctave: false,
             keyLow: 0,
             keyHigh: 24
@@ -43,7 +43,7 @@ export const PRESETS_PIANO_CONFIG = [
         id: 'singleOctave',
         name: 'Single Octave',
         config: {
-            noteLabel: { id: 'interval' } as any,
+            noteLabel: ALL_PIANO_KEY_LABELS[0],
             filterOctave: false,
             keyLow: 0,
             keyHigh: 11
