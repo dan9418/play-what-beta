@@ -36,7 +36,6 @@ export class ConfigPanel extends React.Component<ConfigPanelProps, null> {
     render = () => {
         return (
             <div className='config-panel'>
-                <div className='config-panel-header'>Options</div>
                 {this.getInputs()}
             </div>
         );

@@ -4,13 +4,12 @@ import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector
 import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
 import { ALL_DEGREES } from "../../Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../../Key/AccidentalConfig";
-import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../../Concepts/ConceptConfig";
-import { VIEWER_DEFINITIONS, ViewerDefinition } from "../../Viewers/ViewerConfig";
+import { CONCEPT_DEFINITIONS } from "../../Concepts/ConceptConfig";
+import { VIEWER_DEFINITIONS } from "../../Viewers/ViewerConfig";
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
-import { IntervalSelector } from "../Selectors/_Composites/IntervalSelector/IntervalSelector";
-import { ViewerManagerState } from "../../Viewers/ViewerManager";
 import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 import { CharButton } from "../Selectors/CharButton/CharButton";
+import { ViewerProps } from "../../Viewers/Viewer/Viewer";
 
 /*
 <IntervalSelector
@@ -25,7 +24,7 @@ import { CharButton } from "../Selectors/CharButton/CharButton";
 />
 */
 
-export interface InputPanelProps extends ViewerManagerState {
+export interface InputPanelProps extends ViewerProps {
     setValue: (property: string, value: any) => void
 }
 

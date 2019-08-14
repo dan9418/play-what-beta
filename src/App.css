@@ -7,30 +7,3 @@ html, body {
 	padding: 0;
 	overflow: hidden;
 }
-
-#app {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	background-color: #AAA;
-	overflow: auto;
-}
-
-.inputs {
-	background-color: #DDD;
-	text-align: center;
-	width: 500px;
-	padding: 10px;
-	margin: auto;
-}
-
-.app-container {
-	background-color: #EEEEEE;
-	text-align: center;
-	width: 500px;
-	padding: 10px;
-	display: block;
-	margin: auto;
-	margin-top: 10px;
-	box-shadow: 2px 2px 5px #888;
-}

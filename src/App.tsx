@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
-import { ViewerManager } from "./Viewers/ViewerManager";
+import { ViewerManager } from "./Viewers/ViewerManager/ViewerManager";
 
 export class App extends React.Component<any, any> {
 
@@ -10,11 +10,7 @@ export class App extends React.Component<any, any> {
 	}
 
 	render = () => {
-		return (
-			<div className='app-container'>
-				<ViewerManager />
-			</div>
-		);
+		return (<ViewerManager />);
 	};
 }
 
