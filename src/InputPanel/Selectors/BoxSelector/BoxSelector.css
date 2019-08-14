@@ -2,3 +2,8 @@
     display: inline-block;
     height: 20px;
 }
+
+.box-selector .char-button {
+    margin-left: 2px;
+    border-radius: 2px;
+}

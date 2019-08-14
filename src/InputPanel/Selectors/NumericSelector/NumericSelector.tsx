@@ -15,6 +15,7 @@ export class NumericSelector extends React.Component<SelectorProps, any> {
                 <CharButton
                     active={false}
                     action={() => { this.props.setValue(this.props.value - 1); }}
+                    className='down'
                     character='-'
                 />
                 <CharButton
@@ -25,6 +26,7 @@ export class NumericSelector extends React.Component<SelectorProps, any> {
                 <CharButton
                     active={false}
                     action={() => { this.props.setValue(this.props.value + 1); }}
+                    className='up'
                     character='+'
                 />
             </div>

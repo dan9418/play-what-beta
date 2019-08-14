@@ -5,6 +5,7 @@ type CharButtonProps = {
     character: string;
     active: boolean;
     action: any;
+    className?: string;
 }
 
 export class CharButton extends React.Component<CharButtonProps, null> {
@@ -14,7 +15,7 @@ export class CharButton extends React.Component<CharButtonProps, null> {
     }
 
     render = () => {
-        let classes = ['char-button'];
+        let classes = ['char-button', this.props.className || ''];
         if (this.props.active) {
             classes.push('active')
         }

@@ -4,3 +4,19 @@
   height: 20px;
   display: inline-block;
 }
+
+.numeric-selector .up, .numeric-selector .down {
+  background-color: #999;
+}
+
+.numeric-selector .up:hover, .numeric-selector .down:hover {
+  background-color: #888;
+}
+
+.numeric-selector .up {
+  border-radius: 0 5px 5px 0;
+}
+
+.numeric-selector .down {
+  border-radius: 5px 0 0 5px;
+}
