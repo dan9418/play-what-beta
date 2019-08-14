@@ -1,11 +1,10 @@
 import * as React from "react";
 import "./BoxSelector.css";
+import { SelectorProps } from "../SelectorConfig";
 
-type BoxSelectorProps = {
+interface BoxSelectorProps extends SelectorProps {
     data: any[];
-    value: any;
     displayProp?: string;
-    setValue: (value) => void;
 }
 
 export class BoxSelector extends React.Component<BoxSelectorProps, null> {
@@ -37,7 +36,6 @@ export class BoxSelector extends React.Component<BoxSelectorProps, null> {
     render = () => {
         return (
             <div className='box-selector'>
-                {/*<div className='box-selector-label'>{this.props.param.name}</div>*/}
                 {this.getOptions()}
             </div>
         );

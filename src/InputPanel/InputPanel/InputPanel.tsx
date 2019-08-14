@@ -7,9 +7,9 @@ import { ALL_ACCIDENTALS } from "../../Key/AccidentalConfig";
 import { CONCEPT_DEFINITIONS, ConceptDefinition } from "../../Concepts/ConceptConfig";
 import { VIEWER_DEFINITIONS, ViewerDefinition } from "../../Viewers/ViewerConfig";
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
-import { IntervalSelector } from "../Selectors/IntervalSelector/IntervalSelector";
+import { IntervalSelector } from "../Selectors/_Composites/IntervalSelector/IntervalSelector";
 import { ViewerManagerState } from "../../Viewers/ViewerManager";
-import { ConfigPanel } from "./ConfigPanel";
+import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 
 /*
 <IntervalSelector
@@ -31,11 +31,11 @@ import { ConfigPanel } from "./ConfigPanel";
 />
 
 <ViewerConfigPanel
-                    viewerConfig={this.props.viewerConfig}
-                    setValue={(property, value) => {
-                        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
-                    }}
-                />
+    viewerConfig={this.props.viewerConfig}
+    setValue={(property, value) => {
+        this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
+    }}
+/>
 
 */
 

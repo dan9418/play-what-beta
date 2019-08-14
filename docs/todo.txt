@@ -1,7 +1,7 @@
 ============V1============
 
 Clean up config panels
-Universal Input Styles / Schema
+Universal Input Styles
     Boolean input
     Color Scheme
 Guitar Tunings/Voicings

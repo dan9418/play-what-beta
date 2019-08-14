@@ -1,10 +1,9 @@
 import * as React from "react";
 import "./DropdownSelector.css";
+import { SelectorProps } from "../SelectorConfig";
 
-type DropdownSelectorProps = {
+interface DropdownSelectorProps extends SelectorProps {
     data: any[];
-    value: any;
-    setValue: (value) => void;
 }
 
 export class DropdownSelector extends React.Component<DropdownSelectorProps> {

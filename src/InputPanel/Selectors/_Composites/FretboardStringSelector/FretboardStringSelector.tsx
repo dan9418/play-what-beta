@@ -40,11 +40,11 @@
     });
 }*/
 
-import * as React from "react";
-import { NumericSelector } from "../NumericSelector/NumericSelector";
-import { DropdownSelector } from "../DropdownSelector/DropdownSelector";
-import { SwitchSelector } from "../SwitchSelector/SwitchSelector";
-import { ALL_GUITAR_FRET_LABELS, GuitarConfig } from "../../../Viewers/GuitarView/GuitarConfig";
+/*import * as React from "react";
+import { NumericSelector } from "../../NumericSelector/NumericSelector";
+import { DropdownSelector } from "../../DropdownSelector/DropdownSelector";
+import { SwitchSelector } from "../../SwitchSelector/SwitchSelector";
+import { ALL_GUITAR_FRET_LABELS, GuitarConfig } from "../../../../Viewers/GuitarView/GuitarConfig";
 
 export class GuitarConfigPanel extends React.Component<any, null> {
 
@@ -89,4 +89,4 @@ export class GuitarConfigPanel extends React.Component<any, null> {
             </div>
         );
     }
-}
+}*/

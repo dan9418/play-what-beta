@@ -1,12 +1,8 @@
 import * as React from "react";
 import "./NumericSelector.css";
+import { SelectorProps } from "../SelectorConfig";
 
-type NumericSelectorProps = {
-    value: number;
-    setValue: (value: number) => void;
-}
-
-export class NumericSelector extends React.Component<NumericSelectorProps, any> {
+export class NumericSelector extends React.Component<SelectorProps, any> {
 
     constructor(props) {
         super(props);
