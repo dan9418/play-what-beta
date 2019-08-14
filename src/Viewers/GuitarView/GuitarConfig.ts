@@ -85,7 +85,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
         config: {
             fretLabel: { id: 'interval' } as any,
             showDots: true,
-            filterOctave: false,
+            filterOctave: true,
             fretLow: 0,
             fretHigh: 12,
             strings: [

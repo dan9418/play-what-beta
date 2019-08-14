@@ -9,12 +9,12 @@ export class SwitchSelector extends React.Component<SelectorProps, null> {
     }
 
     render = () => {
+        let classes = ['switch-selector', this.props.value ? 'on' : 'off']
         return (
-            <div className='switch-selector'>
-                <label className='switch'>
-                    <input type='checkbox' />
-                    <span className='slider round' onClick={() => this.props.setValue(!this.props.value)} />
-                </label>
+            <div className={classes.join(' ')}>
+                <div className='switch-shell' onClick={() => this.props.setValue(!this.props.value)}>
+                    <div className='switch-ball'></div>
+                </div>
             </div>)
     };
 }

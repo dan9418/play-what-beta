@@ -1,9 +1,6 @@
 ============V1============
 
 Guitar Tunings/Voicings
-Universal Input Styles
-Clean up config panels
-Color Scheme
 Clean up / verify theory engine
 Final file cleanup
 
