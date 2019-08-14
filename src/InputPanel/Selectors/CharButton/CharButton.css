@@ -1,6 +1,6 @@
 .char-button {
     display: inline-block;
-    background-color: #888;
+    background-color: #999;
     color: white;
     line-height: 20px;
     height: 20px;
@@ -15,7 +15,7 @@
 }
 
 .char-button:hover {
-    background-color: #777;
+    background-color: #888;
     cursor: pointer;
 }
 
@@ -25,5 +25,6 @@
 
 .char-button.readonly {
     cursor: normal;
-    background-color: #888;
+    font-weight: bold;
+    background-color: #999;
 }

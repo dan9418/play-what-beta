@@ -3,7 +3,7 @@
     display: inline-grid;
     grid-gap: 5px;
     grid-template-columns: auto auto auto auto;
-    margin: 5px;
+    color: #444;
 }
 
 .input-row-label {
@@ -28,5 +28,5 @@
 }
 
 .input-row-config-panel {
-    grid-area: auto / auto / auto / span 3;
+    grid-column: 2 / span 3;
 }
