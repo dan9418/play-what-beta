@@ -15,8 +15,8 @@ export class ViewerManager extends React.Component<ViewerManagerProps | any, Vie
     setValue = (property: string, value: any) => {
         let update = {};
         if (property === 'conceptDefinition') {
-            update['conceptConfig'] = value.presets[0].config;
-            update['conceptIntervals'] = value.presets[0].config.intervals;
+            update['interalOptions'] = value.presets[0].config;
+            update['intervals'] = value.presets[0].config.intervals;
         }
         if (property === 'viewerDefinition') {
             update['viewerConfig'] = value.presets[0].config;
