@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import { SelectorProps } from "../SelectorConfig";
-import { GuitarStringConfig, GuitarConfig } from "../../../Viewers/GuitarView/GuitarConfig";
+import { GuitarStringConfig, GuitarConfig, DEFAULT_FRETBOARD_STRING } from "../../../Viewers/GuitarView/GuitarConfig";
 import { ViewerProps } from "../../../Viewers/Viewer/Viewer";
 import "./FretboradTuner.css";
 import { string } from "prop-types";
@@ -92,6 +92,10 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     render = () => {
         return (
             <div className='fretboard-tuner'>
+                <NumericSelector
+                    value={this.props.viewerConfig.strings.length}
+                    setValue={(value) => this.props.setValue([...this.props.viewerConfig.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING])}
+                />
                 <table className='fretboard-tuner-table'>
                     <tbody>
                         {this.getHeaderRow()}

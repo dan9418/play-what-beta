@@ -15,6 +15,10 @@ export interface GuitarStringConfig {
     filteredIntervals?: Interval[];
 }
 
+export const DEFAULT_FRETBOARD_STRING: GuitarStringConfig = {
+    openPosition: 0
+}
+
 export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
     {
         id: 'guitar',
@@ -31,7 +35,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
                 { openPosition: 7 },    // G
                 { openPosition: 2 },    // D
                 { openPosition: -3 },   // A
-                { openPosition: -8, filteredIntervals: [INTERVAL.PU]}    // E   
+                { openPosition: -8 }    // E   
             ]
         }
     },
