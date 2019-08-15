@@ -11,19 +11,6 @@ import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 import { CharButton } from "../Selectors/CharButton/CharButton";
 import { ViewerProps } from "../../Viewers/Viewer/Viewer";
 
-/*
-<IntervalSelector
-    propertyId='conceptIntervals'
-    value={this.props.conceptIntervals as any}
-    setValue={this.props.setValue}
-    keyDef={{
-        degree: this.props.degree,
-        accidental: this.props.accidental,
-        octave: this.props.octave
-    }}
-/>
-*/
-
 export interface InputPanelProps extends ViewerProps {
     setValue: (property: string, value: any) => void
 }
@@ -127,12 +114,12 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 {this.state.conceptOpen &&
                     <div className='input-row-config-panel'>
                         <ConfigPanel
+                            {...this.props}
                             options={this.props.conceptDefinition.options}
                             config={this.props.conceptConfig}
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.conceptConfig, 'conceptConfig', property, value);
                             }}
-                            {...this.props}
                         />
                     </div>}
 
@@ -176,12 +163,12 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 {this.state.viewerOpen &&
                     <div className='input-row-config-panel'>
                         <ConfigPanel
+                            {...this.props}
                             options={this.props.viewerDefinition.options}
                             config={this.props.viewerConfig}
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
                             }}
-                            {...this.props}
                         />
                     </div>}
 
