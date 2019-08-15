@@ -18,7 +18,6 @@ export interface Key {
     octave: number;
 }
 
-
 export interface Note {
     octave: number;
     key: Key;
@@ -49,3 +48,38 @@ export interface FunctionalNote {
 }
 
 export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
+
+export let ALL_NOTE_LABELS = [
+	{
+		id: 'none',
+		name: 'None'
+	},
+	{
+		id: 'name',
+		name: 'Name'
+	},
+	{
+		id: 'interval',
+		name: 'Interval'
+	},
+	{
+		id: 'pitchClass',
+		name: 'Relative Position'
+	},
+	{
+		id: 'absolutePosition',
+		name: 'Absolute Position'
+	},
+	{
+		id: 'relativeDegree',
+		name: 'Degree'
+	},
+	{
+		id: 'octave',
+		name: 'Octave'
+	},
+	{
+		id: 'frequency',
+		name: 'Frequency'
+	}
+];

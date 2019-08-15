@@ -4,6 +4,7 @@ import "../../Theory/TheoryStyles.css";
 import { Note } from "../../Theory/TheoryConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { GuitarConfig } from "./GuitarConfig";
+import { TheoryEngine2 } from "../../Theory/TheoryEngine2";
 
 type GuitarFretProps = {
     fretNumber: number;
@@ -18,34 +19,6 @@ export class GuitarFret extends React.Component<GuitarFretProps, null> {
         super(props);
     }
 
-    getLabel = (): string | number => {
-        let note = this.props.note;
-        switch (this.props.config.fretLabel.id) {
-            case 'none':
-                return '';
-            case 'name':
-                return note.name;
-            case 'interval':
-                return note.interval.id;
-            case 'pitchClass':
-                return note.pitchClass;
-            case 'absolutePosition':
-                return note.absolutePosition;
-            case 'degree':
-                return note.interval.degree;
-            case 'degree':
-                return note.degree.value;
-            case 'octave':
-                return note.octave;
-            case 'frequency':
-                return note.frequency;
-            case 'fretNumber':
-                return this.props.fretNumber;
-            default:
-                return '';
-        }
-    }
-
     render = () => {
         let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : '';
         let classes = ['guitar-fret', 'wood'];
@@ -57,7 +30,7 @@ export class GuitarFret extends React.Component<GuitarFretProps, null> {
             className={classes.join(' ')}
             onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
         >
-            <div className={labelClasses.join(' ')}>{this.getLabel()}</div>
+            <div className={labelClasses.join(' ')}>{TheoryEngine2.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
         </div>;
     };
 }

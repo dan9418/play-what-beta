@@ -1,3 +1,5 @@
+import { ALL_NOTE_LABELS } from "../../Theory/TheoryConfig";
+
 export enum PianoKeyType {
     Black,
     White
@@ -17,23 +19,12 @@ export interface PianoConfig {
     keys: PianoKeyConfig[];
 }
 
-export const ALL_PIANO_KEY_LABELS = [
-    {
-        id: 'interval',
-        name: 'Interval'
-    },
-    {
-        id: 'name',
-        name: 'Name'
-    }
-]
-
 export const PRESETS_PIANO_CONFIG = [
     {
         id: 'default',
         name: 'Default',
         config: {
-            noteLabel: ALL_PIANO_KEY_LABELS[0],
+            noteLabel: ALL_NOTE_LABELS[0],
             filterOctave: true,
             keyLow: 0,
             keyHigh: 24
@@ -43,7 +34,7 @@ export const PRESETS_PIANO_CONFIG = [
         id: 'singleOctave',
         name: 'Single Octave',
         config: {
-            noteLabel: ALL_PIANO_KEY_LABELS[0],
+            noteLabel: ALL_NOTE_LABELS[0],
             filterOctave: true,
             keyLow: 0,
             keyHigh: 11

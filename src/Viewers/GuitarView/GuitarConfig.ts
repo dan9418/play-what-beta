@@ -1,61 +1,7 @@
 import { Preset } from "../../Theory/TheoryConfig";
 
-/*
-
-export let ALL_NOTE_LABELS = [
-	{
-		id: 'none',
-		name: 'None'
-	},
-	{
-		id: 'name',
-		name: 'Name'
-	},
-	{
-		id: 'interval',
-		name: 'Interval'
-	},
-	{
-		id: 'pitchClass',
-		name: 'Relative Position'
-	},
-	{
-		id: 'absolutePosition',
-		name: 'Absolute Position'
-	},
-	{
-		id: 'degree',
-		name: 'Degree'
-	},
-	{
-		id: 'degree',
-		name: 'Absolute Degree'
-	},
-	{
-		id: 'octave',
-		name: 'Octave'
-	},
-	{
-		id: 'frequency',
-		name: 'Frequency'
-	}
-];
-
-let GuitarNoteLabelDefinitions: any[] = [
-	{
-		id: 'fretNumber',
-		name: 'Fret Number'
-    }
-]
-
-export let GUITAR_NOTE_LABEL_PARAMETER: any = {
-    id: 'guitarNoteLabel',
-    name: 'Guitar Note Label',
-    data: ALL_NOTE_LABELS.concat(GuitarNoteLabelDefinitions)
-};*/
-
 export interface GuitarConfig {
-    fretLabel: any;
+    noteLabel: any;
     showDots: boolean;
     filterOctave: boolean;
     strings: GuitarStringConfig[];
@@ -67,23 +13,13 @@ export interface GuitarStringConfig {
     openPosition: number
     voicing?: any;
 }
-export const ALL_GUITAR_FRET_LABELS = [
-    {
-        id: 'interval',
-        name: 'Interval'
-    },
-    {
-        id: 'name',
-        name: 'Name'
-    }
-]
 
 export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
     {
         id: 'guitar',
         name: 'Guitar',
         config: {
-            fretLabel: { id: 'interval' } as any,
+            noteLabel: { id: 'interval' } as any,
             showDots: true,
             filterOctave: true,
             fretLow: 0,
@@ -102,7 +38,7 @@ export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
         id: 'bass',
         name: 'Bass',
         config: {
-            fretLabel: { id: 'name' } as any,
+            noteLabel: { id: 'name' } as any,
             showDots: true,
             filterOctave: false,
             fretLow: 0,

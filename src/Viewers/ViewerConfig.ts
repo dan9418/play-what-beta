@@ -1,8 +1,8 @@
 import { Piano } from "./PianoView/Piano";
 import { Guitar } from "./GuitarView/Guitar";
-import { PRESETS_GUITAR_CONFIG, ALL_GUITAR_FRET_LABELS } from "./GuitarView/GuitarConfig";
-import { PRESETS_PIANO_CONFIG, ALL_PIANO_KEY_LABELS } from "./PianoView/PianoConfig";
-import { Preset } from "../Theory/TheoryConfig";
+import { PRESETS_GUITAR_CONFIG } from "./GuitarView/GuitarConfig";
+import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
+import { Preset, ALL_NOTE_LABELS } from "../Theory/TheoryConfig";
 import { OptionInput } from "../Concepts/ConceptConfig";
 import { NumericSelector } from "../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { SwitchSelector } from "../InputPanel/Selectors/SwitchSelector/SwitchSelector";
@@ -25,10 +25,10 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
         options: [
             {
                 propertyId: 'noteLabel',
-                label: 'Key Label',
+                label: 'Note Label',
                 component: DropdownSelector,
                 props: {
-                    data: ALL_PIANO_KEY_LABELS
+                    data: ALL_NOTE_LABELS
                 }
             },
             {
@@ -58,11 +58,11 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
         presets: PRESETS_GUITAR_CONFIG,
         options: [
             {
-                propertyId: 'fretLabel',
-                label: 'Fret Label',
+                propertyId: 'noteLabel',
+                label: 'Note Label',
                 component: DropdownSelector,
                 props: {
-                    data: ALL_GUITAR_FRET_LABELS
+                    data: ALL_NOTE_LABELS
                 }
             },
             {

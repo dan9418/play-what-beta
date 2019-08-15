@@ -45,4 +45,27 @@ export class TheoryEngine2 {
         }
 
     }
+
+    static getNoteLabel = (note: Note, labelId: string): string | number => {
+        switch (labelId) {
+            case 'none':
+                return '';
+            case 'name':
+                return note.name;
+            case 'interval':
+                return note.interval.id;
+            case 'pitchClass':
+                return note.pitchClass;
+            case 'absolutePosition':
+                return note.absolutePosition;
+            case 'relativeDegree':
+                return note.interval.degree;
+            case 'octave':
+                return note.octave;
+            case 'frequency':
+                return note.frequency;
+            default:
+                return '';
+        }
+    }
 }
