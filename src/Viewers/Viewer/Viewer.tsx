@@ -38,20 +38,24 @@ export class Viewer extends React.Component<ViewerProps, null> {
 	getNotes = () => {
 		let key = this.getKey();
 
-		let intervals = this.props.conceptIntervals;
+		let intervals = [];
+		for (let i = 0; i < this.props.conceptIntervals.length; i++) {
+			intervals.push({ ...this.props.conceptIntervals[i] });
+		}
 		let inversion = this.props.conceptConfig.inversion.rotation;
+		let melodicInversion = this.props.conceptConfig.melodicInversion;
 
 		// Configure relative octaves
 		for (let i = 0; i < intervals.length; i++) {
 			if (i < inversion) {
 				intervals[i].octaveOffset = 1;
 			}
-			if (this.props.conceptConfig.melodicInversion && i > 0) {
+			if (melodicInversion && i > 0) {
 				intervals[i].octaveOffset = -1;
 			}
 		}
 
-		let notes = TheoryEngine.getNotesFromIntervals(key, intervals, this.props.conceptConfig.melodicInversion);
+		let notes = TheoryEngine.getNotesFromIntervals(key, intervals, melodicInversion);
 
 		if (this.props.conceptConfig.reverse)
 			notes.reverse();
