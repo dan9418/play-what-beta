@@ -2,7 +2,7 @@ import * as React from "react";
 import "./GuitarView.css";
 import { GuitarString } from "./GuitarString";
 import { Note } from "../../Theory/TheoryConfig";
-import { GuitarConfig, GuitarStringConfig } from "./GuitarConfig";
+import { GuitarConfig } from "./GuitarConfig";
 import { Interval } from "../../Concepts/Interval/IntervalConfig";
 
 type GuitarProps = {
@@ -16,14 +16,12 @@ export class Guitar extends React.Component<GuitarProps, null> {
         super(props);
     }
 
-    filterNotes = (notes: Note[], filterIntervals: Interval[]): Note[] => {
-        let result = filterIntervals.length
-            ? notes.filter((note) => {
-                return 'undefined' === typeof filterIntervals.find((interval) => {
-                    return interval.id === note.interval.id;
-                });
-            })
-            : notes
+    filterNotes = (notes: Note[], filteredIntervals: Interval[]): Note[] => {
+        let result = notes.filter((note) => {
+            return 'undefined' !== typeof filteredIntervals.find((interval) => {
+                return interval.id === note.interval.id;
+            });
+        });
         return result;
     }
 
@@ -32,7 +30,7 @@ export class Guitar extends React.Component<GuitarProps, null> {
             return <GuitarString
                 key={index}
                 stringNumber={index + 1}
-                notes={this.filterNotes(this.props.notes, string.filterIntervals)}
+                notes={string.filteredIntervals ? this.filterNotes(this.props.notes, string.filteredIntervals) : this.props.notes}
                 openPosition={string.openPosition}
                 config={this.props.config}
             />;

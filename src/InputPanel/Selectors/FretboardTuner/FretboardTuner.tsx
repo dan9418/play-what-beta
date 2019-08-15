@@ -38,8 +38,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
                     {<input
                         type='checkbox'
                         checked={
-                            stringConfig.filterIntervals.length === 0
-                            || 'undefined' === typeof stringConfig.filterIntervals.find((filterInteval) => { return filterInteval.id === interval.id; })
+                            !stringConfig.filteredIntervals
+                            || 'undefined' !== typeof stringConfig.filteredIntervals.find((filterInteval) => { return filterInteval.id === interval.id; })
                         }
                     />}
                 </td>
