@@ -17,6 +17,12 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
         super(props);
     }
 
+    setValue = (stringIndex: number, property: string, value: any) => {
+        let mergedConfig = [...this.props.viewerConfig.strings];
+        mergedConfig[stringIndex][property] = value;
+        this.props.setValue(mergedConfig);
+    }
+
     getHeaderRow = () => {
         let items = [<th>#</th>, <th>Tuning</th>];
         for (let i = 0; i < this.props.conceptIntervals.length; i++) {
@@ -29,7 +35,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     getStringTuner = (stringConfig: GuitarStringConfig, stringIndex: number) => {
         let items = [
             <td className='string-number'>{stringIndex + 1}</td>,
-            <td><NumericSelector value={stringConfig.openPosition} setValue={null} /></td>
+            <td><NumericSelector value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
         ];
         for (let i = 0; i < this.props.conceptIntervals.length; i++) {
             let interval = this.props.conceptIntervals[i];
