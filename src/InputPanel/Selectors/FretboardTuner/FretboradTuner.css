@@ -1,0 +1,12 @@
+.fretboard-tuner {
+    display: inline-block;
+}
+
+.fretboard-tuner * {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.string-number {
+    min-width: 20px;
+}

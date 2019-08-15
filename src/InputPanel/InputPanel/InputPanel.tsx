@@ -132,6 +132,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.conceptConfig, 'conceptConfig', property, value);
                             }}
+                            {...this.props}
                         />
                     </div>}
 
@@ -180,6 +181,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                             setValue={(property, value) => {
                                 this.setNestedValue(this.props.viewerConfig, 'viewerConfig', property, value);
                             }}
+                            {...this.props}
                         />
                     </div>}
 

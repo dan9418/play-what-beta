@@ -24,8 +24,10 @@ export interface ConceptDefinition {
 export interface OptionInput {
     propertyId: string;
     label: string;
+    vertical?: boolean;
     component: any;
     props: any;
+    parentProps?: boolean
 }
 
 export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [

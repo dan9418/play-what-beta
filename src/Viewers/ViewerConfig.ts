@@ -7,6 +7,7 @@ import { OptionInput } from "../Concepts/ConceptConfig";
 import { NumericSelector } from "../InputPanel/Selectors/NumericSelector/NumericSelector";
 import { SwitchSelector } from "../InputPanel/Selectors/SwitchSelector/SwitchSelector";
 import { DropdownSelector } from "../InputPanel/Selectors/DropdownSelector/DropdownSelector";
+import { FretboardTuner } from "../InputPanel/Selectors/FretboardTuner/FretboardTuner";
 
 export interface ViewerDefinition {
     id: string;
@@ -88,6 +89,13 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
                 label: 'Show Dots',
                 component: SwitchSelector,
                 props: {}
+            },
+            {
+                propertyId: 'strings',
+                label: 'Strings',
+                component: FretboardTuner,
+                props: {},
+                parentProps: true
             }
         ]
     }

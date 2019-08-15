@@ -1,8 +1,9 @@
 import * as React from "react";
 import "./ConfigPanel.css";
 import { OptionInput } from "../../Concepts/ConceptConfig";
+import { ViewerProps } from "../../Viewers/Viewer/Viewer";
 
-type ConfigPanelProps = {
+interface ConfigPanelProps extends ViewerProps {
     setValue: (property: string, value: any) => void,
     options: OptionInput[];
     config: any;
@@ -19,10 +20,11 @@ export class ConfigPanel extends React.Component<ConfigPanelProps, null> {
         for (let i = 0; i < this.props.options.length; i++) {
             let option = this.props.options[i];
             let InputComp = option.component;
-            inputs.push(<div className='config-panel-input' key={i}>
+            inputs.push(<div className={option.vertical ? 'config-panel-input-x' : 'config-panel-input-y'} key={i}>
                 <div className='config-panel-input-label'>{option.label}</div>
                 <div className='config-panel-input-contents'>
                     <InputComp
+                        {...this.props}
                         value={this.props.config[option.propertyId]}
                         setValue={(value) => { this.props.setValue(option.propertyId, value); }}
                         {...option.props}

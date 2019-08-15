@@ -5,20 +5,38 @@
     background: #DDD;
 }
 
-.config-panel-input {
+/* Horizonal */
+
+.config-panel-input-x {
     margin: 5px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 5px;
 }
 
-.config-panel-input-label {
+.config-panel-input-x .config-panel-input-label {
 	font-size: 12px;
     text-align: right;
     line-height: 20px;
 }
 
-.config-panel-input-contents {
+.config-panel-input-x .config-panel-input-contents {
     display: inline-block;
     text-align: left;
+}
+
+/* Vertical */
+
+.config-panel-input-y {
+    margin: 5px;
+}
+
+.config-panel-input-y .config-panel-input-label {
+	font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.config-panel-input-y .config-panel-input-contents {
+    text-align: center;
 }
