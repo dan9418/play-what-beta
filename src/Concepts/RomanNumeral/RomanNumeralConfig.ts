@@ -1,5 +1,6 @@
-import { Preset, ConceptConfig } from "../../Theory/TheoryConfig";
 import { INTERVAL } from "../Interval/IntervalConfig";
+import { ConceptConfig } from "../ConceptConfig";
+import { Preset } from "../../AppConfig";
 
 export const PRESETS_ROMAN_NUMERAL: Preset<ConceptConfig>[] = [
     {

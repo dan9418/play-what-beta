@@ -4,14 +4,13 @@ import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector
 import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
 import { ALL_DEGREES } from "../../Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../../Key/AccidentalConfig";
-import { CONCEPT_DEFINITIONS } from "../../Concepts/ConceptConfig";
-import { VIEWER_DEFINITIONS } from "../../Viewers/ViewerConfig";
+import { CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../Concepts/ConceptConfig";
+import { VIEWER_DEFINITIONS, ViewerManagerProps } from "../../Viewers/ViewerConfig";
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 import { CharButton } from "../Selectors/CharButton/CharButton";
-import { ViewerProps } from "../../Viewers/Viewer/Viewer";
 
-export interface InputPanelProps extends ViewerProps {
+export interface InputPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void
 }
 
@@ -100,7 +99,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                     data={this.props.conceptDefinition.presets}
                     value={this.props.conceptDefinition}
                     setValue={(value) => {
-                        this.props.setValue('conceptIntervals', value.config.intervals);
+                        this.props.setValue('intervals', value.config.intervals);
                     }}
                 />
 
@@ -115,10 +114,10 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                     <div className='input-row-config-panel'>
                         <ConfigPanel
                             {...this.props}
-                            options={this.props.conceptDefinition.options}
-                            config={this.props.conceptConfig}
+                            options={INTERVAL_OPTIONS}
+                            config={this.props.intervalOptions}
                             setValue={(property, value) => {
-                                this.setNestedValue(this.props.conceptConfig, 'conceptConfig', property, value);
+                                this.setNestedValue(this.props.intervalOptions, 'intervalOptions', property, value);
                             }}
                         />
                     </div>}

@@ -1,39 +1,26 @@
 import * as React from "react";
-import { DEGREE } from "../../Key/DegreeConfig";
-import { ACCIDENTAL, } from "../../Key/AccidentalConfig";
-import { CONCEPT_DEFINITIONS, } from "../../Concepts/ConceptConfig";
-import { VIEWER_DEFINITIONS, } from "../ViewerConfig";
 import { InputPanel } from "../../InputPanel/InputPanel/InputPanel";
-import { Viewer, ViewerProps } from "../Viewer/Viewer";
+import { Viewer } from "../Viewer/Viewer";
 import "./ViewerManager.css"
+import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS } from "../ViewerConfig";
 
-export class ViewerManager extends React.Component<any, ViewerProps> {
+export class ViewerManager extends React.Component<ViewerManagerProps | any, ViewerManagerProps> {
 
     constructor(props) {
         super(props);
 
-        const CONCEPT_INDEX = 1;
-        const VIEWER_INDEX = 1;
-
-        this.state = {
-            // Key
-            degree: DEGREE.C,
-            accidental: ACCIDENTAL.natural,
-            octave: 4,
-            // Concept
-            conceptDefinition: CONCEPT_DEFINITIONS[CONCEPT_INDEX],
-            conceptIntervals: CONCEPT_DEFINITIONS[CONCEPT_INDEX].presets[0].config.intervals,
-            conceptConfig: CONCEPT_DEFINITIONS[CONCEPT_INDEX].defaults,
-            // Viewer
-            viewerDefinition: VIEWER_DEFINITIONS[VIEWER_INDEX],
-            viewerConfig: VIEWER_DEFINITIONS[VIEWER_INDEX].presets[0].config,
-        }
+        this.state = Object.assign({}, DEFAULT_VIEWER_MANAGER_PROPS, this.props);
     }
 
     setValue = (property: string, value: any) => {
         let update = {};
-        if (property === 'viewerDefinition')
+        if (property === 'conceptDefinition') {
+            update['conceptConfig'] = value.presets[0].config;
+            update['conceptIntervals'] = value.presets[0].config.intervals;
+        }
+        if (property === 'viewerDefinition') {
             update['viewerConfig'] = value.presets[0].config;
+        }
         update[property] = value;
         this.setState(update);
     }
@@ -49,7 +36,13 @@ export class ViewerManager extends React.Component<any, ViewerProps> {
                 </div>
                 <div className='viewer-container'>
                     <Viewer
-                        {...this.state}
+                        degree={this.state.degree}
+                        accidental={this.state.accidental}
+                        octave={this.state.octave}
+                        intervals={this.state.intervals}
+                        intervalOptions={this.state.intervalOptions}
+                        viewerComponent={this.state.viewerDefinition.component}
+                        viewerConfig={this.state.viewerConfig}
                     />
                 </div>
             </div>

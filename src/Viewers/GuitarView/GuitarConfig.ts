@@ -1,5 +1,5 @@
-import { Preset } from "../../Theory/TheoryConfig";
 import { Interval, INTERVAL } from "../../Concepts/Interval/IntervalConfig";
+import { Preset } from "../../AppConfig";
 
 export interface GuitarConfig {
     noteLabel: any;

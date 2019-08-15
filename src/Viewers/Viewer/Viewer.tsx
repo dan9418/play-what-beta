@@ -1,25 +1,7 @@
 import * as React from "react";
-import { Degree } from "../../Key/DegreeConfig";
-import { Accidental } from "../../Key/AccidentalConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { Interval } from "../../Concepts/Interval/IntervalConfig";
-import { ConceptDefinition } from "../../Concepts/ConceptConfig";
-import { ViewerDefinition } from "../ViewerConfig";
 import "./Viewer.css"
-
-export type ViewerProps = {
-	// Key
-	degree: Degree,
-	accidental: Accidental,
-	octave: number
-	// Concept
-	conceptDefinition: ConceptDefinition,
-	conceptIntervals: Interval[],
-	conceptConfig: any,
-	// Viewer
-	viewerDefinition: ViewerDefinition,
-	viewerConfig: any,
-}
+import { ViewerProps } from "../ViewerConfig";
 
 export class Viewer extends React.Component<ViewerProps, null> {
 
@@ -39,11 +21,11 @@ export class Viewer extends React.Component<ViewerProps, null> {
 		let key = this.getKey();
 
 		let intervals = [];
-		for (let i = 0; i < this.props.conceptIntervals.length; i++) {
-			intervals.push({ ...this.props.conceptIntervals[i] });
+		for (let i = 0; i < this.props.intervals.length; i++) {
+			intervals.push({ ...this.props.intervals[i] });
 		}
-		let inversion = this.props.conceptConfig.inversion.rotation;
-		let melodicInversion = this.props.conceptConfig.melodicInversion;
+		let inversion = this.props.intervalOptions.inversion.rotation;
+		let melodicInversion = this.props.intervalOptions.melodicInversion;
 
 		// Configure relative octaves
 		for (let i = 0; i < intervals.length; i++) {
@@ -57,21 +39,14 @@ export class Viewer extends React.Component<ViewerProps, null> {
 
 		let notes = TheoryEngine.getNotesFromIntervals(key, intervals, melodicInversion);
 
-		if (this.props.conceptConfig.reverse)
+		if (this.props.intervalOptions.reverse)
 			notes.reverse();
 
 		return notes;
 	}
 
-	/*arrayRotate = (arr, count) => {
-		count -= arr.length * Math.floor(count / arr.length)
-		arr.push.apply(arr, arr.splice(0, count))
-		console.log(arr);
-		return arr
-	}*/
-
 	render = () => {
-		let Viewer = this.props.viewerDefinition.component;
+		let Viewer = this.props.viewerComponent;
 		return (
 			<div className='viewer'>
 				<Viewer

@@ -2,16 +2,6 @@ import { Interval, INTERVAL } from "../Concepts/Interval/IntervalConfig";
 import { Degree } from "../Key/DegreeConfig";
 import { Accidental } from "../Key/AccidentalConfig";
 
-export interface Preset<T> {
-    id: string;
-    name: string;
-    config: T;
-}
-
-export interface ConceptConfig {
-    intervals: Interval[];
-}
-
 export interface Key {
     degree: Degree;
     accidental: Accidental;

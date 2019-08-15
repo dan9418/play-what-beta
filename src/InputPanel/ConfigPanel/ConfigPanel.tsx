@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./ConfigPanel.css";
-import { OptionInput } from "../../Concepts/ConceptConfig";
-import { ViewerProps } from "../../Viewers/Viewer/Viewer";
+import { ViewerManagerProps } from "../../Viewers/ViewerConfig";
+import { OptionInput } from "../../AppConfig";
 
-interface ConfigPanelProps extends ViewerProps {
+interface ConfigPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void,
     options: OptionInput[];
     config: any;

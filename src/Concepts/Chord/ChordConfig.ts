@@ -1,5 +1,6 @@
-import { ConceptConfig, Preset } from "../../Theory/TheoryConfig";
 import { INTERVAL } from "../Interval/IntervalConfig";
+import { Preset } from "../../AppConfig";
+import { ConceptConfig } from "../ConceptConfig";
 
 // Interface
 
@@ -40,21 +41,6 @@ export const PRESET_CHORDS: Preset<ConceptConfig>[] = [
         name: 'Major 7th',
         config: { intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5, INTERVAL.M7] }
     },
-    /*{
-        id: 'maj9',
-        name: 'Major 9',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5, INTERVAL.M7, INTERVAL.M9] }
-    },
-    {
-        id: 'maj11',
-        name: 'Major 11',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5, INTERVAL.M7, INTERVAL.M9, INTERVAL.P11] }
-    },
-    {
-        id: 'maj13',
-        name: 'Major 13',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M3, INTERVAL.P5, INTERVAL.M7, INTERVAL.M9, INTERVAL.P11, INTERVAL.M13] }
-    },*/
     {
         id: 'aug',
         name: 'Augmented Triad',

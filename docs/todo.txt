@@ -1,21 +1,22 @@
 ============V1============
 
-Guitar Tunings/Voicings
-Clean up / verify theory engine
-Final file cleanup
+    Clean up theory engine
+    Final file cleanup
+    Testing
 
-Meta
+    Merge to master
+    Branch unfinished features
+    Create new repo
     Docs
     Bug tracking
     Formal backlog
-        Branch unfinished features
-  
+        
 ============V2============
     Disable inputs
     Custom interval input
     Resizable viewers
     MultiViewer
-        Roman Numerals
+        Chord progresssions
         Cadences
         MultiControl
     Extended intervals

@@ -2,10 +2,9 @@ import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import { SelectorProps } from "../SelectorConfig";
 import { GuitarStringConfig, GuitarConfig, DEFAULT_FRETBOARD_STRING } from "../../../Viewers/GuitarView/GuitarConfig";
-import { ViewerProps } from "../../../Viewers/Viewer/Viewer";
 import "./FretboradTuner.css";
-import { string } from "prop-types";
 import { Interval } from "../../../Concepts/Interval/IntervalConfig";
+import { ViewerProps } from "../../../Viewers/ViewerConfig";
 
 interface FretboardTunerProps extends SelectorProps, ViewerProps {
     viewerConfig: GuitarConfig;
@@ -29,7 +28,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
         // If currently in "off" state, add all other intervals
         if (!filteredIntervals) {
-            newIntervals = this.props.conceptIntervals.filter((x) => { return x.id !== interval.id; });
+            newIntervals = this.props.intervals.filter((x) => { return x.id !== interval.id; });
         }
         // If interval is already filtered, remove it
         else if (this.isIntervalFiltered(interval, filteredIntervals)) {
@@ -40,7 +39,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
             newIntervals = [...filteredIntervals];
             newIntervals.push(interval);
             // If all intervals are now filtered, set to "off" state for efficiency
-            if (newIntervals.length === this.props.conceptIntervals.length)
+            if (newIntervals.length === this.props.intervals.length)
                 newIntervals = false;
         }
         this.setValue(stringIndex, 'filteredIntervals', newIntervals);
@@ -53,8 +52,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
     getHeaderRow = () => {
         let items = [<th key='header-num'>#</th>, <th key='header-tuning'>Tuning</th>];
-        for (let i = 0; i < this.props.conceptIntervals.length; i++) {
-            let child = this.props.conceptIntervals[i];
+        for (let i = 0; i < this.props.intervals.length; i++) {
+            let child = this.props.intervals[i];
             items.push(<th key={child.id}>{child.id}</th>);
         }
         return <tr>{...items}</tr>;
@@ -65,8 +64,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
             <td key='num' className='string-number'>{stringIndex + 1}</td>,
             <td key='tuner'><NumericSelector value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
         ];
-        for (let i = 0; i < this.props.conceptIntervals.length; i++) {
-            let interval = this.props.conceptIntervals[i];
+        for (let i = 0; i < this.props.intervals.length; i++) {
+            let interval = this.props.intervals[i];
             items.push(
                 <td key={interval.id}>
                     {<input
