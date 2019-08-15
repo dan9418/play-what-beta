@@ -17,6 +17,7 @@
 .config-panel-input-x .config-panel-input-label {
 	font-size: 12px;
     text-align: right;
+    font-weight: bold;
     line-height: 20px;
 }
 

@@ -20,7 +20,7 @@ export class ConfigPanel extends React.Component<ConfigPanelProps, null> {
         for (let i = 0; i < this.props.options.length; i++) {
             let option = this.props.options[i];
             let InputComp = option.component;
-            inputs.push(<div className={option.vertical ? 'config-panel-input-x' : 'config-panel-input-y'} key={i}>
+            inputs.push(<div className={option.vertical ? 'config-panel-input-y' : 'config-panel-input-x'} key={i}>
                 <div className='config-panel-input-label'>{option.label}</div>
                 <div className='config-panel-input-contents'>
                     <InputComp

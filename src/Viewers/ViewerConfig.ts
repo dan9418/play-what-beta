@@ -93,6 +93,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
             {
                 propertyId: 'strings',
                 label: 'Strings',
+                vertical: true,
                 component: FretboardTuner,
                 props: {},
                 parentProps: true
