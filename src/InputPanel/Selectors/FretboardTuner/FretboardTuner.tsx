@@ -47,6 +47,13 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
                             !stringConfig.filteredIntervals
                             || 'undefined' !== typeof stringConfig.filteredIntervals.find((filterInteval) => { return filterInteval.id === interval.id; })
                         }
+                        onClick={() => {
+                            let newIntervals = stringConfig.filteredIntervals ? [...stringConfig.filteredIntervals] : [...this.props.conceptIntervals];
+                            let exists = 'undefined' !== typeof newIntervals.find((filterInteval) => { return filterInteval.id === interval.id; });
+                            if (exists) newIntervals = newIntervals.filter((x) => { return x.id !== interval.id; });
+                            else newIntervals.push(interval);
+                            this.setValue(stringIndex, 'filteredIntervals', newIntervals)
+                        }}
                     />}
                 </td>
             );
