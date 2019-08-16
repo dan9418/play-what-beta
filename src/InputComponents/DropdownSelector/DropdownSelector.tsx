@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./DropdownSelector.css";
-import { SelectorProps } from "../../AppConfig";
+import { SelectorProps } from "../../Common/AppConfig";
 
 interface DropdownSelectorProps extends SelectorProps {
     data: any[];

@@ -1,4 +1,4 @@
-import { Note, FretboardConfig } from "../../AppConfig";
+import { Note, FretboardConfig } from "../../Common/AppConfig";
 
 import React = require("react");
 

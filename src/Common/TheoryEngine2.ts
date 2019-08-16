@@ -1,4 +1,4 @@
-import { Interval, Note, ALL_DEGREES, ALL_ACCIDENTALS, Key } from "../AppConfig";
+import { Interval, Note, ALL_DEGREES, ALL_ACCIDENTALS, Key } from "./AppConfig";
 import { TheoryEngine } from "./TheoryEngine";
 
 export class TheoryEngine2 {

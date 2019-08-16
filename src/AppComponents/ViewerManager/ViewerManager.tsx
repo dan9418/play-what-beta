@@ -2,7 +2,7 @@ import * as React from "react";
 import { InputPanel } from "../InputPanel/InputPanel";
 import { Viewer } from "../MusicViewer/MusicViewer";
 import "./ViewerManager.css"
-import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS } from "../../AppConfig";
+import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS } from "../../Common/AppConfig";
 
 export class ViewerManager extends React.Component<ViewerManagerProps | any, ViewerManagerProps> {
 

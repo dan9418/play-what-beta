@@ -1,4 +1,4 @@
-import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../AppConfig";
+import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../Common/AppConfig";
 import React = require("react");
 import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 import "./InputPanel.css";

@@ -1,5 +1,5 @@
 import React = require("react");
-import { KeyboardKeyType, Note, KeyboardConfig } from "../../AppConfig";
+import { KeyboardKeyType, Note, KeyboardConfig } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import { TheoryEngine2 } from "../../Common/TheoryEngine2";
 

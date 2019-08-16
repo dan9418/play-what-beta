@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./ConfigPanel.css";
-import { OptionInput, ViewerManagerProps } from "../../AppConfig";
+import { OptionInput, ViewerManagerProps } from "../../Common/AppConfig";
 
 interface ConfigPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void,

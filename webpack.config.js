@@ -1,10 +1,10 @@
 var path = require('path');
 var config = {
   mode: 'development',
-  entry: ['./src/App.tsx'],
+  entry: ['./src/Sample/Sample.tsx'],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'sample.js'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']

@@ -1,5 +1,5 @@
 import React = require("react");
-import { FretboardConfig, Note, Interval } from "../../AppConfig";
+import { FretboardConfig, Note, Interval } from "../../Common/AppConfig";
 import { FretboardString } from "./FretboardString";
 import "./Fretboard.css";
 

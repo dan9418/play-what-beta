@@ -1,10 +1,10 @@
-import { Keyboard } from "./ViewerComponents/Keyboard/Keyboard";
-import { DropdownSelector } from "./InputComponents/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "./InputComponents/NumericSelector/NumericSelector";
-import { SwitchSelector } from "./InputComponents/SwitchSelector/SwitchSelector";
-import { Fretboard } from "./ViewerComponents/Fretboard/Fretboard";
-import { FretboardTuner } from "./InputComponents/FretboardTuner/FretboardTuner";
-import { BoxSelector } from "./InputComponents/BoxSelector/BoxSelector";
+import { Keyboard } from "../ViewerComponents/Keyboard/Keyboard";
+import { DropdownSelector } from "../InputComponents/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "../InputComponents/NumericSelector/NumericSelector";
+import { SwitchSelector } from "../InputComponents/SwitchSelector/SwitchSelector";
+import { Fretboard } from "../ViewerComponents/Fretboard/Fretboard";
+import { FretboardTuner } from "../InputComponents/FretboardTuner/FretboardTuner";
+import { BoxSelector } from "../InputComponents/BoxSelector/BoxSelector";
 
 export type SelectorProps = {
     value: any;
