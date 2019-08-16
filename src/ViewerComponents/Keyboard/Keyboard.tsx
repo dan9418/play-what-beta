@@ -1,26 +1,26 @@
 import * as React from "react";
-import "./PianoView.css";
-import { PianoKeyType, PianoKeyConfig } from "./PianoConfig";
-import { PianoKey } from "./PianoKey";
+import "./Keyboard.css";
+import { KeyboardKeyType, KeyboardKeyConfig } from "./KeyboardConfig";
+import { KeyboardKey } from "./KeyboardKey";
 import { Note } from "../../Theory/TheoryConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 
-type PianoProps = {
+type KeyboardProps = {
     notes: Note[];
     config: any;
 }
 
-export class Piano extends React.Component<PianoProps, null> {
+export class Keyboard extends React.Component<KeyboardProps, null> {
     static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
 
     constructor(props) {
         super(props);
     }
 
-    getKeys = (lo: number, hi: number): PianoKeyConfig[] => {
+    getKeys = (lo: number, hi: number): KeyboardKeyConfig[] => {
         let keys = [];
         for (let i = lo; i <= hi; i++) {
-            let type = Piano.blackKeyIndices.includes(i % 12) ? PianoKeyType.White : PianoKeyType.Black;
+            let type = Keyboard.blackKeyIndices.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
             keys.push({ absolutePosition: i, type: type });
         }
         return keys;
@@ -44,10 +44,10 @@ export class Piano extends React.Component<PianoProps, null> {
         return note;
     }
 
-    getPianoKeys = () => {
+    getKeyboardKeys = () => {
         return this.getKeys(this.props.config.keyLow, this.props.config.keyHigh)
             .map((key, index) => {
-                return <PianoKey
+                return <KeyboardKey
                     key={index}
                     type={key.type}
                     note={this.getNote(this.props.config.keyLow + index)}
@@ -58,8 +58,8 @@ export class Piano extends React.Component<PianoProps, null> {
 
     render = () => {
         return (
-            <div className='piano'>
-                {this.getPianoKeys()}
+            <div className='keyboard'>
+                {this.getKeyboardKeys()}
             </div>
         );
     }

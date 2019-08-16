@@ -5,7 +5,7 @@ import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
 import { ALL_DEGREES } from "../../Key/DegreeConfig";
 import { ALL_ACCIDENTALS } from "../../Key/AccidentalConfig";
 import { CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../Concepts/ConceptConfig";
-import { VIEWER_DEFINITIONS, ViewerManagerProps } from "../../Viewers/ViewerConfig";
+import { VIEWER_DEFINITIONS, ViewerManagerProps } from "../../ViewerComponents/ViewerConfig";
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
 import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
 import { CharButton } from "../Selectors/CharButton/CharButton";

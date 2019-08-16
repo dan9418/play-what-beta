@@ -1,19 +1,19 @@
 import * as React from "react";
-import "./GuitarView.css";
+import "./Fretboard.css";
 import "../../Theory/TheoryStyles.css";
 import { Note } from "../../Theory/TheoryConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { GuitarConfig } from "./GuitarConfig";
+import { FretboardConfig } from "./FretboardConfig";
 import { TheoryEngine2 } from "../../Theory/TheoryEngine2";
 
-type GuitarFretProps = {
+type FretboardFretProps = {
     fretNumber: number;
     stringNumber: number;
     note: Note;
-    config: GuitarConfig;
+    config: FretboardConfig;
 }
 
-export class GuitarFret extends React.Component<GuitarFretProps, null> {
+export class FretboardFret extends React.Component<FretboardFretProps, null> {
 
     constructor(props) {
         super(props);
@@ -21,10 +21,10 @@ export class GuitarFret extends React.Component<GuitarFretProps, null> {
 
     render = () => {
         let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : '';
-        let classes = ['guitar-fret', 'wood'];
-        let labelClasses = [colorClass, 'guitar-fret-label']
+        let classes = ['fretboard-fret', 'wood'];
+        let labelClasses = [colorClass, 'fretboard-fret-label']
         if (this.props.fretNumber === 0)
-            classes.push('guitar-fret-open');
+            classes.push('fretboard-fret-open');
 
         return <div
             className={classes.join(' ')}

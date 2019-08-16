@@ -1,18 +1,18 @@
 import * as React from "react";
-import "./GuitarView.css";
-import { GuitarFret } from "./GuitarFret";
+import "./Fretboard.css";
+import { FretboardFret } from "./FretboardFret";
 import { Note } from "../../Theory/TheoryConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { GuitarConfig } from "./GuitarConfig";
+import { FretboardConfig } from "./FretboardConfig";
 
-type GuitarStringProps = {
+type FretboardStringProps = {
     notes: Note[];
     stringNumber: number;
     openPosition: number;
-    config: GuitarConfig
+    config: FretboardConfig
 };
 
-export class GuitarString extends React.Component<GuitarStringProps, null> {
+export class FretboardString extends React.Component<FretboardStringProps, null> {
 
     constructor(props) {
         super(props);
@@ -40,7 +40,7 @@ export class GuitarString extends React.Component<GuitarStringProps, null> {
     getFrets = () => {
         let frets = [];
         for (let i = this.props.config.fretLow; i <= this.props.config.fretHigh; i++) {
-            frets.push(<GuitarFret
+            frets.push(<FretboardFret
                 key={i}
                 fretNumber={i}
                 stringNumber={this.props.stringNumber}
@@ -52,9 +52,9 @@ export class GuitarString extends React.Component<GuitarStringProps, null> {
     }
 
     render = () => {
-        return <div className='guitar-string'>
+        return <div className='fretboard-string'>
             {this.getFrets()}
-            <div className='guitar-fret-string' />
+            <div className='fretboard-fret-string' />
         </div>;
     };
 }

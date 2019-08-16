@@ -1,25 +1,25 @@
 import { Interval, INTERVAL } from "../../Concepts/Interval/IntervalConfig";
 import { Preset } from "../../AppConfig";
 
-export interface GuitarConfig {
+export interface FretboardConfig {
     noteLabel: any;
     showDots: boolean;
     filterOctave: boolean;
-    strings: GuitarStringConfig[];
+    strings: FretboardStringConfig[];
     fretLow: number;
     fretHigh: number;
 }
 
-export interface GuitarStringConfig {
+export interface FretboardStringConfig {
     openPosition: number
     filteredIntervals?: Interval[];
 }
 
-export const DEFAULT_FRETBOARD_STRING: GuitarStringConfig = {
+export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
     openPosition: 0
 }
 
-export const PRESETS_GUITAR_CONFIG: Preset<GuitarConfig>[] = [
+export const PRESETS_GUITAR_CONFIG: Preset<FretboardConfig>[] = [
     {
         id: 'guitar',
         name: 'Guitar',

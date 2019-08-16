@@ -1,44 +1,44 @@
-/* Piano */
+/* Keyboard */
 
-.piano {
+.keyboard {
 	display: inline-block;
     font-size: 12px;
     box-shadow: 2px 2px 5px #888888;
 }
 
-/* PianoKey */
+/* KeyboardKey */
 
 /* Container */
 
-.piano-key-container {
+.keyboard-key-container {
 	display: inline-block;
 	height: 100px;
 }
 
-.piano-key-container-black {
+.keyboard-key-container-black {
 	width: 0px;
 }
 
 /* Key */
 
-.piano-key {
+.keyboard-key {
 	display: inline-block;
 	vertical-align: top;
 	box-shadow:inset 0px 0px 0px 1px black;
 	position: relative;
 }
 
-.piano-key:hover {
+.keyboard-key:hover {
 	cursor: pointer;
 	background-color: darkgray !important;
 }
 
-.piano-key-container-white .piano-key {
+.keyboard-key-container-white .keyboard-key {
 	height: 100px;
 	width: 25px;
 }
 
-.piano-key-container-black .piano-key {
+.keyboard-key-container-black .keyboard-key {
 	height: 70px;
 	width: 12px;
 	position: relative;
@@ -48,19 +48,19 @@
 
 /* Label */
 
-.piano-key-label {
+.keyboard-key-label {
 	position: absolute;
 	width: 25px;
 	height: 25px;
     line-height: 25px;
 }
 
-.piano-key-container-white .piano-key-label {
+.keyboard-key-container-white .keyboard-key-label {
 	bottom: 2px;
 	left: 0px;
 }
 
-.piano-key-container-black .piano-key-label {
+.keyboard-key-container-black .keyboard-key-label {
 	top: -25px;
 	left: -6px;
 	color: black;

@@ -1,34 +1,34 @@
 import * as React from "react";
-import "./PianoView.css";
+import "./Keyboard.css";
 import "../../Theory/TheoryStyles.css";
-import { PianoKeyType, PianoConfig } from "./PianoConfig";
+import { KeyboardKeyType, KeyboardConfig } from "./KeyboardConfig";
 import { Note } from "../../Theory/TheoryConfig";
 import { TheoryEngine } from "../../Theory/TheoryEngine";
 import { TheoryEngine2 } from "../../Theory/TheoryEngine2";
 
-type PianoKeyProps = {
-    type: PianoKeyType;
+type KeyboardKeyProps = {
+    type: KeyboardKeyType;
     note: Note;
-    config: PianoConfig;
+    config: KeyboardConfig;
 }
 
-export class PianoKey extends React.Component<PianoKeyProps, null> {
+export class KeyboardKey extends React.Component<KeyboardKeyProps, null> {
 
     constructor(props) {
         super(props);
     }
 
     render = () => {
-        let keyColor = (this.props.type === PianoKeyType.White) ? 'white' : 'black';
+        let keyColor = (this.props.type === KeyboardKeyType.White) ? 'white' : 'black';
         let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : keyColor;
-        let classes = ['piano-key', colorClass];
+        let classes = ['keyboard-key', colorClass];
 
-        return <div className={`piano-key-container piano-key-container-${keyColor}`}>
+        return <div className={`keyboard-key-container keyboard-key-container-${keyColor}`}>
             <div
                 className={classes.join(' ')}
                 onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
             >
-                <div className="piano-key-label">{TheoryEngine2.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
+                <div className="keyboard-key-label">{TheoryEngine2.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
             </div>
         </div>;
     };

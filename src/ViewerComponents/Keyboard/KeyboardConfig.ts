@@ -1,22 +1,22 @@
 import { ALL_NOTE_LABELS } from "../../Theory/TheoryConfig";
 
-export enum PianoKeyType {
+export enum KeyboardKeyType {
     Black,
     White
 }
 
-export interface PianoKeyConfig {
+export interface KeyboardKeyConfig {
     absolutePosition: number;
-    type: PianoKeyType;
+    type: KeyboardKeyType;
 }
 
 
-export interface PianoConfig {
+export interface KeyboardConfig {
     noteLabel: any;
     filterOctave: boolean;
     keyLow: number;
     keyHigh: number;
-    keys: PianoKeyConfig[];
+    keys: KeyboardKeyConfig[];
 }
 
 export const PRESETS_PIANO_CONFIG = [

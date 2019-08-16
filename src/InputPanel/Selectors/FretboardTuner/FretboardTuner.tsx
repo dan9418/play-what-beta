@@ -1,14 +1,14 @@
 import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import { SelectorProps } from "../SelectorConfig";
-import { GuitarStringConfig, GuitarConfig, DEFAULT_FRETBOARD_STRING } from "../../../Viewers/GuitarView/GuitarConfig";
+import { FretboardStringConfig, FretboardConfig, DEFAULT_FRETBOARD_STRING } from "../../../ViewerComponents/Fretboard/FretboardConfig";
 import "./FretboradTuner.css";
 import { Interval } from "../../../Concepts/Interval/IntervalConfig";
-import { ViewerProps } from "../../../Viewers/ViewerConfig";
+import { ViewerProps } from "../../../ViewerComponents/ViewerConfig";
 
 interface FretboardTunerProps extends SelectorProps, ViewerProps {
-    viewerConfig: GuitarConfig;
-    value: GuitarStringConfig[];
+    viewerConfig: FretboardConfig;
+    value: FretboardStringConfig[];
 }
 
 export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
@@ -59,7 +59,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
         return <tr>{...items}</tr>;
     }
 
-    getStringTuner = (stringConfig: GuitarStringConfig, stringIndex: number) => {
+    getStringTuner = (stringConfig: FretboardStringConfig, stringIndex: number) => {
         let items = [
             <td key='num' className='string-number'>{stringIndex + 1}</td>,
             <td key='tuner'><NumericSelector value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>

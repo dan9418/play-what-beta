@@ -1,7 +1,5 @@
-import { Piano } from "./PianoView/Piano";
-import { Guitar } from "./GuitarView/Guitar";
-import { PRESETS_GUITAR_CONFIG } from "./GuitarView/GuitarConfig";
-import { PRESETS_PIANO_CONFIG } from "./PianoView/PianoConfig";
+import { PRESETS_GUITAR_CONFIG } from "./Fretboard/FretboardConfig";
+import { PRESETS_PIANO_CONFIG  } from "./Keyboard/KeyboardCOnfig";
 import { ALL_NOTE_LABELS } from "../Theory/TheoryConfig";
 import { CONCEPT_DEFINITIONS, IntervalOptions, DEFAULT_INTERVAL_OPTIONS, ConceptDefinition } from "../Concepts/ConceptConfig";
 import { NumericSelector } from "../InputPanel/Selectors/NumericSelector/NumericSelector";
@@ -12,6 +10,8 @@ import { DEGREE, Degree } from "../Key/DegreeConfig";
 import { ACCIDENTAL, Accidental } from "../Key/AccidentalConfig";
 import { Interval } from "../Concepts/Interval/IntervalConfig";
 import { OptionInput, Preset } from "../AppConfig";
+import { Keyboard } from "./Keyboard/Keyboard";
+import { Fretboard } from "./Fretboard/Fretboard";
 
 export interface ViewerDefinition {
     id: string;
@@ -23,9 +23,9 @@ export interface ViewerDefinition {
 
 export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     {
-        id: 'piano',
-        name: 'Piano',
-        component: Piano,
+        id: 'keyboard',
+        name: 'Keyboard',
+        component: Keyboard,
         presets: PRESETS_PIANO_CONFIG,
         options: [
             {
@@ -59,7 +59,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     {
         id: 'fretboard',
         name: 'Fretboard',
-        component: Guitar,
+        component: Fretboard,
         presets: PRESETS_GUITAR_CONFIG,
         options: [
             {

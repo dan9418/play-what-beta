@@ -1,8 +1,8 @@
 import * as React from "react";
-import { InputPanel } from "../../InputPanel/InputPanel/InputPanel";
-import { Viewer } from "../Viewer/Viewer";
+import { InputPanel } from "../InputPanel/InputPanel/InputPanel";
+import { Viewer } from "../MusicViewer/MusicViewer";
 import "./ViewerManager.css"
-import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS } from "../ViewerConfig";
+import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS } from "../ViewerComponents/ViewerConfig";
 
 export class ViewerManager extends React.Component<ViewerManagerProps | any, ViewerManagerProps> {
 

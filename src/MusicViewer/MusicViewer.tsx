@@ -1,7 +1,7 @@
 import * as React from "react";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
-import "./Viewer.css"
-import { ViewerProps } from "../ViewerConfig";
+import { TheoryEngine } from "../Theory/TheoryEngine";
+import "./MusicViewer.css"
+import { ViewerProps } from "../ViewerComponents/ViewerConfig";
 
 export class Viewer extends React.Component<ViewerProps, null> {
 
