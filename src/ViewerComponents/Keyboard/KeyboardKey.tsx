@@ -1,10 +1,7 @@
-import * as React from "react";
-import "./Keyboard.css";
-import "../../Theory/TheoryStyles.css";
-import { KeyboardKeyType, KeyboardConfig } from "./KeyboardConfig";
-import { Note } from "../../Theory/TheoryConfig";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { TheoryEngine2 } from "../../Theory/TheoryEngine2";
+import React = require("react");
+import { KeyboardKeyType, Note, KeyboardConfig } from "../../AppConfig";
+import { TheoryEngine } from "../../Common/TheoryEngine";
+import { TheoryEngine2 } from "../../Common/TheoryEngine2";
 
 type KeyboardKeyProps = {
     type: KeyboardKeyType;

@@ -1,14 +1,11 @@
-import * as React from "react";
-import "./InputPanel.css";
-import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
-import { ALL_DEGREES } from "../../Key/DegreeConfig";
-import { ALL_ACCIDENTALS } from "../../Key/AccidentalConfig";
-import { CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../Concepts/ConceptConfig";
-import { VIEWER_DEFINITIONS, ViewerManagerProps } from "../../ViewerComponents/ViewerConfig";
+import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS } from "../../AppConfig";
+import React = require("react");
 import { BoxSelector } from "../Selectors/BoxSelector/BoxSelector";
-import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
+import { NumericSelector } from "../Selectors/NumericSelector/NumericSelector";
+import { DropdownSelector } from "../Selectors/DropdownSelector/DropdownSelector";
 import { CharButton } from "../Selectors/CharButton/CharButton";
+import { ConfigPanel } from "../ConfigPanel/ConfigPanel";
+import "./InputPanel.css";
 
 export interface InputPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void

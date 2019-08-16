@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./App.css";
+import "./Common/TheoryStyles.css"
 import { ViewerManager } from "./ViewerManager/ViewerManager";
 
 export class App extends React.Component<any, any> {

@@ -1,9 +1,7 @@
-import * as React from "react";
-import "./Fretboard.css";
+import React = require("react");
+import { FretboardConfig, Note, Interval } from "../../AppConfig";
 import { FretboardString } from "./FretboardString";
-import { Note } from "../../Theory/TheoryConfig";
-import { FretboardConfig } from "./FretboardConfig";
-import { Interval } from "../../Concepts/Interval/IntervalConfig";
+import "./Fretboard.css";
 
 type FretboardProps = {
     notes: Note[];

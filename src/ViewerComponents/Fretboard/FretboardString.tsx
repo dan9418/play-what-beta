@@ -1,9 +1,7 @@
-import * as React from "react";
-import "./Fretboard.css";
+import { Note, FretboardConfig } from "../../AppConfig";
+import React = require("react");
+import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
-import { Note } from "../../Theory/TheoryConfig";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { FretboardConfig } from "./FretboardConfig";
 
 type FretboardStringProps = {
     notes: Note[];

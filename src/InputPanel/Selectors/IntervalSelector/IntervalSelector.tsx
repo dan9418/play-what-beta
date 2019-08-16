@@ -1,8 +1,7 @@
-import * as React from "react";
-import './IntervalSelector.css';
-import { Key } from "../../../Theory/TheoryConfig";
-import { TheoryEngine2 } from "../../../Theory/TheoryEngine2";
 import { SelectorProps } from "../SelectorConfig";
+import React = require("react");
+import { TheoryEngine2 } from "../../../Common/TheoryEngine2";
+import { Key } from "../../../AppConfig";
 
 interface IntervalSelectorProps extends SelectorProps {
     keyDef: Key

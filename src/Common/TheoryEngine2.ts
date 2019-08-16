@@ -1,8 +1,5 @@
-import { Note, Key } from "./TheoryConfig";
+import { Interval, Note, ALL_DEGREES, ALL_ACCIDENTALS, Key } from "../AppConfig";
 import { TheoryEngine } from "./TheoryEngine";
-import { ALL_DEGREES } from "../Key/DegreeConfig";
-import { ALL_ACCIDENTALS } from "../Key/AccidentalConfig";
-import { Interval } from "../Concepts/Interval/IntervalConfig";
 
 export class TheoryEngine2 {
 

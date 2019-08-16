@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./Keyboard.css";
-import { KeyboardKeyType, KeyboardKeyConfig } from "./KeyboardConfig";
 import { KeyboardKey } from "./KeyboardKey";
-import { Note } from "../../Theory/TheoryConfig";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
+import { TheoryEngine } from "../../Common/TheoryEngine";
+import { Note, KeyboardKeyConfig, KeyboardKeyType } from "../../AppConfig";
+import "./Keyboard.css";
 
 type KeyboardProps = {
     notes: Note[];

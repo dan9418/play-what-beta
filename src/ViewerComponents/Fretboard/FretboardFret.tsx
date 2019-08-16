@@ -1,10 +1,10 @@
-import * as React from "react";
-import "./Fretboard.css";
-import "../../Theory/TheoryStyles.css";
-import { Note } from "../../Theory/TheoryConfig";
-import { TheoryEngine } from "../../Theory/TheoryEngine";
-import { FretboardConfig } from "./FretboardConfig";
-import { TheoryEngine2 } from "../../Theory/TheoryEngine2";
+import { Note, FretboardConfig } from "../../AppConfig";
+
+import React = require("react");
+
+import { TheoryEngine } from "../../Common/TheoryEngine";
+
+import { TheoryEngine2 } from "../../Common/TheoryEngine2";
 
 type FretboardFretProps = {
     fretNumber: number;
