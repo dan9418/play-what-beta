@@ -1,15 +1,15 @@
 import { Keyboard } from "./ViewerComponents/Keyboard/Keyboard";
-
-import { DropdownSelector } from "./InputPanel/Selectors/DropdownSelector/DropdownSelector";
-
-import { NumericSelector } from "./InputPanel/Selectors/NumericSelector/NumericSelector";
-
-import { SwitchSelector } from "./InputPanel/Selectors/SwitchSelector/SwitchSelector";
-
+import { DropdownSelector } from "./InputComponents/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "./InputComponents/NumericSelector/NumericSelector";
+import { SwitchSelector } from "./InputComponents/SwitchSelector/SwitchSelector";
 import { Fretboard } from "./ViewerComponents/Fretboard/Fretboard";
+import { FretboardTuner } from "./InputComponents/FretboardTuner/FretboardTuner";
+import { BoxSelector } from "./InputComponents/BoxSelector/BoxSelector";
 
-import { FretboardTuner } from "./InputPanel/Selectors/FretboardTuner/FretboardTuner";
-import { BoxSelector } from "./InputPanel/Selectors/BoxSelector/BoxSelector";
+export type SelectorProps = {
+    value: any;
+    setValue: (value: any) => void;
+}
 
 export interface Preset<T> {
     id: string;

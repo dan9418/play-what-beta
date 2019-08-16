@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./SwitchSelector.css";
-import { SelectorProps } from "../SelectorConfig";
+import { SelectorProps } from "../../AppConfig";
 
 export class SwitchSelector extends React.Component<SelectorProps, null> {
 

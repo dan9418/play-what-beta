@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./NumericSelector.css";
-import { SelectorProps } from "../SelectorConfig";
 import { CharButton } from "../CharButton/CharButton";
+import { SelectorProps } from "../../AppConfig";
 
 export class NumericSelector extends React.Component<SelectorProps, any> {
 
