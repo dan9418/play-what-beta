@@ -1,8 +1,8 @@
 import React = require("react");
 import { TheoryEngine2 } from "../../Common/TheoryEngine2";
-import { Key, SelectorProps } from "../../Common/AppConfig";
+import { Key, InputProps } from "../../Common/AppConfig";
 
-interface IntervalSelectorProps extends SelectorProps {
+interface IntervalInputProps extends InputProps {
     keyDef: Key
 }
 
@@ -16,7 +16,7 @@ let INTERVAL_TABLE = [
     [null, null, null, null, null, null, null, null, null, 'd7', 'm7', 'M7']
 ]
 
-export class IntervalSelector extends React.Component<IntervalSelectorProps> {
+export class IntervalSelector extends React.Component<IntervalInputProps> {
     constructor(props) {
         super(props);
     }

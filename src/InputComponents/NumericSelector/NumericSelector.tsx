@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./NumericSelector.css";
 import { CharButton } from "../CharButton/CharButton";
-import { SelectorProps } from "../../Common/AppConfig";
+import { InputProps } from "../../Common/AppConfig";
 
-export class NumericSelector extends React.Component<SelectorProps, any> {
+export class NumericSelector extends React.Component<InputProps, any> {
 
     constructor(props) {
         super(props);

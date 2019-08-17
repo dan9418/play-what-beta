@@ -6,7 +6,18 @@ import { Fretboard } from "../ViewerComponents/Fretboard/Fretboard";
 import { FretboardTuner } from "../InputComponents/FretboardTuner/FretboardTuner";
 import { BoxSelector } from "../InputComponents/BoxSelector/BoxSelector";
 
-export type SelectorProps = {
+// Inputs
+
+export interface InputDefinition {
+    propertyId: string;
+    label: string;
+    vertical?: boolean;
+    component: any;
+    props: any;
+    parentProps?: boolean
+}
+
+export type InputProps = {
     value: any;
     setValue: (value: any) => void;
 }
@@ -17,17 +28,188 @@ export interface Preset<T> {
     config: T;
 }
 
-export interface OptionInput {
-    propertyId: string;
-    label: string;
-    vertical?: boolean;
-    component: any;
-    props: any;
-    parentProps?: boolean
+// Concept, General
+
+export interface ConceptConfig {
+    intervals: Interval[];
 }
 
+export interface ConceptDefinition {
+    id: string;
+    name: string;
+    presets: Preset<ConceptConfig>[];
+}
 
+export interface IntervalOptions {
+    inversion: any,
+    melodicInversion: boolean,
+    reverse: boolean;
+}
 
+// Concept, Degree
+
+export interface Degree {
+    id: string;
+    name: string;
+    value: number;
+    index: number;
+}
+
+export const DEGREE = {
+    C: {
+        id: 'C',
+        name: 'C',
+        value: 1,
+        index: 0
+    },
+    D: {
+        id: 'D',
+        name: 'D',
+        value: 2,
+        index: 2
+    },
+    E: {
+        id: 'E',
+        name: 'E',
+        value: 3,
+        index: 4
+    },
+    F: {
+        id: 'F',
+        name: 'F',
+        value: 4,
+        index: 5
+    },
+    G: {
+        id: 'G',
+        name: 'G',
+        value: 5,
+        index: 7
+    },
+    A: {
+        id: 'A',
+        name: 'A',
+        value: 6,
+        index: 9
+    },
+    B: {
+        id: 'B',
+        name: 'B',
+        value: 7,
+        index: 11
+    }
+};
+
+export const ALL_DEGREES: Degree[] = [
+    {
+        id: 'C',
+        name: 'C',
+        value: 1,
+        index: 0
+    },
+    {
+        id: 'D',
+        name: 'D',
+        value: 2,
+        index: 2
+    },
+    {
+        id: 'E',
+        name: 'E',
+        value: 3,
+        index: 4
+    },
+    {
+        id: 'F',
+        name: 'F',
+        value: 4,
+        index: 5
+    },
+    {
+        id: 'G',
+        name: 'G',
+        value: 5,
+        index: 7
+    },
+    {
+        id: 'A',
+        name: 'A',
+        value: 6,
+        index: 9
+    },
+    {
+        id: 'B',
+        name: 'B',
+        value: 7,
+        index: 11
+    }
+];
+
+// Concept, Accidental
+
+export interface Accidental {
+    id: string;
+    name: string;
+    offset: number;
+}
+
+export const ACCIDENTAL = {
+    doubleFlat: {
+        id: 'doubleFlat',
+        name: 'bb',
+        offset: -2
+    },
+    flat: {
+        id: 'flat',
+        name: 'b',
+        offset: -1
+    },
+    natural: {
+        id: 'natural',
+        name: '♮',
+        offset: 0
+    },
+    sharp: {
+        id: 'sharp',
+        name: '#',
+        offset: 1
+    },
+    doubleSharp: {
+        id: 'doubleSharp',
+        name: 'xx',
+        offset: 2
+    }
+};
+
+export const ALL_ACCIDENTALS: Accidental[] = [
+    {
+        id: 'doubleFlat',
+        name: 'bb',
+        offset: -2
+    },
+    {
+        id: 'flat',
+        name: 'b',
+        offset: -1
+    },
+    {
+        id: 'natural',
+        name: '♮',
+        offset: 0
+    },
+    {
+        id: 'sharp',
+        name: '#',
+        offset: 1
+    },
+    {
+        id: 'doubleSharp',
+        name: 'xx',
+        offset: 2
+    }
+];
+
+// Concept, Interval
 
 export interface Interval {
     id: string;
@@ -192,166 +374,7 @@ export let PRESET_INTERVALS = [
     }
 ];
 
-
-export interface Accidental {
-    id: string;
-    name: string;
-    offset: number;
-}
-
-export const ACCIDENTAL = {
-    doubleFlat: {
-        id: 'doubleFlat',
-        name: 'bb',
-        offset: -2
-    },
-    flat: {
-        id: 'flat',
-        name: 'b',
-        offset: -1
-    },
-    natural: {
-        id: 'natural',
-        name: '♮',
-        offset: 0
-    },
-    sharp: {
-        id: 'sharp',
-        name: '#',
-        offset: 1
-    },
-    doubleSharp: {
-        id: 'doubleSharp',
-        name: 'xx',
-        offset: 2
-    }
-};
-
-export const ALL_ACCIDENTALS: Accidental[] = [
-    {
-        id: 'doubleFlat',
-        name: 'bb',
-        offset: -2
-    },
-    {
-        id: 'flat',
-        name: 'b',
-        offset: -1
-    },
-    {
-        id: 'natural',
-        name: '♮',
-        offset: 0
-    },
-    {
-        id: 'sharp',
-        name: '#',
-        offset: 1
-    },
-    {
-        id: 'doubleSharp',
-        name: 'xx',
-        offset: 2
-    }
-];
-
-export interface Degree {
-    id: string;
-    name: string;
-    value: number;
-    index: number;
-}
-
-export const DEGREE = {
-    C: {
-        id: 'C',
-        name: 'C',
-        value: 1,
-        index: 0
-    },
-    D: {
-        id: 'D',
-        name: 'D',
-        value: 2,
-        index: 2
-    },
-    E: {
-        id: 'E',
-        name: 'E',
-        value: 3,
-        index: 4
-    },
-    F: {
-        id: 'F',
-        name: 'F',
-        value: 4,
-        index: 5
-    },
-    G: {
-        id: 'G',
-        name: 'G',
-        value: 5,
-        index: 7
-    },
-    A: {
-        id: 'A',
-        name: 'A',
-        value: 6,
-        index: 9
-    },
-    B: {
-        id: 'B',
-        name: 'B',
-        value: 7,
-        index: 11
-    }
-};
-
-export const ALL_DEGREES: Degree[] = [
-    {
-        id: 'C',
-        name: 'C',
-        value: 1,
-        index: 0
-    },
-    {
-        id: 'D',
-        name: 'D',
-        value: 2,
-        index: 2
-    },
-    {
-        id: 'E',
-        name: 'E',
-        value: 3,
-        index: 4
-    },
-    {
-        id: 'F',
-        name: 'F',
-        value: 4,
-        index: 5
-    },
-    {
-        id: 'G',
-        name: 'G',
-        value: 5,
-        index: 7
-    },
-    {
-        id: 'A',
-        name: 'A',
-        value: 6,
-        index: 9
-    },
-    {
-        id: 'B',
-        name: 'B',
-        value: 7,
-        index: 11
-    }
-];
-
+// Concept, Chord
 
 export const PRESET_CHORDS: any[] = [
     {
@@ -449,6 +472,43 @@ export const PRESET_CHORD_INVERSIONS = [
     }
 ]
 
+// Concept, Scale
+
+export let PRESET_SCALES = [
+    {
+        id: 'major',
+        name: 'Major',
+        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7] }
+    },
+    {
+        id: 'natualMinor',
+        name: 'Natual Minor',
+        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.m7] }
+    },
+    {
+        id: 'harmonicMinor',
+        name: 'Harmonic Minor',
+        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.M7] }
+    },
+    {
+        id: 'majorPentatonic',
+        name: 'Major Pentatonic',
+        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P5, INTERVAL.M6] }
+    },
+    {
+        id: 'minorPentatonic',
+        name: 'Minor Pentatonic',
+        config: { intervals: [INTERVAL.PU, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m7] }
+    },
+    {
+        id: 'chromatic',
+        name: 'Chromatic',
+        config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.M2, INTERVAL.m3, INTERVAL.M3, INTERVAL.P4, INTERVAL.TT, INTERVAL.P5, INTERVAL.m6, INTERVAL.M6, INTERVAL.m7, INTERVAL.M7] }
+    }
+];
+
+// Concept, Mode
+
 export let PRESET_MODES: any[] = [
     {
         id: 'ionian',
@@ -487,6 +547,7 @@ export let PRESET_MODES: any[] = [
     }
 ];
 
+// Concept, Roman Numeral
 
 export const PRESETS_ROMAN_NUMERAL: any[] = [
     {
@@ -540,7 +601,62 @@ export const PRESETS_ROMAN_NUMERAL: any[] = [
     }
 ];
 
+// Concept, Combined
 
+export const INTERVAL_OPTIONS: InputDefinition[] = [
+    {
+        propertyId: 'inversion',
+        label: 'Chord Inversion',
+        component: BoxSelector,
+        props: {
+            data: PRESET_CHORD_INVERSIONS,
+            displayProp: 'rotation'
+        }
+    },
+    {
+        propertyId: 'melodicInversion',
+        label: 'Melodic Inversion',
+        component: SwitchSelector,
+        props: {}
+    }/*,
+    {
+        propertyId: 'reverse',
+        label: 'Reverse',
+        component: SwitchSelector,
+        props: {}
+    }*/
+]
+
+export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
+    {
+        id: 'interval',
+        name: 'Intervals',
+        presets: PRESET_INTERVALS
+    },
+    {
+        id: 'chord',
+        name: 'Chords',
+        presets: PRESET_CHORDS
+    },
+    {
+        id: 'scale',
+        name: 'Scales',
+        presets: PRESET_SCALES
+    },
+    {
+        id: 'mode',
+        name: 'Modes',
+        presets: PRESET_MODES
+    },
+    {
+        id: 'romanNumeral',
+        name: 'Roman Numerals',
+        presets: PRESETS_ROMAN_NUMERAL
+    }
+];
+
+
+// Base Theory, General
 
 export interface Key {
     degree: Degree;
@@ -576,6 +692,8 @@ export interface FunctionalNote {
     accidental: number;
     name: string;
 }
+
+// Base Theory, Combined
 
 export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
 
@@ -614,15 +732,19 @@ export let ALL_NOTE_LABELS = [
 	}
 ];
 
+// Viewer, General
 
 export interface ViewerDefinition {
     id: string;
     name: string;
     component: any;
-    options: OptionInput[];
+    options: InputDefinition[];
     presets: Preset<any>[];
 }
 
+
+
+// Viewer, Piano
 
 export const PRESETS_PIANO_CONFIG = [
     {
@@ -647,6 +769,25 @@ export const PRESETS_PIANO_CONFIG = [
     }
 ];
 
+export enum KeyboardKeyType {
+    Black,
+    White
+}
+
+export interface KeyboardKeyConfig {
+    absolutePosition: number;
+    type: KeyboardKeyType;
+}
+
+export interface KeyboardConfig {
+    noteLabel: any;
+    filterOctave: boolean;
+    keyLow: number;
+    keyHigh: number;
+    keys: KeyboardKeyConfig[];
+}
+
+// Viewer, Guitar
 
 export const PRESETS_GUITAR_CONFIG: Preset<FretboardConfig>[] = [
     {
@@ -686,6 +827,26 @@ export const PRESETS_GUITAR_CONFIG: Preset<FretboardConfig>[] = [
         }
     }
 ]
+
+export interface FretboardConfig {
+    noteLabel: any;
+    showDots: boolean;
+    filterOctave: boolean;
+    strings: FretboardStringConfig[];
+    fretLow: number;
+    fretHigh: number;
+}
+
+export interface FretboardStringConfig {
+    openPosition: number
+    filteredIntervals?: Interval[];
+}
+
+export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
+    openPosition: 0
+}
+
+// Viewer, Combined
 
 export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     {
@@ -772,158 +933,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     }
 ];
 
-
-
-export interface FretboardConfig {
-    noteLabel: any;
-    showDots: boolean;
-    filterOctave: boolean;
-    strings: FretboardStringConfig[];
-    fretLow: number;
-    fretHigh: number;
-}
-
-export interface FretboardStringConfig {
-    openPosition: number
-    filteredIntervals?: Interval[];
-}
-
-export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
-    openPosition: 0
-}
-
-
-
-export enum KeyboardKeyType {
-    Black,
-    White
-}
-
-export interface KeyboardKeyConfig {
-    absolutePosition: number;
-    type: KeyboardKeyType;
-}
-
-
-export interface KeyboardConfig {
-    noteLabel: any;
-    filterOctave: boolean;
-    keyLow: number;
-    keyHigh: number;
-    keys: KeyboardKeyConfig[];
-}
-
-
-export interface ConceptConfig {
-    intervals: Interval[];
-}
-
-export interface ConceptDefinition {
-    id: string;
-    name: string;
-    presets: Preset<ConceptConfig>[];
-}
-
-export interface IntervalOptions {
-    inversion: any,
-    melodicInversion: boolean,
-    reverse: boolean;
-}
-
-export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
-    inversion: PRESET_CHORD_INVERSIONS[0],
-    melodicInversion: false,
-    reverse: false
-};
-
-export const INTERVAL_OPTIONS: OptionInput[] = [
-    {
-        propertyId: 'inversion',
-        label: 'Chord Inversion',
-        component: BoxSelector,
-        props: {
-            data: PRESET_CHORD_INVERSIONS,
-            displayProp: 'rotation'
-        }
-    },
-    {
-        propertyId: 'melodicInversion',
-        label: 'Melodic Inversion',
-        component: SwitchSelector,
-        props: {}
-    }/*,
-    {
-        propertyId: 'reverse',
-        label: 'Reverse',
-        component: SwitchSelector,
-        props: {}
-    }*/
-]
-
-
-
-export let PRESET_SCALES = [
-    {
-        id: 'major',
-        name: 'Major',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7] }
-    },
-    {
-        id: 'natualMinor',
-        name: 'Natual Minor',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.m7] }
-    },
-    {
-        id: 'harmonicMinor',
-        name: 'Harmonic Minor',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.M7] }
-    },
-    {
-        id: 'majorPentatonic',
-        name: 'Major Pentatonic',
-        config: { intervals: [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P5, INTERVAL.M6] }
-    },
-    {
-        id: 'minorPentatonic',
-        name: 'Minor Pentatonic',
-        config: { intervals: [INTERVAL.PU, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m7] }
-    },
-    {
-        id: 'chromatic',
-        name: 'Chromatic',
-        config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.M2, INTERVAL.m3, INTERVAL.M3, INTERVAL.P4, INTERVAL.TT, INTERVAL.P5, INTERVAL.m6, INTERVAL.M6, INTERVAL.m7, INTERVAL.M7] }
-    }
-];
-
-
-export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
-    {
-        id: 'interval',
-        name: 'Intervals',
-        presets: PRESET_INTERVALS
-    },
-    {
-        id: 'chord',
-        name: 'Chords',
-        presets: PRESET_CHORDS
-    },
-    {
-        id: 'scale',
-        name: 'Scales',
-        presets: PRESET_SCALES
-    },
-    {
-        id: 'mode',
-        name: 'Modes',
-        presets: PRESET_MODES
-    },
-    {
-        id: 'romanNumeral',
-        name: 'Roman Numerals',
-        presets: PRESETS_ROMAN_NUMERAL
-    }
-];
-
+// Defaults
 
 export const DEFAULT_CONCEPT = 1;
 export const DEFAULT_VIEWER = 1;
@@ -941,6 +951,12 @@ export type ViewerManagerProps = {
     viewerDefinition: ViewerDefinition,
     viewerConfig: any
 }
+
+export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
+    inversion: PRESET_CHORD_INVERSIONS[0],
+    melodicInversion: false,
+    reverse: false
+};
 
 export const DEFAULT_VIEWER_MANAGER_PROPS: ViewerManagerProps = {
     degree: DEGREE.C,

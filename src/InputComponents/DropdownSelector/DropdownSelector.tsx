@@ -1,12 +1,12 @@
 import * as React from "react";
 import "./DropdownSelector.css";
-import { SelectorProps } from "../../Common/AppConfig";
+import { InputProps } from "../../Common/AppConfig";
 
-interface DropdownSelectorProps extends SelectorProps {
+interface DropdownInputProps extends InputProps {
     data: any[];
 }
 
-export class DropdownSelector extends React.Component<DropdownSelectorProps> {
+export class DropdownSelector extends React.Component<DropdownInputProps> {
 
     constructor(props) {
         super(props);
@@ -25,7 +25,7 @@ export class DropdownSelector extends React.Component<DropdownSelectorProps> {
         return (
             <div className='dropdown-selector'>
                 <select
-                    defaultValue={this.props.value.id}
+                    defaultValue={this.props.value && this.props.value.id}
                     onChange={(event) => { this.props.setValue(this.props.data[event.target.selectedIndex]); }}>
                     {this.getOptions()}
                 </select>

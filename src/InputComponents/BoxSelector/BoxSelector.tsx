@@ -1,14 +1,14 @@
 import * as React from "react";
 import "./BoxSelector.css";
 import { CharButton } from "../CharButton/CharButton";
-import { SelectorProps } from "../../Common/AppConfig";
+import { InputProps } from "../../Common/AppConfig";
 
-interface BoxSelectorProps extends SelectorProps {
+interface BoxInputProps extends InputProps {
     data: any[];
     displayProp?: string;
 }
 
-export class BoxSelector extends React.Component<BoxSelectorProps, null> {
+export class BoxSelector extends React.Component<BoxInputProps, null> {
 
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ export class BoxSelector extends React.Component<BoxSelectorProps, null> {
                 <CharButton
                     key={option.id}
                     character={option[displayProp]}
-                    active={(option.id === this.props.value.id)}
+                    active={(this.props.value && option.id === this.props.value.id)}
                     action={() => { this.props.setValue(option) }}
                 />
             );

@@ -1,10 +1,13 @@
 .input-panel {
-    text-align: center;
-    display: inline-grid;
-    grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto;
-    align-items: center;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto;
+    align-items: flex-start;
     color: #444;
+}
+
+.input-panel-row {
+    
 }
 
 .input-panel-row-label {
@@ -13,7 +16,7 @@
     text-align: right;
     line-height: 20px;
     height: 20px;
-    vertical-align: top;
+    margin-top: 16px;
 }
 
 .input-row-toggle {
@@ -21,24 +24,53 @@
     border-radius: 5px;
 }
 
-.input-row-config-panel {
-    grid-column: 2 / span 3;
+.input-row {
+
 }
 
-.input-panel-col-label {
-    font-size: 12px;
-    padding: 2px;
-    margin-top: 5px;
+.input-row-main {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: flex-end;
 }
 
-.col-2 {
-    grid-column: 2;
+.input-subrow {
+
 }
 
-.col-3 {
-    grid-column: 3;
+
+/* Horizonal */
+
+.config-panel-input-x {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
 }
 
-.col-4 {
-    grid-column: 4;
+.config-panel-input-x .config-panel-input-label {
+	font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.config-panel-input-x .config-panel-input-contents {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Vertical */
+
+.config-panel-input-y {
+}
+
+.config-panel-input-y .config-panel-input-label {
+	font-size: 12px;
+    text-align: center;
+    height: 16px;
+}
+
+.config-panel-input-y .config-panel-input-contents {
+    text-align: center;
 }
