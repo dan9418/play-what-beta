@@ -1,0 +1,38 @@
+/* Horizonal */
+
+.input-cell-x {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
+}
+
+.input-cell-x .input-cell-label {
+	font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.input-cell-x .input-cell-contents {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Vertical */
+
+.input-cell-y {
+}
+
+.input-cell-y .input-cell-label {
+	font-size: 12px;
+    text-align: center;
+    height: 16px;
+}
+
+.input-cell-y .input-cell-contents {
+    text-align: center;
+}
+
+.input-cell-label {
+    font-size: 12px;
+}

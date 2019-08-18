@@ -1,67 +1,17 @@
-import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS, PRESET_CHORD_INVERSIONS } from "../../Common/AppConfig";
 import React = require("react");
 import "./InputPanel.css";
-import { CharButton } from "../../InputComponents/CharButton/CharButton";
+import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS, PRESET_CHORD_INVERSIONS } from "../../Common/AppConfig";
 import { BoxSelector } from "../../InputComponents/BoxSelector/BoxSelector";
 import { NumericSelector } from "../../InputComponents/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputComponents/DropdownSelector/DropdownSelector";
-
-export class InputCell extends React.Component<any, any> {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render = () => {
-        return (
-            <div className={this.props.vertical ? 'config-panel-input-y' : 'config-panel-input-x'}>
-                <div className='config-panel-input-label'>{this.props.name}</div>
-                <div className='config-panel-input-contents'>
-                    {this.props.children}
-                </div>
-            </div>
-        );
-    }
-}
-
-export class InputRow extends React.Component<any, any> {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            expanded: false
-        }
-    }
-
-    render = () => {
-        return (
-            <div className='input-row'>
-                <div className='input-row-main'>
-                    {this.props.children}
-                    {this.props.options && this.props.options.length &&
-                        <CharButton
-                            className='input-row-toggle'
-                            active={this.state.expanded}
-                            character={this.state.expanded ? '-' : '+'}
-                            action={() => { this.setState((oldState) => { return { expanded: !oldState.expanded } }) }}
-                        />
-                    }
-                </div>
-                {this.state.expanded &&
-                    <div className='input-subrow'>
-                        {this.props.options && this.props.options.length > 0 && this.props.options}
-                    </div>}
-            </div>
-        );
-    }
-}
+import { InputCell } from "../InputCell/InputCell";
+import { InputRow } from "../InputRow/InputRow";
 
 export interface InputPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void,
 }
 
-export class InputPanel extends React.Component<InputPanelProps, any> {
+export class InputPanel extends React.Component<InputPanelProps, null> {
 
     constructor(props) {
         super(props);
@@ -73,7 +23,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
         this.props.setValue(parentProperty, update)
     }
 
-    getInputCells = (inputs: any[], parentProperty: string) => {
+    getInputCells = (parentProperty: string, inputs: any[]) => {
         let inputCells = [];
         for (let i = 0; i < inputs.length; i++) {
             let input = inputs[i];
@@ -127,12 +77,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 <div className='input-panel-row-label'>
                     Concept
                 </div>
-                <InputRow options={
-                    this.getInputCells(
-                        this.props.conceptType.options,
-                        'conceptOptions'
-                    )
-                }>
+                <InputRow subrowInputs={this.getInputCells('conceptOptions', this.props.conceptType.options)}>
                     <InputCell name='Type' vertical={true}>
                         <DropdownSelector
                             value={this.props.conceptType}
@@ -152,11 +97,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                 <div className='input-panel-row-label'>
                     Viewers
                 </div>
-                <InputRow options={
-                    this.getInputCells(
-                        this.props.viewerType.options,
-                        'viewerProps')
-                }>
+                <InputRow subrowInputs={this.getInputCells('viewerProps', this.props.viewerType.options)}>
                     <InputCell name='Type' vertical={true}>
                         <DropdownSelector
                             value={this.props.viewerType}
@@ -172,9 +113,7 @@ export class InputPanel extends React.Component<InputPanelProps, any> {
                         />
                     </InputCell>
                 </InputRow>
-
             </div >
-
         );
     };
 }

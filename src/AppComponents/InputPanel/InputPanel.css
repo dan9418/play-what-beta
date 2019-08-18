@@ -6,10 +6,6 @@
     color: #444;
 }
 
-.input-panel-row {
-    
-}
-
 .input-panel-row-label {
     font-size: 14px;
     font-weight: bold;
@@ -17,65 +13,4 @@
     line-height: 20px;
     height: 20px;
     margin-top: 16px;
-}
-
-.input-row-toggle {
-    width: 60px !important;
-    border-radius: 5px;
-    margin-top: 16px;
-}
-
-.input-row {
-
-}
-
-.input-row-main {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row;
-    align-items: flex-start;
-}
-
-.input-subrow {
-
-}
-
-
-/* Horizonal */
-
-.config-panel-input-x {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 5px;
-}
-
-.config-panel-input-x .config-panel-input-label {
-	font-size: 12px;
-    text-align: right;
-    font-weight: bold;
-    line-height: 20px;
-}
-
-.config-panel-input-x .config-panel-input-contents {
-    display: inline-block;
-    text-align: left;
-}
-
-/* Vertical */
-
-.config-panel-input-y {
-}
-
-.config-panel-input-y .config-panel-input-label {
-	font-size: 12px;
-    text-align: center;
-    height: 16px;
-}
-
-.config-panel-input-y .config-panel-input-contents {
-    text-align: center;
-}
-
-.input-cell-label {
-    font-size: 12px;
 }
