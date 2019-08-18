@@ -1,10 +1,11 @@
 import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import "./FretboradTuner.css";
-import { InputProps, ViewerProps, FretboardConfig, FretboardStringConfig, Interval, DEFAULT_FRETBOARD_STRING } from "../../Common/AppConfig";
+import { InputProps, FretboardConfig, FretboardStringConfig, Interval, DEFAULT_FRETBOARD_STRING, ViewerManagerProps } from "../../Common/AppConfig";
 
-interface FretboardTunerProps extends InputProps, ViewerProps {
-    viewerConfig: FretboardConfig;
+interface FretboardTunerProps extends InputProps, ViewerManagerProps {
+    // Overidden for specificity
+    viewerProps: FretboardConfig;
     value: FretboardStringConfig[];
 }
 
@@ -15,7 +16,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     }
 
     setValue = (stringIndex: number, property: string, value: any) => {
-        let mergedConfig = [...this.props.viewerConfig.strings];
+        let mergedConfig = [...this.props.viewerProps.strings];
         mergedConfig[stringIndex][property] = value;
         this.props.setValue(mergedConfig);
     }
@@ -25,7 +26,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
         // If currently in "off" state, add all other intervals
         if (!filteredIntervals) {
-            newIntervals = this.props.intervals.filter((x) => { return x.id !== interval.id; });
+            newIntervals = this.props.conceptIntervals.filter((x) => { return x.id !== interval.id; });
         }
         // If interval is already filtered, remove it
         else if (this.isIntervalFiltered(interval, filteredIntervals)) {
@@ -36,7 +37,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
             newIntervals = [...filteredIntervals];
             newIntervals.push(interval);
             // If all intervals are now filtered, set to "off" state for efficiency
-            if (newIntervals.length === this.props.intervals.length)
+            if (newIntervals.length === this.props.conceptIntervals.length)
                 newIntervals = false;
         }
         this.setValue(stringIndex, 'filteredIntervals', newIntervals);
@@ -49,8 +50,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
     getHeaderRow = () => {
         let items = [<th key='header-num'>#</th>, <th key='header-tuning'>Tuning</th>];
-        for (let i = 0; i < this.props.intervals.length; i++) {
-            let child = this.props.intervals[i];
+        for (let i = 0; i < this.props.conceptIntervals.length; i++) {
+            let child = this.props.conceptIntervals[i];
             items.push(<th key={child.id}>{child.id}</th>);
         }
         return <tr>{...items}</tr>;
@@ -61,8 +62,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
             <td key='num' className='string-number'>{stringIndex + 1}</td>,
             <td key='tuner'><NumericSelector value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
         ];
-        for (let i = 0; i < this.props.intervals.length; i++) {
-            let interval = this.props.intervals[i];
+        for (let i = 0; i < this.props.conceptIntervals.length; i++) {
+            let interval = this.props.conceptIntervals[i];
             items.push(
                 <td key={interval.id}>
                     {<input
@@ -78,8 +79,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
     getStringTuners = () => {
         let items = [];
-        for (let i = 0; i < this.props.value.length; i++) {
-            let child = this.props.viewerConfig.strings[i];
+        for (let i = 0; i < this.props.viewerProps.strings.length; i++) {
+            let child = this.props.viewerProps.strings[i];
             items.push(this.getStringTuner(child, i));
         }
         return items;
@@ -89,8 +90,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
         return (
             <div className='fretboard-tuner'>
                 <NumericSelector
-                    value={this.props.viewerConfig.strings.length}
-                    setValue={(value) => this.props.setValue([...this.props.viewerConfig.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING])}
+                    value={this.props.viewerProps.strings.length}
+                    setValue={(value) => this.props.setValue([...this.props.viewerProps.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING])}
                 />
                 <table className='fretboard-tuner-table'>
                     <tbody>

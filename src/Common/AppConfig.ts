@@ -9,8 +9,8 @@ import { BoxSelector } from "../InputComponents/BoxSelector/BoxSelector";
 // Inputs
 
 export interface InputDefinition {
-    propertyId: string;
-    label: string;
+    id: string;
+    name: string;
     vertical?: boolean;
     component: any;
     props: any;
@@ -38,6 +38,7 @@ export interface ConceptDefinition {
     id: string;
     name: string;
     presets: Preset<ConceptConfig>[];
+    options: any[];
 }
 
 export interface IntervalOptions {
@@ -46,7 +47,7 @@ export interface IntervalOptions {
     reverse: boolean;
 }
 
-// Concept, Degree
+// Key, Degree
 
 export interface Degree {
     id: string;
@@ -145,7 +146,7 @@ export const ALL_DEGREES: Degree[] = [
     }
 ];
 
-// Concept, Accidental
+// Key, Accidental
 
 export interface Accidental {
     id: string;
@@ -295,82 +296,82 @@ export let PRESET_INTERVALS = [
     {
         id: 'PU',
         name: 'Perfect Unison',
-        config: { intervals: [INTERVAL.PU , INTERVAL.PU] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.PU] }
     },
     {
         id: 'm2',
         name: 'Minor 2nd',
-        config: { intervals: [INTERVAL.PU , INTERVAL.m2] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.m2] }
     },
     {
         id: 'M2',
         name: 'Major 2nd',
-        config: { intervals: [INTERVAL.PU , INTERVAL.M2] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.M2] }
     },
     {
         id: 'm3',
         name: 'Minor 3rd',
-        config: { intervals: [INTERVAL.PU , INTERVAL.m3] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.m3] }
     },
     {
         id: 'M3',
         name: 'Major 3rd',
-        config: { intervals: [INTERVAL.PU , INTERVAL.M3] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.M3] }
     },
     {
         id: 'P4',
         name: 'Perfect 4th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.P4] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.P4] }
     },
     {
         id: 'A4',
         name: 'Augmented 4th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.A4] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.A4] }
     },
     {
         id: 'TT',
         name: 'Tritone',
-        config: { intervals: [INTERVAL.PU , INTERVAL.TT] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.TT] }
     },
     {
         id: 'd5',
         name: 'Diminished 5th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.d5] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.d5] }
     },
     {
         id: 'P5',
         name: 'Perfect 5th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.P5] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.P5] }
     },
     {
         id: 'A5',
         name: 'Augmented 5th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.A5] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.A5] }
     },
     {
         id: 'm6',
         name: 'Minor 6th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.m6] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.m6] }
     },
     {
         id: 'M6',
         name: 'Major 6th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.M6] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.M6] }
     },
     {
         id: 'd7',
         name: 'Diminished 7th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.d7] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.d7] }
     },
     {
         id: 'm7',
         name: 'Minor 7th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.m7] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.m7] }
     },
     {
         id: 'M7',
         name: 'Major 7th',
-        config: { intervals: [INTERVAL.PU , INTERVAL.M7] }
+        config: { intervals: [INTERVAL.PU, INTERVAL.M7] }
     }
 ];
 
@@ -605,8 +606,8 @@ export const PRESETS_ROMAN_NUMERAL: any[] = [
 
 export const INTERVAL_OPTIONS: InputDefinition[] = [
     {
-        propertyId: 'inversion',
-        label: 'Chord Inversion',
+        id: 'inversion',
+        name: 'Chord Inversion',
         component: BoxSelector,
         props: {
             data: PRESET_CHORD_INVERSIONS,
@@ -614,14 +615,14 @@ export const INTERVAL_OPTIONS: InputDefinition[] = [
         }
     },
     {
-        propertyId: 'melodicInversion',
-        label: 'Melodic Inversion',
+        id: 'melodicInversion',
+        name: 'Melodic Inversion',
         component: SwitchSelector,
         props: {}
     }/*,
     {
-        propertyId: 'reverse',
-        label: 'Reverse',
+        id: 'reverse',
+        name: 'Reverse',
         component: SwitchSelector,
         props: {}
     }*/
@@ -631,27 +632,32 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
     {
         id: 'interval',
         name: 'Intervals',
-        presets: PRESET_INTERVALS
+        presets: PRESET_INTERVALS,
+        options: INTERVAL_OPTIONS
     },
     {
         id: 'chord',
         name: 'Chords',
-        presets: PRESET_CHORDS
+        presets: PRESET_CHORDS,
+        options: INTERVAL_OPTIONS
     },
     {
         id: 'scale',
         name: 'Scales',
-        presets: PRESET_SCALES
+        presets: PRESET_SCALES,
+        options: INTERVAL_OPTIONS
     },
     {
         id: 'mode',
         name: 'Modes',
-        presets: PRESET_MODES
+        presets: PRESET_MODES,
+        options: INTERVAL_OPTIONS
     },
     {
         id: 'romanNumeral',
         name: 'Roman Numerals',
-        presets: PRESETS_ROMAN_NUMERAL
+        presets: PRESETS_ROMAN_NUMERAL,
+        options: INTERVAL_OPTIONS
     }
 ];
 
@@ -698,38 +704,38 @@ export interface FunctionalNote {
 export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
 
 export let ALL_NOTE_LABELS = [
-	{
-		id: 'none',
-		name: 'None'
-	},
-	{
-		id: 'name',
-		name: 'Name'
-	},
-	{
-		id: 'interval',
-		name: 'Interval'
-	},
-	{
-		id: 'pitchClass',
-		name: 'Relative Position'
-	},
-	{
-		id: 'absolutePosition',
-		name: 'Absolute Position'
-	},
-	{
-		id: 'relativeDegree',
-		name: 'Degree'
-	},
-	{
-		id: 'octave',
-		name: 'Octave'
-	},
-	{
-		id: 'frequency',
-		name: 'Frequency'
-	}
+    {
+        id: 'none',
+        name: 'None'
+    },
+    {
+        id: 'name',
+        name: 'Name'
+    },
+    {
+        id: 'interval',
+        name: 'Interval'
+    },
+    {
+        id: 'pitchClass',
+        name: 'Relative Position'
+    },
+    {
+        id: 'absolutePosition',
+        name: 'Absolute Position'
+    },
+    {
+        id: 'relativeDegree',
+        name: 'Degree'
+    },
+    {
+        id: 'octave',
+        name: 'Octave'
+    },
+    {
+        id: 'frequency',
+        name: 'Frequency'
+    }
 ];
 
 // Viewer, General
@@ -856,28 +862,28 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
         presets: PRESETS_PIANO_CONFIG,
         options: [
             {
-                propertyId: 'noteLabel',
-                label: 'Note Label',
+                id: 'noteLabel',
+                name: 'Note Label',
                 component: DropdownSelector,
                 props: {
                     data: ALL_NOTE_LABELS
                 }
             },
             {
-                propertyId: 'keyLow',
-                label: 'Low Key',
+                id: 'keyLow',
+                name: 'Low Key',
                 component: NumericSelector,
                 props: {}
             },
             {
-                propertyId: 'keyHigh',
-                label: 'High Key',
+                id: 'keyHigh',
+                name: 'High Key',
                 component: NumericSelector,
                 props: {}
             },
             {
-                propertyId: 'filterOctave',
-                label: 'Filter Octave',
+                id: 'filterOctave',
+                name: 'Filter Octave',
                 component: SwitchSelector,
                 props: {}
             }
@@ -890,40 +896,40 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
         presets: PRESETS_GUITAR_CONFIG,
         options: [
             {
-                propertyId: 'noteLabel',
-                label: 'Note Label',
+                id: 'noteLabel',
+                name: 'Note Label',
                 component: DropdownSelector,
                 props: {
                     data: ALL_NOTE_LABELS
                 }
             },
             {
-                propertyId: 'fretLow',
-                label: 'Low Fret',
+                id: 'fretLow',
+                name: 'Low Fret',
                 component: NumericSelector,
                 props: {}
             },
             {
-                propertyId: 'fretHigh',
-                label: 'High Fret',
+                id: 'fretHigh',
+                name: 'High Fret',
                 component: NumericSelector,
                 props: {}
             },
             {
-                propertyId: 'filterOctave',
-                label: 'Filter Octave',
+                id: 'filterOctave',
+                name: 'Filter Octave',
                 component: SwitchSelector,
                 props: {}
             },
             {
-                propertyId: 'showDots',
-                label: 'Show Dots',
+                id: 'showDots',
+                name: 'Show Dots',
                 component: SwitchSelector,
                 props: {}
             },
             {
-                propertyId: 'strings',
-                label: 'Strings',
+                id: 'strings',
+                name: 'Strings',
                 vertical: true,
                 component: FretboardTuner,
                 props: {},
@@ -939,17 +945,14 @@ export const DEFAULT_CONCEPT = 1;
 export const DEFAULT_VIEWER = 1;
 
 export type ViewerManagerProps = {
-	// Key
-	degree: Degree,
-	accidental: Accidental,
-	octave: number
-	// Concept
-    conceptDefinition: ConceptDefinition,
-    intervals: Interval[],
-    intervalOptions: IntervalOptions,
-	// Viewer
-    viewerDefinition: ViewerDefinition,
-    viewerConfig: any
+    degree: Degree,
+    accidental: Accidental,
+    octave: number
+    conceptType: any,
+    conceptIntervals: Interval[],
+    conceptOptions: any
+    viewerType: any,
+    viewerProps: any
 }
 
 export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
@@ -962,32 +965,9 @@ export const DEFAULT_VIEWER_MANAGER_PROPS: ViewerManagerProps = {
     degree: DEGREE.C,
     accidental: ACCIDENTAL.natural,
     octave: 4,
-    conceptDefinition: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT],
-    intervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
-    intervalOptions: DEFAULT_INTERVAL_OPTIONS,
-    viewerDefinition: VIEWER_DEFINITIONS[DEFAULT_VIEWER],
-    viewerConfig: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
-}
-
-export type ViewerProps = {
-	// Key
-	degree: Degree,
-	accidental: Accidental,
-	octave: number
-	// Concept
-	intervals: Interval[],
-	intervalOptions: IntervalOptions,
-	// Viewer
-	viewerComponent: any,
-	viewerConfig: any,
-}
-
-export const DEFAULT_VIEWER_PROPS: ViewerProps = {
-    degree: DEGREE.C,
-    accidental: ACCIDENTAL.natural,
-    octave: 4,
-    intervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
-    intervalOptions: DEFAULT_INTERVAL_OPTIONS,
-    viewerComponent: VIEWER_DEFINITIONS[DEFAULT_VIEWER].component,
-    viewerConfig: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
+    conceptType: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT],
+    conceptIntervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
+    conceptOptions: DEFAULT_INTERVAL_OPTIONS,
+    viewerType: VIEWER_DEFINITIONS[DEFAULT_VIEWER],
+    viewerProps: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
 }

@@ -16,3 +16,30 @@ Scale Categories
 Multi Concepts
     Cadences
     ChordProgressions
+
+Key
+    degree*
+    accidental*
+    octave*
+
+Concept
+    type
+        id
+        name
+        options
+        presets
+            id
+            name
+            intervals
+    intervals*
+    options*
+
+Viewer
+    type
+        id
+        name
+        component
+        options
+        presets
+    component*
+    props*

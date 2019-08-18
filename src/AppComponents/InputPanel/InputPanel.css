@@ -22,6 +22,7 @@
 .input-row-toggle {
     width: 60px !important;
     border-radius: 5px;
+    margin-top: 16px;
 }
 
 .input-row {
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     flex-flow: row;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .input-subrow {
@@ -73,4 +74,8 @@
 
 .config-panel-input-y .config-panel-input-contents {
     text-align: center;
+}
+
+.input-cell-label {
+    font-size: 12px;
 }

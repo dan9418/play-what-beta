@@ -1,9 +1,9 @@
 import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./MusicViewer.css"
-import { ViewerProps } from "../../Common/AppConfig";
+import { ViewerManagerProps } from "../../Common/AppConfig";
 
-export class Viewer extends React.Component<ViewerProps, null> {
+export class Viewer extends React.Component<ViewerManagerProps, null> {
 
 	constructor(props) {
 		super(props);
@@ -21,11 +21,11 @@ export class Viewer extends React.Component<ViewerProps, null> {
 		let key = this.getKey();
 
 		let intervals = [];
-		for (let i = 0; i < this.props.intervals.length; i++) {
-			intervals.push({ ...this.props.intervals[i] });
+		for (let i = 0; i < this.props.conceptIntervals.length; i++) {
+			intervals.push({ ...this.props.conceptIntervals[i] });
 		}
-		let inversion = this.props.intervalOptions.inversion.rotation;
-		let melodicInversion = this.props.intervalOptions.melodicInversion;
+		let inversion = this.props.conceptOptions.inversion.rotation;
+		let melodicInversion = this.props.conceptOptions.melodicInversion;
 
 		// Configure relative octaves
 		for (let i = 0; i < intervals.length; i++) {
@@ -39,19 +39,19 @@ export class Viewer extends React.Component<ViewerProps, null> {
 
 		let notes = TheoryEngine.getNotesFromIntervals(key, intervals, melodicInversion);
 
-		if (this.props.intervalOptions.reverse)
+		if (this.props.conceptOptions.reverse)
 			notes.reverse();
 
 		return notes;
 	}
 
 	render = () => {
-		let Viewer = this.props.viewerComponent;
+		let Viewer = this.props.viewerType.component;
 		return (
 			<div className='viewer'>
 				<Viewer
 					notes={this.getNotes()}
-					config={this.props.viewerConfig}
+					config={this.props.viewerProps}
 				/>
 			</div>
 		);
