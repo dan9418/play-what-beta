@@ -2,11 +2,25 @@ import * as React from "react";
 import "./NumericSelector.css";
 import { CharButton } from "../CharButton/CharButton";
 import { InputProps } from "../../Common/AppConfig";
+import { number } from "prop-types";
 
-export class NumericSelector extends React.Component<InputProps, any> {
+interface NumericSelectorProps extends InputProps {
+    max?: number;
+    min?: number;
+}
+
+export class NumericSelector extends React.Component<NumericSelectorProps, null> {
 
     constructor(props) {
         super(props);
+    }
+
+    canSubtract = (): boolean => {
+        return typeof this.props.min !== 'undefined' && this.props.value > this.props.min;
+    }
+
+    canAdd = (): boolean => {
+        return typeof this.props.max !== 'undefined' && this.props.value < this.props.max;
     }
 
     render = () => {
@@ -14,7 +28,8 @@ export class NumericSelector extends React.Component<InputProps, any> {
             <div className='numeric-selector'>
                 <CharButton
                     active={false}
-                    action={() => { this.props.setValue(this.props.value - 1); }}
+                    disabled={!this.canSubtract()}
+                    action={() => { if (this.canSubtract()) this.props.setValue(this.props.value - 1); }}
                     className='down'
                     character='-'
                 />
@@ -25,7 +40,8 @@ export class NumericSelector extends React.Component<InputProps, any> {
                 />
                 <CharButton
                     active={false}
-                    action={() => { this.props.setValue(this.props.value + 1); }}
+                    disabled={!this.canAdd()}
+                    action={() => { if (this.canAdd()) this.props.setValue(this.props.value + 1); }}
                     className='up'
                     character='+'
                 />

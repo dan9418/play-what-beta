@@ -4,6 +4,7 @@ import "./CharButton.css";
 type CharButtonProps = {
     character: string;
     active: boolean;
+    disabled?: boolean;
     action: any;
     className?: string;
 }
@@ -17,10 +18,13 @@ export class CharButton extends React.Component<CharButtonProps, null> {
     render = () => {
         let classes = ['char-button', this.props.className || ''];
         if (this.props.active) {
-            classes.push('active')
+            classes.push('active');
         }
         else if (!this.props.action) {
-            classes.push('readonly')
+            classes.push('readonly');
+        }
+        if (this.props.disabled) {
+            classes.push('disabled');
         }
         return (
             <div className={classes.join(' ')} onClick={this.props.action}>

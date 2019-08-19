@@ -25,7 +25,19 @@
 }
 
 .char-button.readonly {
-    cursor: normal;
+    cursor: auto;
     font-weight: bold;
     background-color: #999;
+}
+
+.char-button.disabled {
+    background-color: #AAA;
+    color: #DDD;
+    cursor: auto;
+}
+
+.char-button.disabled:hover {
+    background-color: #AAA;
+    color: #DDD;
+    cursor: auto;
 }

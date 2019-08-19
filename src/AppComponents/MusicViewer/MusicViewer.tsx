@@ -24,12 +24,12 @@ export class Viewer extends React.Component<ViewerManagerProps, null> {
 		for (let i = 0; i < this.props.conceptIntervals.length; i++) {
 			intervals.push({ ...this.props.conceptIntervals[i] });
 		}
-		let inversion = this.props.conceptOptions.inversion.rotation;
+		let chordInversion = this.props.conceptOptions.chordInversion;
 		let melodicInversion = this.props.conceptOptions.melodicInversion;
 
 		// Configure relative octaves
 		for (let i = 0; i < intervals.length; i++) {
-			if (i < inversion) {
+			if (i < chordInversion) {
 				intervals[i].octaveOffset = 1;
 			}
 			if (melodicInversion && i > 0) {

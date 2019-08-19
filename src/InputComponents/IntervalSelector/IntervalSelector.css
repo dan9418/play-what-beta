@@ -13,7 +13,7 @@
 
 .interval-selector td.inactive {
   background-color: #EEE;
-  cursor: normal;
+  cursor: auto;
 }
 
 .interval-selector td.selected {
