@@ -1,0 +1,13 @@
+static playNotes = (notes) => {
+        let duration = 500;
+        let audioContext = new ((window as any).AudioContext || (window as any).webkitAudioContext)();
+
+        for(let i=0; i < notes.length; i++) {
+            let oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.value = notes[i].frequency;
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            setTimeout(() => { oscillator.stop(); }, duration);
+          }
+    }

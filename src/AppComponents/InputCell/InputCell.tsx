@@ -4,6 +4,7 @@ import "./InputCell.css";
 type InputCellProps = {
     name: string;
     vertical?: boolean;
+    bold?: boolean;
 }
 
 export class InputCell extends React.Component<InputCellProps, null> {
@@ -13,9 +14,11 @@ export class InputCell extends React.Component<InputCellProps, null> {
     }
 
     render = () => {
+        let cellClasses = ['input-cell', this.props.vertical ? 'y' : 'x'];
+        let labelClasses = ['input-cell-label', this.props.bold ? 'bold' : '']
         return (
-            <div className={this.props.vertical ? 'input-cell-y' : 'input-cell-x'}>
-                <div className='input-cell-label'>{this.props.name}</div>
+            <div className={cellClasses.join(' ')}>
+                <div className={labelClasses.join(' ')}>{this.props.name}</div>
                 <div className='input-cell-contents'>
                     {this.props.children}
                 </div>

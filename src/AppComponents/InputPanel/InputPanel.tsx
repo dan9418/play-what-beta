@@ -1,6 +1,6 @@
 import React = require("react");
 import "./InputPanel.css";
-import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, INTERVAL_OPTIONS, PRESET_CHORD_INVERSIONS } from "../../Common/AppConfig";
+import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../../Common/AppConfig";
 import { BoxSelector } from "../../InputComponents/BoxSelector/BoxSelector";
 import { NumericSelector } from "../../InputComponents/NumericSelector/NumericSelector";
 import { DropdownSelector } from "../../InputComponents/DropdownSelector/DropdownSelector";
@@ -23,18 +23,17 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
         this.props.setValue(parentProperty, update)
     }
 
-    getInputCells = (parentProperty: string, inputs: any[]) => {
+    getInputCells = (parentProperty: string, inputs: InputDefinition[]) => {
         let inputCells = [];
         for (let i = 0; i < inputs.length; i++) {
             let input = inputs[i];
             let InputComponent = input.component;
             inputCells.push(
-                <InputCell key={input.id} name={input.name}>
+                <InputCell key={input.id} name={input.name} vertical={input.vertical} bold={input.bold}>
                     <InputComponent
-                        value={this.props[parentProperty][input.id]}
-                        vertical={input.vertical}
                         {...this.props}
                         {...input.props}
+                        value={this.props[parentProperty][input.id]}
                         setValue={(value) => this.setNestedValue(parentProperty, input.id, value)}
                     />
                 </InputCell>

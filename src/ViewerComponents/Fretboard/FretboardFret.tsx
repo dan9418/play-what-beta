@@ -1,10 +1,6 @@
-import { Note, FretboardConfig } from "../../Common/AppConfig";
-
 import React = require("react");
-
+import { Note, FretboardConfig } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-
-import { TheoryEngine2 } from "../../Common/TheoryEngine2";
 
 type FretboardFretProps = {
     fretNumber: number;
@@ -26,11 +22,10 @@ export class FretboardFret extends React.Component<FretboardFretProps, null> {
         if (this.props.fretNumber === 0)
             classes.push('fretboard-fret-open');
 
-        return <div
-            className={classes.join(' ')}
-            onClick={() => { TheoryEngine.playNotes([this.props.note]); }}
-        >
-            <div className={labelClasses.join(' ')}>{TheoryEngine2.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
-        </div>;
+        return (
+            <div className={classes.join(' ')}>
+                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
+            </div>
+        );
     };
 }

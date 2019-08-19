@@ -12,9 +12,9 @@ export interface InputDefinition {
     id: string;
     name: string;
     vertical?: boolean;
+    bold?: boolean;
     component: any;
     props: any;
-    parentProps?: boolean
 }
 
 export type InputProps = {
@@ -608,6 +608,7 @@ export const INTERVAL_OPTIONS: InputDefinition[] = [
     {
         id: 'inversion',
         name: 'Chord Inversion',
+        bold: true,
         component: BoxSelector,
         props: {
             data: PRESET_CHORD_INVERSIONS,
@@ -617,12 +618,14 @@ export const INTERVAL_OPTIONS: InputDefinition[] = [
     {
         id: 'melodicInversion',
         name: 'Melodic Inversion',
+        bold: true,
         component: SwitchSelector,
         props: {}
     }/*,
     {
         id: 'reverse',
         name: 'Reverse',
+        bold: true,
         component: SwitchSelector,
         props: {}
     }*/
@@ -816,6 +819,25 @@ export const PRESETS_GUITAR_CONFIG: Preset<FretboardConfig>[] = [
         }
     },
     {
+        id: 'guitar_A_shapes',
+        name: 'Guitar, A Shapes',
+        config: {
+            noteLabel: { id: 'interval' } as any,
+            showDots: true,
+            filterOctave: false,
+            fretLow: 0,
+            fretHigh: 12,
+            strings: [
+                { openPosition: 16, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] },   // e
+                { openPosition: 11, filteredIntervals: [INTERVAL.m3, INTERVAL.M3] },   // B
+                { openPosition: 7, filteredIntervals: [INTERVAL.PU] },    // G
+                { openPosition: 2, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] },    // D
+                { openPosition: -3, filteredIntervals: [INTERVAL.PU] },   // A
+                { openPosition: -8, filteredIntervals: [] }    // E   
+            ]
+        }
+    },
+    {
         id: 'bass',
         name: 'Bass',
         config: {
@@ -864,6 +886,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
+                bold: true,
                 component: DropdownSelector,
                 props: {
                     data: ALL_NOTE_LABELS
@@ -872,18 +895,21 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
             {
                 id: 'keyLow',
                 name: 'Low Key',
+                bold: true,
                 component: NumericSelector,
                 props: {}
             },
             {
                 id: 'keyHigh',
                 name: 'High Key',
+                bold: true,
                 component: NumericSelector,
                 props: {}
             },
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
+                bold: true,
                 component: SwitchSelector,
                 props: {}
             }
@@ -898,6 +924,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
+                bold: true,
                 component: DropdownSelector,
                 props: {
                     data: ALL_NOTE_LABELS
@@ -906,24 +933,28 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
             {
                 id: 'fretLow',
                 name: 'Low Fret',
+                bold: true,
                 component: NumericSelector,
                 props: {}
             },
             {
                 id: 'fretHigh',
                 name: 'High Fret',
+                bold: true,
                 component: NumericSelector,
                 props: {}
             },
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
+                bold: true,
                 component: SwitchSelector,
                 props: {}
             },
             {
                 id: 'showDots',
                 name: 'Show Dots',
+                bold: true,
                 component: SwitchSelector,
                 props: {}
             },
@@ -931,9 +962,9 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
                 id: 'strings',
                 name: 'Strings',
                 vertical: true,
+                bold: true,
                 component: FretboardTuner,
-                props: {},
-                parentProps: true
+                props: {}
             }
         ]
     }

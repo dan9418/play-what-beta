@@ -1,5 +1,5 @@
 import React = require("react");
-import { TheoryEngine2 } from "../../Common/TheoryEngine2";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 import { Key, InputProps } from "../../Common/AppConfig";
 
 interface IntervalInputProps extends InputProps {
@@ -81,7 +81,7 @@ export class IntervalSelector extends React.Component<IntervalInputProps> {
 
                 cells.push(
                     <td key={degree + '-' + semitones} className={classes.join(' ')} onClick={() => this.toggleInterval(degree, semitones, interval)}>
-                        {TheoryEngine2.getFunctionalNote(this.props.keyDef, { degree: degree, semitones: semitones, id: interval, name: interval }).name}
+                        {TheoryEngine.getFunctionalNote(this.props.keyDef, { degree: degree, semitones: semitones, id: interval, name: interval }).name}
                     </td>);
             }
             rows.push(<tr key={degree} >{...cells}</tr>)
