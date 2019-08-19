@@ -1,4 +1,4 @@
-import { Interval, DEGREE, Note, INTERVAL, Key, ALL_DEGREES, ALL_ACCIDENTALS } from "./AppConfig";
+import { Interval, Note, INTERVAL, Key, ALL_DEGREES, ALL_ACCIDENTALS, CALIBRATION_NOTE } from "./AppConfig";
 
 export class TheoryEngine {
 
@@ -80,7 +80,7 @@ export class TheoryEngine {
     // Verify
     static getFrequency = (absolutePosition) => {
         let f = 440;
-        let distA4 = absolutePosition - DEGREE.A.index;
+        let distA4 = absolutePosition - CALIBRATION_NOTE.absolutePosition;
         if (distA4 < 0) {
             let dist = Math.abs(distA4);
             for (let i = 0; i < dist; i++) {

@@ -4,7 +4,6 @@ import { NumericSelector } from "../InputComponents/NumericSelector/NumericSelec
 import { SwitchSelector } from "../InputComponents/SwitchSelector/SwitchSelector";
 import { Fretboard } from "../ViewerComponents/Fretboard/Fretboard";
 import { FretboardTuner } from "../InputComponents/FretboardTuner/FretboardTuner";
-import { BoxSelector } from "../InputComponents/BoxSelector/BoxSelector";
 
 // Inputs
 
@@ -22,27 +21,7 @@ export type InputProps = {
     setValue: (value: any) => void;
 }
 
-
-// Concept, General
-
-export interface ConceptConfig {
-    intervals: Interval[];
-}
-
-export interface ConceptDefinition {
-    id: string;
-    name: string;
-    presets: any[];
-    options: any[];
-}
-
-export interface IntervalOptions {
-    chordInversion: number,
-    melodicInversion: boolean,
-    reverse: boolean;
-}
-
-// Key, Degree
+// Base Theory, Interfaces
 
 export interface Degree {
     id: string;
@@ -51,50 +30,56 @@ export interface Degree {
     index: number;
 }
 
-export const DEGREE = {
-    C: {
-        id: 'C',
-        name: 'C',
-        value: 1,
-        index: 0
-    },
-    D: {
-        id: 'D',
-        name: 'D',
-        value: 2,
-        index: 2
-    },
-    E: {
-        id: 'E',
-        name: 'E',
-        value: 3,
-        index: 4
-    },
-    F: {
-        id: 'F',
-        name: 'F',
-        value: 4,
-        index: 5
-    },
-    G: {
-        id: 'G',
-        name: 'G',
-        value: 5,
-        index: 7
-    },
-    A: {
-        id: 'A',
-        name: 'A',
-        value: 6,
-        index: 9
-    },
-    B: {
-        id: 'B',
-        name: 'B',
-        value: 7,
-        index: 11
-    }
-};
+export interface Accidental {
+    id: string;
+    name: string;
+    offset: number;
+}
+
+export interface Key {
+    degree: Degree;
+    accidental: Accidental;
+    octave: number;
+}
+
+export interface Interval {
+    id: string;
+    name: string;
+    degree: number;
+    semitones: number;
+    octaveOffset?: number;
+}
+
+export interface Note {
+    octave: number;
+    key: Key;
+    interval: Interval;
+    spellingDegree: number;
+    pitchClass: number;
+    absolutePosition: number;
+    frequency: number;
+    degree: Degree;
+    accidental: Accidental;
+    name: string;
+}
+
+export interface PhysicalNote {
+    octave: number;
+    pitchClass: number;
+    absolutePosition: number;
+    frequency: number;
+}
+
+export interface FunctionalNote {
+    key: any;
+    interval: any;
+    spellingDegree: number;
+    pitchClass: number;
+    accidental: number;
+    name: string;
+}
+
+// Base Theory, Constants
 
 export const ALL_DEGREES: Degree[] = [
     {
@@ -141,42 +126,6 @@ export const ALL_DEGREES: Degree[] = [
     }
 ];
 
-// Key, Accidental
-
-export interface Accidental {
-    id: string;
-    name: string;
-    offset: number;
-}
-
-export const ACCIDENTAL = {
-    doubleFlat: {
-        id: 'doubleFlat',
-        name: 'bb',
-        offset: -2
-    },
-    flat: {
-        id: 'flat',
-        name: 'b',
-        offset: -1
-    },
-    natural: {
-        id: 'natural',
-        name: '♮',
-        offset: 0
-    },
-    sharp: {
-        id: 'sharp',
-        name: '#',
-        offset: 1
-    },
-    doubleSharp: {
-        id: 'doubleSharp',
-        name: 'xx',
-        offset: 2
-    }
-};
-
 export const ALL_ACCIDENTALS: Accidental[] = [
     {
         id: 'doubleFlat',
@@ -204,16 +153,6 @@ export const ALL_ACCIDENTALS: Accidental[] = [
         offset: 2
     }
 ];
-
-// Concept, Interval
-
-export interface Interval {
-    id: string;
-    name: string;
-    degree: number;
-    semitones: number;
-    octaveOffset?: number;
-}
 
 export const INTERVAL = {
     None: { id: '', name: '', degree: 0, semitones: 0 },
@@ -251,6 +190,62 @@ export const INTERVAL = {
     M14: { id: 'M14', name: 'Major 14th', degree: 14, semitones: 23 }
 };
 
+export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
+
+export let ALL_NOTE_LABELS = [
+    {
+        id: 'none',
+        name: 'None'
+    },
+    {
+        id: 'name',
+        name: 'Name'
+    },
+    {
+        id: 'interval',
+        name: 'Interval'
+    },
+    {
+        id: 'pitchClass',
+        name: 'Relative Position'
+    },
+    {
+        id: 'absolutePosition',
+        name: 'Absolute Position'
+    },
+    {
+        id: 'relativeDegree',
+        name: 'Degree'
+    },
+    {
+        id: 'octave',
+        name: 'Octave'
+    },
+    {
+        id: 'frequency',
+        name: 'Frequency'
+    }
+];
+
+
+// Concept, General
+
+export interface ConceptConfig {
+    intervals: Interval[];
+}
+
+export interface ConceptDefinition {
+    id: string;
+    name: string;
+    presets: any[];
+    options: any[];
+}
+
+export interface IntervalOptions {
+    chordInversion: number,
+    melodicInversion: boolean,
+    reverse: boolean;
+}
 
 // Concept, Combined
 
@@ -589,81 +584,6 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
 ];
 
 
-// Base Theory, General
-
-export interface Key {
-    degree: Degree;
-    accidental: Accidental;
-    octave: number;
-}
-
-export interface Note {
-    octave: number;
-    key: Key;
-    interval: Interval;
-    spellingDegree: number;
-    pitchClass: number;
-    absolutePosition: number;
-    frequency: number;
-    degree: Degree;
-    accidental: Accidental;
-    name: string;
-}
-
-export interface PhysicalNote {
-    octave: number;
-    pitchClass: number;
-    absolutePosition: number;
-    frequency: number;
-}
-
-export interface FunctionalNote {
-    key: any;
-    interval: any;
-    spellingDegree: number;
-    pitchClass: number;
-    accidental: number;
-    name: string;
-}
-
-// Base Theory, Combined
-
-export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
-
-export let ALL_NOTE_LABELS = [
-    {
-        id: 'none',
-        name: 'None'
-    },
-    {
-        id: 'name',
-        name: 'Name'
-    },
-    {
-        id: 'interval',
-        name: 'Interval'
-    },
-    {
-        id: 'pitchClass',
-        name: 'Relative Position'
-    },
-    {
-        id: 'absolutePosition',
-        name: 'Absolute Position'
-    },
-    {
-        id: 'relativeDegree',
-        name: 'Degree'
-    },
-    {
-        id: 'octave',
-        name: 'Octave'
-    },
-    {
-        id: 'frequency',
-        name: 'Frequency'
-    }
-];
 
 // Viewer, General
 
@@ -674,8 +594,6 @@ export interface ViewerDefinition {
     options: InputDefinition[];
     presets: any[];
 }
-
-
 
 // Viewer, Piano
 
@@ -910,8 +828,8 @@ export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
 };
 
 export const DEFAULT_VIEWER_MANAGER_PROPS: ViewerManagerProps = {
-    degree: DEGREE.C,
-    accidental: ACCIDENTAL.natural,
+    degree: ALL_DEGREES[0],
+    accidental: ALL_ACCIDENTALS[2],
     octave: 4,
     conceptType: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT],
     conceptIntervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
@@ -922,4 +840,11 @@ export const DEFAULT_VIEWER_MANAGER_PROPS: ViewerManagerProps = {
 
 export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
     openPosition: 0
+}
+
+export const CALIBRATION_NOTE: PhysicalNote = {
+    frequency: 440,
+    absolutePosition: 9,
+    pitchClass: 9,
+    octave: 4
 }
