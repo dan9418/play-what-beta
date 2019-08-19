@@ -1,11 +1,11 @@
 import React = require("react");
-import { Note, FretboardConfig } from "../../Common/AppConfig";
+import { CompleteNote, FretboardConfig } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 
 type FretboardFretProps = {
     fretNumber: number;
     stringNumber: number;
-    note: Note;
+    note: CompleteNote;
     config: FretboardConfig;
 }
 

@@ -2,11 +2,11 @@ import * as React from "react";
 import "./Keyboard.css";
 import { KeyboardKey } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { Note, KeyboardKeyConfig, KeyboardKeyType } from "../../Common/AppConfig";
+import { CompleteNote, KeyboardKeyConfig, KeyboardKeyType } from "../../Common/AppConfig";
 import "./Keyboard.css";
 
 type KeyboardProps = {
-    notes: Note[];
+    notes: CompleteNote[];
     config: any;
 }
 
@@ -26,7 +26,7 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
         return keys;
     }
 
-    isNoteValid = (note: Note, absolutePosition: number): boolean => {
+    isNoteValid = (note: CompleteNote, absolutePosition: number): boolean => {
         if (this.props.config.filterOctave) {
             return note.absolutePosition === absolutePosition;
         }
@@ -37,7 +37,7 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
         }
     }
 
-    getNote = (absolutePosition): Note => {
+    getNote = (absolutePosition): CompleteNote => {
         let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition) }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(absolutePosition);

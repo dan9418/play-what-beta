@@ -1,10 +1,10 @@
 import React = require("react");
-import { KeyboardKeyType, Note, KeyboardConfig } from "../../Common/AppConfig";
+import { KeyboardKeyType, CompleteNote, KeyboardConfig } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 
 type KeyboardKeyProps = {
     type: KeyboardKeyType;
-    note: Note;
+    note: CompleteNote;
     config: KeyboardConfig;
 }
 

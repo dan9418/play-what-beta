@@ -10,10 +10,10 @@ import { FretboardTuner } from "../InputComponents/FretboardTuner/FretboardTuner
 export interface InputDefinition {
     id: string;
     name: string;
-    vertical?: boolean;
-    bold?: boolean;
     component: any;
     props: any;
+    vertical?: boolean;
+    bold?: boolean;
 }
 
 export type InputProps = {
@@ -50,19 +50,6 @@ export interface Interval {
     octaveOffset?: number;
 }
 
-export interface Note {
-    octave: number;
-    key: Key;
-    interval: Interval;
-    spellingDegree: number;
-    pitchClass: number;
-    absolutePosition: number;
-    frequency: number;
-    degree: Degree;
-    accidental: Accidental;
-    name: string;
-}
-
 export interface PhysicalNote {
     octave: number;
     pitchClass: number;
@@ -71,13 +58,15 @@ export interface PhysicalNote {
 }
 
 export interface FunctionalNote {
-    key: any;
-    interval: any;
+    key: Key;
+    interval: Interval;
     spellingDegree: number;
     pitchClass: number;
-    accidental: number;
+    accidentalOffset: number;
     name: string;
 }
+
+export interface CompleteNote extends PhysicalNote, FunctionalNote {}
 
 // Base Theory, Constants
 

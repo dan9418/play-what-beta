@@ -1,10 +1,10 @@
-import { Note, FretboardConfig } from "../../Common/AppConfig";
+import { CompleteNote, FretboardConfig } from "../../Common/AppConfig";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
 
 type FretboardStringProps = {
-    notes: Note[];
+    notes: CompleteNote[];
     stringNumber: number;
     openPosition: number;
     config: FretboardConfig
@@ -16,7 +16,7 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
         super(props);
     }
 
-    isNoteValid = (note: Note, absolutePosition: number): boolean => {
+    isNoteValid = (note: CompleteNote, absolutePosition: number): boolean => {
         if (this.props.config.filterOctave) {
             return note.absolutePosition === absolutePosition;
         }
@@ -27,7 +27,7 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
         }
     }
 
-    getNote = (absolutePosition): Note => {
+    getNote = (absolutePosition): CompleteNote => {
         let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition); }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(absolutePosition);

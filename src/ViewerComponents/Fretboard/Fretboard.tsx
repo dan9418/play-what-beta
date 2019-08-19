@@ -1,10 +1,10 @@
 import React = require("react");
-import { FretboardConfig, Note, Interval } from "../../Common/AppConfig";
+import { FretboardConfig, CompleteNote, Interval } from "../../Common/AppConfig";
 import { FretboardString } from "./FretboardString";
 import "./Fretboard.css";
 
 type FretboardProps = {
-    notes: Note[];
+    notes: CompleteNote[];
     config: FretboardConfig
 };
 
@@ -14,7 +14,7 @@ export class Fretboard extends React.Component<FretboardProps, null> {
         super(props);
     }
 
-    filterNotes = (notes: Note[], filteredIntervals: Interval[]): Note[] => {
+    filterNotes = (notes: CompleteNote[], filteredIntervals: Interval[]): CompleteNote[] => {
         let result = notes.filter((note) => {
             return 'undefined' !== typeof filteredIntervals.find((interval) => {
                 return interval.id === note.interval.id;

@@ -1,4 +1,4 @@
-import { Interval, Note, INTERVAL, Key, ALL_DEGREES, ALL_ACCIDENTALS, CALIBRATION_NOTE } from "./AppConfig";
+import { Interval, CompleteNote, INTERVAL, Key, ALL_DEGREES, ALL_ACCIDENTALS, CALIBRATION_NOTE } from "./AppConfig";
 
 export class TheoryEngine {
 
@@ -12,7 +12,7 @@ export class TheoryEngine {
     }
 
     // Verify
-    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): Note => {
+    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
         let octave = (interval.octaveOffset) ? key.octave + interval.octaveOffset: key.octave;
 
         let spellingDegree = TheoryEngine.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
@@ -21,11 +21,10 @@ export class TheoryEngine {
         let absolutePosition = (octave - 4) * 12 + pitchClass;
 
         let accidentalOffset = pitchClass - ALL_DEGREES[spellingDegree - 1].index;
-        let accidental = ALL_ACCIDENTALS.find((a) => { return a.offset === accidentalOffset });
 
-        let name = ALL_DEGREES[spellingDegree - 1].name + (accidental ? accidental.name : accidentalOffset);
+        let name = ALL_DEGREES[spellingDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
 
-        let degree = ALL_DEGREES.find((dd) => { return dd.value === key.degree.value });
+        let frequency = TheoryEngine.getFrequency(absolutePosition);
 
         return {
             octave: octave,
@@ -34,16 +33,15 @@ export class TheoryEngine {
             spellingDegree: spellingDegree,
             pitchClass: pitchClass,
             absolutePosition: absolutePosition,
-            accidental: accidental,
+            accidentalOffset: accidentalOffset,
             name: name,
-            degree: degree,
-            frequency: TheoryEngine.getFrequency(absolutePosition)
+            frequency: frequency
         }
 
     }
 
     // Verify
-    static getNonfunctionalNote = (absolutePosition): Note => {
+    static getNonfunctionalNote = (absolutePosition): CompleteNote => {
         return {
             octave: 4 + Math.floor(absolutePosition / 12),
             key: null,
@@ -51,9 +49,8 @@ export class TheoryEngine {
             spellingDegree: null,
             pitchClass: TheoryEngine.getRelativePotision(absolutePosition),
             absolutePosition: absolutePosition,
-            accidental: null,
+            accidentalOffset: null,
             name: '',
-            degree: null,
             frequency: TheoryEngine.getFrequency(absolutePosition)
         }
     }
@@ -113,7 +110,7 @@ export class TheoryEngine {
         }
     };
 
-    static getNoteLabel = (note: Note, labelId: string): string | number => {
+    static getNoteLabel = (note: CompleteNote, labelId: string): string | number => {
         switch (labelId) {
             case 'none':
                 return '';
