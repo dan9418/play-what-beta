@@ -1,59 +1,6 @@
-import { Interval, CompleteNote, INTERVAL, Key, ALL_DEGREES, ALL_ACCIDENTALS, CALIBRATION_NOTE } from "./AppConfig";
+import { Interval, CompleteNote, INTERVAL, Key, ALL_DEGREES, CALIBRATION_NOTE } from "./AppConfig";
 
 export class TheoryEngine {
-
-    static getNotesFromIntervals = (key: Key, intervals: Interval[], melodicInversion: boolean) => {
-        let notes = [];
-        for (let i = 0; i < intervals.length; i++) {
-            let note = TheoryEngine.getFunctionalNote(key, intervals[i], melodicInversion);
-            notes.push(note);
-        }
-        return notes;
-    }
-
-    // Verify
-    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
-        let octave = (interval.octaveOffset) ? key.octave + interval.octaveOffset: key.octave;
-
-        let spellingDegree = TheoryEngine.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
-
-        let pitchClass = TheoryEngine.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
-        let absolutePosition = (octave - 4) * 12 + pitchClass;
-
-        let accidentalOffset = pitchClass - ALL_DEGREES[spellingDegree - 1].index;
-
-        let name = ALL_DEGREES[spellingDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
-
-        let frequency = TheoryEngine.getFrequency(absolutePosition);
-
-        return {
-            octave: octave,
-            key: key,
-            interval: interval,
-            spellingDegree: spellingDegree,
-            pitchClass: pitchClass,
-            absolutePosition: absolutePosition,
-            accidentalOffset: accidentalOffset,
-            name: name,
-            frequency: frequency
-        }
-
-    }
-
-    // Verify
-    static getNonfunctionalNote = (absolutePosition): CompleteNote => {
-        return {
-            octave: 4 + Math.floor(absolutePosition / 12),
-            key: null,
-            interval: INTERVAL.None,
-            spellingDegree: null,
-            pitchClass: TheoryEngine.getRelativePotision(absolutePosition),
-            absolutePosition: absolutePosition,
-            accidentalOffset: null,
-            name: '',
-            frequency: TheoryEngine.getFrequency(absolutePosition)
-        }
-    }
 
     // Verify
     static moduloAddition = (a: number, b: number, limit: number, offset: number = 0, subtract: boolean): number => {
@@ -66,18 +13,110 @@ export class TheoryEngine {
         return preResult + offset;
     }
 
-    // Verify
-    static getRelativePotision = (absolutePosition) => {
-        if (absolutePosition >= 0)
-            return absolutePosition % 12;
-        else
-            return 12 + (absolutePosition % 12);
+    static getNotesFromIntervals = (key: Key, intervals: Interval[], melodicInversion: boolean) => {
+        let notes = [];
+        for (let i = 0; i < intervals.length; i++) {
+            let note = TheoryEngine.getFunctionalNote(key, intervals[i], melodicInversion);
+            notes.push(note);
+        }
+        return notes;
     }
 
     // Verify
-    static getFrequency = (absolutePosition) => {
+    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
+        // Calculate functional properties
+        let noteDegree = TheoryEngine.getNoteDegree(key, interval, melodicInversion);
+        let pitchClass = TheoryEngine.getPitchClass(key, interval, melodicInversion);
+        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass);
+        let name = TheoryEngine.getNoteName(noteDegree, accidentalOffset);
+        
+        // Calculate physical properties
+        let noteOctave = TheoryEngine.getFunctionalNoteOctave(key, interval, melodicInversion);
+        let noteIndex = TheoryEngine.getNoteIndex(noteOctave, pitchClass);
+        let frequency = TheoryEngine.getFrequency(noteIndex);
+
+        return {
+            // Inputs
+            key: key,
+            interval: interval,
+            // Functional properties
+            noteDegree: noteDegree,
+            pitchClass: pitchClass,
+            accidentalOffset: accidentalOffset,
+            name: name,
+            // Physical properties
+            noteOctave: noteOctave,
+            noteIndex: noteIndex,
+            frequency: frequency
+        }
+
+    }
+
+    // Verify
+    static getNonfunctionalNote = (noteIndex): CompleteNote => {
+        return {
+            // Physical properties
+            noteIndex: noteIndex,
+            noteOctave: TheoryEngine.getPhysicalNoteOctave(noteIndex),
+            pitchClass: TheoryEngine.getRelativePotision(noteIndex),
+            frequency: TheoryEngine.getFrequency(noteIndex),
+            // Empty functional properties
+            key: null,
+            interval: INTERVAL.None,
+            noteDegree: null,
+            accidentalOffset: 0,
+            name: '',    
+        }
+    }
+
+
+    // Verify
+    static getNoteDegree = (key: Key, interval: Interval, melodicInversion: boolean): number => {
+        return TheoryEngine.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
+    }
+
+    // Verify
+    static getPitchClass= (key: Key, interval: Interval, melodicInversion: boolean): number => {
+        return TheoryEngine.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
+    }
+
+    // Verify - definitely wrong
+    static getFunctionalNoteOctave = (key: Key, interval: Interval, melodicInversion: boolean): number => {
+        return (interval.octaveOffset) ? key.octave + interval.octaveOffset: key.octave;
+    }
+
+    // Verify
+    static getPhysicalNoteOctave = (noteIndex: number): number => {
+        return 4 + Math.floor(noteIndex / 12);
+    }
+
+    // Verify
+    static getNoteIndex= (noteOctave: number, pitchClass: number): number => {
+        return (noteOctave - 4) * 12 + pitchClass;
+    }
+
+    // Verify
+    static getAccidentalOffset = (noteDegree: number, pitchClass: number): number => {
+        return pitchClass - ALL_DEGREES[noteDegree - 1].index;
+    }
+
+    // Verify
+    static getNoteName = (noteDegree: number, accidentalOffset: number): string => {
+        return ALL_DEGREES[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
+    }
+
+    // Verify
+    static getRelativePotision = (noteIndex) => {
+        if (noteIndex >= 0)
+            return noteIndex % 12;
+        else
+            return 12 + (noteIndex % 12);
+    }
+
+    // Verify
+    static getFrequency = (noteIndex) => {
         let f = 440;
-        let distA4 = absolutePosition - CALIBRATION_NOTE.absolutePosition;
+        let distA4 = noteIndex - CALIBRATION_NOTE.noteIndex;
         if (distA4 < 0) {
             let dist = Math.abs(distA4);
             for (let i = 0; i < dist; i++) {
@@ -120,12 +159,12 @@ export class TheoryEngine {
                 return note.interval.id;
             case 'pitchClass':
                 return note.pitchClass;
-            case 'absolutePosition':
-                return note.absolutePosition;
+            case 'noteIndex':
+                return note.noteIndex;
             case 'relativeDegree':
                 return note.interval.degree;
             case 'octave':
-                return note.octave;
+                return note.noteOctave;
             case 'frequency':
                 return note.frequency;
             default:

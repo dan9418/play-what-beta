@@ -21,26 +21,26 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
         let keys = [];
         for (let i = lo; i <= hi; i++) {
             let type = Keyboard.blackKeyIndices.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
-            keys.push({ absolutePosition: i, type: type });
+            keys.push({ noteIndex: i, type: type });
         }
         return keys;
     }
 
-    isNoteValid = (note: CompleteNote, absolutePosition: number): boolean => {
+    isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
         if (this.props.config.filterOctave) {
-            return note.absolutePosition === absolutePosition;
+            return note.noteIndex === noteIndex;
         }
         else {
-            return (absolutePosition >= 0) ?
-                note.pitchClass === (absolutePosition % 12) :
-                note.pitchClass === (absolutePosition % 12 + 12);
+            return (noteIndex >= 0) ?
+                note.pitchClass === (noteIndex % 12) :
+                note.pitchClass === (noteIndex % 12 + 12);
         }
     }
 
-    getNote = (absolutePosition): CompleteNote => {
-        let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition) }) || null;
+    getNote = (noteIndex): CompleteNote => {
+        let note = this.props.notes.find((note) => { return this.isNoteValid(note, noteIndex) }) || null;
         if (note === null)
-            note = TheoryEngine.getNonfunctionalNote(absolutePosition);
+            note = TheoryEngine.getNonfunctionalNote(noteIndex);
         return note;
     }
 

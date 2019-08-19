@@ -51,16 +51,16 @@ export interface Interval {
 }
 
 export interface PhysicalNote {
-    octave: number;
+    noteIndex: number;
+    noteOctave: number;
     pitchClass: number;
-    absolutePosition: number;
     frequency: number;
 }
 
 export interface FunctionalNote {
     key: Key;
     interval: Interval;
-    spellingDegree: number;
+    noteDegree: number;
     pitchClass: number;
     accidentalOffset: number;
     name: string;
@@ -199,7 +199,7 @@ export let ALL_NOTE_LABELS = [
         name: 'Relative Position'
     },
     {
-        id: 'absolutePosition',
+        id: 'noteIndex',
         name: 'Absolute Position'
     },
     {
@@ -592,7 +592,7 @@ export enum KeyboardKeyType {
 }
 
 export interface KeyboardKeyConfig {
-    absolutePosition: number;
+    noteIndex: number;
     type: KeyboardKeyType;
 }
 
@@ -833,7 +833,7 @@ export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
 
 export const CALIBRATION_NOTE: PhysicalNote = {
     frequency: 440,
-    absolutePosition: 9,
+    noteIndex: 9,
     pitchClass: 9,
-    octave: 4
+    noteOctave: 4
 }

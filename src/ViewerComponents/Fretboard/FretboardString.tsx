@@ -16,21 +16,21 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
         super(props);
     }
 
-    isNoteValid = (note: CompleteNote, absolutePosition: number): boolean => {
+    isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
         if (this.props.config.filterOctave) {
-            return note.absolutePosition === absolutePosition;
+            return note.noteIndex === noteIndex;
         }
         else {
-            return (absolutePosition >= 0) ?
-                note.pitchClass === (absolutePosition % 12) :
-                note.pitchClass === (absolutePosition % 12 + 12);
+            return (noteIndex >= 0) ?
+                note.pitchClass === (noteIndex % 12) :
+                note.pitchClass === (noteIndex % 12 + 12);
         }
     }
 
-    getNote = (absolutePosition): CompleteNote => {
-        let note = this.props.notes.find((note) => { return this.isNoteValid(note, absolutePosition); }) || null;
+    getNote = (noteIndex): CompleteNote => {
+        let note = this.props.notes.find((note) => { return this.isNoteValid(note, noteIndex); }) || null;
         if (note === null)
-            note = TheoryEngine.getNonfunctionalNote(absolutePosition);
+            note = TheoryEngine.getNonfunctionalNote(noteIndex);
         return note;
     }
 
