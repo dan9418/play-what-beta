@@ -1,6 +1,6 @@
 import React = require("react");
 import "./InputRow.css";
-import { CharButton } from "../../InputComponents/CharButton/CharButton";
+import { CharButton } from "../CharButton/CharButton";
 
 type InputRowProps = {
     subrowInputs?: any[];

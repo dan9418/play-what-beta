@@ -1,11 +1,11 @@
 import React = require("react");
 import "./InputPanel.css";
-import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../../Common/AppConfig";
-import { BoxSelector } from "../../InputComponents/BoxSelector/BoxSelector";
-import { NumericSelector } from "../../InputComponents/NumericSelector/NumericSelector";
-import { DropdownSelector } from "../../InputComponents/DropdownSelector/DropdownSelector";
-import { InputCell } from "../InputCell/InputCell";
-import { InputRow } from "../InputRow/InputRow";
+import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../Common/AppConfig";
+import { BoxSelector } from "./BoxSelector/BoxSelector";
+import { NumericSelector } from "./NumericSelector/NumericSelector";
+import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
+import { InputCell } from "./InputCell/InputCell";
+import { InputRow } from "./InputRow/InputRow";
 
 export interface InputPanelProps extends ViewerManagerProps {
     setValue: (property: string, value: any) => void,

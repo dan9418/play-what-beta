@@ -1,9 +1,9 @@
-import { Keyboard } from "../ViewerComponents/Keyboard/Keyboard";
-import { DropdownSelector } from "../InputComponents/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "../InputComponents/NumericSelector/NumericSelector";
-import { SwitchSelector } from "../InputComponents/SwitchSelector/SwitchSelector";
-import { Fretboard } from "../ViewerComponents/Fretboard/Fretboard";
-import { FretboardTuner } from "../InputComponents/FretboardTuner/FretboardTuner";
+import { DropdownSelector } from "../InputPanel/DropdownSelector/DropdownSelector";
+import { NumericSelector } from "../InputPanel/NumericSelector/NumericSelector";
+import { SwitchSelector } from "../InputPanel/SwitchSelector/SwitchSelector";
+import { FretboardTuner } from "../InputPanel/FretboardTuner/FretboardTuner";
+import { Keyboard } from "../MusicViewer/Viewers/Keyboard/Keyboard";
+import { Fretboard } from "../MusicViewer/Viewers/Fretboard/Fretboard";
 
 // Inputs
 

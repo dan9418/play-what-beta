@@ -1,6 +1,6 @@
-import { CompleteNote, FretboardConfig } from "../../Common/AppConfig";
+import { CompleteNote, FretboardConfig } from "../../../Common/AppConfig";
 import React = require("react");
-import { TheoryEngine } from "../../Common/TheoryEngine";
+import { TheoryEngine } from "../../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
 
 type FretboardStringProps = {
