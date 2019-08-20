@@ -1,4 +1,4 @@
-import { Interval, CompleteNote, INTERVAL, KeyCenter, DEGREES, CALIBRATION_NOTE } from "./AppConfig";
+import { KeyCenter, Interval, CompleteNote, INTERVAL, DEGREES, CALIBRATION_NOTE } from "./Theory.config";
 
 export class TheoryEngine {
 

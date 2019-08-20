@@ -1,8 +1,7 @@
 import * as React from "react";
 import "./NumericSelector.css";
 import { CharButton } from "../CharButton/CharButton";
-import { InputProps } from "../../Common/AppConfig";
-import { number } from "prop-types";
+import { InputProps } from "../Input.config";
 
 interface NumericSelectorProps extends InputProps {
     max?: number;

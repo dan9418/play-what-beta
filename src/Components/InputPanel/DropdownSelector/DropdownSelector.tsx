@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./DropdownSelector.css";
-import { InputProps } from "../../Common/AppConfig";
+import { InputProps } from "../Input.config";
 
 interface DropdownInputProps extends InputProps {
     data: any[];

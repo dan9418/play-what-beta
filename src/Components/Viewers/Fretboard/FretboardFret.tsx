@@ -1,11 +1,11 @@
 import React = require("react");
-import { CompleteNote } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
+import { CompleteNote, NoteLabel } from "../../Common/Theory.config";
 
 interface FretboardFretProps {
     fretNumber: number;
     note: CompleteNote;
-    noteLabel: any;
+    noteLabel: NoteLabel;
 }
 
 export class FretboardFret extends React.Component<FretboardFretProps, null> {

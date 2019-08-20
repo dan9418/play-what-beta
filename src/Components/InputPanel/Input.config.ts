@@ -1,235 +1,11 @@
-import { DropdownSelector } from "../InputPanel/DropdownSelector/DropdownSelector";
-import { NumericSelector } from "../InputPanel/NumericSelector/NumericSelector";
-import { SwitchSelector } from "../InputPanel/SwitchSelector/SwitchSelector";
-import { FretboardTuner } from "../InputPanel/FretboardTuner/FretboardTuner";
+import { Concept, INTERVAL, NOTE_LABELS, KeyCenter, DEGREES, ACCIDENTALS } from "../Common/Theory.config";
+import { SwitchSelector } from "./SwitchSelector/SwitchSelector";
+import { NumericSelector } from "./NumericSelector/NumericSelector";
+import { ViewerConfig, Viewer } from "../Viewers/Viewer.config";
 import { Keyboard, KeyboardConfig } from "../Viewers/Keyboard/Keyboard";
+import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
 import { Fretboard, FretboardConfig } from "../Viewers/Fretboard/Fretboard";
-import { FretboardStringConfig } from "../Viewers/Fretboard/FretboardString";
-import { ViewDriverProps } from "../ViewDriver/ViewDriver";
-
-/***** CONSTANTS *****/
-
-export const INTERVAL = {
-    None: { id: '', name: '', degree: 0, semitones: 0 },
-    PU: { id: 'PU', name: 'Perfect Unison', degree: 1, semitones: 0 },
-    m2: { id: 'm2', name: 'Minor 2nd', degree: 2, semitones: 1 },
-    M2: { id: 'M2', name: 'Major 2nd', degree: 2, semitones: 2 },
-    m3: { id: 'm3', name: 'Minor 3rd', degree: 3, semitones: 3 },
-    M3: { id: 'M3', name: 'Major 3rd', degree: 3, semitones: 4 },
-    P4: { id: 'P4', name: 'Perfect 4th', degree: 4, semitones: 5 },
-    A4: { id: 'A4', name: 'Augmented 4th', degree: 4, semitones: 6 },
-    TT: { id: 'TT', name: 'Tritone', degree: 0, semitones: 6 },
-    d5: { id: 'd5', name: 'Diminished 5th', degree: 5, semitones: 6 },
-    P5: { id: 'P5', name: 'Perfect 5th', degree: 5, semitones: 7 },
-    A5: { id: 'A5', name: 'Augmented 5th', degree: 5, semitones: 8 },
-    m6: { id: 'm6', name: 'Minor 6th', degree: 6, semitones: 8 },
-    M6: { id: 'M6', name: 'Major 6th', degree: 6, semitones: 9 },
-    d7: { id: 'd7', name: 'Diminished 7th', degree: 7, semitones: 9 },
-    m7: { id: 'm7', name: 'Minor 7th', degree: 7, semitones: 10 },
-    M7: { id: 'M7', name: 'Major 7th', degree: 7, semitones: 11 }
-};
-
-export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
-
-/***** INPUTS *****/
-
-// Degree
-
-export interface Degree {
-    id: string;
-    name: string;
-    value: number;
-    index: number;
-}
-
-export const DEGREES: Degree[] = [
-    {
-        id: 'C',
-        name: 'C',
-        value: 1,
-        index: 0
-    },
-    {
-        id: 'D',
-        name: 'D',
-        value: 2,
-        index: 2
-    },
-    {
-        id: 'E',
-        name: 'E',
-        value: 3,
-        index: 4
-    },
-    {
-        id: 'F',
-        name: 'F',
-        value: 4,
-        index: 5
-    },
-    {
-        id: 'G',
-        name: 'G',
-        value: 5,
-        index: 7
-    },
-    {
-        id: 'A',
-        name: 'A',
-        value: 6,
-        index: 9
-    },
-    {
-        id: 'B',
-        name: 'B',
-        value: 7,
-        index: 11
-    }
-];
-
-// Accidental
-
-export interface Accidental {
-    id: string;
-    name: string;
-    offset: number;
-}
-
-
-export const ACCIDENTALS: Accidental[] = [
-    {
-        id: 'doubleFlat',
-        name: 'bb',
-        offset: -2
-    },
-    {
-        id: 'flat',
-        name: 'b',
-        offset: -1
-    },
-    {
-        id: 'natural',
-        name: '♮',
-        offset: 0
-    },
-    {
-        id: 'sharp',
-        name: '#',
-        offset: 1
-    },
-    {
-        id: 'doubleSharp',
-        name: 'xx',
-        offset: 2
-    }
-];
-
-// Concept
-
-export interface Interval {
-    id: string;
-    name: string;
-    degree: number;
-    semitones: number;
-    octaveOffset?: number;
-}
-
-export interface Concept {
-    intervals: Interval[];
-}
-
-export interface ConceptConfig {
-    chordInversion: number,
-    melodicInversion: boolean,
-    reverse: boolean;
-}
-
-// Note Label
-
-export interface NoteLabel {
-    id: string;
-    name: string;
-}
-
-export let NOTE_LABELS: NoteLabel[] = [
-    {
-        id: 'none',
-        name: 'None'
-    },
-    {
-        id: 'name',
-        name: 'Name'
-    },
-    {
-        id: 'interval',
-        name: 'Interval'
-    },
-    {
-        id: 'pitchClass',
-        name: 'Relative Position'
-    },
-    {
-        id: 'noteIndex',
-        name: 'Absolute Position'
-    },
-    {
-        id: 'relativeDegree',
-        name: 'Degree'
-    },
-    {
-        id: 'octave',
-        name: 'Octave'
-    },
-    {
-        id: 'frequency',
-        name: 'Frequency'
-    }
-];
-
-// Viewer
-
-export interface Viewer {
-    component: any;
-}
-
-export interface ViewerConfig {
-    filterOctave: boolean;
-    noteLabel: NoteLabel;
-    /*[property: string]: any;*/
-}
-
-export interface ViewerProps {
-    notes: CompleteNote[];
-    config: ViewerConfig;
-}
-
-/***** Theory Interfaces *****/
-
-export interface KeyCenter {
-    degree: Degree;
-    accidental: Accidental;
-    octave: number;
-}
-
-export interface PhysicalNote {
-    noteIndex: number;
-    noteOctave: number;
-    pitchClass: number;
-    frequency: number;
-}
-
-export interface FunctionalNote {
-    key: KeyCenter;
-    interval: Interval;
-    noteDegree: number;
-    pitchClass: number;
-    accidentalOffset: number;
-    name: string;
-}
-
-export interface CompleteNote extends PhysicalNote, FunctionalNote {}
-
-/***** PRESETS & UI *****/
+import { FretboardTuner } from "./FretboardTuner/FretboardTuner";
 
 export interface InputDefinition {
     id: string;
@@ -633,7 +409,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
 
 export interface ViewerType extends PresetType<ViewerConfig>, Viewer {}
 
-export const VIEWER_DEFINITIONS: ViewerType[] = [
+export const VIEWER_TYPES: ViewerType[] = [
     {
         id: 'keyboard',
         name: 'Keyboard',
@@ -643,7 +419,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'default',
                 name: 'Default',
                 config: {
-                    noteLabel: NOTE_LABELS[0],
+                    noteLabel: NOTE_LABELS[2],
                     filterOctave: true,
                     keyLow: 0,
                     keyHigh: 24
@@ -653,7 +429,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'singleOctave',
                 name: 'Single Octave',
                 config: {
-                    noteLabel: NOTE_LABELS[0],
+                    noteLabel: NOTE_LABELS[1],
                     filterOctave: true,
                     keyLow: 0,
                     keyHigh: 11
@@ -702,7 +478,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'guitar',
                 name: 'Guitar',
                 config: {
-                    noteLabel: { id: 'interval' } as any,
+                    noteLabel: NOTE_LABELS[2],
                     showDots: true,
                     filterOctave: true,
                     fretLow: 0,
@@ -721,9 +497,9 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'guitar_A_shapes',
                 name: 'Guitar, A Shapes',
                 config: {
-                    noteLabel: { id: 'interval' } as any,
+                    noteLabel: NOTE_LABELS[2],
                     showDots: true,
-                    filterOctave: false,
+                    filterOctave: true,
                     fretLow: 0,
                     fretHigh: 12,
                     strings: [
@@ -740,7 +516,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'bass',
                 name: 'Bass',
                 config: {
-                    noteLabel: { id: 'name' } as any,
+                    noteLabel: NOTE_LABELS[2],
                     showDots: true,
                     filterOctave: true,
                     fretLow: 0,
@@ -803,36 +579,3 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
         ]
     }
 ];
-
-// Defaults
-
-export const DEFAULT_CONCEPT = 1;
-export const DEFAULT_VIEWER = 1;
-
-export const DEFAULT_CONCEPT_CONFIG: ConceptConfig = {
-    chordInversion: 0,
-    melodicInversion: false,
-    reverse: false
-};
-
-export const DEFAULT_VIEW_DRIVER_PROPS: ViewDriverProps = {
-    degree: DEGREES[0],
-    accidental: ACCIDENTALS[2],
-    octave: 4,
-    conceptType: CONCEPT_TYPES[DEFAULT_CONCEPT],
-    conceptIntervals: CONCEPT_TYPES[DEFAULT_CONCEPT].presets[0].config.intervals,
-    conceptConfig: DEFAULT_CONCEPT_CONFIG,
-    viewerType: VIEWER_DEFINITIONS[DEFAULT_VIEWER],
-    viewerConfig: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
-}
-
-export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {
-    openPosition: 0
-}
-
-export const CALIBRATION_NOTE: PhysicalNote = {
-    frequency: 440,
-    noteIndex: 9,
-    pitchClass: 9,
-    noteOctave: 4
-}

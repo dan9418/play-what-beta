@@ -1,7 +1,8 @@
 import React = require("react");
 import { FretboardString, FretboardStringConfig } from "./FretboardString";
 import "./Fretboard.css";
-import { CompleteNote, Interval, ViewerProps, ViewerConfig } from "../../Common/AppConfig";
+import { ViewerConfig, ViewerProps } from "../Viewer.config";
+import { CompleteNote, Interval } from "../../Common/Theory.config";
 
 export interface FretboardConfig extends ViewerConfig {
     showDots: boolean;

@@ -1,8 +1,11 @@
 import * as React from "react";
 import { InputPanel } from "../InputPanel/InputPanel";
 import "./ViewDriver.css"
-import { DEFAULT_VIEW_DRIVER_PROPS, KeyCenter, Degree, Accidental, ConceptConfig, Interval, ViewerConfig, ViewerType, ConceptType } from "../Common/AppConfig";
 import { TheoryEngine } from "../Common/TheoryEngine";
+import { Degree, Accidental, Interval, ConceptConfig, KeyCenter } from "../Common/Theory.config";
+import { ConceptType, ViewerType } from "../InputPanel/Input.config";
+import { ViewerConfig } from "../Viewers/Viewer.config";
+import { DEFAULT_VIEW_DRIVER_PROPS } from "./ViewDriver.config";
 
 export interface ViewDriverProps {
     degree: Degree;
@@ -26,6 +29,14 @@ export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDrive
     setValue = (property: string, value: any) => {
         let update = {};
         update[property] = value;
+        // Reset child inputs when chaning parent type
+        if(property === 'viewerType') {
+            update['viewerConfig'] = value.presets[0].config;
+        }
+        if(property === 'conceptType') {
+            update['conceptIntervals'] = value.presets[0].config.intervals;
+            update['conceptConfig'] = DEFAULT_VIEW_DRIVER_PROPS.conceptConfig;
+        }
         this.setState(update);
     }
 

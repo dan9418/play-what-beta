@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./BoxSelector.css";
 import { CharButton } from "../CharButton/CharButton";
-import { InputProps } from "../../Common/AppConfig";
+import { InputProps } from "../Input.config";
 
 interface BoxInputProps extends InputProps {
     data: any[];
