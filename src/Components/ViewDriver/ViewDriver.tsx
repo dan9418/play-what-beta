@@ -1,8 +1,19 @@
 import * as React from "react";
 import { InputPanel } from "../InputPanel/InputPanel";
 import "./ViewDriver.css"
-import { ViewDriverProps, DEFAULT_VIEW_DRIVER_PROPS, KeyCenter } from "../Common/AppConfig";
+import { DEFAULT_VIEW_DRIVER_PROPS, KeyCenter, Degree, Accidental, ConceptConfig, Interval, ViewerConfig, ViewerType, ConceptType } from "../Common/AppConfig";
 import { TheoryEngine } from "../Common/TheoryEngine";
+
+export interface ViewDriverProps {
+    degree: Degree;
+    accidental: Accidental;
+    octave: number;
+    conceptType: ConceptType;
+    conceptIntervals: Interval[];
+    conceptConfig: ConceptConfig;
+    viewerType: ViewerType;
+    viewerConfig: ViewerConfig;
+}
 
 export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDriverProps> {
 

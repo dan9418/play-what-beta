@@ -1,11 +1,12 @@
 import React = require("react");
 import "./InputPanel.css";
-import { ViewDriverProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../Common/AppConfig";
+import { ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_TYPES, InputDefinition } from "../Common/AppConfig";
 import { BoxSelector } from "./BoxSelector/BoxSelector";
 import { NumericSelector } from "./NumericSelector/NumericSelector";
 import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
+import { ViewDriverProps } from "../ViewDriver/ViewDriver";
 
 export interface InputPanelProps extends ViewDriverProps {
     setValue: (property: string, value: any) => void,
@@ -81,7 +82,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         <DropdownSelector
                             value={this.props.conceptType}
                             setValue={(value) => this.props.setValue('conceptType', value)}
-                            data={CONCEPT_DEFINITIONS}
+                            data={CONCEPT_TYPES}
                         />
                     </InputCell>
                     <InputCell name='Preset' vertical={true}>

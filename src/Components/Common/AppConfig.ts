@@ -2,27 +2,38 @@ import { DropdownSelector } from "../InputPanel/DropdownSelector/DropdownSelecto
 import { NumericSelector } from "../InputPanel/NumericSelector/NumericSelector";
 import { SwitchSelector } from "../InputPanel/SwitchSelector/SwitchSelector";
 import { FretboardTuner } from "../InputPanel/FretboardTuner/FretboardTuner";
-import { Keyboard } from "../Viewers/Keyboard/Keyboard";
-import { Fretboard } from "../Viewers/Fretboard/Fretboard";
+import { Keyboard, KeyboardConfig } from "../Viewers/Keyboard/Keyboard";
+import { Fretboard, FretboardConfig } from "../Viewers/Fretboard/Fretboard";
 import { FretboardStringConfig } from "../Viewers/Fretboard/FretboardString";
+import { ViewDriverProps } from "../ViewDriver/ViewDriver";
 
-// Inputs
+/***** CONSTANTS *****/
 
-export interface InputDefinition {
-    id: string;
-    name: string;
-    component: any;
-    props: any;
-    vertical?: boolean;
-    bold?: boolean;
-}
+export const INTERVAL = {
+    None: { id: '', name: '', degree: 0, semitones: 0 },
+    PU: { id: 'PU', name: 'Perfect Unison', degree: 1, semitones: 0 },
+    m2: { id: 'm2', name: 'Minor 2nd', degree: 2, semitones: 1 },
+    M2: { id: 'M2', name: 'Major 2nd', degree: 2, semitones: 2 },
+    m3: { id: 'm3', name: 'Minor 3rd', degree: 3, semitones: 3 },
+    M3: { id: 'M3', name: 'Major 3rd', degree: 3, semitones: 4 },
+    P4: { id: 'P4', name: 'Perfect 4th', degree: 4, semitones: 5 },
+    A4: { id: 'A4', name: 'Augmented 4th', degree: 4, semitones: 6 },
+    TT: { id: 'TT', name: 'Tritone', degree: 0, semitones: 6 },
+    d5: { id: 'd5', name: 'Diminished 5th', degree: 5, semitones: 6 },
+    P5: { id: 'P5', name: 'Perfect 5th', degree: 5, semitones: 7 },
+    A5: { id: 'A5', name: 'Augmented 5th', degree: 5, semitones: 8 },
+    m6: { id: 'm6', name: 'Minor 6th', degree: 6, semitones: 8 },
+    M6: { id: 'M6', name: 'Major 6th', degree: 6, semitones: 9 },
+    d7: { id: 'd7', name: 'Diminished 7th', degree: 7, semitones: 9 },
+    m7: { id: 'm7', name: 'Minor 7th', degree: 7, semitones: 10 },
+    M7: { id: 'M7', name: 'Major 7th', degree: 7, semitones: 11 }
+};
 
-export type InputProps = {
-    value: any;
-    setValue: (value: any) => void;
-}
+export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
 
-// Base Theory, Interfaces
+/***** INPUTS *****/
+
+// Degree
 
 export interface Degree {
     id: string;
@@ -30,50 +41,6 @@ export interface Degree {
     value: number;
     index: number;
 }
-
-export interface Accidental {
-    id: string;
-    name: string;
-    offset: number;
-}
-
-export interface KeyCenter {
-    degree: Degree;
-    accidental: Accidental;
-    octave: number;
-}
-
-export interface Interval {
-    id: string;
-    name: string;
-    degree: number;
-    semitones: number;
-    octaveOffset?: number;
-}
-
-export interface Concept {
-    intervals: Interval[];
-}
-
-export interface PhysicalNote {
-    noteIndex: number;
-    noteOctave: number;
-    pitchClass: number;
-    frequency: number;
-}
-
-export interface FunctionalNote {
-    key: KeyCenter;
-    interval: Interval;
-    noteDegree: number;
-    pitchClass: number;
-    accidentalOffset: number;
-    name: string;
-}
-
-export interface CompleteNote extends PhysicalNote, FunctionalNote {}
-
-// Base Theory, Constants
 
 export const ALL_DEGREES: Degree[] = [
     {
@@ -120,6 +87,15 @@ export const ALL_DEGREES: Degree[] = [
     }
 ];
 
+// Accidental
+
+export interface Accidental {
+    id: string;
+    name: string;
+    offset: number;
+}
+
+
 export const ALL_ACCIDENTALS: Accidental[] = [
     {
         id: 'doubleFlat',
@@ -148,45 +124,34 @@ export const ALL_ACCIDENTALS: Accidental[] = [
     }
 ];
 
-export const INTERVAL = {
-    None: { id: '', name: '', degree: 0, semitones: 0 },
-    PU: { id: 'PU', name: 'Perfect Unison', degree: 1, semitones: 0 },
-    m2: { id: 'm2', name: 'Minor 2nd', degree: 2, semitones: 1 },
-    M2: { id: 'M2', name: 'Major 2nd', degree: 2, semitones: 2 },
-    m3: { id: 'm3', name: 'Minor 3rd', degree: 3, semitones: 3 },
-    M3: { id: 'M3', name: 'Major 3rd', degree: 3, semitones: 4 },
-    P4: { id: 'P4', name: 'Perfect 4th', degree: 4, semitones: 5 },
-    A4: { id: 'A4', name: 'Augmented 4th', degree: 4, semitones: 6 },
-    TT: { id: 'TT', name: 'Tritone', degree: 0, semitones: 6 },
-    d5: { id: 'd5', name: 'Diminished 5th', degree: 5, semitones: 6 },
-    P5: { id: 'P5', name: 'Perfect 5th', degree: 5, semitones: 7 },
-    A5: { id: 'A5', name: 'Augmented 5th', degree: 5, semitones: 8 },
-    m6: { id: 'm6', name: 'Minor 6th', degree: 6, semitones: 8 },
-    M6: { id: 'M6', name: 'Major 6th', degree: 6, semitones: 9 },
-    d7: { id: 'd7', name: 'Diminished 7th', degree: 7, semitones: 9 },
-    m7: { id: 'm7', name: 'Minor 7th', degree: 7, semitones: 10 },
-    M7: { id: 'M7', name: 'Major 7th', degree: 7, semitones: 11 },
-    P8: { id: 'P8', name: 'Perfect Octave', degree: 8, semitones: 12 },
-    m9: { id: 'm9', name: 'Minor 9th', degree: 9, semitones: 13 },
-    M9: { id: 'M9', name: 'Major 9th', degree: 9, semitones: 14 },
-    m10: { id: 'm10', name: 'Minor 10th', degree: 10, semitones: 15 },
-    M10: { id: 'M10', name: 'Major 10th', degree: 10, semitones: 16 },
-    P11: { id: 'P11', name: 'Perfect 11th', degree: 11, semitones: 17 },
-    A11: { id: 'A11', name: 'Augmented 11h', degree: 11, semitones: 18 },
-    dTT: { id: 'dTT', name: 'Double Tritone', degree: 0, semitones: 18 },
-    d12: { id: 'd12', name: 'Diminished 12th', degree: 12, semitones: 18 },
-    P12: { id: 'P12', name: 'Perfect 12th', degree: 12, semitones: 19 },
-    A12: { id: 'A12', name: 'Augmented 12th', degree: 12, semitones: 20 },
-    m13: { id: 'm13', name: 'Minor 13th', degree: 13, semitones: 20 },
-    M13: { id: 'M13', name: 'Major 13th', degree: 13, semitones: 21 },
-    d14: { id: 'd14', name: 'Diminished 14th', degree: 14, semitones: 21 },
-    m14: { id: 'm14', name: 'Minor 14th', degree: 14, semitones: 22 },
-    M14: { id: 'M14', name: 'Major 14th', degree: 14, semitones: 23 }
-};
+// Concept
 
-export const MAJOR_SCALE = [INTERVAL.PU, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
+export interface Interval {
+    id: string;
+    name: string;
+    degree: number;
+    semitones: number;
+    octaveOffset?: number;
+}
 
-export let ALL_NOTE_LABELS = [
+export interface Concept {
+    intervals: Interval[];
+}
+
+export interface ConceptConfig {
+    chordInversion: number,
+    melodicInversion: boolean,
+    reverse: boolean;
+}
+
+// Note Label
+
+export interface NoteLabel {
+    id: string;
+    name: string;
+}
+
+export let ALL_NOTE_LABELS: NoteLabel[] = [
     {
         id: 'none',
         name: 'None'
@@ -221,52 +186,83 @@ export let ALL_NOTE_LABELS = [
     }
 ];
 
+// Viewer
 
-// Concept, General
+export interface Viewer {
+    component: any;
+}
 
-export interface ConceptDefinition {
+export interface ViewerConfig {
+    filterOctave: boolean;
+    noteLabel: NoteLabel;
+    /*[property: string]: any;*/
+}
+
+export interface ViewerProps {
+    notes: CompleteNote[];
+    config: ViewerConfig;
+}
+
+/***** Theory Interfaces *****/
+
+export interface KeyCenter {
+    degree: Degree;
+    accidental: Accidental;
+    octave: number;
+}
+
+export interface PhysicalNote {
+    noteIndex: number;
+    noteOctave: number;
+    pitchClass: number;
+    frequency: number;
+}
+
+export interface FunctionalNote {
+    key: KeyCenter;
+    interval: Interval;
+    noteDegree: number;
+    pitchClass: number;
+    accidentalOffset: number;
+    name: string;
+}
+
+export interface CompleteNote extends PhysicalNote, FunctionalNote {}
+
+/***** PRESETS & UI *****/
+
+export interface InputDefinition {
     id: string;
     name: string;
-    presets: any[];
-    options: any[];
+    component: any;
+    props: any;
+    vertical?: boolean;
+    bold?: boolean;
 }
 
-export interface ConceptConfig {
-    chordInversion: number,
-    melodicInversion: boolean,
-    reverse: boolean;
+export type InputProps = {
+    value: any;
+    setValue: (value: any) => void;
 }
 
-// Concept, Combined
+export interface Preset<T> {
+    id: string;
+    name: string;
+    config: T;
+}
 
-export const INTERVAL_OPTIONS: InputDefinition[] = [
-    {
-        id: 'chordInversion',
-        name: 'Chord Inversion',
-        bold: true,
-        component: NumericSelector,
-        props: {
-            min: 0,
-            max: 10
-        }
-    },
-    {
-        id: 'melodicInversion',
-        name: 'Melodic Inversion',
-        bold: true,
-        component: SwitchSelector,
-        props: {}
-    }/*,
-    {
-        id: 'reverse',
-        name: 'Reverse',
-        bold: true,
-        component: SwitchSelector,
-        props: {}
-    }*/
-]
+export interface PresetType<T> {
+    id: string;
+    name: string;
+    options: InputDefinition[];
+    presets: Preset<T>[];
+}
 
-export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
+// Concept
+
+export interface ConceptType extends PresetType<Concept> {}
+
+export const CONCEPT_TYPES: ConceptType[] = [
     {
         id: 'interval',
         name: 'Intervals',
@@ -352,7 +348,15 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 config: { intervals: [INTERVAL.PU, INTERVAL.M7] }
             }
         ],
-        options: INTERVAL_OPTIONS
+        options: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                bold: true,
+                component: SwitchSelector,
+                props: {}
+            }
+        ]
     },
     {
         id: 'chord',
@@ -434,7 +438,25 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 config: { intervals: [INTERVAL.PU, INTERVAL.m3, INTERVAL.d5, INTERVAL.m7] }
             }
         ],
-        options: INTERVAL_OPTIONS
+        options: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                bold: true,
+                component: SwitchSelector,
+                props: {}
+            },
+            {
+                id: 'chordInversion',
+                name: 'Chord Inversion',
+                bold: true,
+                component: NumericSelector,
+                props: {
+                    min: 0,
+                    max: 3
+                }
+            }
+        ]
     },
     {
         id: 'scale',
@@ -471,7 +493,15 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.M2, INTERVAL.m3, INTERVAL.M3, INTERVAL.P4, INTERVAL.TT, INTERVAL.P5, INTERVAL.m6, INTERVAL.M6, INTERVAL.m7, INTERVAL.M7] }
             }
         ],
-        options: INTERVAL_OPTIONS
+        options: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                bold: true,
+                component: SwitchSelector,
+                props: {}
+            }
+        ]
     },
     {
         id: 'mode',
@@ -513,7 +543,15 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.m3, INTERVAL.P4, INTERVAL.d5, INTERVAL.m6, INTERVAL.m7] }
             }
         ],
-        options: INTERVAL_OPTIONS
+        options: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                bold: true,
+                component: SwitchSelector,
+                props: {}
+            }
+        ]
     },
     {
         id: 'romanNumeral',
@@ -569,34 +607,33 @@ export const CONCEPT_DEFINITIONS: ConceptDefinition[] = [
                 }
             }
         ],
-        options: INTERVAL_OPTIONS
+        options: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                bold: true,
+                component: SwitchSelector,
+                props: {}
+            },
+            {
+                id: 'chordInversion',
+                name: 'Chord Inversion',
+                bold: true,
+                component: NumericSelector,
+                props: {
+                    min: 0,
+                    max: 2
+                }
+            }
+        ]
     }
 ];
 
+// Viewer
 
+export interface ViewerType extends PresetType<ViewerConfig>, Viewer {}
 
-// Viewer, General
-
-export interface ViewerDefinition {
-    id: string;
-    name: string;
-    component: any;
-    options: InputDefinition[];
-    presets: any[];
-}
-
-export interface ViewerProps {
-    notes: CompleteNote[];
-    config: any;
-}
-
-// Viewer, Piano
-
-
-
-// Viewer, Combined
-
-export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
+export const VIEWER_DEFINITIONS: ViewerType[] = [
     {
         id: 'keyboard',
         name: 'Keyboard',
@@ -622,7 +659,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
                     keyHigh: 11
                 }
             }
-        ],
+        ] as Preset<KeyboardConfig>[],
         options: [
             {
                 id: 'noteLabel',
@@ -716,7 +753,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
                     ]
                 }
             }
-        ],
+        ] as Preset<FretboardConfig>[],
         options: [
             {
                 id: 'noteLabel',
@@ -767,19 +804,6 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     }
 ];
 
-// Component props
-
-export type ViewDriverProps = {
-    degree: Degree,
-    accidental: Accidental,
-    octave: number
-    conceptType: any,
-    conceptIntervals: Interval[],
-    conceptConfig: ConceptConfig
-    viewerType: any,
-    viewerConfig: any
-}
-
 // Defaults
 
 export const DEFAULT_CONCEPT = 1;
@@ -795,8 +819,8 @@ export const DEFAULT_VIEW_DRIVER_PROPS: ViewDriverProps = {
     degree: ALL_DEGREES[0],
     accidental: ALL_ACCIDENTALS[2],
     octave: 4,
-    conceptType: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT],
-    conceptIntervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
+    conceptType: CONCEPT_TYPES[DEFAULT_CONCEPT],
+    conceptIntervals: CONCEPT_TYPES[DEFAULT_CONCEPT].presets[0].config.intervals,
     conceptConfig: DEFAULT_CONCEPT_CONFIG,
     viewerType: VIEWER_DEFINITIONS[DEFAULT_VIEWER],
     viewerConfig: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config

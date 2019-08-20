@@ -1,12 +1,10 @@
 import React = require("react");
 import { FretboardString, FretboardStringConfig } from "./FretboardString";
 import "./Fretboard.css";
-import { CompleteNote, Interval, ViewerProps } from "../../Common/AppConfig";
+import { CompleteNote, Interval, ViewerProps, ViewerConfig } from "../../Common/AppConfig";
 
-export interface FretboardConfig {
-    noteLabel: any;
+export interface FretboardConfig extends ViewerConfig {
     showDots: boolean;
-    filterOctave: boolean;
     strings: FretboardStringConfig[];
     fretLow: number;
     fretHigh: number;

@@ -2,12 +2,10 @@ import * as React from "react";
 import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { CompleteNote, ViewerProps } from "../../Common/AppConfig";
+import { CompleteNote, ViewerProps, ViewerConfig } from "../../Common/AppConfig";
 import "./Keyboard.css";
 
-export interface KeyboardConfig {
-    noteLabel: any;
-    filterOctave: boolean;
+export interface KeyboardConfig extends ViewerConfig {
     keyLow: number;
     keyHigh: number;
 }
