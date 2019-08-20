@@ -1,13 +1,12 @@
+import { ViewDriverProps } from "../ViewDriver/ViewDriver";
 import React = require("react");
-import "./InputPanel.css";
-import { ButtonListInput } from "./ButtonListInput/ButtonListInput";
-import { NumericInput } from "./NumericInput/NumericInput";
-import { DropdownInput } from "./DropdownInput/DropdownInput";
+import { PresetOption, CONCEPT_TYPES, VIEWER_TYPES } from "./InputPanel.config";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
-import { ViewDriverProps } from "../ViewDriver/ViewDriver";
-import { CONCEPT_TYPES, VIEWER_TYPES, PresetOption } from "./Input.config";
+import { ButtonListInput } from "../Inputs/ButtonListInput/ButtonListInput";
 import { DEGREES, ACCIDENTALS } from "../Common/Theory.config";
+import { NumericInput } from "../Inputs/NumericInput/NumericInput";
+import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
 
 export interface InputPanelProps extends ViewDriverProps {
     setValue: (property: string, value: any) => void,

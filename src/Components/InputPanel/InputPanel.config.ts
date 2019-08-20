@@ -1,18 +1,11 @@
-import { Concept, INTERVAL, NOTE_LABELS, KeyCenter, DEGREES, ACCIDENTALS } from "../Common/Theory.config";
-import { SwitchInput } from "./SwitchInput/SwitchInput";
-import { NumericInput } from "./NumericInput/NumericInput";
+import { Concept, INTERVAL, NOTE_LABELS } from "../Common/Theory.config";
+import { SwitchInput } from "../Inputs/SwitchInput/SwitchInput";
+import { NumericInput } from "../Inputs/NumericInput/NumericInput";
 import { ViewerConfig, Viewer } from "../Viewers/Viewer.config";
 import { Keyboard, KeyboardConfig } from "../Viewers/Keyboard/Keyboard";
-import { DropdownInput } from "./DropdownInput/DropdownInput";
+import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
 import { Fretboard, FretboardConfig } from "../Viewers/Fretboard/Fretboard";
-import { FretboardTuner } from "./FretboardTuner/FretboardTuner";
-
-/***** General Inputs *****/
-
-export interface InputProps {
-    value: any;
-    setValue: (value: any) => void;
-}
+import { FretboardTuner } from "../Inputs/FretboardTuner/FretboardTuner";
 
 /***** Presets *****/
 

@@ -1,7 +1,7 @@
-import * as React from "react";
-import "./ButtonListInput.css";
-import { ButtonInput } from "../ButtonInput/ButtonInput";
+import React = require("react");
 import { InputProps } from "../Input.config";
+import { ButtonInput } from "../ButtonInput/ButtonInput";
+import "./ButtonListInput.css";
 
 interface ButtonListInputProps extends InputProps {
     data: any[];

@@ -1,6 +1,6 @@
 import { DEGREES, ACCIDENTALS } from "../Common/Theory.config";
 import { ViewDriverProps } from "./ViewDriver";
-import { CONCEPT_TYPES, VIEWER_TYPES } from "../InputPanel/Input.config";
+import { CONCEPT_TYPES, VIEWER_TYPES } from "../InputPanel/InputPanel.config";
 
 /***** Defaults *****/
 

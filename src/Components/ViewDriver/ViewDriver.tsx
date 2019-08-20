@@ -3,7 +3,7 @@ import { InputPanel } from "../InputPanel/InputPanel";
 import "./ViewDriver.css"
 import { TheoryEngine } from "../Common/TheoryEngine";
 import { Degree, Accidental, Interval, ConceptConfig, KeyCenter } from "../Common/Theory.config";
-import { ConceptType, ViewerType } from "../InputPanel/Input.config";
+import { ConceptType, ViewerType } from "../InputPanel/InputPanel.config";
 import { ViewerConfig } from "../Viewers/Viewer.config";
 import { DEFAULT_VIEW_DRIVER_PROPS } from "./ViewDriver.config";
 

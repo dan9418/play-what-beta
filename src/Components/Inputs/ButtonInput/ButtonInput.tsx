@@ -1,11 +1,11 @@
 import * as React from "react";
 import "./ButtonInput.css";
 
-type ButtonInputProps = {
+interface ButtonInputProps {
     character: string;
     active: boolean;
     disabled?: boolean;
-    action: any;
+    action?: any;
     className?: string;
 }
 
