@@ -6,7 +6,7 @@ import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
 import { ViewDriverProps } from "../ViewDriver/ViewDriver";
-import { InputDefinition, CONCEPT_TYPES, VIEWER_TYPES } from "./Input.config";
+import { CONCEPT_TYPES, VIEWER_TYPES, PresetOption } from "./Input.config";
 import { DEGREES, ACCIDENTALS } from "../Common/Theory.config";
 
 export interface InputPanelProps extends ViewDriverProps {
@@ -25,18 +25,18 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
         this.props.setValue(parentProperty, update)
     }
 
-    getInputCells = (parentProperty: string, inputs: InputDefinition[]) => {
+    getPresetOptionCells = (parentProperty: string, options: PresetOption[]) => {
         let inputCells = [];
-        for (let i = 0; i < inputs.length; i++) {
-            let input = inputs[i];
-            let InputComponent = input.component;
+        for (let i = 0; i < options.length; i++) {
+            let option = options[i];
+            let InputComponent = option.component;
             inputCells.push(
-                <InputCell key={input.id} name={input.name} vertical={input.vertical} bold={input.bold}>
+                <InputCell key={option.id} label={option.name} styles={option.styles}>
                     <InputComponent
                         {...this.props}
-                        {...input.props}
-                        value={this.props[parentProperty][input.id]}
-                        setValue={(value) => this.setNestedValue(parentProperty, input.id, value)}
+                        {...option.props}
+                        value={this.props[parentProperty][option.id]}
+                        setValue={(value) => this.setNestedValue(parentProperty, option.id, value)}
                     />
                 </InputCell>
             );
@@ -53,21 +53,21 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                     Key
                 </div>
                 <InputRow>
-                    <InputCell name='Degree' vertical={true}>
+                    <InputCell label='Degree' styles={{ vertical: true }}>
                         <BoxSelector
                             value={this.props.degree}
                             setValue={(value) => this.props.setValue('degree', value)}
                             data={DEGREES}
                         />
                     </InputCell>
-                    <InputCell name='Accidental' vertical={true}>
+                    <InputCell label='Accidental' styles={{ vertical: true }}>
                         <BoxSelector
                             value={this.props.accidental}
                             setValue={(value) => this.props.setValue('accidental', value)}
                             data={ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
                         />
                     </InputCell>
-                    <InputCell name='Octave' vertical={true}>
+                    <InputCell label='Octave' styles={{ vertical: true }}>
                         <NumericSelector
                             value={this.props.octave}
                             setValue={(value) => this.props.setValue('octave', value)}
@@ -78,15 +78,15 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 <div className='input-panel-row-label'>
                     Concept
                 </div>
-                <InputRow subrowInputs={this.getInputCells('conceptConfig', this.props.conceptType.options)}>
-                    <InputCell name='Type' vertical={true}>
+                <InputRow subrowInputs={this.getPresetOptionCells('conceptConfig', this.props.conceptType.optionInputs)}>
+                    <InputCell label='Type' styles={{ vertical: true }}>
                         <DropdownSelector
                             value={this.props.conceptType}
                             setValue={(value) => this.props.setValue('conceptType', value)}
                             data={CONCEPT_TYPES}
                         />
                     </InputCell>
-                    <InputCell name='Preset' vertical={true}>
+                    <InputCell label='Preset' styles={{ vertical: true }}>
                         <DropdownSelector
                             value={null}
                             setValue={(value) => this.props.setValue('conceptIntervals', value.config.intervals)}
@@ -98,15 +98,15 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 <div className='input-panel-row-label'>
                     Viewers
                 </div>
-                <InputRow subrowInputs={this.getInputCells('viewerConfig', this.props.viewerType.options)}>
-                    <InputCell name='Type' vertical={true}>
+                <InputRow subrowInputs={this.getPresetOptionCells('viewerConfig', this.props.viewerType.optionInputs)}>
+                    <InputCell label='Type' styles={{ vertical: true }}>
                         <DropdownSelector
                             value={this.props.viewerType}
                             setValue={(value) => this.props.setValue('viewerType', value)}
                             data={VIEWER_TYPES}
                         />
                     </InputCell>
-                    <InputCell name='Preset' vertical={true}>
+                    <InputCell label='Preset' styles={{ vertical: true }}>
                         <DropdownSelector
                             value={null}
                             setValue={(value) => this.props.setValue('viewerConfig', value.config)}

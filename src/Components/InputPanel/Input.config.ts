@@ -7,19 +7,14 @@ import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
 import { Fretboard, FretboardConfig } from "../Viewers/Fretboard/Fretboard";
 import { FretboardTuner } from "./FretboardTuner/FretboardTuner";
 
-export interface InputDefinition {
-    id: string;
-    name: string;
-    component: any;
-    props: any;
-    vertical?: boolean;
-    bold?: boolean;
-}
+/***** General Inputs *****/
 
-export type InputProps = {
+export interface InputProps {
     value: any;
     setValue: (value: any) => void;
 }
+
+/***** Presets *****/
 
 export interface Preset<T> {
     id: string;
@@ -27,21 +22,43 @@ export interface Preset<T> {
     config: T;
 }
 
+export interface PresetOption {
+    id: string;
+    name: string;
+    component: any;
+    props: any;
+    styles?: {
+        vertical?: boolean;
+        bold?: boolean;
+    }
+}
+
 export interface PresetType<T> {
     id: string;
     name: string;
-    options: InputDefinition[];
+    optionInputs: PresetOption[];
     presets: Preset<T>[];
 }
 
 // Concept
 
-export interface ConceptType extends PresetType<Concept> {}
+export interface ConceptType extends PresetType<Concept> { }
 
 export const CONCEPT_TYPES: ConceptType[] = [
     {
         id: 'interval',
         name: 'Intervals',
+        optionInputs: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                component: SwitchSelector,
+                props: {},
+                styles: {
+                    bold: true
+                }
+            }
+        ],
         presets: [
             {
                 id: 'PU',
@@ -123,20 +140,34 @@ export const CONCEPT_TYPES: ConceptType[] = [
                 name: 'Major 7th',
                 config: { intervals: [INTERVAL.PU, INTERVAL.M7] }
             }
-        ],
-        options: [
-            {
-                id: 'melodicInversion',
-                name: 'Melodic Inversion',
-                bold: true,
-                component: SwitchSelector,
-                props: {}
-            }
         ]
     },
     {
         id: 'chord',
         name: 'Chords',
+        optionInputs: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                component: SwitchSelector,
+                props: {},
+                styles: {
+                    bold: true
+                }
+            },
+            {
+                id: 'chordInversion',
+                name: 'Chord Inversion',
+                component: NumericSelector,
+                props: {
+                    min: 0,
+                    max: 2
+                },
+                styles: {
+                    bold: true
+                }
+            }
+        ],
         presets: [
             {
                 id: 'maj',
@@ -213,30 +244,22 @@ export const CONCEPT_TYPES: ConceptType[] = [
                 name: 'Half-Diminished 7th',
                 config: { intervals: [INTERVAL.PU, INTERVAL.m3, INTERVAL.d5, INTERVAL.m7] }
             }
-        ],
-        options: [
-            {
-                id: 'melodicInversion',
-                name: 'Melodic Inversion',
-                bold: true,
-                component: SwitchSelector,
-                props: {}
-            },
-            {
-                id: 'chordInversion',
-                name: 'Chord Inversion',
-                bold: true,
-                component: NumericSelector,
-                props: {
-                    min: 0,
-                    max: 3
-                }
-            }
         ]
     },
     {
         id: 'scale',
         name: 'Scales',
+        optionInputs: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                component: SwitchSelector,
+                props: {},
+                styles: {
+                    bold: true
+                }
+            }
+        ],
         presets: [
             {
                 id: 'major',
@@ -268,20 +291,22 @@ export const CONCEPT_TYPES: ConceptType[] = [
                 name: 'Chromatic',
                 config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.M2, INTERVAL.m3, INTERVAL.M3, INTERVAL.P4, INTERVAL.TT, INTERVAL.P5, INTERVAL.m6, INTERVAL.M6, INTERVAL.m7, INTERVAL.M7] }
             }
-        ],
-        options: [
-            {
-                id: 'melodicInversion',
-                name: 'Melodic Inversion',
-                bold: true,
-                component: SwitchSelector,
-                props: {}
-            }
         ]
     },
     {
         id: 'mode',
         name: 'Modes',
+        optionInputs: [
+            {
+                id: 'melodicInversion',
+                name: 'Melodic Inversion',
+                component: SwitchSelector,
+                props: {},
+                styles: {
+                    bold: true
+                }
+            }
+        ],
         presets: [
             {
                 id: 'ionian',
@@ -317,15 +342,6 @@ export const CONCEPT_TYPES: ConceptType[] = [
                 id: 'locrian',
                 name: 'Locrian',
                 config: { intervals: [INTERVAL.PU, INTERVAL.m2, INTERVAL.m3, INTERVAL.P4, INTERVAL.d5, INTERVAL.m6, INTERVAL.m7] }
-            }
-        ],
-        options: [
-            {
-                id: 'melodicInversion',
-                name: 'Melodic Inversion',
-                bold: true,
-                component: SwitchSelector,
-                props: {}
             }
         ]
     },
@@ -383,22 +399,26 @@ export const CONCEPT_TYPES: ConceptType[] = [
                 }
             }
         ],
-        options: [
+        optionInputs: [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                bold: true,
                 component: SwitchSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'chordInversion',
                 name: 'Chord Inversion',
-                bold: true,
                 component: NumericSelector,
                 props: {
                     min: 0,
                     max: 2
+                },
+                styles: {
+                    bold: true
                 }
             }
         ]
@@ -407,7 +427,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
 
 // Viewer
 
-export interface ViewerType extends PresetType<ViewerConfig>, Viewer {}
+export interface ViewerType extends PresetType<ViewerConfig>, Viewer { }
 
 export const VIEWER_TYPES: ViewerType[] = [
     {
@@ -436,36 +456,44 @@ export const VIEWER_TYPES: ViewerType[] = [
                 }
             }
         ] as Preset<KeyboardConfig>[],
-        options: [
+        optionInputs: [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
-                bold: true,
                 component: DropdownSelector,
                 props: {
                     data: NOTE_LABELS
+                },
+                styles: {
+                    bold: true
                 }
             },
             {
                 id: 'keyLow',
                 name: 'Low Key',
-                bold: true,
                 component: NumericSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'keyHigh',
                 name: 'High Key',
-                bold: true,
                 component: NumericSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
-                bold: true,
                 component: SwitchSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             }
         ]
     },
@@ -530,51 +558,63 @@ export const VIEWER_TYPES: ViewerType[] = [
                 }
             }
         ] as Preset<FretboardConfig>[],
-        options: [
+        optionInputs: [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
-                bold: true,
                 component: DropdownSelector,
                 props: {
                     data: NOTE_LABELS
+                },
+                styles: {
+                    bold: true
                 }
             },
             {
                 id: 'fretLow',
                 name: 'Low Fret',
-                bold: true,
                 component: NumericSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'fretHigh',
                 name: 'High Fret',
-                bold: true,
                 component: NumericSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
-                bold: true,
                 component: SwitchSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'showDots',
                 name: 'Show Dots',
-                bold: true,
                 component: SwitchSelector,
-                props: {}
+                props: {},
+                styles: {
+                    bold: true
+                }
             },
             {
                 id: 'strings',
                 name: 'Strings',
-                vertical: true,
-                bold: true,
                 component: FretboardTuner,
-                props: {}
+                props: {},
+                styles: {
+                    vertical: true,
+                    bold: true
+                }
             }
         ]
     }

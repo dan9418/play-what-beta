@@ -1,12 +1,12 @@
 ============V1============
 
-    Clean up theory engine
-    error boundries
-    Final file cleanup
-    Testing
-
+    Fix input bugs
     Merge to master
     Branch unfinished features
+
+    Testing
+    Add error boundries
+    
     Create new repo
     Docs
     Bug tracking
