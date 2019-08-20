@@ -1,14 +1,14 @@
 import * as React from "react";
-import "./BoxSelector.css";
-import { CharButton } from "../CharButton/CharButton";
+import "./ButtonListInput.css";
+import { ButtonInput } from "../ButtonInput/ButtonInput";
 import { InputProps } from "../Input.config";
 
-interface BoxInputProps extends InputProps {
+interface ButtonListInputProps extends InputProps {
     data: any[];
     displayProp?: string;
 }
 
-export class BoxSelector extends React.Component<BoxInputProps, null> {
+export class ButtonListInput extends React.Component<ButtonListInputProps, null> {
 
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ export class BoxSelector extends React.Component<BoxInputProps, null> {
             let option = this.props.data[i];
             let displayProp = this.props.displayProp || 'name';
             options.push(
-                <CharButton
+                <ButtonInput
                     key={option.id}
                     character={option[displayProp]}
                     active={(this.props.value && option.id === this.props.value.id)}
@@ -33,7 +33,7 @@ export class BoxSelector extends React.Component<BoxInputProps, null> {
 
     render = () => {
         return (
-            <div className='box-selector'>
+            <div className='button-list-input'>
                 {this.getOptions()}
             </div>
         );

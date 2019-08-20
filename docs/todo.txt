@@ -1,6 +1,5 @@
 ============V1============
 
-    Fix input bugs
     Merge to master
     Branch unfinished features
 

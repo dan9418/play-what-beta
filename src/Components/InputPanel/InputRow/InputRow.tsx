@@ -1,6 +1,6 @@
 import React = require("react");
 import "./InputRow.css";
-import { CharButton } from "../CharButton/CharButton";
+import { ButtonInput } from "../ButtonInput/ButtonInput";
 
 type InputRowProps = {
     subrowInputs?: any[];
@@ -26,7 +26,7 @@ export class InputRow extends React.Component<InputRowProps, InputRowState> {
                 <div className='input-row-main'>
                     {this.props.children}
                     {this.props.subrowInputs && this.props.subrowInputs.length &&
-                        <CharButton
+                        <ButtonInput
                             className='input-row-toggle'
                             active={this.state.expanded}
                             character={this.state.expanded ? '-' : '+'}

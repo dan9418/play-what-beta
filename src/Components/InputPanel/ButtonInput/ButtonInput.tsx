@@ -1,7 +1,7 @@
 import * as React from "react";
-import "./CharButton.css";
+import "./ButtonInput.css";
 
-type CharButtonProps = {
+type ButtonInputProps = {
     character: string;
     active: boolean;
     disabled?: boolean;
@@ -9,14 +9,14 @@ type CharButtonProps = {
     className?: string;
 }
 
-export class CharButton extends React.Component<CharButtonProps, null> {
+export class ButtonInput extends React.Component<ButtonInputProps, null> {
 
     constructor(props) {
         super(props);
     }
 
     render = () => {
-        let classes = ['char-button', this.props.className || ''];
+        let classes = ['button-input', this.props.className || ''];
         if (this.props.active) {
             classes.push('active');
         }

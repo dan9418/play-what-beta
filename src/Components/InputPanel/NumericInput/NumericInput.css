@@ -1,15 +1,15 @@
 
 
-.numeric-selector {
+.numeric-input {
   height: 20px;
   display: inline-block;
   text-align: center;
 }
 
-.numeric-selector .up {
+.numeric-input .up {
   border-radius: 0 5px 5px 0;
 }
 
-.numeric-selector .down {
+.numeric-input .down {
   border-radius: 5px 0 0 5px;
 }

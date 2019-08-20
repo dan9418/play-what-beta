@@ -1,9 +1,9 @@
 import { Concept, INTERVAL, NOTE_LABELS, KeyCenter, DEGREES, ACCIDENTALS } from "../Common/Theory.config";
-import { SwitchSelector } from "./SwitchSelector/SwitchSelector";
-import { NumericSelector } from "./NumericSelector/NumericSelector";
+import { SwitchInput } from "./SwitchInput/SwitchInput";
+import { NumericInput } from "./NumericInput/NumericInput";
 import { ViewerConfig, Viewer } from "../Viewers/Viewer.config";
 import { Keyboard, KeyboardConfig } from "../Viewers/Keyboard/Keyboard";
-import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
+import { DropdownInput } from "./DropdownInput/DropdownInput";
 import { Fretboard, FretboardConfig } from "../Viewers/Fretboard/Fretboard";
 import { FretboardTuner } from "./FretboardTuner/FretboardTuner";
 
@@ -52,7 +52,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -149,7 +149,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -158,7 +158,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'chordInversion',
                 name: 'Chord Inversion',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {
                     min: 0,
                     max: 2
@@ -253,7 +253,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -300,7 +300,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -403,7 +403,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'melodicInversion',
                 name: 'Melodic Inversion',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -412,7 +412,7 @@ export const CONCEPT_TYPES: ConceptType[] = [
             {
                 id: 'chordInversion',
                 name: 'Chord Inversion',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {
                     min: 0,
                     max: 2
@@ -460,7 +460,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
-                component: DropdownSelector,
+                component: DropdownInput,
                 props: {
                     data: NOTE_LABELS
                 },
@@ -471,7 +471,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'keyLow',
                 name: 'Low Key',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {},
                 styles: {
                     bold: true
@@ -480,7 +480,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'keyHigh',
                 name: 'High Key',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {},
                 styles: {
                     bold: true
@@ -489,7 +489,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -562,7 +562,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'noteLabel',
                 name: 'Note Label',
-                component: DropdownSelector,
+                component: DropdownInput,
                 props: {
                     data: NOTE_LABELS
                 },
@@ -573,7 +573,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'fretLow',
                 name: 'Low Fret',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {
                     min: 0,
                     max: 24
@@ -585,7 +585,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'fretHigh',
                 name: 'High Fret',
-                component: NumericSelector,
+                component: NumericInput,
                 props: {
                     min: 0,
                     max: 24
@@ -597,7 +597,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'filterOctave',
                 name: 'Filter Octave',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true
@@ -606,7 +606,7 @@ export const VIEWER_TYPES: ViewerType[] = [
             {
                 id: 'showDots',
                 name: 'Show Dots',
-                component: SwitchSelector,
+                component: SwitchInput,
                 props: {},
                 styles: {
                     bold: true

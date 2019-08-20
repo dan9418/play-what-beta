@@ -1,4 +1,4 @@
-.switch-selector {
+.switch-input {
   display: inline-block;
 }
 
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.switch-selector.on .switch-shell {
+.switch-input.on .switch-shell {
   background-color: #FF5A09;
 }
 
@@ -24,10 +24,10 @@
   position: absolute;
 }
 
-.switch-selector.off .switch-ball {
+.switch-input.off .switch-ball {
   left: 0;
 }
 
-.switch-selector.on .switch-ball {
+.switch-input.on .switch-ball {
   right: 0;
 }

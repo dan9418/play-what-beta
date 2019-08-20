@@ -1,15 +1,15 @@
 import * as React from "react";
-import "./SwitchSelector.css";
+import "./SwitchInput.css";
 import { InputProps } from "../Input.config";
 
-export class SwitchSelector extends React.Component<InputProps, null> {
+export class SwitchInput extends React.Component<InputProps, null> {
 
     constructor(props) {
         super(props);
     }
 
     render = () => {
-        let classes = ['switch-selector', this.props.value ? 'on' : 'off']
+        let classes = ['switch-input', this.props.value ? 'on' : 'off']
         return (
             <div className={classes.join(' ')}>
                 <div className='switch-shell' onClick={() => this.props.setValue(!this.props.value)}>

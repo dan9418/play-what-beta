@@ -1,9 +1,9 @@
-.dropdown-selector {
+.dropdown-input {
     height: 20px;
     display: inline-block;
 }
 
-.dropdown-selector select {
+.dropdown-input select {
     width: 150px;
     height: 100%;
     vertical-align: top;

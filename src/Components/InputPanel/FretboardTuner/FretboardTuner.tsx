@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NumericSelector } from "../NumericSelector/NumericSelector";
+import { NumericInput } from "../NumericInput/NumericInput";
 import "./FretboradTuner.css";
 import { FretboardConfig } from "../../Viewers/Fretboard/Fretboard";
 import { FretboardStringConfig } from "../../Viewers/Fretboard/FretboardString";
@@ -65,7 +65,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     getStringTuner = (stringConfig: FretboardStringConfig, stringIndex: number) => {
         let items = [
             <td key='num' className='string-number'>{stringIndex + 1}</td>,
-            <td key='tuner'><NumericSelector value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
+            <td key='tuner'><NumericInput value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
         ];
         for (let i = 0; i < this.props.conceptIntervals.length; i++) {
             let interval = this.props.conceptIntervals[i];
@@ -94,7 +94,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     render = () => {
         return (
             <div className='fretboard-tuner'>
-                <NumericSelector
+                <NumericInput
                     value={this.props.viewerConfig.strings.length}
                     setValue={(value) => this.props.setValue([...this.props.viewerConfig.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING_CONFIG])}
                 />

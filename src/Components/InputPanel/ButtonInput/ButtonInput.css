@@ -1,4 +1,4 @@
-.char-button {
+.button-input {
     display: inline-block;
     background-color: #999;
     color: white;
@@ -15,28 +15,28 @@
 	user-select: none; /* Standard */
 }
 
-.char-button:hover {
+.button-input:hover {
     background-color: #888;
     cursor: pointer;
 }
 
-.char-button.active {
+.button-input.active {
     background-color: #FF5A09;
 }
 
-.char-button.readonly {
+.button-input.readonly {
     cursor: auto;
     font-weight: bold;
     background-color: #999;
 }
 
-.char-button.disabled {
+.button-input.disabled {
     background-color: #AAA;
     color: #DDD;
     cursor: auto;
 }
 
-.char-button.disabled:hover {
+.button-input.disabled:hover {
     background-color: #AAA;
     color: #DDD;
     cursor: auto;

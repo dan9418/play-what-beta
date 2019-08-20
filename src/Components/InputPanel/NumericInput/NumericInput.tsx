@@ -1,14 +1,14 @@
 import * as React from "react";
-import "./NumericSelector.css";
-import { CharButton } from "../CharButton/CharButton";
+import "./NumericInput.css";
+import { ButtonInput } from "../ButtonInput/ButtonInput";
 import { InputProps } from "../Input.config";
 
-interface NumericSelectorProps extends InputProps {
+interface NumericInputProps extends InputProps {
     max?: number;
     min?: number;
 }
 
-export class NumericSelector extends React.Component<NumericSelectorProps, null> {
+export class NumericInput extends React.Component<NumericInputProps, null> {
 
     constructor(props) {
         super(props);
@@ -24,20 +24,20 @@ export class NumericSelector extends React.Component<NumericSelectorProps, null>
 
     render = () => {
         return (
-            <div className='numeric-selector'>
-                <CharButton
+            <div className='numeric-input'>
+                <ButtonInput
                     active={false}
                     disabled={!this.canSubtract()}
                     action={() => { if (this.canSubtract()) this.props.setValue(this.props.value - 1); }}
                     className='down'
                     character='-'
                 />
-                <CharButton
+                <ButtonInput
                     active={false}
                     action={null}
                     character={this.props.value}
                 />
-                <CharButton
+                <ButtonInput
                     active={false}
                     disabled={!this.canAdd()}
                     action={() => { if (this.canAdd()) this.props.setValue(this.props.value + 1); }}

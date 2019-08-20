@@ -1,8 +1,8 @@
 import React = require("react");
 import "./InputPanel.css";
-import { BoxSelector } from "./BoxSelector/BoxSelector";
-import { NumericSelector } from "./NumericSelector/NumericSelector";
-import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
+import { ButtonListInput } from "./ButtonListInput/ButtonListInput";
+import { NumericInput } from "./NumericInput/NumericInput";
+import { DropdownInput } from "./DropdownInput/DropdownInput";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
 import { ViewDriverProps } from "../ViewDriver/ViewDriver";
@@ -54,21 +54,21 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 </div>
                 <InputRow>
                     <InputCell label='Degree' styles={{ vertical: true }}>
-                        <BoxSelector
+                        <ButtonListInput
                             value={this.props.degree}
                             setValue={(value) => this.props.setValue('degree', value)}
                             data={DEGREES}
                         />
                     </InputCell>
                     <InputCell label='Accidental' styles={{ vertical: true }}>
-                        <BoxSelector
+                        <ButtonListInput
                             value={this.props.accidental}
                             setValue={(value) => this.props.setValue('accidental', value)}
                             data={ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
                         />
                     </InputCell>
                     <InputCell label='Octave' styles={{ vertical: true }}>
-                        <NumericSelector
+                        <NumericInput
                             value={this.props.octave}
                             setValue={(value) => this.props.setValue('octave', value)}
                             min={0}
@@ -82,14 +82,14 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 </div>
                 <InputRow subrowInputs={this.getPresetOptionCells('conceptConfig', this.props.conceptType.optionInputs)}>
                     <InputCell label='Type' styles={{ vertical: true }}>
-                        <DropdownSelector
+                        <DropdownInput
                             value={this.props.conceptType}
                             setValue={(value) => this.props.setValue('conceptType', value)}
                             data={CONCEPT_TYPES}
                         />
                     </InputCell>
                     <InputCell label='Preset' styles={{ vertical: true }}>
-                        <DropdownSelector
+                        <DropdownInput
                             value={null}
                             setValue={(value) => this.props.setValue('conceptIntervals', value.config.intervals)}
                             data={this.props.conceptType.presets}
@@ -102,14 +102,14 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 </div>
                 <InputRow subrowInputs={this.getPresetOptionCells('viewerConfig', this.props.viewerType.optionInputs)}>
                     <InputCell label='Type' styles={{ vertical: true }}>
-                        <DropdownSelector
+                        <DropdownInput
                             value={this.props.viewerType}
                             setValue={(value) => this.props.setValue('viewerType', value)}
                             data={VIEWER_TYPES}
                         />
                     </InputCell>
                     <InputCell label='Preset' styles={{ vertical: true }}>
-                        <DropdownSelector
+                        <DropdownInput
                             value={null}
                             setValue={(value) => this.props.setValue('viewerConfig', value.config)}
                             data={this.props.viewerType.presets}
