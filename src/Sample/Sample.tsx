@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./Sample.css";
 import "../Components/Common/TheoryStyles.css"
-import { ViewerManager } from "../Components/ViewerManager/ViewerManager";
+import { ViewDriver } from "../Components/ViewDriver/ViewDriver";
 
 export class Sample extends React.Component<any, any> {
 
@@ -12,7 +12,7 @@ export class Sample extends React.Component<any, any> {
 
 	render = () => {
 		return (
-			<ViewerManager />
+			<ViewDriver />
 		);
 	};
 }

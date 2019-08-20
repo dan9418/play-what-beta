@@ -1,13 +1,13 @@
 import React = require("react");
 import "./InputPanel.css";
-import { ViewerManagerProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../Common/AppConfig";
+import { ViewDriverProps, ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_DEFINITIONS, InputDefinition } from "../Common/AppConfig";
 import { BoxSelector } from "./BoxSelector/BoxSelector";
 import { NumericSelector } from "./NumericSelector/NumericSelector";
 import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
 
-export interface InputPanelProps extends ViewerManagerProps {
+export interface InputPanelProps extends ViewDriverProps {
     setValue: (property: string, value: any) => void,
 }
 

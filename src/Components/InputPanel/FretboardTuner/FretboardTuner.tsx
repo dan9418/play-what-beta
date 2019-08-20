@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import "./FretboradTuner.css";
-import { InputProps, FretboardConfig, FretboardStringConfig, Interval, DEFAULT_FRETBOARD_STRING, ViewerManagerProps } from "../../Common/AppConfig";
+import { InputProps, FretboardConfig, FretboardStringConfig, Interval, DEFAULT_FRETBOARD_STRING, ViewDriverProps } from "../../Common/AppConfig";
 
-interface FretboardTunerProps extends InputProps, ViewerManagerProps {
+interface FretboardTunerProps extends InputProps, ViewDriverProps {
     // Overidden for specificity
     viewerProps: FretboardConfig;
     value: FretboardStringConfig[];

@@ -803,7 +803,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
 export const DEFAULT_CONCEPT = 1;
 export const DEFAULT_VIEWER = 1;
 
-export type ViewerManagerProps = {
+export type ViewDriverProps = {
     degree: Degree,
     accidental: Accidental,
     octave: number
@@ -820,7 +820,7 @@ export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
     reverse: false
 };
 
-export const DEFAULT_VIEWER_MANAGER_PROPS: ViewerManagerProps = {
+export const DEFAULT_VIEW_DRIVER_PROPS: ViewDriverProps = {
     degree: ALL_DEGREES[0],
     accidental: ALL_ACCIDENTALS[2],
     octave: 4,

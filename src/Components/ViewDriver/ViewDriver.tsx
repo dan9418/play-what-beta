@@ -1,15 +1,15 @@
 import * as React from "react";
 import { InputPanel } from "../InputPanel/InputPanel";
-import "./ViewerManager.css"
-import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS, KeyCenter } from "../Common/AppConfig";
+import "./ViewDriver.css"
+import { ViewDriverProps, DEFAULT_VIEW_DRIVER_PROPS, KeyCenter } from "../Common/AppConfig";
 import { TheoryEngine } from "../Common/TheoryEngine";
 
-export class ViewerManager extends React.Component<ViewerManagerProps | any, ViewerManagerProps> {
+export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDriverProps> {
 
     constructor(props) {
         super(props);
 
-        this.state = Object.assign({}, DEFAULT_VIEWER_MANAGER_PROPS, this.props);
+        this.state = Object.assign({}, DEFAULT_VIEW_DRIVER_PROPS, this.props);
     }
 
     setValue = (property: string, value: any) => {
@@ -34,7 +34,7 @@ export class ViewerManager extends React.Component<ViewerManagerProps | any, Vie
         let Viewer = this.state.viewerType.component;
 
         return (
-            <div className='viewer-manager'>
+            <div className='view-driver'>
                 <div className='input-panel-container'>
                     <InputPanel
                         {...this.state}
