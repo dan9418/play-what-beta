@@ -1,6 +1,6 @@
 import React = require("react");
 import "./InputPanel.css";
-import { ALL_DEGREES, ALL_ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_TYPES, InputDefinition } from "../Common/AppConfig";
+import { DEGREES, ACCIDENTALS, VIEWER_DEFINITIONS, CONCEPT_TYPES, InputDefinition } from "../Common/AppConfig";
 import { BoxSelector } from "./BoxSelector/BoxSelector";
 import { NumericSelector } from "./NumericSelector/NumericSelector";
 import { DropdownSelector } from "./DropdownSelector/DropdownSelector";
@@ -56,14 +56,14 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         <BoxSelector
                             value={this.props.degree}
                             setValue={(value) => this.props.setValue('degree', value)}
-                            data={ALL_DEGREES}
+                            data={DEGREES}
                         />
                     </InputCell>
                     <InputCell name='Accidental' vertical={true}>
                         <BoxSelector
                             value={this.props.accidental}
                             setValue={(value) => this.props.setValue('accidental', value)}
-                            data={ALL_ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
+                            data={ACCIDENTALS.filter((a) => { return Math.abs(a.offset) <= 1 })}
                         />
                     </InputCell>
                     <InputCell name='Octave' vertical={true}>

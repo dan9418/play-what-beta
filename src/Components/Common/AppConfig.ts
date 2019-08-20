@@ -42,7 +42,7 @@ export interface Degree {
     index: number;
 }
 
-export const ALL_DEGREES: Degree[] = [
+export const DEGREES: Degree[] = [
     {
         id: 'C',
         name: 'C',
@@ -96,7 +96,7 @@ export interface Accidental {
 }
 
 
-export const ALL_ACCIDENTALS: Accidental[] = [
+export const ACCIDENTALS: Accidental[] = [
     {
         id: 'doubleFlat',
         name: 'bb',
@@ -151,7 +151,7 @@ export interface NoteLabel {
     name: string;
 }
 
-export let ALL_NOTE_LABELS: NoteLabel[] = [
+export let NOTE_LABELS: NoteLabel[] = [
     {
         id: 'none',
         name: 'None'
@@ -643,7 +643,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'default',
                 name: 'Default',
                 config: {
-                    noteLabel: ALL_NOTE_LABELS[0],
+                    noteLabel: NOTE_LABELS[0],
                     filterOctave: true,
                     keyLow: 0,
                     keyHigh: 24
@@ -653,7 +653,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 id: 'singleOctave',
                 name: 'Single Octave',
                 config: {
-                    noteLabel: ALL_NOTE_LABELS[0],
+                    noteLabel: NOTE_LABELS[0],
                     filterOctave: true,
                     keyLow: 0,
                     keyHigh: 11
@@ -667,7 +667,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 bold: true,
                 component: DropdownSelector,
                 props: {
-                    data: ALL_NOTE_LABELS
+                    data: NOTE_LABELS
                 }
             },
             {
@@ -761,7 +761,7 @@ export const VIEWER_DEFINITIONS: ViewerType[] = [
                 bold: true,
                 component: DropdownSelector,
                 props: {
-                    data: ALL_NOTE_LABELS
+                    data: NOTE_LABELS
                 }
             },
             {
@@ -816,8 +816,8 @@ export const DEFAULT_CONCEPT_CONFIG: ConceptConfig = {
 };
 
 export const DEFAULT_VIEW_DRIVER_PROPS: ViewDriverProps = {
-    degree: ALL_DEGREES[0],
-    accidental: ALL_ACCIDENTALS[2],
+    degree: DEGREES[0],
+    accidental: ACCIDENTALS[2],
     octave: 4,
     conceptType: CONCEPT_TYPES[DEFAULT_CONCEPT],
     conceptIntervals: CONCEPT_TYPES[DEFAULT_CONCEPT].presets[0].config.intervals,
