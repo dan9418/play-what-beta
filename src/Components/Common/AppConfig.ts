@@ -4,6 +4,7 @@ import { SwitchSelector } from "../InputPanel/SwitchSelector/SwitchSelector";
 import { FretboardTuner } from "../InputPanel/FretboardTuner/FretboardTuner";
 import { Keyboard } from "../Viewers/Keyboard/Keyboard";
 import { Fretboard } from "../Viewers/Fretboard/Fretboard";
+import { FretboardStringConfig } from "../Viewers/Fretboard/FretboardString";
 
 // Inputs
 
@@ -223,10 +224,6 @@ export let ALL_NOTE_LABELS = [
 
 // Concept, General
 
-export interface ConceptConfig {
-    intervals: Interval[];
-}
-
 export interface ConceptDefinition {
     id: string;
     name: string;
@@ -234,7 +231,7 @@ export interface ConceptDefinition {
     options: any[];
 }
 
-export interface IntervalOptions {
+export interface ConceptConfig {
     chordInversion: number,
     melodicInversion: boolean,
     reverse: boolean;
@@ -588,41 +585,13 @@ export interface ViewerDefinition {
     presets: any[];
 }
 
+export interface ViewerProps {
+    notes: CompleteNote[];
+    config: any;
+}
+
 // Viewer, Piano
 
-export enum KeyboardKeyType {
-    Black,
-    White
-}
-
-export interface KeyboardKeyConfig {
-    noteIndex: number;
-    type: KeyboardKeyType;
-}
-
-export interface KeyboardConfig {
-    noteLabel: any;
-    filterOctave: boolean;
-    keyLow: number;
-    keyHigh: number;
-    keys: KeyboardKeyConfig[];
-}
-
-// Viewer, Fretboard
-
-export interface FretboardConfig {
-    noteLabel: any;
-    showDots: boolean;
-    filterOctave: boolean;
-    strings: FretboardStringConfig[];
-    fretLow: number;
-    fretHigh: number;
-}
-
-export interface FretboardStringConfig {
-    openPosition: number
-    filteredIntervals?: Interval[];
-}
 
 
 // Viewer, Combined
@@ -798,10 +767,7 @@ export const VIEWER_DEFINITIONS: ViewerDefinition[] = [
     }
 ];
 
-// Defaults
-
-export const DEFAULT_CONCEPT = 1;
-export const DEFAULT_VIEWER = 1;
+// Component props
 
 export type ViewDriverProps = {
     degree: Degree,
@@ -809,12 +775,17 @@ export type ViewDriverProps = {
     octave: number
     conceptType: any,
     conceptIntervals: Interval[],
-    conceptOptions: any
+    conceptConfig: ConceptConfig
     viewerType: any,
-    viewerProps: any
+    viewerConfig: any
 }
 
-export const DEFAULT_INTERVAL_OPTIONS: IntervalOptions = {
+// Defaults
+
+export const DEFAULT_CONCEPT = 1;
+export const DEFAULT_VIEWER = 1;
+
+export const DEFAULT_CONCEPT_CONFIG: ConceptConfig = {
     chordInversion: 0,
     melodicInversion: false,
     reverse: false
@@ -826,9 +797,9 @@ export const DEFAULT_VIEW_DRIVER_PROPS: ViewDriverProps = {
     octave: 4,
     conceptType: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT],
     conceptIntervals: CONCEPT_DEFINITIONS[DEFAULT_CONCEPT].presets[0].config.intervals,
-    conceptOptions: DEFAULT_INTERVAL_OPTIONS,
+    conceptConfig: DEFAULT_CONCEPT_CONFIG,
     viewerType: VIEWER_DEFINITIONS[DEFAULT_VIEWER],
-    viewerProps: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
+    viewerConfig: VIEWER_DEFINITIONS[DEFAULT_VIEWER].presets[0].config
 }
 
 export const DEFAULT_FRETBOARD_STRING: FretboardStringConfig = {

@@ -1,11 +1,16 @@
 import React = require("react");
-import { KeyboardKeyType, CompleteNote, KeyboardConfig } from "../../Common/AppConfig";
+import { CompleteNote } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 
-type KeyboardKeyProps = {
+export enum KeyboardKeyType {
+    Black,
+    White
+}
+
+export interface KeyboardKeyProps {
     type: KeyboardKeyType;
     note: CompleteNote;
-    config: KeyboardConfig;
+    noteLabel: any;
 }
 
 export class KeyboardKey extends React.Component<KeyboardKeyProps, null> {
@@ -22,7 +27,7 @@ export class KeyboardKey extends React.Component<KeyboardKeyProps, null> {
         return (
             <div className={`keyboard-key-container keyboard-key-container-${keyColor}`}>
                 <div className={classes.join(' ')}>
-                    <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
+                    <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel.id)}</div>
                 </div>
             </div>
         );

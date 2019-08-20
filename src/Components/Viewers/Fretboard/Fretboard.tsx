@@ -1,11 +1,19 @@
 import React = require("react");
-import { FretboardString } from "./FretboardString";
+import { FretboardString, FretboardStringConfig } from "./FretboardString";
 import "./Fretboard.css";
-import { CompleteNote, FretboardConfig, Interval } from "../../Common/AppConfig";
+import { CompleteNote, Interval, ViewerProps } from "../../Common/AppConfig";
 
-type FretboardProps = {
-    notes: CompleteNote[];
-    config: FretboardConfig
+export interface FretboardConfig {
+    noteLabel: any;
+    showDots: boolean;
+    filterOctave: boolean;
+    strings: FretboardStringConfig[];
+    fretLow: number;
+    fretHigh: number;
+}
+
+export interface FretboardProps extends ViewerProps {
+    config: FretboardConfig;
 };
 
 export class Fretboard extends React.Component<FretboardProps, null> {
@@ -27,10 +35,12 @@ export class Fretboard extends React.Component<FretboardProps, null> {
         return this.props.config.strings.map((string, index) => {
             return <FretboardString
                 key={index}
-                stringNumber={index + 1}
+                filterOctave={this.props.config.filterOctave}
                 notes={string.filteredIntervals ? this.filterNotes(this.props.notes, string.filteredIntervals) : this.props.notes}
+                noteLabel={this.props.config.noteLabel}
                 openPosition={string.openPosition}
-                config={this.props.config}
+                fretLow={this.props.config.fretLow}
+                fretHigh={this.props.config.fretHigh}
             />;
         });
     }

@@ -1,13 +1,19 @@
 import * as React from "react";
 import "./Keyboard.css";
-import { KeyboardKey } from "./KeyboardKey";
+import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { CompleteNote, KeyboardKeyConfig, KeyboardKeyType } from "../../Common/AppConfig";
+import { CompleteNote, ViewerProps } from "../../Common/AppConfig";
 import "./Keyboard.css";
 
-type KeyboardProps = {
-    notes: CompleteNote[];
-    config: any;
+export interface KeyboardConfig {
+    noteLabel: any;
+    filterOctave: boolean;
+    keyLow: number;
+    keyHigh: number;
+}
+
+export interface KeyboardProps extends ViewerProps {
+    config: KeyboardConfig;
 }
 
 export class Keyboard extends React.Component<KeyboardProps, null> {
@@ -15,15 +21,6 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
 
     constructor(props) {
         super(props);
-    }
-
-    getKeys = (lo: number, hi: number): KeyboardKeyConfig[] => {
-        let keys = [];
-        for (let i = lo; i <= hi; i++) {
-            let type = Keyboard.blackKeyIndices.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
-            keys.push({ noteIndex: i, type: type });
-        }
-        return keys;
     }
 
     isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
@@ -45,15 +42,19 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
     }
 
     getKeyboardKeys = () => {
-        return this.getKeys(this.props.config.keyLow, this.props.config.keyHigh)
-            .map((key, index) => {
-                return <KeyboardKey
-                    key={index}
-                    type={key.type}
-                    note={this.getNote(this.props.config.keyLow + index)}
-                    config={this.props.config}
-                />;
-            });
+        let keys = [];
+        for (let i = this.props.config.keyLow; i <= this.props.config.keyHigh; i++) {
+            let type = Keyboard.blackKeyIndices.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
+            keys.push(
+                <KeyboardKey
+                    key={i}
+                    type={type}
+                    note={this.getNote(this.props.config.keyLow + i)}
+                    noteLabel={this.props.config.noteLabel}
+                />
+            );
+        }
+        return keys;
     }
 
     render = () => {

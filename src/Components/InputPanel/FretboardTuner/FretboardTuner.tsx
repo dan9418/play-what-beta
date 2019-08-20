@@ -1,11 +1,13 @@
 import * as React from "react";
 import { NumericSelector } from "../NumericSelector/NumericSelector";
 import "./FretboradTuner.css";
-import { InputProps, FretboardConfig, FretboardStringConfig, Interval, DEFAULT_FRETBOARD_STRING, ViewDriverProps } from "../../Common/AppConfig";
+import { InputProps, Interval, DEFAULT_FRETBOARD_STRING, ViewDriverProps } from "../../Common/AppConfig";
+import { FretboardConfig } from "../../Viewers/Fretboard/Fretboard";
+import { FretboardStringConfig } from "../../Viewers/Fretboard/FretboardString";
 
 interface FretboardTunerProps extends InputProps, ViewDriverProps {
     // Overidden for specificity
-    viewerProps: FretboardConfig;
+    viewerConfig: FretboardConfig;
     value: FretboardStringConfig[];
 }
 
@@ -16,7 +18,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     }
 
     setValue = (stringIndex: number, property: string, value: any) => {
-        let mergedConfig = [...this.props.viewerProps.strings];
+        let mergedConfig = [...this.props.viewerConfig.strings];
         mergedConfig[stringIndex][property] = value;
         this.props.setValue(mergedConfig);
     }
@@ -79,8 +81,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
 
     getStringTuners = () => {
         let items = [];
-        for (let i = 0; i < this.props.viewerProps.strings.length; i++) {
-            let child = this.props.viewerProps.strings[i];
+        for (let i = 0; i < this.props.viewerConfig.strings.length; i++) {
+            let child = this.props.viewerConfig.strings[i];
             items.push(this.getStringTuner(child, i));
         }
         return items;
@@ -90,8 +92,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
         return (
             <div className='fretboard-tuner'>
                 <NumericSelector
-                    value={this.props.viewerProps.strings.length}
-                    setValue={(value) => this.props.setValue([...this.props.viewerProps.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING])}
+                    value={this.props.viewerConfig.strings.length}
+                    setValue={(value) => this.props.setValue([...this.props.viewerConfig.strings.slice(0, value - 1), DEFAULT_FRETBOARD_STRING])}
                 />
                 <table className='fretboard-tuner-table'>
                     <tbody>

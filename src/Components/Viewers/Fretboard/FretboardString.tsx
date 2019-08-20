@@ -1,13 +1,21 @@
-import { CompleteNote, FretboardConfig } from "../../Common/AppConfig";
+import { CompleteNote, Interval } from "../../Common/AppConfig";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
+import { FretboardProps } from "./Fretboard";
 
-type FretboardStringProps = {
-    notes: CompleteNote[];
-    stringNumber: number;
+export interface FretboardStringConfig {
+    openPosition: number
+    filteredIntervals?: Interval[];
+}
+
+export interface FretboardStringProps {
     openPosition: number;
-    config: FretboardConfig
+    filterOctave: boolean;
+    notes: CompleteNote[];
+    noteLabel: any;
+    fretLow: number;
+    fretHigh: number;
 };
 
 export class FretboardString extends React.Component<FretboardStringProps, null> {
@@ -17,7 +25,7 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
     }
 
     isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
-        if (this.props.config.filterOctave) {
+        if (this.props.filterOctave) {
             return note.noteIndex === noteIndex;
         }
         else {
@@ -37,13 +45,12 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
 
     getFrets = () => {
         let frets = [];
-        for (let i = this.props.config.fretLow; i <= this.props.config.fretHigh; i++) {
+        for (let i = this.props.fretLow; i <= this.props.fretHigh; i++) {
             frets.push(<FretboardFret
                 key={i}
                 fretNumber={i}
-                stringNumber={this.props.stringNumber}
                 note={this.getNote(this.props.openPosition + i)}
-                config={this.props.config}
+                noteLabel={this.props.noteLabel}
             />);
         }
         return frets;

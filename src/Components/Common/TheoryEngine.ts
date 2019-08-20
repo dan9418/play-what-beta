@@ -14,14 +14,14 @@ export class TheoryEngine {
     }
 
     // Verify
-    static parseIntervals = (key: KeyCenter, intervals: Interval[], intervalOptions: any): CompleteNote[] => {
+    static parseIntervals = (key: KeyCenter, intervals: Interval[], conceptConfig: any): CompleteNote[] => {
 
 		let parsedIntervals = [];
 		for (let i = 0; i < intervals.length; i++) {
 			parsedIntervals.push({ ...intervals[i] });
 		}
-		let chordInversion = intervalOptions.chordInversion;
-		let melodicInversion = intervalOptions.melodicInversion;
+		let chordInversion = conceptConfig.chordInversion;
+		let melodicInversion = conceptConfig.melodicInversion;
 
         let notes = [];
 		for (let i = 0; i < parsedIntervals.length; i++) {
@@ -35,7 +35,7 @@ export class TheoryEngine {
             notes.push(note);
 		}
 
-		/*if (intervalOptions.reverse)
+		/*if (conceptConfig.reverse)
 			notes.reverse();*/
 
 		return notes;

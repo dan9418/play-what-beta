@@ -1,12 +1,11 @@
 import React = require("react");
-import { CompleteNote, FretboardConfig } from "../../Common/AppConfig";
+import { CompleteNote } from "../../Common/AppConfig";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 
-type FretboardFretProps = {
+interface FretboardFretProps {
     fretNumber: number;
-    stringNumber: number;
     note: CompleteNote;
-    config: FretboardConfig;
+    noteLabel: any;
 }
 
 export class FretboardFret extends React.Component<FretboardFretProps, null> {
@@ -24,7 +23,7 @@ export class FretboardFret extends React.Component<FretboardFretProps, null> {
 
         return (
             <div className={classes.join(' ')}>
-                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.config.noteLabel.id)}</div>
+                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel.id)}</div>
             </div>
         );
     };

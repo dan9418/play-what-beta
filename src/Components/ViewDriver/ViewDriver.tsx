@@ -27,7 +27,7 @@ export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDrive
     }
 
     getNotes = () => {
-        return TheoryEngine.parseIntervals(this.getKeyCenter(), this.state.conceptIntervals, this.state.conceptOptions);
+        return TheoryEngine.parseIntervals(this.getKeyCenter(), this.state.conceptIntervals, this.state.conceptConfig);
     }
 
     render = () => {
@@ -44,7 +44,7 @@ export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDrive
                 <div className='viewer-container'>
                     <Viewer
                         notes={this.getNotes()}
-                        config={this.state.viewerProps}
+                        config={this.state.viewerConfig}
                     />
                 </div>
             </div>

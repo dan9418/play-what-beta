@@ -76,7 +76,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 <div className='input-panel-row-label'>
                     Concept
                 </div>
-                <InputRow subrowInputs={this.getInputCells('conceptOptions', this.props.conceptType.options)}>
+                <InputRow subrowInputs={this.getInputCells('conceptConfig', this.props.conceptType.options)}>
                     <InputCell name='Type' vertical={true}>
                         <DropdownSelector
                             value={this.props.conceptType}
@@ -96,7 +96,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                 <div className='input-panel-row-label'>
                     Viewers
                 </div>
-                <InputRow subrowInputs={this.getInputCells('viewerProps', this.props.viewerType.options)}>
+                <InputRow subrowInputs={this.getInputCells('viewerConfig', this.props.viewerType.options)}>
                     <InputCell name='Type' vertical={true}>
                         <DropdownSelector
                             value={this.props.viewerType}
@@ -107,7 +107,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                     <InputCell name='Preset' vertical={true}>
                         <DropdownSelector
                             value={null}
-                            setValue={(value) => this.props.setValue('viewerProps', value)}
+                            setValue={(value) => this.props.setValue('viewerConfig', value)}
                             data={this.props.viewerType.presets}
                         />
                     </InputCell>
