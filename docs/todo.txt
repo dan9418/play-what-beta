@@ -1,8 +1,7 @@
 ============V1============
 
-    Merge to master
-    Branch unfinished features
-
+    Publish to private npm
+    Configure samples
     Testing
     Add error boundries
     
