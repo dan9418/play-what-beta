@@ -1,4 +1,4 @@
-import { Concept, INTERVAL, NOTE_LABELS } from "../Common/Theory.config";
+import { Concept, INTERVAL, NOTE_LABELS } from "../../Common/Theory.config";
 import { SwitchInput } from "../Inputs/SwitchInput/SwitchInput";
 import { NumericInput } from "../Inputs/NumericInput/NumericInput";
 import { ViewerConfig, Viewer } from "../Viewers/Viewer.config";

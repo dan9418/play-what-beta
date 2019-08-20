@@ -1,6 +1,6 @@
 import { FretboardStringConfig } from "./FretboardString";
 import { FretboardConfig } from "./Fretboard";
-import { NOTE_LABELS } from "../../Common/Theory.config";
+import { NOTE_LABELS } from "../../../Common/Theory.config";
 
 export const DEFAULT_FRETBOARD_STRING_CONFIG: FretboardStringConfig = {
     openPosition: 0

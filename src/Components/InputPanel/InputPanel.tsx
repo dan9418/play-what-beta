@@ -4,9 +4,10 @@ import { PresetOption, CONCEPT_TYPES, VIEWER_TYPES } from "./InputPanel.config";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
 import { ButtonListInput } from "../Inputs/ButtonListInput/ButtonListInput";
-import { DEGREES, ACCIDENTALS } from "../Common/Theory.config";
+import { DEGREES, ACCIDENTALS } from "../../Common/Theory.config";
 import { NumericInput } from "../Inputs/NumericInput/NumericInput";
 import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
+import "./InputPanel.css";
 
 export interface InputPanelProps extends ViewDriverProps {
     setValue: (property: string, value: any) => void,

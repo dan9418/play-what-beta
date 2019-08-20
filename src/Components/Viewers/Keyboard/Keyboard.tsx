@@ -1,10 +1,10 @@
 import * as React from "react";
 import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
-import { TheoryEngine } from "../../Common/TheoryEngine";
+import { TheoryEngine } from "../../../Common/TheoryEngine";
 import "./Keyboard.css";
 import { ViewerConfig, ViewerProps } from "../Viewer.config";
-import { CompleteNote } from "../../Common/Theory.config";
+import { CompleteNote } from "../../../Common/Theory.config";
 
 export interface KeyboardConfig extends ViewerConfig {
     keyLow: number;

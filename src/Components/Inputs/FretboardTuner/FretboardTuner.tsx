@@ -5,7 +5,7 @@ import { FretboardConfig } from "../../Viewers/Fretboard/Fretboard";
 import { FretboardStringConfig } from "../../Viewers/Fretboard/FretboardString";
 import { ViewDriverProps } from "../../ViewDriver/ViewDriver";
 import { InputProps } from "../Input.config";
-import { Interval } from "../../Common/Theory.config";
+import { Interval } from "../../../Common/Theory.config";
 import { DEFAULT_FRETBOARD_STRING_CONFIG } from "../../Viewers/Fretboard/Fretboard.config";
 
 interface FretboardTunerProps extends InputProps, ViewDriverProps {
