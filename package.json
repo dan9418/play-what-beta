@@ -1,5 +1,5 @@
 {
-  "name": "music-theory-toolkit",
+  "name": "play-what-alpha",
   "version": "1.0.0",
   "description": "",
   "main": "App.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dan9418/music-theory-toolkit.git"
+    "url": "git+https://github.com/dan9418/play-what-alpha.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dan9418/music-theory-toolkit/issues"
+    "url": "https://github.com/dan9418/play-what-alpha/issues"
   },
-  "homepage": "https://github.com/dan9418/music-theory-toolkit#readme",
+  "homepage": "https://github.com/dan9418/play-what-alpha#readme",
   "dependencies": {
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
