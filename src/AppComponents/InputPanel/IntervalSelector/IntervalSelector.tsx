@@ -1,6 +1,6 @@
 import React = require("react");
-import { TheoryEngine } from "../../Common/TheoryEngine";
-import { KeyCenter, InputProps } from "../../Common/AppConfig";
+import { TheoryEngine } from "../../../Components/Common/TheoryEngine";
+import { KeyCenter, InputProps } from "../../../Components/Common/AppConfig";
 
 interface IntervalInputProps extends InputProps {
     keyDef: KeyCenter

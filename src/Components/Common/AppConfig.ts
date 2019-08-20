@@ -2,8 +2,8 @@ import { DropdownSelector } from "../InputPanel/DropdownSelector/DropdownSelecto
 import { NumericSelector } from "../InputPanel/NumericSelector/NumericSelector";
 import { SwitchSelector } from "../InputPanel/SwitchSelector/SwitchSelector";
 import { FretboardTuner } from "../InputPanel/FretboardTuner/FretboardTuner";
-import { Keyboard } from "../MusicViewer/Viewers/Keyboard/Keyboard";
-import { Fretboard } from "../MusicViewer/Viewers/Fretboard/Fretboard";
+import { Keyboard } from "../Viewers/Keyboard/Keyboard";
+import { Fretboard } from "../Viewers/Fretboard/Fretboard";
 
 // Inputs
 
@@ -36,7 +36,7 @@ export interface Accidental {
     offset: number;
 }
 
-export interface Key {
+export interface KeyCenter {
     degree: Degree;
     accidental: Accidental;
     octave: number;
@@ -50,6 +50,10 @@ export interface Interval {
     octaveOffset?: number;
 }
 
+export interface Concept {
+    intervals: Interval[];
+}
+
 export interface PhysicalNote {
     noteIndex: number;
     noteOctave: number;
@@ -58,7 +62,7 @@ export interface PhysicalNote {
 }
 
 export interface FunctionalNote {
-    key: Key;
+    key: KeyCenter;
     interval: Interval;
     noteDegree: number;
     pitchClass: number;

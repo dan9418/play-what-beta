@@ -1,11 +1,8 @@
 import * as React from "react";
 import { InputPanel } from "../InputPanel/InputPanel";
-import { Viewer } from "../MusicViewer/MusicViewer";
 import "./ViewerManager.css"
-import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS, InputDefinition, ALL_DEGREES, ALL_ACCIDENTALS, CONCEPT_DEFINITIONS, VIEWER_DEFINITIONS, INTERVAL_OPTIONS } from "../Common/AppConfig";
-import { BoxSelector } from "../InputPanel/BoxSelector/BoxSelector";
-import { NumericSelector } from "../InputPanel/NumericSelector/NumericSelector";
-import { DropdownSelector } from "../InputPanel/DropdownSelector/DropdownSelector";
+import { ViewerManagerProps, DEFAULT_VIEWER_MANAGER_PROPS, KeyCenter } from "../Common/AppConfig";
+import { TheoryEngine } from "../Common/TheoryEngine";
 
 export class ViewerManager extends React.Component<ViewerManagerProps | any, ViewerManagerProps> {
 
@@ -21,7 +18,21 @@ export class ViewerManager extends React.Component<ViewerManagerProps | any, Vie
         this.setState(update);
     }
 
+    getKeyCenter = (): KeyCenter => {
+        return {
+            degree: this.state.degree,
+            accidental: this.state.accidental,
+            octave: this.state.octave
+        }
+    }
+
+    getNotes = () => {
+        return TheoryEngine.parseIntervals(this.getKeyCenter(), this.state.conceptIntervals, this.state.conceptOptions);
+    }
+
     render = () => {
+        let Viewer = this.state.viewerType.component;
+
         return (
             <div className='viewer-manager'>
                 <div className='input-panel-container'>
@@ -32,7 +43,8 @@ export class ViewerManager extends React.Component<ViewerManagerProps | any, Vie
                 </div>
                 <div className='viewer-container'>
                     <Viewer
-                        {...this.state}
+                        notes={this.getNotes()}
+                        config={this.state.viewerProps}
                     />
                 </div>
             </div>

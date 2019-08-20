@@ -1,7 +1,7 @@
 import React = require("react");
 import { FretboardString } from "./FretboardString";
 import "./Fretboard.css";
-import { CompleteNote, FretboardConfig, Interval } from "../../../Common/AppConfig";
+import { CompleteNote, FretboardConfig, Interval } from "../../Common/AppConfig";
 
 type FretboardProps = {
     notes: CompleteNote[];

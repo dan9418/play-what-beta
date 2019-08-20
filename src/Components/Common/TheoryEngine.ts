@@ -1,4 +1,4 @@
-import { Interval, CompleteNote, INTERVAL, Key, ALL_DEGREES, CALIBRATION_NOTE } from "./AppConfig";
+import { Interval, CompleteNote, INTERVAL, KeyCenter, ALL_DEGREES, CALIBRATION_NOTE } from "./AppConfig";
 
 export class TheoryEngine {
 
@@ -13,17 +13,36 @@ export class TheoryEngine {
         return preResult + offset;
     }
 
-    static getNotesFromIntervals = (key: Key, intervals: Interval[], melodicInversion: boolean) => {
+    // Verify
+    static parseIntervals = (key: KeyCenter, intervals: Interval[], intervalOptions: any): CompleteNote[] => {
+
+		let parsedIntervals = [];
+		for (let i = 0; i < intervals.length; i++) {
+			parsedIntervals.push({ ...intervals[i] });
+		}
+		let chordInversion = intervalOptions.chordInversion;
+		let melodicInversion = intervalOptions.melodicInversion;
+
         let notes = [];
-        for (let i = 0; i < intervals.length; i++) {
+		for (let i = 0; i < parsedIntervals.length; i++) {
+			if (i < chordInversion) {
+				parsedIntervals[i].octaveOffset = 1;
+			}
+			if (melodicInversion && i > 0) {
+				parsedIntervals[i].octaveOffset = -1;
+            }
             let note = TheoryEngine.getFunctionalNote(key, intervals[i], melodicInversion);
             notes.push(note);
-        }
-        return notes;
-    }
+		}
+
+		/*if (intervalOptions.reverse)
+			notes.reverse();*/
+
+		return notes;
+	}
 
     // Verify
-    static getFunctionalNote = (key: Key, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
+    static getFunctionalNote = (key: KeyCenter, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
         // Calculate functional properties
         let noteDegree = TheoryEngine.getNoteDegree(key, interval, melodicInversion);
         let pitchClass = TheoryEngine.getPitchClass(key, interval, melodicInversion);
@@ -71,17 +90,17 @@ export class TheoryEngine {
 
 
     // Verify
-    static getNoteDegree = (key: Key, interval: Interval, melodicInversion: boolean): number => {
+    static getNoteDegree = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
         return TheoryEngine.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
     }
 
     // Verify
-    static getPitchClass= (key: Key, interval: Interval, melodicInversion: boolean): number => {
+    static getPitchClass= (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
         return TheoryEngine.moduloAddition(ALL_DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
     // Verify - definitely wrong
-    static getFunctionalNoteOctave = (key: Key, interval: Interval, melodicInversion: boolean): number => {
+    static getFunctionalNoteOctave = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
         return (interval.octaveOffset) ? key.octave + interval.octaveOffset: key.octave;
     }
 

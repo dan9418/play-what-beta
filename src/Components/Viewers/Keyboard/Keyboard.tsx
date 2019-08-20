@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./Keyboard.css";
 import { KeyboardKey } from "./KeyboardKey";
-import { TheoryEngine } from "../../../Common/TheoryEngine";
-import { CompleteNote, KeyboardKeyConfig, KeyboardKeyType } from "../../../Common/AppConfig";
+import { TheoryEngine } from "../../Common/TheoryEngine";
+import { CompleteNote, KeyboardKeyConfig, KeyboardKeyType } from "../../Common/AppConfig";
 import "./Keyboard.css";
 
 type KeyboardProps = {
