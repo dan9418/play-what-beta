@@ -15,11 +15,11 @@ export class NumericSelector extends React.Component<NumericSelectorProps, null>
     }
 
     canSubtract = (): boolean => {
-        return typeof this.props.min !== 'undefined' && this.props.value > this.props.min;
+        return (typeof this.props.min === 'undefined') || (this.props.value > this.props.min);
     }
 
     canAdd = (): boolean => {
-        return typeof this.props.max !== 'undefined' && this.props.value < this.props.max;
+        return (typeof this.props.max === 'undefined') || (this.props.value < this.props.max);
     }
 
     render = () => {

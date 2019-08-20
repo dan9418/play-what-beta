@@ -71,6 +71,8 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                         <NumericSelector
                             value={this.props.octave}
                             setValue={(value) => this.props.setValue('octave', value)}
+                            min={0}
+                            max={10}
                         />
                     </InputCell>
                 </InputRow >

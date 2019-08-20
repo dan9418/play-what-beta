@@ -531,12 +531,12 @@ export const VIEWER_TYPES: ViewerType[] = [
                     fretLow: 0,
                     fretHigh: 12,
                     strings: [
-                        { openPosition: 16, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] },   // e
-                        { openPosition: 11, filteredIntervals: [INTERVAL.m3, INTERVAL.M3] },   // B
-                        { openPosition: 7, filteredIntervals: [INTERVAL.PU] },    // G
-                        { openPosition: 2, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] },    // D
-                        { openPosition: -3, filteredIntervals: [INTERVAL.PU] },   // A
-                        { openPosition: -8, filteredIntervals: [] }    // E   
+                        { openPosition: 16, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] }, // e
+                        { openPosition: 11, filteredIntervals: [INTERVAL.m3, INTERVAL.M3] }, // B
+                        { openPosition: 7, filteredIntervals: [INTERVAL.PU] }, // G
+                        { openPosition: 2, filteredIntervals: [INTERVAL.P5, INTERVAL.d5] }, // D
+                        { openPosition: -3, filteredIntervals: [INTERVAL.PU] }, // A
+                        { openPosition: -8, filteredIntervals: [] } // E   
                     ]
                 }
             },
@@ -574,7 +574,10 @@ export const VIEWER_TYPES: ViewerType[] = [
                 id: 'fretLow',
                 name: 'Low Fret',
                 component: NumericSelector,
-                props: {},
+                props: {
+                    min: 0,
+                    max: 24
+                },
                 styles: {
                     bold: true
                 }
@@ -583,7 +586,10 @@ export const VIEWER_TYPES: ViewerType[] = [
                 id: 'fretHigh',
                 name: 'High Fret',
                 component: NumericSelector,
-                props: {},
+                props: {
+                    min: 0,
+                    max: 24
+                },
                 styles: {
                     bold: true
                 }
