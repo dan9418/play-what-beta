@@ -18,7 +18,7 @@ export interface ViewDriverProps {
     viewerConfig: ViewerConfig;
 }
 
-export class ViewDriver extends React.Component<ViewDriverProps | any, ViewDriverProps> {
+export class ViewDriver extends React.Component<ViewDriverProps, ViewDriverProps> {
 
     constructor(props) {
         super(props);

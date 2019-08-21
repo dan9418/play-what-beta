@@ -1,7 +1,6 @@
 .view-driver {
     display: inline-block;
     text-align: center;
-    margin: 50px;
     background-color: #DDD;
     border-radius: 10px;
 }

@@ -1,10 +1,11 @@
 var path = require('path');
 var config = {
   mode: 'development',
-  entry: ['./src/Sample/Sample.tsx'],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'sample.js'
+    filename: 'play-what-alpha.js',
+    libraryTarget: "commonjs2"
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']

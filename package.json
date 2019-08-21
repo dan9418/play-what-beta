@@ -2,7 +2,7 @@
   "name": "play-what-alpha",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  "main": "build/play-what-alpha.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compileJSX": "npx babel src --out-dir lib --presets react-app/prod --copy-files",
