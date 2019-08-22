@@ -5,9 +5,9 @@ import { TheoryEngine } from "../../Common/TheoryEngine";
 import { Degree, Accidental, Interval, ConceptConfig, KeyCenter } from "../../Common/Theory.config";
 import { ConceptType, ViewerType } from "../InputPanel/InputPanel.config";
 import { ViewerConfig } from "../Viewers/Viewer.config";
-import { DEFAULT_VIEW_DRIVER_PROPS } from "./ViewDriver.config";
+import { DEFAULT_VIEW_DRIVER_STATE } from "./ViewDriver.config";
 
-export interface ViewDriverProps {
+export interface ViewDriverState {
     degree: Degree;
     accidental: Accidental;
     octave: number;
@@ -18,12 +18,12 @@ export interface ViewDriverProps {
     viewerConfig: ViewerConfig;
 }
 
-export class ViewDriver extends React.Component<ViewDriverProps, ViewDriverProps> {
+export class ViewDriver extends React.Component<null, ViewDriverState> {
 
     constructor(props) {
         super(props);
 
-        this.state = Object.assign({}, DEFAULT_VIEW_DRIVER_PROPS, this.props);
+        this.state = DEFAULT_VIEW_DRIVER_STATE;
     }
 
     setValue = (property: string, value: any) => {
@@ -35,7 +35,7 @@ export class ViewDriver extends React.Component<ViewDriverProps, ViewDriverProps
         }
         if(property === 'conceptType') {
             update['conceptIntervals'] = value.presets[0].config.intervals;
-            update['conceptConfig'] = DEFAULT_VIEW_DRIVER_PROPS.conceptConfig;
+            update['conceptConfig'] = DEFAULT_VIEW_DRIVER_STATE.conceptConfig;
         }
         this.setState(update);
     }

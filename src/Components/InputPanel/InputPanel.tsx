@@ -1,6 +1,6 @@
-import { ViewDriverProps } from "../ViewDriver/ViewDriver";
+import { ViewDriverState } from "../ViewDriver/ViewDriver";
 import React = require("react");
-import { PresetOption, CONCEPT_TYPES, VIEWER_TYPES } from "./InputPanel.config";
+import { OptionInput, CONCEPT_TYPES, VIEWER_TYPES } from "./InputPanel.config";
 import { InputCell } from "./InputCell/InputCell";
 import { InputRow } from "./InputRow/InputRow";
 import { ButtonListInput } from "../Inputs/ButtonListInput/ButtonListInput";
@@ -9,7 +9,7 @@ import { NumericInput } from "../Inputs/NumericInput/NumericInput";
 import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
 import "./InputPanel.css";
 
-export interface InputPanelProps extends ViewDriverProps {
+export interface InputPanelProps extends ViewDriverState {
     setValue: (property: string, value: any) => void,
 }
 
@@ -25,7 +25,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
         this.props.setValue(parentProperty, update)
     }
 
-    getPresetOptionCells = (parentProperty: string, options: PresetOption[]) => {
+    getPresetOptionCells = (parentProperty: string, options: OptionInput[]) => {
         let inputCells = [];
         for (let i = 0; i < options.length; i++) {
             let option = options[i];
@@ -91,7 +91,7 @@ export class InputPanel extends React.Component<InputPanelProps, null> {
                     <InputCell label='Preset' styles={{ vertical: true }}>
                         <DropdownInput
                             value={null}
-                            setValue={(value) => this.props.setValue('conceptIntervals', value.config.intervals)}
+                            setValue={(value) => this.props.setValue('conceptIntervals', value.intervals)}
                             data={this.props.conceptType.presets}
                         />
                     </InputCell>

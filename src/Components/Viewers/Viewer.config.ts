@@ -7,7 +7,7 @@ export interface Viewer {
 export interface ViewerConfig {
     filterOctave: boolean;
     noteLabel: NoteLabel;
-    /*[property: string]: any;*/
+    [property: string]: any;
 }
 
 export interface ViewerProps {
