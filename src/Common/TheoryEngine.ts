@@ -11,27 +11,36 @@ export class TheoryEngine {
         return ((a % b) + b) % b;
     }
 
+    static applyChordInversion = (intervals: Interval[], inversion: number): void => {
+        // Shift octaves
+        for (let i = 0; i < inversion; i++) {
+            intervals[i].octaveOffset = intervals[i].octaveOffset + 1;
+        }
+        // Shift order
+        inversion -= intervals.length * Math.floor(inversion / intervals.length);
+        intervals.push.apply(intervals, intervals.splice(0, inversion));
+    }
+
     // Verify
     static parseIntervals = (key: KeyCenter, intervals: Interval[], conceptConfig: any): CompleteNote[] => {
 
+        // Copy intervals
         let parsedIntervals = [];
         for (let i = 0; i < intervals.length; i++) {
-            parsedIntervals.push({ ...intervals[i] });
+            parsedIntervals.push(Object.assign({ octaveOffset: 0 }, intervals[i]));
         }
-        let chordInversion = conceptConfig.chordInversion;
-        let melodicInversion = conceptConfig.melodicInversion;
+
+        // Apply chord inversion, if specified
+        if(conceptConfig.chordInversion) {
+            TheoryEngine.applyChordInversion(parsedIntervals, conceptConfig.chordInversion);
+        }
 
         let notes = [];
         for (let i = 0; i < parsedIntervals.length; i++) {
-            if (typeof parsedIntervals[i].octaveOffset === 'undefined')
-                parsedIntervals[i].octaveOffset = 0;
-            if (i < chordInversion) {
-                parsedIntervals[i].octaveOffset = parsedIntervals[i].octaveOffset + 1;
-            }
-            if (melodicInversion && i > 0) {
+            if (conceptConfig.melodicInversion && i > 0) {
                 parsedIntervals[i].octaveOffset = parsedIntervals[i].octaveOffset - 1;
             }
-            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], melodicInversion);
+            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], conceptConfig.melodicInversion);
             notes.push(note);
         }
 
