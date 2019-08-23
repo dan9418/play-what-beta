@@ -2,15 +2,13 @@ import { KeyCenter, Interval, CompleteNote, INTERVAL, DEGREES, CALIBRATION_NOTE 
 
 export class TheoryEngine {
 
-    // Verify
-    static moduloAddition = (a: number, b: number, limit: number, offset: number = 0, subtract: boolean): number => {
-        let preResult = ((a - offset) + (b - offset)) % limit
-        if (subtract) {
-            preResult = limit - preResult;
-            if (preResult === limit)
-                preResult = 0;
-        }
-        return preResult + offset;
+    static moduloSum = (a: number, b: number, divisor: number, offset: number = 0, subtraction: boolean = false): number => {
+        let dividend = (subtraction) ? ((a - offset) - (b - offset)) : ((a - offset) + (b - offset));
+        return TheoryEngine.modulo(dividend, divisor) + offset;
+    }
+
+    static modulo = (a: number, b: number): number => {
+        return ((a % b) + b) % b;
     }
 
     // Verify
@@ -90,12 +88,12 @@ export class TheoryEngine {
 
     // Verify
     static getNoteDegree = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return TheoryEngine.moduloAddition(key.degree.value, interval.degree, 7, 1, melodicInversion);
+        return TheoryEngine.moduloSum(key.degree.value, interval.degree, 7, 1, melodicInversion);
     }
 
     // Verify
     static getPitchClass = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return TheoryEngine.moduloAddition(DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
+        return TheoryEngine.moduloSum(DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
     // Verify - definitely wrong
