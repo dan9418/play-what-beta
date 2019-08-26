@@ -1,16 +1,8 @@
 import { Interval, KeyCenter, Concept, CompleteNote } from "./TheoryTypes";
 import { INTERVAL, DEGREE, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
+import { Utils } from "./Utils";
 
 export class TheoryEngine {
-
-    static moduloSum = (a: number, b: number, divisor: number, offset: number = 0, subtraction: boolean = false): number => {
-        let dividend = (subtraction) ? ((a - offset) - (b - offset)) : ((a - offset) + (b - offset));
-        return TheoryEngine.modulo(dividend, divisor) + offset;
-    }
-
-    static modulo = (a: number, b: number): number => {
-        return ((a % b) + b) % b;
-    }
 
     static applyChordInversion = (intervals: Interval[], inversion: number): void => {
         // Shift octaves
@@ -98,12 +90,12 @@ export class TheoryEngine {
 
     // Verify
     static getNoteDegree = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return TheoryEngine.moduloSum(key.degree.value, interval.degree, 7, 1, melodicInversion);
+        return Utils.moduloSum(key.degree.value, interval.degree, 7, 1, melodicInversion);
     }
 
     // Verify
     static getPitchClass = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return TheoryEngine.moduloSum(Object.values(DEGREE)[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
+        return Utils.moduloSum(Object.values(DEGREE)[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
     // Verify - definitely wrong
