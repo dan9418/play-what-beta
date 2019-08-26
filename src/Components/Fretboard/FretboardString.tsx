@@ -23,32 +23,13 @@ export class FretboardString extends React.Component<FretboardStringProps, null>
         super(props);
     }
 
-    isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
-        if (this.props.filterOctave) {
-            return note.noteIndex === noteIndex;
-        }
-        else {
-            return (noteIndex >= 0) ?
-                note.pitchClass === (noteIndex % 12) :
-                note.pitchClass === (noteIndex % 12 + 12);
-        }
-    }
-
-    getNote = (noteIndex): CompleteNote => {
-        let note = this.props.notes.find((note) => { return this.isNoteValid(note, noteIndex); }) || null;
-        if (note === null)
-            note = TheoryEngine.getNonfunctionalNote(noteIndex);
-        return note;
-    }
-
-
     getFrets = () => {
         let frets = [];
         for (let i = this.props.fretLow; i <= this.props.fretHigh; i++) {
             frets.push(<FretboardFret
                 key={i}
                 fretNumber={i}
-                note={this.getNote(this.props.openPosition + i)}
+                note={TheoryEngine.getNote(this.props.notes, this.props.openPosition + i, this.props.filterOctave)}
                 noteLabel={this.props.noteLabel}
             />);
         }

@@ -3,7 +3,7 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { Accidental, NoteLabel, Interval, CompleteNote, ConceptConfig, Degree, KeyCenter, Concept } from "../../Common/Theory.config";
+import { NoteLabel, CompleteNote,KeyCenter, Concept, DEGREE, ACCIDENTAL } from "../../Common/Theory.config";
 
 export interface KeyboardProps {
     keyCenter: KeyCenter,
@@ -14,29 +14,27 @@ export interface KeyboardProps {
     keyHigh: number;
 }
 
+const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
+    keyCenter: {
+        degree: DEGREE.C,
+        accidental: ACCIDENTAL.Natural,
+        octave: 4
+    },
+    concept: {
+        intervals: [],
+        intervalOptions: {}
+    },
+    noteLabel: NoteLabel.Interval,
+    filterOctave: true,
+    keyLow: 0,
+    keyHigh: 24
+}
+
 export class Keyboard extends React.Component<KeyboardProps, null> {
     static blackKeyIndices = [0, 2, 4, 5, 7, 9, 11] as any;
 
     constructor(props) {
         super(props);
-    }
-
-    isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
-        if (this.props.filterOctave) {
-            return note.noteIndex === noteIndex;
-        }
-        else {
-            return (noteIndex >= 0) ?
-                note.pitchClass === (noteIndex % 12) :
-                note.pitchClass === (noteIndex % 12 + 12);
-        }
-    }
-
-    getNote = (notes: CompleteNote[], noteIndex): CompleteNote => {
-        let note = notes.find((note) => { return this.isNoteValid(note, noteIndex) }) || null;
-        if (note === null)
-            note = TheoryEngine.getNonfunctionalNote(noteIndex);
-        return note;
     }
 
     getKeyboardKeys = (notes: CompleteNote[]) => {
@@ -47,7 +45,7 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
                 <KeyboardKey
                     key={i}
                     type={type}
-                    note={this.getNote(notes, this.props.keyLow + i)}
+                    note={TheoryEngine.getNote(notes, this.props.keyLow + i, this.props.filterOctave)}
                     noteLabel={this.props.noteLabel}
                 />
             );
@@ -56,6 +54,7 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
     }
 
     render = () => {
+        let config = Object.assign(DEFAULT_KEYBOARD_PROPS, this.props);
         let notes = TheoryEngine.parseIntervals(this.props.keyCenter, this.props.concept)
         return (
             <div className='keyboard'>

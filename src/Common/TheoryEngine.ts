@@ -31,7 +31,7 @@ export class TheoryEngine {
         }
 
         // Apply chord inversion, if specified
-        if(concept.intervalOptions.chordInversion) {
+        if (concept.intervalOptions.chordInversion) {
             TheoryEngine.applyChordInversion(parsedIntervals, concept.intervalOptions.chordInversion);
         }
 
@@ -195,5 +195,25 @@ export class TheoryEngine {
             default:
                 return '';
         }
+    }
+
+    static isNoteValid = (note: CompleteNote, noteIndex: number, filterOctave: boolean): boolean => {
+        if (filterOctave) {
+            return note.noteIndex === noteIndex;
+        }
+        else {
+            return (noteIndex >= 0) ?
+                note.pitchClass === (noteIndex % 12) :
+                note.pitchClass === (noteIndex % 12 + 12);
+        }
+    }
+
+    static getNote = (notes: CompleteNote[], noteIndex, filterOctave: boolean): CompleteNote => {
+        let note = notes.find((note) => {
+            return TheoryEngine.isNoteValid(note, noteIndex, filterOctave)
+        }) || null;
+        if (note === null)
+            note = TheoryEngine.getNonfunctionalNote(noteIndex);
+        return note;
     }
 }
