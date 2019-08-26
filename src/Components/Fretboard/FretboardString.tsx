@@ -1,7 +1,7 @@
 import React = require("react");
-import { TheoryEngine } from "../../../Common/TheoryEngine";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
-import { Interval, CompleteNote } from "../../../Common/Theory.config";
+import { Interval, CompleteNote } from "../../Common/Theory.config";
 
 export interface FretboardStringConfig {
     openPosition: number

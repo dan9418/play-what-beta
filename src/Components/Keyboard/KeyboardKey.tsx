@@ -1,6 +1,6 @@
 import React = require("react");
-import { TheoryEngine } from "../../../Common/TheoryEngine";
-import { NoteLabel, CompleteNote } from "../../../Common/Theory.config";
+import { TheoryEngine } from "../../Common/TheoryEngine";
+import { NoteLabel, CompleteNote } from "../../Common/Theory.config";
 
 export enum KeyboardKeyType {
     Black,

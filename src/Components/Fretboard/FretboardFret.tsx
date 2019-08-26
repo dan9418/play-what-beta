@@ -1,6 +1,6 @@
 import React = require("react");
-import { TheoryEngine } from "../../../Common/TheoryEngine";
-import { CompleteNote, NoteLabel } from "../../../Common/Theory.config";
+import { TheoryEngine } from "../../Common/TheoryEngine";
+import { CompleteNote, NoteLabel } from "../../Common/Theory.config";
 
 interface FretboardFretProps {
     fretNumber: number;

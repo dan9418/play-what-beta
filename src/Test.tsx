@@ -1,9 +1,8 @@
 import React = require("react");
-import { ViewDriver } from "./Components/ViewDriver/ViewDriver";
-import { Fretboard } from "./Components/Viewers/Fretboard/Fretboard";
+import { Fretboard } from "./Components/Fretboard/Fretboard";
 import { TheoryEngine } from "./Common/TheoryEngine";
 import { Concepts } from "./Common/Theory.config";
-import { Keyboard } from "./Components/Viewers/Keyboard/Keyboard";
+import { Keyboard } from "./Components/Keyboard/Keyboard";
 import ReactDOM = require("react-dom");
 import "./Common/TheoryStyles.css"
 
@@ -16,7 +15,6 @@ export class Test extends React.Component {
     render() {
         return (
             <div className="sample-container">
-                {/*<ViewDriver />*/}
 
                 <Fretboard
                     notes={
