@@ -1,4 +1,4 @@
-import { KeyCenter, Interval, CompleteNote, INTERVAL, DEGREES, CALIBRATION_NOTE } from "./Theory.config";
+import { KeyCenter, Interval, CompleteNote, INTERVAL, DEGREE, CALIBRATION_NOTE } from "./Theory.config";
 
 export class TheoryEngine {
 
@@ -102,7 +102,7 @@ export class TheoryEngine {
 
     // Verify
     static getPitchClass = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return TheoryEngine.moduloSum(DEGREES[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
+        return TheoryEngine.moduloSum(Object.values(DEGREE)[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
     // Verify - definitely wrong
@@ -122,12 +122,12 @@ export class TheoryEngine {
 
     // Verify
     static getAccidentalOffset = (noteDegree: number, pitchClass: number): number => {
-        return pitchClass - DEGREES[noteDegree - 1].index;
+        return pitchClass - Object.values(DEGREE)[noteDegree - 1].index;
     }
 
     // Verify
     static getNoteName = (noteDegree: number, accidentalOffset: number): string => {
-        return DEGREES[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
+        return Object.values(DEGREE)[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
     }
 
     // Verify

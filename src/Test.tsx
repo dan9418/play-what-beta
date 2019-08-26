@@ -1,7 +1,7 @@
 import React = require("react");
 import { Fretboard } from "./Components/Fretboard/Fretboard";
 import { TheoryEngine } from "./Common/TheoryEngine";
-import { Concepts } from "./Common/Theory.config";
+import { Concepts, DEGREE, ACCIDENTAL } from "./Common/Theory.config";
 import { Keyboard } from "./Components/Keyboard/Keyboard";
 import ReactDOM = require("react-dom");
 import "./Common/TheoryStyles.css"
@@ -20,17 +20,8 @@ export class Test extends React.Component {
                     notes={
                         TheoryEngine.parseIntervals(
                             {
-                                degree: {
-                                    id: 'C',
-                                    name: 'C',
-                                    value: 1,
-                                    index: 0
-                                },
-                                accidental: {
-                                    id: 'natural',
-                                    name: '♮',
-                                    offset: 0
-                                },
+                                degree: DEGREE.C,
+                                accidental: ACCIDENTAL.Natural,
                                 octave: 4
                             },
                             Concepts.Chords.maj.intervals,
@@ -57,7 +48,16 @@ export class Test extends React.Component {
                 />
 
                 <Keyboard
-                    notes={[]}
+                    notes={
+                        TheoryEngine.parseIntervals(
+                            {
+                                degree: DEGREE.C,
+                                accidental: ACCIDENTAL.Natural,
+                                octave: 4
+                            },
+                            Concepts.Chords.maj.intervals,
+                            {}
+                        )}
                     config={{
                         noteLabel: {
                             id: 'interval',

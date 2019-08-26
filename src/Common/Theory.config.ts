@@ -48,50 +48,50 @@ export interface Degree {
     index: number;
 }
 
-export const DEGREES: Degree[] = [
-    {
+export const DEGREE: { [id: string]: Degree } = {
+    C: {
         id: 'C',
         name: 'C',
         value: 1,
         index: 0
     },
-    {
+    D: {
         id: 'D',
         name: 'D',
         value: 2,
         index: 2
     },
-    {
+    E: {
         id: 'E',
         name: 'E',
         value: 3,
         index: 4
     },
-    {
+    F: {
         id: 'F',
         name: 'F',
         value: 4,
         index: 5
     },
-    {
+    G: {
         id: 'G',
         name: 'G',
         value: 5,
         index: 7
     },
-    {
+    A: {
         id: 'A',
         name: 'A',
         value: 6,
         index: 9
     },
-    {
+    B: {
         id: 'B',
         name: 'B',
         value: 7,
         index: 11
     }
-];
+};
 
 export interface Accidental {
     id: string;
@@ -99,33 +99,23 @@ export interface Accidental {
     offset: number;
 }
 
-export const ACCIDENTALS: Accidental[] = [
-    {
-        id: 'doubleFlat',
-        name: 'bb',
-        offset: -2
-    },
-    {
+export const ACCIDENTAL: { [id: string]: Accidental } = {
+    Flat: {
         id: 'flat',
         name: 'b',
         offset: -1
     },
-    {
+    Natural: {
         id: 'natural',
         name: '♮',
         offset: 0
     },
-    {
+    Sharp: {
         id: 'sharp',
         name: '#',
         offset: 1
-    },
-    {
-        id: 'doubleSharp',
-        name: 'xx',
-        offset: 2
     }
-];
+};
 
 export interface Concept {
     intervals: Interval[];
