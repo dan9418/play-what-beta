@@ -1,13 +1,13 @@
 import { FretboardStringConfig } from "./FretboardString";
 import { FretboardConfig } from "./Fretboard";
-import { NOTE_LABELS } from "../../Common/Theory.config";
+import { NoteLabel } from "../../Common/Theory.config";
 
 export const DEFAULT_FRETBOARD_STRING_CONFIG: FretboardStringConfig = {
     openPosition: 0
 }
 
 export const DEFAULT_FRETBOARD_CONFIG: FretboardConfig = {
-    noteLabel: NOTE_LABELS[0],
+    noteLabel: NoteLabel.Interval,
     showDots: true,
     filterOctave: true,
     fretLow: 0,

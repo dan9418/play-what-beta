@@ -23,7 +23,7 @@ export class FretboardFret extends React.Component<FretboardFretProps, null> {
 
         return (
             <div className={classes.join(' ')}>
-                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel.id)}</div>
+                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel)}</div>
             </div>
         );
     };

@@ -27,7 +27,7 @@ export class KeyboardKey extends React.Component<KeyboardKeyProps, null> {
         return (
             <div className={`keyboard-key-container keyboard-key-container-${keyColor}`}>
                 <div className={classes.join(' ')}>
-                    <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel.id)}</div>
+                    <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel)}</div>
                 </div>
             </div>
         );

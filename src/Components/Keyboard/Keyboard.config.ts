@@ -1,4 +1,4 @@
-import { NOTE_LABELS, DEGREE, ACCIDENTAL } from "../../Common/Theory.config";
+import { DEGREE, ACCIDENTAL, NoteLabel } from "../../Common/Theory.config";
 import { KeyboardProps } from "./Keyboard";
 
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
@@ -11,7 +11,7 @@ export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
         intervals: [],
         intervalOptions: {}
     },
-    noteLabel: NOTE_LABELS[0],
+    noteLabel: NoteLabel.Interval,
     filterOctave: true,
     keyLow: 0,
     keyHigh: 24

@@ -122,45 +122,16 @@ export interface ConceptConfig {
     melodicInversion?: boolean
 }
 
-export interface NoteLabel {
-    id: string;
-    name: string;
+export enum NoteLabel {
+    None,
+    Name,
+    Interval,
+    PitchClass,
+    NoteIndex,
+    RelativeDegree,
+    Octave,
+    Frequency
 }
-
-export let NOTE_LABELS: NoteLabel[] = [
-    {
-        id: 'none',
-        name: 'None'
-    },
-    {
-        id: 'name',
-        name: 'Name'
-    },
-    {
-        id: 'interval',
-        name: 'Interval'
-    },
-    {
-        id: 'pitchClass',
-        name: 'Relative Position'
-    },
-    {
-        id: 'noteIndex',
-        name: 'Absolute Position'
-    },
-    {
-        id: 'relativeDegree',
-        name: 'Degree'
-    },
-    {
-        id: 'octave',
-        name: 'Octave'
-    },
-    {
-        id: 'frequency',
-        name: 'Frequency'
-    }
-];
 
 /***** Composite Interfaces *****/
 
