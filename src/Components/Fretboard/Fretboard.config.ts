@@ -1,12 +1,21 @@
 import { FretboardStringConfig } from "./FretboardString";
-import { FretboardConfig } from "./Fretboard";
-import { NoteLabel } from "../../Common/Theory.config";
+import { NoteLabel, DEGREE, ACCIDENTAL } from "../../Common/Theory.config";
+import { FretboardProps } from "./Fretboard";
 
 export const DEFAULT_FRETBOARD_STRING_CONFIG: FretboardStringConfig = {
     openPosition: 0
 }
 
-export const DEFAULT_FRETBOARD_CONFIG: FretboardConfig = {
+export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
+    keyCenter: {
+        degree: DEGREE.C,
+        accidental: ACCIDENTAL.Natural,
+        octave: 4
+    },
+    concept: {
+        intervals: [],
+        intervalOptions: {}
+    },
     noteLabel: NoteLabel.Interval,
     showDots: true,
     filterOctave: true,

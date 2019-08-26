@@ -1,18 +1,18 @@
 import React = require("react");
 import { FretboardString, FretboardStringConfig } from "./FretboardString";
 import "./Fretboard.css";
-import { ViewerConfig, ViewerProps } from "../Viewer.config";
-import { CompleteNote, Interval } from "../../Common/Theory.config";
+import { CompleteNote, Interval, NoteLabel, Concept, KeyCenter } from "../../Common/Theory.config";
+import { TheoryEngine } from "../../Common/TheoryEngine";
 
-export interface FretboardConfig extends ViewerConfig {
+export interface FretboardProps {
+    keyCenter: KeyCenter,
+    concept: Concept,
+    noteLabel: NoteLabel,
+    filterOctave: boolean,
     showDots: boolean;
     strings: FretboardStringConfig[];
     fretLow: number;
     fretHigh: number;
-}
-
-export interface FretboardProps extends ViewerProps {
-    config: FretboardConfig;
 };
 
 export class Fretboard extends React.Component<FretboardProps, null> {
@@ -31,15 +31,16 @@ export class Fretboard extends React.Component<FretboardProps, null> {
     }
 
     getFretboardStrings = () => {
-        return this.props.config.strings.map((string, index) => {
+        let notes = TheoryEngine.parseIntervals(this.props.keyCenter, this.props.concept)
+        return this.props.strings.map((string, index) => {
             return <FretboardString
                 key={index}
-                filterOctave={this.props.config.filterOctave}
-                notes={string.filteredIntervals ? this.filterNotes(this.props.notes, string.filteredIntervals) : this.props.notes}
-                noteLabel={this.props.config.noteLabel}
+                filterOctave={this.props.filterOctave}
+                notes={string.filteredIntervals ? this.filterNotes(notes, string.filteredIntervals) : notes}
+                noteLabel={this.props.noteLabel}
                 openPosition={string.openPosition}
-                fretLow={this.props.config.fretLow}
-                fretHigh={this.props.config.fretHigh}
+                fretLow={this.props.fretLow}
+                fretHigh={this.props.fretHigh}
             />;
         });
     }
@@ -54,7 +55,7 @@ export class Fretboard extends React.Component<FretboardProps, null> {
 
     getDots = () => {
         let dots = [];
-        for (let i = this.props.config.fretLow; i <= this.props.config.fretHigh; i++) {
+        for (let i = this.props.fretLow; i <= this.props.fretHigh; i++) {
             dots.push(<div className='fretboard-fret-dots' key={i}>
                 {this.getDotsForFret(i % 12)}
             </div>);
@@ -67,7 +68,7 @@ export class Fretboard extends React.Component<FretboardProps, null> {
             <div className='fretboard'>
                 {this.getFretboardStrings()}
                 <div className='dots-container'>
-                    {this.props.config.showDots && this.getDots()}
+                    {this.props.showDots && this.getDots()}
                 </div>
             </div>
         );

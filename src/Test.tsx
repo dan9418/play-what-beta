@@ -17,33 +17,28 @@ export class Test extends React.Component {
             <div className="sample-container">
 
                 <Fretboard
-                    notes={
-                        TheoryEngine.parseIntervals(
-                            {
-                                degree: DEGREE.C,
-                                accidental: ACCIDENTAL.Natural,
-                                octave: 4
-                            },
-                            {
-                                intervals: Concepts.Chords.maj.intervals,
-                                intervalOptions: {}
-                            }
-                        )}
-                    config={{
-                        noteLabel: NoteLabel.Interval,
-                        showDots: true,
-                        filterOctave: true,
-                        fretLow: 0,
-                        fretHigh: 12,
-                        strings: [
-                            { openPosition: 16 },   // e
-                            { openPosition: 11 },   // B
-                            { openPosition: 7 },    // G
-                            { openPosition: 2 },    // D
-                            { openPosition: -3 },   // A
-                            { openPosition: -8 }    // E   
-                        ]
+                    keyCenter={{
+                        degree: DEGREE.C,
+                        accidental: ACCIDENTAL.Natural,
+                        octave: 4
                     }}
+                    concept={{
+                        intervals: Concepts.Chords.maj.intervals,
+                        intervalOptions: {}
+                    }}
+                    noteLabel={NoteLabel.Interval}
+                    showDots={true}
+                    filterOctave={true}
+                    fretLow={0}
+                    fretHigh={12}
+                    strings={[
+                        { openPosition: 16 },   // e
+                        { openPosition: 11 },   // B
+                        { openPosition: 7 },    // G
+                        { openPosition: 2 },    // D
+                        { openPosition: -3 },   // A
+                        { openPosition: -8 }    // E
+                    ]}
                 />
 
                 <Keyboard
