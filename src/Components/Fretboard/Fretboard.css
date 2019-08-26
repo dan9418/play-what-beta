@@ -27,11 +27,6 @@
 	border-right: 2px solid darkgrey;
 }
 
-.fretboard-fret:hover {
-	cursor: pointer;
-	background-color: grey !important;
-}
-
 .fretboard-fret-open {
 	border-right: 3px solid grey;
 }
@@ -46,10 +41,6 @@
     line-height: 18px;
 	width: 28px;
 	border-radius: 5px;
-}
-
-.fretboard-fret-label:hover {
-	background-color: grey !important;
 }
 
 .fretboard-fret-string {

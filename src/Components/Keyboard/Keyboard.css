@@ -29,11 +29,6 @@
 	position: relative;
 }
 
-.keyboard-key:hover {
-	cursor: pointer;
-	background-color: darkgray !important;
-}
-
 .keyboard-key-container-white .keyboard-key {
 	height: 100px;
 	width: 25px;
