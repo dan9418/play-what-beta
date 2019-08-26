@@ -4,8 +4,7 @@
   "description": "",
   "main": "build/play-what-alpha.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compileJSX": "npx babel src --out-dir lib --presets react-app/prod --copy-files",
+    "test": "jest",
     "build": "webpack"
   },
   "repository": {
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/dan9418/play-what-alpha#readme",
   "dependencies": {
+    "@types/jest": "^24.0.18",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "babel-cli": "^6.26.0",
@@ -29,10 +29,17 @@
     "webpack": "^4.35.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/node": "^12.6.8",
+    "babel-jest": "^24.9.0",
     "css-loader": "^3.0.0",
+    "jest": "^24.9.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.2",
     "webpack-cli": "^3.3.5"
