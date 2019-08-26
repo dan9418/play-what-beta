@@ -24,16 +24,16 @@ export class TheoryEngine {
         }
 
         // Apply chord inversion, if specified
-        if (concept.intervalOptions.chordInversion) {
+        if (concept.intervalOptions && concept.intervalOptions.chordInversion) {
             TheoryEngine.applyChordInversion(parsedIntervals, concept.intervalOptions.chordInversion);
         }
 
         let notes = [];
         for (let i = 0; i < parsedIntervals.length; i++) {
-            if (concept.intervalOptions.melodicInversion && i > 0) {
+            if (concept.intervalOptions && concept.intervalOptions.melodicInversion && i > 0) {
                 parsedIntervals[i].octaveOffset = parsedIntervals[i].octaveOffset - 1;
             }
-            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], concept.intervalOptions.melodicInversion);
+            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], concept.intervalOptions && concept.intervalOptions.melodicInversion);
             notes.push(note);
         }
 

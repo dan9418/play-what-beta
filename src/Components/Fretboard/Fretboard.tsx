@@ -1,13 +1,11 @@
-import { KeyCenter, Concept } from "../../Common/TheoryTypes";
+import { KeyCenter, Concept, ViewerProps } from "../../Common/TheoryTypes";
 import { FretboardStringConfig, FretboardString } from "./FretboardString";
 import { DEGREE, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
 
-export interface FretboardProps {
-    keyCenter?: KeyCenter,
-    concept?: Concept,
+export interface FretboardProps extends ViewerProps {
     noteLabel?: NOTE_LABEL,
     filterOctave?: boolean,
     showFretNumbers?: boolean,

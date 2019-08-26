@@ -36,7 +36,7 @@ export interface IntervalOptions {
 
 export interface Concept {
     intervals: Interval[];
-    intervalOptions: IntervalOptions
+    intervalOptions?: IntervalOptions
 }
 
 export interface ConceptDefinition {
@@ -64,3 +64,10 @@ export interface FunctionalNote {
 }
 
 export interface CompleteNote extends PhysicalNote, FunctionalNote { }
+
+/***** General *****/
+
+export interface ViewerProps {
+    keyCenter?: KeyCenter;
+    concept?: Concept;
+}

@@ -3,12 +3,10 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { KeyCenter, Concept } from "../../Common/TheoryTypes";
+import { KeyCenter, Concept, ViewerProps } from "../../Common/TheoryTypes";
 import { NOTE_LABEL, DEGREE, ACCIDENTAL } from "../../Common/TheoryConstants";
 
-export interface KeyboardProps {
-    keyCenter?: KeyCenter,
-    concept?: Concept,
+export interface KeyboardProps extends ViewerProps {
     filterOctave?: boolean;
     noteLabel?: NOTE_LABEL;
     keyLow?: number;
