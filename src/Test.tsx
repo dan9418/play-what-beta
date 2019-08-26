@@ -1,10 +1,9 @@
 import React = require("react");
 import { Fretboard } from "./Components/Fretboard/Fretboard";
-import { TheoryEngine } from "./Common/TheoryEngine";
-import { Concepts, DEGREE, ACCIDENTAL, NoteLabel } from "./Common/Theory.config";
 import { Keyboard } from "./Components/Keyboard/Keyboard";
 import ReactDOM = require("react-dom");
 import "./Common/TheoryStyles.css"
+import { DEGREE, ACCIDENTAL, NOTE_LABEL, CHORDS } from "./Common/TheoryConstants";
 
 export class Test extends React.Component {
 
@@ -23,10 +22,10 @@ export class Test extends React.Component {
                         octave: 4
                     }}
                     concept={{
-                        intervals: Concepts.Chords.maj.intervals,
+                        intervals: CHORDS.maj.intervals,
                         intervalOptions: {}
                     }}
-                    noteLabel={NoteLabel.Interval}
+                    noteLabel={NOTE_LABEL.Interval}
                     showDots={true}
                     filterOctave={true}
                     fretLow={0}
@@ -50,10 +49,10 @@ export class Test extends React.Component {
                         octave: 4
                     }}
                     concept={{
-                        intervals: Concepts.Chords.maj.intervals,
+                        intervals: CHORDS.maj.intervals,
                         intervalOptions: {}
                     }}
-                    noteLabel={NoteLabel.Interval}
+                    noteLabel={NOTE_LABEL.Interval}
                     filterOctave={true}
                     keyLow={0}
                     keyHigh={24}

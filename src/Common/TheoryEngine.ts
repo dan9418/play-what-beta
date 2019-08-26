@@ -1,4 +1,5 @@
-import { KeyCenter, Interval, CompleteNote, INTERVAL, DEGREE, CALIBRATION_NOTE, Concept, NoteLabel } from "./Theory.config";
+import { Interval, KeyCenter, Concept, CompleteNote } from "./TheoryTypes";
+import { INTERVAL, DEGREE, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
 
 export class TheoryEngine {
 
@@ -174,23 +175,23 @@ export class TheoryEngine {
         }
     };
 
-    static getNoteLabel = (note: CompleteNote, labelId: NoteLabel): string | number => {
+    static getNoteLabel = (note: CompleteNote, labelId: NOTE_LABEL): string | number => {
         switch (labelId) {
-            case NoteLabel.None:
+            case NOTE_LABEL.None:
                 return '';
-            case NoteLabel.Name:
+            case NOTE_LABEL.Name:
                 return note.name;
-            case NoteLabel.Interval:
+            case NOTE_LABEL.Interval:
                 return note.interval.id;
-            case NoteLabel.PitchClass:
+            case NOTE_LABEL.PitchClass:
                 return note.pitchClass;
-            case NoteLabel.NoteIndex:
+            case NOTE_LABEL.NoteIndex:
                 return note.noteIndex;
-            case NoteLabel.RelativeDegree:
+            case NOTE_LABEL.RelativeDegree:
                 return note.interval.degree;
-            case NoteLabel.Octave:
+            case NOTE_LABEL.Octave:
                 return note.noteOctave;
-            case NoteLabel.Frequency:
+            case NOTE_LABEL.Frequency:
                 return note.frequency;
             default:
                 return '';

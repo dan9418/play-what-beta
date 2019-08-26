@@ -3,13 +3,14 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { NoteLabel, KeyCenter, Concept, DEGREE, ACCIDENTAL } from "../../Common/Theory.config";
+import { KeyCenter, Concept } from "../../Common/TheoryTypes";
+import { NOTE_LABEL, DEGREE, ACCIDENTAL } from "../../Common/TheoryConstants";
 
 export interface KeyboardProps {
     keyCenter?: KeyCenter,
     concept?: Concept,
     filterOctave?: boolean;
-    noteLabel?: NoteLabel;
+    noteLabel?: NOTE_LABEL;
     keyLow?: number;
     keyHigh?: number;
 }
@@ -24,7 +25,7 @@ const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
         intervals: [],
         intervalOptions: {}
     },
-    noteLabel: NoteLabel.Interval,
+    noteLabel: NOTE_LABEL.Interval,
     filterOctave: true,
     keyLow: 0,
     keyHigh: 24

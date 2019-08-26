@@ -1,13 +1,14 @@
+import { KeyCenter, Concept } from "../../Common/TheoryTypes";
+import { FretboardStringConfig, FretboardString } from "./FretboardString";
+import { DEGREE, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
 import React = require("react");
-import { FretboardString, FretboardStringConfig } from "./FretboardString";
-import "./Fretboard.css";
-import { NoteLabel, Concept, KeyCenter, DEGREE, ACCIDENTAL } from "../../Common/Theory.config";
 import { TheoryEngine } from "../../Common/TheoryEngine";
+import "./Fretboard.css";
 
 export interface FretboardProps {
     keyCenter?: KeyCenter,
     concept?: Concept,
-    noteLabel?: NoteLabel,
+    noteLabel?: NOTE_LABEL,
     filterOctave?: boolean,
     showDots?: boolean;
     strings?: FretboardStringConfig[];
@@ -25,7 +26,7 @@ const DEFAULT_FRETBOARD_PROPS = {
         intervals: [],
         intervalOptions: {}
     },
-    noteLabel: NoteLabel.Interval,
+    noteLabel: NOTE_LABEL.Interval,
     filterOctave: true,
     showDots: true,
     fretLow: 0,

@@ -1,6 +1,7 @@
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { NoteLabel, CompleteNote } from "../../Common/Theory.config";
+import { CompleteNote } from "../../Common/TheoryTypes";
+import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
 export enum KeyboardKeyType {
     Black,
@@ -10,7 +11,7 @@ export enum KeyboardKeyType {
 export interface KeyboardKeyProps {
     type: KeyboardKeyType;
     note: CompleteNote;
-    noteLabel: NoteLabel;
+    noteLabel: NOTE_LABEL;
 }
 
 export function KeyboardKey(props: KeyboardKeyProps) {
