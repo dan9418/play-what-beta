@@ -216,4 +216,13 @@ export class TheoryEngine {
             note = TheoryEngine.getNonfunctionalNote(noteIndex);
         return note;
     }
+
+    static filterNotes = (notes: CompleteNote[], filteredIntervals: Interval[]): CompleteNote[] => {
+        let result = notes.filter((note) => {
+            return 'undefined' !== typeof filteredIntervals.find((interval) => {
+                return interval.id === note.interval.id;
+            });
+        });
+        return result;
+    }
 }

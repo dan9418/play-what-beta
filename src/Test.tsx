@@ -41,6 +41,8 @@ export class Test extends React.Component {
                     ]}
                 />
 
+                <Fretboard/>
+
                 <Keyboard
                     keyCenter={{
                         degree: DEGREE.C,
@@ -56,6 +58,8 @@ export class Test extends React.Component {
                     keyLow={0}
                     keyHigh={24}
                 />
+
+                <Keyboard/>
             </div>
         )
     }
