@@ -17,29 +17,22 @@ export interface FretboardStringProps {
     fretHigh: number;
 };
 
-export class FretboardString extends React.Component<FretboardStringProps, null> {
-
-    constructor(props) {
-        super(props);
+function getFrets(props: FretboardStringProps) {
+    let frets = [];
+    for (let i = props.fretLow; i <= props.fretHigh; i++) {
+        frets.push(<FretboardFret
+            key={i}
+            fretNumber={i}
+            note={TheoryEngine.getNote(props.notes, props.openPosition + i, props.filterOctave)}
+            noteLabel={props.noteLabel}
+        />);
     }
+    return frets;
+}
 
-    getFrets = () => {
-        let frets = [];
-        for (let i = this.props.fretLow; i <= this.props.fretHigh; i++) {
-            frets.push(<FretboardFret
-                key={i}
-                fretNumber={i}
-                note={TheoryEngine.getNote(this.props.notes, this.props.openPosition + i, this.props.filterOctave)}
-                noteLabel={this.props.noteLabel}
-            />);
-        }
-        return frets;
-    }
-
-    render = () => {
-        return <div className='fretboard-string'>
-            {this.getFrets()}
-            <div className='fretboard-fret-string' />
-        </div>;
-    };
+export function FretboardString(props: FretboardStringProps) {
+    return <div className='fretboard-string'>
+        {getFrets(props)}
+        <div className='fretboard-fret-string' />
+    </div>;
 }

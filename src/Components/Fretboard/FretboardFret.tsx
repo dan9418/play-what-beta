@@ -8,23 +8,16 @@ interface FretboardFretProps {
     noteLabel: NoteLabel;
 }
 
-export class FretboardFret extends React.Component<FretboardFretProps, null> {
+export function FretboardFret(props: FretboardFretProps) {
+    let colorClass = (props.note.interval.id !== '') ? `degree-${props.note.interval.degree}` : '';
+    let classes = ['fretboard-fret', 'wood'];
+    let labelClasses = [colorClass, 'fretboard-fret-label']
+    if (props.fretNumber === 0)
+        classes.push('fretboard-fret-open');
 
-    constructor(props) {
-        super(props);
-    }
-
-    render = () => {
-        let colorClass = (this.props.note.interval.id !== '') ? `degree-${this.props.note.interval.degree}` : '';
-        let classes = ['fretboard-fret', 'wood'];
-        let labelClasses = [colorClass, 'fretboard-fret-label']
-        if (this.props.fretNumber === 0)
-            classes.push('fretboard-fret-open');
-
-        return (
-            <div className={classes.join(' ')}>
-                <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(this.props.note, this.props.noteLabel)}</div>
-            </div>
-        );
-    };
+    return (
+        <div className={classes.join(' ')}>
+            <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(props.note, props.noteLabel)}</div>
+        </div>
+    );
 }

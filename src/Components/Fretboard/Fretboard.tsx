@@ -42,54 +42,47 @@ const DEFAULT_FRETBOARD_PROPS = {
 
 const DOTTED_FRET_INDICES: number[] = [3, 5, 7, 9];
 
-export class Fretboard extends React.Component<FretboardProps, null> {
+function getDotsForFret(fretNumber: number): string {
+    if (fretNumber === 0)
+        return '• •';
+    else if (DOTTED_FRET_INDICES.includes(fretNumber))
+        return '•';
+    return '';
+}
 
-    constructor(props) {
-        super(props);
+function getDots(config: FretboardProps) {
+    let dots = [];
+    for (let i = config.fretLow; i <= config.fretHigh; i++) {
+        dots.push(<div className='fretboard-fret-dots' key={i}>
+            {getDotsForFret(i % 12)}
+        </div>);
     }
+    return dots;
+}
 
-    getDotsForFret = (fretNumber: number): string => {
-        if (fretNumber === 0)
-            return '• •';
-        else if (DOTTED_FRET_INDICES.includes(fretNumber))
-            return '•';
-        return '';
-    }
+function getFretboardStrings(config: FretboardProps) {
+    let notes = TheoryEngine.parseIntervals(config.keyCenter, config.concept)
+    return config.strings.map((string, index) => {
+        return <FretboardString
+            key={index}
+            filterOctave={config.filterOctave}
+            notes={string.filteredIntervals ? TheoryEngine.filterNotes(notes, string.filteredIntervals) : notes}
+            noteLabel={config.noteLabel}
+            openPosition={string.openPosition}
+            fretLow={config.fretLow}
+            fretHigh={config.fretHigh}
+        />;
+    });
+}
 
-    getDots = (config: FretboardProps) => {
-        let dots = [];
-        for (let i = config.fretLow; i <= config.fretHigh; i++) {
-            dots.push(<div className='fretboard-fret-dots' key={i}>
-                {this.getDotsForFret(i % 12)}
-            </div>);
-        }
-        return dots;
-    }
-
-    getFretboardStrings = (config: FretboardProps) => {
-        let notes = TheoryEngine.parseIntervals(config.keyCenter, config.concept)
-        return config.strings.map((string, index) => {
-            return <FretboardString
-                key={index}
-                filterOctave={config.filterOctave}
-                notes={string.filteredIntervals ? TheoryEngine.filterNotes(notes, string.filteredIntervals) : notes}
-                noteLabel={config.noteLabel}
-                openPosition={string.openPosition}
-                fretLow={config.fretLow}
-                fretHigh={config.fretHigh}
-            />;
-        });
-    }
-
-    render = () => {
-        let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, this.props);
-        return (
-            <div className='fretboard'>
-                {this.getFretboardStrings(config)}
-                <div className='dots-container'>
-                    {config.showDots && this.getDots(config)}
-                </div>
+export function Fretboard(props: FretboardProps) {
+    let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
+    return (
+        <div className='fretboard'>
+            {getFretboardStrings(config)}
+            <div className='dots-container'>
+                {config.showDots && getDots(config)}
             </div>
-        );
-    };
+        </div>
+    );
 }
