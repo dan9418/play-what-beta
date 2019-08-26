@@ -52,6 +52,27 @@
     width: 100%;
 }
 
+
+/* Fret Numbers */
+
+.fret-numbers-container {
+	position: absolute;
+    display: inline-block;
+    top: -16px;
+    left: 0px;
+    height: 16px;
+}
+
+.fret-number {
+    width: 30px;
+	color: grey;
+	display: inline-block;
+	margin: 1px;
+	font-size: 12px;
+}
+
+/* Fret Dots */
+
 .dots-container {
 	position: absolute;
     display: inline-block;

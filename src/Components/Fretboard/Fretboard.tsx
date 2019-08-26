@@ -10,13 +10,14 @@ export interface FretboardProps {
     concept?: Concept,
     noteLabel?: NOTE_LABEL,
     filterOctave?: boolean,
+    showFretNumbers?: boolean,
     showDots?: boolean;
     strings?: FretboardStringConfig[];
     fretLow?: number;
     fretHigh?: number;
 };
 
-const DEFAULT_FRETBOARD_PROPS = {
+const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     keyCenter: {
         degree: DEGREE.C,
         accidental: ACCIDENTAL.Natural,
@@ -28,6 +29,7 @@ const DEFAULT_FRETBOARD_PROPS = {
     },
     noteLabel: NOTE_LABEL.Interval,
     filterOctave: true,
+    showFretNumbers: true,
     showDots: true,
     fretLow: 0,
     fretHigh: 12,
@@ -58,7 +60,17 @@ function getDots(config: FretboardProps) {
             {getDotsForFret(i % 12)}
         </div>);
     }
-    return dots;
+    return <div className='dots-container'>{dots}</div>;
+}
+
+function getFretNumbers(config: FretboardProps) {
+    let numbers = [];
+    for (let i = config.fretLow; i <= config.fretHigh; i++) {
+        numbers.push(<div className='fret-number' key={i}>
+            {i}
+        </div>);
+    }
+    return <div className='fret-numbers-container'>{numbers}</div>;
 }
 
 function getFretboardStrings(config: FretboardProps) {
@@ -80,10 +92,9 @@ export function Fretboard(props: FretboardProps) {
     let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
     return (
         <div className='fretboard'>
+            {config.showFretNumbers && getFretNumbers(config)}
             {getFretboardStrings(config)}
-            <div className='dots-container'>
-                {config.showDots && getDots(config)}
-            </div>
+            {config.showDots && getDots(config)}
         </div>
     );
 }
