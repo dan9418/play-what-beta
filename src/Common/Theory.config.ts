@@ -117,13 +117,9 @@ export const ACCIDENTAL: { [id: string]: Accidental } = {
     }
 };
 
-export interface Concept {
-    intervals: Interval[];
-}
-
 export interface ConceptConfig {
-    chordInversion: number,
-    melodicInversion: boolean
+    chordInversion?: number,
+    melodicInversion?: boolean
 }
 
 export interface NoteLabel {
@@ -172,6 +168,11 @@ export interface KeyCenter {
     degree: Degree;
     accidental: Accidental;
     octave: number;
+}
+
+export interface Concept {
+    intervals: Interval[];
+    intervalOptions: ConceptConfig
 }
 
 export interface PhysicalNote {

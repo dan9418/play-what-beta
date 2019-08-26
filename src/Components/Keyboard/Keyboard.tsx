@@ -3,16 +3,15 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { ViewerConfig, ViewerProps } from "../Viewer.config";
-import { CompleteNote } from "../../Common/Theory.config";
+import { Accidental, NoteLabel, Interval, CompleteNote, ConceptConfig, Degree, KeyCenter, Concept } from "../../Common/Theory.config";
 
-export interface KeyboardConfig extends ViewerConfig {
+export interface KeyboardProps {
+    keyCenter: KeyCenter,
+    concept: Concept,
+    filterOctave: boolean;
+    noteLabel: NoteLabel;
     keyLow: number;
     keyHigh: number;
-}
-
-export interface KeyboardProps extends ViewerProps {
-    config: KeyboardConfig;
 }
 
 export class Keyboard extends React.Component<KeyboardProps, null> {
@@ -23,7 +22,7 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
     }
 
     isNoteValid = (note: CompleteNote, noteIndex: number): boolean => {
-        if (this.props.config.filterOctave) {
+        if (this.props.filterOctave) {
             return note.noteIndex === noteIndex;
         }
         else {
@@ -33,23 +32,23 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
         }
     }
 
-    getNote = (noteIndex): CompleteNote => {
-        let note = this.props.notes.find((note) => { return this.isNoteValid(note, noteIndex) }) || null;
+    getNote = (notes: CompleteNote[], noteIndex): CompleteNote => {
+        let note = notes.find((note) => { return this.isNoteValid(note, noteIndex) }) || null;
         if (note === null)
             note = TheoryEngine.getNonfunctionalNote(noteIndex);
         return note;
     }
 
-    getKeyboardKeys = () => {
+    getKeyboardKeys = (notes: CompleteNote[]) => {
         let keys = [];
-        for (let i = this.props.config.keyLow; i <= this.props.config.keyHigh; i++) {
+        for (let i = this.props.keyLow; i <= this.props.keyHigh; i++) {
             let type = Keyboard.blackKeyIndices.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
             keys.push(
                 <KeyboardKey
                     key={i}
                     type={type}
-                    note={this.getNote(this.props.config.keyLow + i)}
-                    noteLabel={this.props.config.noteLabel}
+                    note={this.getNote(notes, this.props.keyLow + i)}
+                    noteLabel={this.props.noteLabel}
                 />
             );
         }
@@ -57,9 +56,10 @@ export class Keyboard extends React.Component<KeyboardProps, null> {
     }
 
     render = () => {
+        let notes = TheoryEngine.parseIntervals(this.props.keyCenter, this.props.concept)
         return (
             <div className='keyboard'>
-                {this.getKeyboardKeys()}
+                {this.getKeyboardKeys(notes)}
             </div>
         );
     }

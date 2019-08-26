@@ -24,8 +24,10 @@ export class Test extends React.Component {
                                 accidental: ACCIDENTAL.Natural,
                                 octave: 4
                             },
-                            Concepts.Chords.maj.intervals,
-                            {}
+                            {
+                                intervals: Concepts.Chords.maj.intervals,
+                                intervalOptions: {}
+                            }
                         )}
                     config={{
                         noteLabel: {
@@ -48,25 +50,22 @@ export class Test extends React.Component {
                 />
 
                 <Keyboard
-                    notes={
-                        TheoryEngine.parseIntervals(
-                            {
-                                degree: DEGREE.C,
-                                accidental: ACCIDENTAL.Natural,
-                                octave: 4
-                            },
-                            Concepts.Chords.maj.intervals,
-                            {}
-                        )}
-                    config={{
-                        noteLabel: {
-                            id: 'interval',
-                            name: 'Interval'
-                        },
-                        filterOctave: true,
-                        keyLow: 0,
-                        keyHigh: 24
+                    keyCenter={{
+                        degree: DEGREE.C,
+                        accidental: ACCIDENTAL.Natural,
+                        octave: 4
                     }}
+                    concept={{
+                        intervals: Concepts.Chords.maj.intervals,
+                        intervalOptions: {}
+                    }}
+                    noteLabel={{
+                        id: 'interval',
+                        name: 'Interval'
+                    }}
+                    filterOctave={true}
+                    keyLow={0}
+                    keyHigh={24}
                 />
             </div>
         )
