@@ -16,7 +16,7 @@ export class Test extends React.Component {
     render() {
         return (
             <div className="sample-container">
-                <ViewDriver />
+                {/*<ViewDriver />*/}
 
                 <Fretboard
                     notes={
