@@ -210,9 +210,9 @@ export class TheoryEngine {
         return note;
     }
 
-    static filterNotes = (notes: CompleteNote[], filteredIntervals: Interval[]): CompleteNote[] => {
+    static filterNotes = (notes: CompleteNote[], unfilteredIntervals: Interval[]): CompleteNote[] => {
         let result = notes.filter((note) => {
-            return 'undefined' !== typeof filteredIntervals.find((interval) => {
+            return 'undefined' !== typeof unfilteredIntervals.find((interval) => {
                 return interval.id === note.interval.id;
             });
         });

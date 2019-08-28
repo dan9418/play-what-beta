@@ -15,7 +15,7 @@ export interface FretboardProps extends ViewerProps {
     fretHigh?: number;
 };
 
-const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
+export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     keyCenter: {
         degree: DEGREE.C,
         accidental: ACCIDENTAL.Natural,
@@ -32,12 +32,12 @@ const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     fretLow: 0,
     fretHigh: 12,
     strings: [
-        { openPosition: 16 },   // e
-        { openPosition: 11 },   // B
-        { openPosition: 7 },    // G
-        { openPosition: 2 },    // D
-        { openPosition: -3 },   // A
-        { openPosition: -8 }    // E
+        { tuning: 16 },   // e
+        { tuning: 11 },   // B
+        { tuning: 7 },    // G
+        { tuning: 2 },    // D
+        { tuning: -3 },   // A
+        { tuning: -8 }    // E
     ]
 }
 
@@ -77,9 +77,9 @@ function getFretboardStrings(config: FretboardProps) {
         return <FretboardString
             key={index}
             filterOctave={config.filterOctave}
-            notes={string.filteredIntervals ? TheoryEngine.filterNotes(notes, string.filteredIntervals) : notes}
+            notes={string.unfilteredIntervals ? TheoryEngine.filterNotes(notes, string.unfilteredIntervals) : notes}
             noteLabel={config.noteLabel}
-            openPosition={string.openPosition}
+            tuning={string.tuning}
             fretLow={config.fretLow}
             fretHigh={config.fretHigh}
         />;

@@ -1,7 +1,17 @@
 import "./Common/TheoryStyles.css";
-import { Fretboard } from "./Components/Fretboard/Fretboard";
-import { Keyboard } from "./Components/Keyboard/Keyboard";
+import { Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS } from "./Components/Fretboard/Fretboard";
+import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS } from "./Components/Keyboard/Keyboard";
 import { TheoryEngine } from "./Common/TheoryEngine";
-import { NOTE_LABEL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, DEGREE, ACCIDENTAL } from "./Common/TheoryConstants";
+import { NOTE_LABEL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, DEGREE, ACCIDENTAL, ROMAN_NUMERAL } from "./Common/TheoryConstants";
+import { KeyCenter } from "./Common/TheoryTypes";
 
-export { Fretboard, Keyboard, TheoryEngine, NOTE_LABEL, DEGREE, ACCIDENTAL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE };
+export {
+    KeyCenter,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
+    TheoryEngine,
+    INTERVAL,
+    NOTE_LABEL,
+    DEGREE, ACCIDENTAL,
+    INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL
+};

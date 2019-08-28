@@ -13,7 +13,7 @@ export interface KeyboardProps extends ViewerProps {
     keyHigh?: number;
 }
 
-const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
+export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
     keyCenter: {
         degree: DEGREE.C,
         accidental: ACCIDENTAL.Natural,

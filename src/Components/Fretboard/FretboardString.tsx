@@ -5,12 +5,12 @@ import { Interval, CompleteNote } from "../../Common/TheoryTypes";
 import "./Fretboard.css";
 
 export interface FretboardStringConfig {
-    openPosition: number
-    filteredIntervals?: Interval[];
+    tuning: number
+    unfilteredIntervals?: Interval[];
 }
 
 export interface FretboardStringProps {
-    openPosition: number;
+    tuning: number;
     filterOctave: boolean;
     notes: CompleteNote[];
     noteLabel: any;
@@ -24,7 +24,7 @@ function getFrets(props: FretboardStringProps) {
         frets.push(<FretboardFret
             key={i}
             fretNumber={i}
-            note={TheoryEngine.getNote(props.notes, props.openPosition + i, props.filterOctave)}
+            note={TheoryEngine.getNote(props.notes, props.tuning + i, props.filterOctave)}
             noteLabel={props.noteLabel}
         />);
     }
