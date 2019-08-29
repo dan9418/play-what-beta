@@ -4,7 +4,7 @@ import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
 import { ViewerProps } from "../../Common/TheoryTypes";
-import { NOTE_LABEL, DEGREE, ACCIDENTAL } from "../../Common/TheoryConstants";
+import { NOTE_LABEL, TONIC, ACCIDENTAL } from "../../Common/TheoryConstants";
 
 export interface KeyboardProps extends ViewerProps {
     filterOctave?: boolean;
@@ -14,7 +14,7 @@ export interface KeyboardProps extends ViewerProps {
 }
 
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
-    tonic: DEGREE.C,
+    tonic: TONIC.C,
     accidental: ACCIDENTAL.Natural,
     octave: 4,
     intervals: [],

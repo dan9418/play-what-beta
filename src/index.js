@@ -3,16 +3,14 @@ import { Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS } from "./Components
 import { FretboardStringConfig } from "./Components/Fretboard/FretboardString";
 import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS } from "./Components/Keyboard/Keyboard";
 import { TheoryEngine } from "./Common/TheoryEngine";
-import { NOTE_LABEL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, DEGREE, ACCIDENTAL, ROMAN_NUMERAL } from "./Common/TheoryConstants";
-import { KeyCenter } from "./Common/TheoryTypes";
+import { TONIC, NOTE_LABEL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, ACCIDENTAL, ROMAN_NUMERAL } from "./Common/TheoryConstants";
 
 export {
-    KeyCenter,
     Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, FretboardStringConfig,
     Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
     TheoryEngine,
     INTERVAL,
     NOTE_LABEL,
-    DEGREE, ACCIDENTAL,
+    TONIC, ACCIDENTAL,
     INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL
 };

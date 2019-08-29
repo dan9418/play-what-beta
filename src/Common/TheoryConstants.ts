@@ -129,7 +129,7 @@ export const CALIBRATION_NOTE: PhysicalNote = {
 
 /***** Key Center *****/
 
-export const DEGREE: { [id: string]: Tonic } = {
+export const TONIC: { [id: string]: Tonic } = {
     C: {
         id: 'C',
         name: 'C',

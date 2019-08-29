@@ -1,5 +1,5 @@
 import { Interval, CompleteNote, Tonic, Accidental } from "./TheoryTypes";
-import { INTERVAL, DEGREE, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
+import { INTERVAL, TONIC, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
 import { Utils } from "./Utils";
 
 export class TheoryEngine {
@@ -94,7 +94,7 @@ export class TheoryEngine {
 
     // Verify
     static getPitchClass = (tonic: Tonic, accidental: Accidental, interval: Interval, melodicInversion: boolean): number => {
-        return Utils.moduloSum(Object.values(DEGREE)[tonic.value - 1].index + accidental.offset, interval.semitones, 12, 0, melodicInversion);
+        return Utils.moduloSum(Object.values(TONIC)[tonic.value - 1].index + accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
     // Verify
@@ -114,12 +114,12 @@ export class TheoryEngine {
 
     // Verify
     static getAccidentalOffset = (noteDegree: number, pitchClass: number): number => {
-        return pitchClass - Object.values(DEGREE)[noteDegree - 1].index;
+        return pitchClass - Object.values(TONIC)[noteDegree - 1].index;
     }
 
     // Verify
     static getNoteName = (noteDegree: number, accidentalOffset: number): string => {
-        return Object.values(DEGREE)[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
+        return Object.values(TONIC)[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
     }
 
     // Verify

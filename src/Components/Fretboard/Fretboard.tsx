@@ -1,6 +1,6 @@
 import { ViewerProps } from "../../Common/TheoryTypes";
 import { FretboardStringConfig, FretboardString } from "./FretboardString";
-import { DEGREE, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
+import { TONIC, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
@@ -16,7 +16,7 @@ export interface FretboardProps extends ViewerProps {
 };
 
 export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
-    tonic: DEGREE.C,
+    tonic: TONIC.C,
     accidental: ACCIDENTAL.Natural,
     octave: 4,
     intervals: [],
