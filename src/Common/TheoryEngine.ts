@@ -1,4 +1,4 @@
-import { Interval, KeyCenter, Concept, CompleteNote } from "./TheoryTypes";
+import { Interval, KeyCenter, CompleteNote } from "./TheoryTypes";
 import { INTERVAL, DEGREE, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
 import { Utils } from "./Utils";
 
@@ -15,25 +15,26 @@ export class TheoryEngine {
     }
 
     // Verify
-    static parseIntervals = (key: KeyCenter, concept: Concept): CompleteNote[] => {
+    static parseIntervals = (key: KeyCenter, intervals: Interval[], chordInversion = 0, melodicInversion = false): CompleteNote[] => {
 
         // Copy intervals
         let parsedIntervals = [];
-        for (let i = 0; i < concept.intervals.length; i++) {
-            parsedIntervals.push(Object.assign({ octaveOffset: 0 }, concept.intervals[i]));
+        for (let i = 0; i < intervals.length; i++) {
+            parsedIntervals.push(Object.assign({ octaveOffset: 0 }, intervals[i]));
         }
 
         // Apply chord inversion, if specified
-        if (concept.intervalOptions && concept.intervalOptions.chordInversion) {
-            TheoryEngine.applyChordInversion(parsedIntervals, concept.intervalOptions.chordInversion);
+        if (chordInversion) {
+            let inversion =chordInversion % intervals.length;
+            TheoryEngine.applyChordInversion(parsedIntervals, inversion);
         }
 
         let notes = [];
         for (let i = 0; i < parsedIntervals.length; i++) {
-            if (concept.intervalOptions && concept.intervalOptions.melodicInversion && i > 0) {
+            if (melodicInversion && i > 0) {
                 parsedIntervals[i].octaveOffset = parsedIntervals[i].octaveOffset - 1;
             }
-            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], concept.intervalOptions && concept.intervalOptions.melodicInversion);
+            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], melodicInversion);
             notes.push(note);
         }
 

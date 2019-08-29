@@ -29,16 +29,6 @@ export interface Interval {
     octaveOffset?: number;
 }
 
-export interface IntervalOptions {
-    chordInversion?: number,
-    melodicInversion?: boolean
-}
-
-export interface Concept {
-    intervals: Interval[];
-    intervalOptions?: IntervalOptions
-}
-
 export interface ConceptDefinition {
     id: string;
     name: string;
@@ -69,5 +59,7 @@ export interface CompleteNote extends PhysicalNote, FunctionalNote { }
 
 export interface ViewerProps {
     keyCenter?: KeyCenter;
-    concept?: Concept;
+    intervals?: Interval[];
+    chordInversion?: number,
+    melodicInversion?: boolean
 }

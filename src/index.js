@@ -1,5 +1,6 @@
 import "./Common/TheoryStyles.css";
 import { Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS } from "./Components/Fretboard/Fretboard";
+import { FretboardStringConfig } from "./Components/Fretboard/FretboardString";
 import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS } from "./Components/Keyboard/Keyboard";
 import { TheoryEngine } from "./Common/TheoryEngine";
 import { NOTE_LABEL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, DEGREE, ACCIDENTAL, ROMAN_NUMERAL } from "./Common/TheoryConstants";
@@ -7,7 +8,7 @@ import { KeyCenter } from "./Common/TheoryTypes";
 
 export {
     KeyCenter,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, FretboardStringConfig,
     Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
     TheoryEngine,
     INTERVAL,
