@@ -25,7 +25,7 @@ export class TheoryEngine {
 
         // Apply chord inversion, if specified
         if (chordInversion) {
-            let inversion =chordInversion % intervals.length;
+            let inversion = chordInversion % intervals.length;
             TheoryEngine.applyChordInversion(parsedIntervals, inversion);
         }
 
@@ -42,15 +42,15 @@ export class TheoryEngine {
     }
 
     // Verify
-    static getFunctionalNote = (tonic: Tonic, accidental: Accidental, octave: number, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
+    static getFunctionalNote = (tonic: Tonic, accidental: Accidental, tonicOctave: number, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
         // Calculate functional properties
         let noteDegree = TheoryEngine.getNoteDegree(tonic, interval, melodicInversion);
         let pitchClass = TheoryEngine.getPitchClass(tonic, accidental, interval, melodicInversion);
-        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass);
+        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass, accidental);
         let name = TheoryEngine.getNoteName(noteDegree, accidentalOffset);
 
         // Calculate physical properties
-        let noteOctave = TheoryEngine.getFunctionalNoteOctave(octave, interval, melodicInversion);
+        let noteOctave = TheoryEngine.getFunctionalNoteOctave(tonic, accidental, tonicOctave, interval, melodicInversion);
         let noteIndex = TheoryEngine.getNoteIndex(noteOctave, pitchClass);
         let frequency = TheoryEngine.getFrequency(noteIndex);
 
@@ -98,8 +98,8 @@ export class TheoryEngine {
     }
 
     // Verify
-    static getFunctionalNoteOctave = (tonicOctave: number, interval: Interval, melodicInversion: boolean): number => {
-        return (interval.octaveOffset) ? tonicOctave + interval.octaveOffset : tonicOctave;
+    static getFunctionalNoteOctave = (tonic: Tonic, accidental: Accidental, tonicOctave: number, interval: Interval, melodicInversion: boolean): number => {
+        return tonicOctave + Math.floor((tonic.index + accidental.offset + interval.semitones) / 12);
     }
 
     // Verify
@@ -113,8 +113,11 @@ export class TheoryEngine {
     }
 
     // Verify
-    static getAccidentalOffset = (noteDegree: number, pitchClass: number): number => {
-        return pitchClass - Object.values(TONIC)[noteDegree - 1].index;
+    static getAccidentalOffset = (noteDegree: number, pitchClass: number, accidental: Accidental): number => {
+        let offset = pitchClass - Object.values(TONIC)[noteDegree - 1].index;
+        if(offset < 0 && accidental.offset > 0) offset = offset + 12;
+        else if (offset > 0 && accidental.offset < 0) offset = offset - 12;
+        return offset;
     }
 
     // Verify

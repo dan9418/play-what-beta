@@ -19,6 +19,6 @@ export const DEFAULT_VIEWER_PROPS: ViewerProps = {
     intervals: [],
     chordInversion: 0,
     melodicInversion: false,
-    noteLabel: NOTE_LABEL.Interval,
+    noteLabel: NOTE_LABEL.Name,
     filterOctave: true
 };
