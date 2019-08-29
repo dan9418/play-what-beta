@@ -59,7 +59,7 @@ function getFretNumbers(config: FretboardProps) {
 }
 
 function getFretboardStrings(config: FretboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion, config.melodicInversion)
+    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion)
     return config.strings.map((string, index) => {
         return <FretboardString
             key={index}

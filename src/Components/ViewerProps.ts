@@ -7,7 +7,6 @@ export interface ViewerProps {
     octave?: number;
     intervals?: Interval[];
     chordInversion?: number;
-    melodicInversion?: boolean;
     filterOctave?: boolean;
     noteLabel?: NOTE_LABEL;
 }
@@ -18,7 +17,6 @@ export const DEFAULT_VIEWER_PROPS: ViewerProps = {
     octave: 4,
     intervals: [],
     chordInversion: 0,
-    melodicInversion: false,
     noteLabel: NOTE_LABEL.Name,
     filterOctave: true
 };

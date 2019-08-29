@@ -19,7 +19,7 @@ export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
 const BLACK_KEY_INDICES: number[] = [0, 2, 4, 5, 7, 9, 11];
 
 function getKeyboardKeys(config: KeyboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion, config.melodicInversion)
+    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion)
     let keys = [];
     for (let i = config.keyLow; i <= config.keyHigh; i++) {
         let type = BLACK_KEY_INDICES.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
