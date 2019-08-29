@@ -1,4 +1,4 @@
-import { Degree, Accidental, Interval, PhysicalNote, ConceptDefinition } from "./TheoryTypes";
+import { Tonic, Accidental, Interval, PhysicalNote, ConceptDefinition } from "./TheoryTypes";
 
 /***** General *****/
 
@@ -129,7 +129,7 @@ export const CALIBRATION_NOTE: PhysicalNote = {
 
 /***** Key Center *****/
 
-export const DEGREE: { [id: string]: Degree } = {
+export const DEGREE: { [id: string]: Tonic } = {
     C: {
         id: 'C',
         name: 'C',

@@ -3,7 +3,7 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { KeyCenter, ViewerProps } from "../../Common/TheoryTypes";
+import { ViewerProps } from "../../Common/TheoryTypes";
 import { NOTE_LABEL, DEGREE, ACCIDENTAL } from "../../Common/TheoryConstants";
 
 export interface KeyboardProps extends ViewerProps {
@@ -14,11 +14,9 @@ export interface KeyboardProps extends ViewerProps {
 }
 
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
-    keyCenter: {
-        degree: DEGREE.C,
-        accidental: ACCIDENTAL.Natural,
-        octave: 4
-    },
+    tonic: DEGREE.C,
+    accidental: ACCIDENTAL.Natural,
+    octave: 4,
     intervals: [],
     chordInversion: 0,
     melodicInversion: false,
@@ -31,7 +29,7 @@ export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
 const BLACK_KEY_INDICES: number[] = [0, 2, 4, 5, 7, 9, 11];
 
 function getKeyboardKeys(config: KeyboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.keyCenter, config.intervals, config.chordInversion, config.melodicInversion)
+    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion, config.melodicInversion)
     let keys = [];
     for (let i = config.keyLow; i <= config.keyHigh; i++) {
         let type = BLACK_KEY_INDICES.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;

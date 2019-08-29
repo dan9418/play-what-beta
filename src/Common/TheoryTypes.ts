@@ -1,6 +1,6 @@
 /***** Key Center *****/
 
-export interface Degree {
+export interface Tonic {
     id: string;
     name: string;
     value: number;
@@ -11,12 +11,6 @@ export interface Accidental {
     id: string;
     name: string;
     offset: number;
-}
-
-export interface KeyCenter {
-    degree: Degree;
-    accidental: Accidental;
-    octave: number;
 }
 
 /***** Concept *****/
@@ -45,7 +39,6 @@ export interface PhysicalNote {
 }
 
 export interface FunctionalNote {
-    key: KeyCenter;
     interval: Interval;
     noteDegree: number;
     pitchClass: number;
@@ -58,8 +51,10 @@ export interface CompleteNote extends PhysicalNote, FunctionalNote { }
 /***** General *****/
 
 export interface ViewerProps {
-    keyCenter?: KeyCenter;
+    tonic: Tonic;
+    accidental: Accidental;
+    octave: number;
     intervals?: Interval[];
-    chordInversion?: number,
-    melodicInversion?: boolean
+    chordInversion?: number;
+    melodicInversion?: boolean;
 }

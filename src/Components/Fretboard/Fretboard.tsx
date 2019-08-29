@@ -1,4 +1,4 @@
-import { KeyCenter, ViewerProps } from "../../Common/TheoryTypes";
+import { ViewerProps } from "../../Common/TheoryTypes";
 import { FretboardStringConfig, FretboardString } from "./FretboardString";
 import { DEGREE, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
 import React = require("react");
@@ -16,11 +16,9 @@ export interface FretboardProps extends ViewerProps {
 };
 
 export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
-    keyCenter: {
-        degree: DEGREE.C,
-        accidental: ACCIDENTAL.Natural,
-        octave: 4
-    },
+    tonic: DEGREE.C,
+    accidental: ACCIDENTAL.Natural,
+    octave: 4,
     intervals: [],
     chordInversion: 0,
     melodicInversion: false,
@@ -71,7 +69,7 @@ function getFretNumbers(config: FretboardProps) {
 }
 
 function getFretboardStrings(config: FretboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.keyCenter, config.intervals, config.chordInversion, config.melodicInversion)
+    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion, config.melodicInversion)
     return config.strings.map((string, index) => {
         return <FretboardString
             key={index}

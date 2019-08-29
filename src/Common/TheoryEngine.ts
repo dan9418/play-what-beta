@@ -1,4 +1,4 @@
-import { Interval, KeyCenter, CompleteNote } from "./TheoryTypes";
+import { Interval, CompleteNote, Tonic, Accidental } from "./TheoryTypes";
 import { INTERVAL, DEGREE, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
 import { Utils } from "./Utils";
 
@@ -15,7 +15,7 @@ export class TheoryEngine {
     }
 
     // Verify
-    static parseIntervals = (key: KeyCenter, intervals: Interval[], chordInversion = 0, melodicInversion = false): CompleteNote[] => {
+    static parseIntervals = (tonic: Tonic, accidental: Accidental, octave: number, intervals: Interval[], chordInversion = 0, melodicInversion = false): CompleteNote[] => {
 
         // Copy intervals
         let parsedIntervals = [];
@@ -34,7 +34,7 @@ export class TheoryEngine {
             if (melodicInversion && i > 0) {
                 parsedIntervals[i].octaveOffset = parsedIntervals[i].octaveOffset - 1;
             }
-            let note = TheoryEngine.getFunctionalNote(key, parsedIntervals[i], melodicInversion);
+            let note = TheoryEngine.getFunctionalNote(tonic, accidental, octave, parsedIntervals[i], melodicInversion);
             notes.push(note);
         }
 
@@ -42,21 +42,20 @@ export class TheoryEngine {
     }
 
     // Verify
-    static getFunctionalNote = (key: KeyCenter, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
+    static getFunctionalNote = (tonic: Tonic, accidental: Accidental, octave: number, interval: Interval, melodicInversion: boolean = false): CompleteNote => {
         // Calculate functional properties
-        let noteDegree = TheoryEngine.getNoteDegree(key, interval, melodicInversion);
-        let pitchClass = TheoryEngine.getPitchClass(key, interval, melodicInversion);
+        let noteDegree = TheoryEngine.getNoteDegree(tonic, interval, melodicInversion);
+        let pitchClass = TheoryEngine.getPitchClass(tonic, accidental, interval, melodicInversion);
         let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass);
         let name = TheoryEngine.getNoteName(noteDegree, accidentalOffset);
 
         // Calculate physical properties
-        let noteOctave = TheoryEngine.getFunctionalNoteOctave(key, interval, melodicInversion);
+        let noteOctave = TheoryEngine.getFunctionalNoteOctave(octave, interval, melodicInversion);
         let noteIndex = TheoryEngine.getNoteIndex(noteOctave, pitchClass);
         let frequency = TheoryEngine.getFrequency(noteIndex);
 
         return {
             // Inputs
-            key: key,
             interval: interval,
             // Functional properties
             noteDegree: noteDegree,
@@ -80,7 +79,6 @@ export class TheoryEngine {
             pitchClass: TheoryEngine.getRelativePotision(noteIndex),
             frequency: TheoryEngine.getFrequency(noteIndex),
             // Empty functional properties
-            key: null,
             interval: INTERVAL.None,
             noteDegree: null,
             accidentalOffset: 0,
@@ -90,18 +88,18 @@ export class TheoryEngine {
 
 
     // Verify
-    static getNoteDegree = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return Utils.moduloSum(key.degree.value, interval.degree, 7, 1, melodicInversion);
+    static getNoteDegree = (tonic: Tonic, interval: Interval, melodicInversion: boolean): number => {
+        return Utils.moduloSum(tonic.value, interval.degree, 7, 1, melodicInversion);
     }
 
     // Verify
-    static getPitchClass = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return Utils.moduloSum(Object.values(DEGREE)[key.degree.value - 1].index + key.accidental.offset, interval.semitones, 12, 0, melodicInversion);
+    static getPitchClass = (tonic: Tonic, accidental: Accidental, interval: Interval, melodicInversion: boolean): number => {
+        return Utils.moduloSum(Object.values(DEGREE)[tonic.value - 1].index + accidental.offset, interval.semitones, 12, 0, melodicInversion);
     }
 
-    // Verify - definitely wrong
-    static getFunctionalNoteOctave = (key: KeyCenter, interval: Interval, melodicInversion: boolean): number => {
-        return (interval.octaveOffset) ? key.octave + interval.octaveOffset : key.octave;
+    // Verify
+    static getFunctionalNoteOctave = (tonicOctave: number, interval: Interval, melodicInversion: boolean): number => {
+        return (interval.octaveOffset) ? tonicOctave + interval.octaveOffset : tonicOctave;
     }
 
     // Verify
