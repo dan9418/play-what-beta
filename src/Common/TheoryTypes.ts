@@ -47,14 +47,3 @@ export interface FunctionalNote {
 }
 
 export interface CompleteNote extends PhysicalNote, FunctionalNote { }
-
-/***** General *****/
-
-export interface ViewerProps {
-    tonic: Tonic;
-    accidental: Accidental;
-    octave: number;
-    intervals?: Interval[];
-    chordInversion?: number;
-    melodicInversion?: boolean;
-}

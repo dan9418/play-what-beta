@@ -3,25 +3,15 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { ViewerProps } from "../../Common/TheoryTypes";
-import { NOTE_LABEL, TONIC, ACCIDENTAL } from "../../Common/TheoryConstants";
+import { DEFAULT_VIEWER_PROPS, ViewerProps } from "../ViewerProps";
 
 export interface KeyboardProps extends ViewerProps {
-    filterOctave?: boolean;
-    noteLabel?: NOTE_LABEL;
     keyLow?: number;
     keyHigh?: number;
 }
 
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
-    tonic: TONIC.C,
-    accidental: ACCIDENTAL.Natural,
-    octave: 4,
-    intervals: [],
-    chordInversion: 0,
-    melodicInversion: false,
-    noteLabel: NOTE_LABEL.Interval,
-    filterOctave: true,
+    ...DEFAULT_VIEWER_PROPS,
     keyLow: 0,
     keyHigh: 24
 };
@@ -46,7 +36,7 @@ function getKeyboardKeys(config: KeyboardProps) {
 }
 
 export function Keyboard(props: KeyboardProps) {
-    let config = Object.assign({}, DEFAULT_KEYBOARD_PROPS, props);
+    let config = Object.assign({}, DEFAULT_VIEWER_PROPS, DEFAULT_KEYBOARD_PROPS, props);
     return (
         <div className='keyboard'>
             {getKeyboardKeys(config)}

@@ -1,13 +1,10 @@
-import { ViewerProps } from "../../Common/TheoryTypes";
 import { FretboardStringConfig, FretboardString } from "./FretboardString";
-import { TONIC, ACCIDENTAL, NOTE_LABEL } from "../../Common/TheoryConstants";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
+import { DEFAULT_VIEWER_PROPS, ViewerProps } from "../ViewerProps";
 
 export interface FretboardProps extends ViewerProps {
-    noteLabel?: NOTE_LABEL,
-    filterOctave?: boolean,
     showFretNumbers?: boolean,
     showDots?: boolean;
     strings?: FretboardStringConfig[];
@@ -16,14 +13,7 @@ export interface FretboardProps extends ViewerProps {
 };
 
 export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
-    tonic: TONIC.C,
-    accidental: ACCIDENTAL.Natural,
-    octave: 4,
-    intervals: [],
-    chordInversion: 0,
-    melodicInversion: false,
-    noteLabel: NOTE_LABEL.Interval,
-    filterOctave: true,
+    ...DEFAULT_VIEWER_PROPS,
     showFretNumbers: true,
     showDots: true,
     fretLow: 0,
@@ -84,7 +74,7 @@ function getFretboardStrings(config: FretboardProps) {
 }
 
 export function Fretboard(props: FretboardProps) {
-    let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
+    let config = Object.assign({}, DEFAULT_VIEWER_PROPS, DEFAULT_FRETBOARD_PROPS, props);
     return (
         <div className='fretboard'>
             {config.showFretNumbers && getFretNumbers(config)}
