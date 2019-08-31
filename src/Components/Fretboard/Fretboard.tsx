@@ -2,18 +2,23 @@ import { FretboardStringConfig, FretboardString } from "./FretboardString";
 import React = require("react");
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
-import { DEFAULT_VIEWER_PROPS, ViewerProps } from "../ViewerProps";
+import { ViewerProps } from "../withNotes";
+import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
 export interface FretboardProps extends ViewerProps {
+    filterOctave?: boolean;
+    fretLabel?: NOTE_LABEL;
+    fretLow?: number;
+    fretHigh?: number;
     showFretNumbers?: boolean,
     showDots?: boolean;
     strings?: FretboardStringConfig[];
-    fretLow?: number;
-    fretHigh?: number;
 };
 
 export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
-    ...DEFAULT_VIEWER_PROPS,
+    notes: [],
+    fretLabel: NOTE_LABEL.Name,
+    filterOctave: false,
     showFretNumbers: true,
     showDots: true,
     fretLow: 0,
@@ -59,13 +64,12 @@ function getFretNumbers(config: FretboardProps) {
 }
 
 function getFretboardStrings(config: FretboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion)
     return config.strings.map((string, index) => {
         return <FretboardString
             key={index}
             filterOctave={config.filterOctave}
-            notes={string.unfilteredIntervals ? TheoryEngine.filterNotes(notes, string.unfilteredIntervals) : notes}
-            noteLabel={config.noteLabel}
+            notes={string.unfilteredIntervals ? TheoryEngine.filterNotes(config.notes, string.unfilteredIntervals) : config.notes}
+            fretLabel={config.fretLabel}
             tuning={string.tuning}
             fretLow={config.fretLow}
             fretHigh={config.fretHigh}
@@ -74,7 +78,7 @@ function getFretboardStrings(config: FretboardProps) {
 }
 
 export function Fretboard(props: FretboardProps) {
-    let config = Object.assign({}, DEFAULT_VIEWER_PROPS, DEFAULT_FRETBOARD_PROPS, props);
+    let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
     return (
         <div className='fretboard'>
             {config.showFretNumbers && getFretNumbers(config)}

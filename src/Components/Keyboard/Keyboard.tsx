@@ -3,15 +3,20 @@ import "./Keyboard.css";
 import { KeyboardKey, KeyboardKeyType } from "./KeyboardKey";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
-import { DEFAULT_VIEWER_PROPS, ViewerProps } from "../ViewerProps";
+import { ViewerProps } from "../withNotes";
+import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
 export interface KeyboardProps extends ViewerProps {
+    filterOctave?: boolean;
+    keyLabel?: NOTE_LABEL;
     keyLow?: number;
     keyHigh?: number;
 }
 
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
-    ...DEFAULT_VIEWER_PROPS,
+    notes: [],
+    keyLabel: NOTE_LABEL.Name,
+    filterOctave: false,
     keyLow: 0,
     keyHigh: 24
 };
@@ -19,7 +24,6 @@ export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
 const BLACK_KEY_INDICES: number[] = [0, 2, 4, 5, 7, 9, 11];
 
 function getKeyboardKeys(config: KeyboardProps) {
-    let notes = TheoryEngine.parseIntervals(config.tonic, config.accidental, config.octave, config.intervals, config.chordInversion)
     let keys = [];
     for (let i = config.keyLow; i <= config.keyHigh; i++) {
         let type = BLACK_KEY_INDICES.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
@@ -27,8 +31,8 @@ function getKeyboardKeys(config: KeyboardProps) {
             <KeyboardKey
                 key={i}
                 type={type}
-                note={TheoryEngine.getNote(notes, config.keyLow + i, config.filterOctave)}
-                noteLabel={config.noteLabel}
+                note={TheoryEngine.getNote(config.notes, i, config.filterOctave)}
+                keyLabel={config.keyLabel}
             />
         );
     }
@@ -36,7 +40,7 @@ function getKeyboardKeys(config: KeyboardProps) {
 }
 
 export function Keyboard(props: KeyboardProps) {
-    let config = Object.assign({}, DEFAULT_VIEWER_PROPS, DEFAULT_KEYBOARD_PROPS, props);
+    let config = Object.assign({}, DEFAULT_KEYBOARD_PROPS, props);
     return (
         <div className='keyboard'>
             {getKeyboardKeys(config)}

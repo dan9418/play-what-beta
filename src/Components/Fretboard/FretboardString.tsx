@@ -3,6 +3,7 @@ import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
 import { Interval, CompleteNote } from "../../Common/TheoryTypes";
 import "./Fretboard.css";
+import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
 export interface FretboardStringConfig {
     tuning: number
@@ -13,7 +14,7 @@ export interface FretboardStringProps {
     tuning: number;
     filterOctave: boolean;
     notes: CompleteNote[];
-    noteLabel: any;
+    fretLabel: NOTE_LABEL;
     fretLow: number;
     fretHigh: number;
 };
@@ -25,7 +26,7 @@ function getFrets(props: FretboardStringProps) {
             key={i}
             fretNumber={i}
             note={TheoryEngine.getNote(props.notes, props.tuning + i, props.filterOctave)}
-            noteLabel={props.noteLabel}
+            fretLabel={props.fretLabel}
         />);
     }
     return frets;

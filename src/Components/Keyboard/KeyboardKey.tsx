@@ -11,7 +11,7 @@ export enum KeyboardKeyType {
 export interface KeyboardKeyProps {
     type: KeyboardKeyType;
     note: CompleteNote;
-    noteLabel: NOTE_LABEL;
+    keyLabel: NOTE_LABEL;
 }
 
 export function KeyboardKey(props: KeyboardKeyProps) {
@@ -22,7 +22,7 @@ export function KeyboardKey(props: KeyboardKeyProps) {
     return (
         <div className={`keyboard-key-container keyboard-key-container-${keyColor}`}>
             <div className={classes.join(' ')}>
-                <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(props.note, props.noteLabel)}</div>
+                <div className="keyboard-key-label">{TheoryEngine.getNoteLabel(props.note, props.keyLabel)}</div>
             </div>
         </div>
     );

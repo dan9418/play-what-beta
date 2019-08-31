@@ -7,7 +7,7 @@ import "./Fretboard.css";
 interface FretboardFretProps {
     fretNumber: number;
     note: CompleteNote;
-    noteLabel: NOTE_LABEL;
+    fretLabel: NOTE_LABEL;
 }
 
 export function FretboardFret(props: FretboardFretProps) {
@@ -19,7 +19,7 @@ export function FretboardFret(props: FretboardFretProps) {
 
     return (
         <div className={classes.join(' ')}>
-            <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(props.note, props.noteLabel)}</div>
+            <div className={labelClasses.join(' ')}>{TheoryEngine.getNoteLabel(props.note, props.fretLabel)}</div>
         </div>
     );
 }
