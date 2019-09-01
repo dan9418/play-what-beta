@@ -11,7 +11,7 @@ interface FretboardFretProps {
 }
 
 export function FretboardFret(props: FretboardFretProps) {
-    let colorClass = (props.note.interval.id !== '') ? `degree-${props.note.interval.degree}` : '';
+    let colorClass = (props.note.interval !== null) ? `degree-${props.note.interval.degree}` : '';
     let classes = ['fretboard-fret', 'wood'];
     let labelClasses = [colorClass, 'fretboard-fret-label']
     if (props.fretNumber === 0)

@@ -1,10 +1,3 @@
-/* Degrees */
-
-.degree-0 {
-	background-color: white;
-	color: grey;
-}
-
 .degree-1 {
 	background-color: red;
 	color: white;
@@ -38,19 +31,4 @@
 .degree-7 {
 	background-color: purple;
 	color: white;
-}
-
-.degree-9 {
-	background-color: lightsalmon;
-	color: black;
-}
-
-.degree-11 {
-	background-color: lightgreen;
-	color: black;
-}
-
-.degree-13 {
-	background-color: lightsteelblue;
-	color: black;
 }

@@ -76,7 +76,7 @@ export class TheoryEngine {
             pitchClass: TheoryEngine.getRelativePotision(noteIndex),
             frequency: TheoryEngine.getFrequency(noteIndex),
             // Empty functional properties
-            interval: INTERVAL.None,
+            interval: null,
             noteDegree: null,
             accidentalOffset: 0,
             name: '',

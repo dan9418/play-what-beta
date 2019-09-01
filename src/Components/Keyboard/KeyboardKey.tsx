@@ -16,7 +16,7 @@ export interface KeyboardKeyProps {
 
 export function KeyboardKey(props: KeyboardKeyProps) {
     let keyColor = (props.type === KeyboardKeyType.White) ? 'white' : 'black';
-    let colorClass = (props.note.interval.id !== '') ? `degree-${props.note.interval.degree}` : keyColor;
+    let colorClass = (props.note.interval !== null) ? `degree-${props.note.interval.degree}` : keyColor;
     let classes = ['keyboard-key', colorClass];
 
     return (
