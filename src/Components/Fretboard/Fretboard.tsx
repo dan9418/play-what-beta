@@ -18,7 +18,7 @@ export interface FretboardProps extends ViewerProps {
 export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     notes: [],
     fretLabel: NOTE_LABEL.Name,
-    filterOctave: false,
+    filterOctave: true,
     showFretNumbers: true,
     showDots: true,
     fretLow: 0,

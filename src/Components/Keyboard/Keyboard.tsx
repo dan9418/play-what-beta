@@ -16,7 +16,7 @@ export interface KeyboardProps extends ViewerProps {
 export const DEFAULT_KEYBOARD_PROPS: KeyboardProps = {
     notes: [],
     keyLabel: NOTE_LABEL.Name,
-    filterOctave: false,
+    filterOctave: true,
     keyLow: 0,
     keyHigh: 24
 };
