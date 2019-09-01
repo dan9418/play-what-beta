@@ -200,17 +200,17 @@ export const TONIC: { [id: string]: Tonic } = {
 
 export const ACCIDENTAL: { [id: string]: Accidental } = {
     Flat: {
-        id: 'flat',
+        id: 'Flat',
         name: 'b',
         offset: -1
     },
     Natural: {
-        id: 'natural',
+        id: 'Natural',
         name: '♮',
         offset: 0
     },
     Sharp: {
-        id: 'sharp',
+        id: 'Sharp',
         name: '#',
         offset: 1
     }
@@ -314,82 +314,82 @@ export const INTERVAL_PAIR: { [id: string]: ConceptDefinition } = {
 export const CHORD: { [id: string]: ConceptDefinition } = {
     // Major
     Maj: {
-        id: 'maj',
+        id: 'Maj',
         name: 'Major Triad',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5]
     },
     Maj6: {
-        id: 'maj6',
+        id: 'Maj6',
         name: 'Major 6th',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5, INTERVAL.M6]
     },
     Maj7: {
-        id: 'maj7',
+        id: 'Maj7',
         name: 'Major 7th',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5, INTERVAL.M7]
     },
     // Minor
     Min: {
-        id: 'min',
+        id: 'Min',
         name: 'Minor Triad',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P5]
     },
     Min6: {
-        id: 'min6',
+        id: 'Min6',
         name: 'Minor 6th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P5, INTERVAL.M6]
     },
     Min7: {
-        id: 'min7',
+        id: 'Min7',
         name: 'Minor 7th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P5, INTERVAL.m7]
     },
     MinMaj7: {
-        id: 'minMaj7',
+        id: 'MinMaj7',
         name: 'Minor-Major 7th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P5, INTERVAL.M7]
     },
-    // Dominant
+    // DoMinant
     Dom7: {
-        id: 'dom7',
-        name: 'Dominant 7th',
+        id: 'Dom7',
+        name: 'DoMinant 7th',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5, INTERVAL.m7]
     },
     // Augmented
     Aug: {
-        id: 'aug',
+        id: 'Aug',
         name: 'Augmented Triad',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.A5]
     },
     Aug7: {
-        id: 'aug7',
+        id: 'Aug7',
         name: 'Augmented Seventh',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.A5, INTERVAL.m7]
     },
     // Diminished
     Dim: {
-        id: 'dim',
+        id: 'Dim',
         name: 'Diminished Triad',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.d5]
     },
     Dim7: {
-        id: 'dim7',
+        id: 'Dim7',
         name: 'Diminished 7th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.d5, INTERVAL.d7]
     },
     HalfDim7: {
-        id: 'halfDim7',
+        id: 'HalfDim7',
         name: 'Half-Diminished 7th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.d5, INTERVAL.m7]
     },
     // Suspended
     Sus2: {
-        id: 'sus2',
+        id: 'Sus2',
         name: 'Suspended 2nd',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.P5]
     },
     Sus4: {
-        id: 'sus4',
+        id: 'Sus4',
         name: 'Suspended 4th',
         intervals: [INTERVAL.P1, INTERVAL.P4, INTERVAL.P5]
     },
@@ -398,35 +398,35 @@ export const CHORD: { [id: string]: ConceptDefinition } = {
 export const SCALE: { [id: string]: ConceptDefinition } = {
     // Major
     Major: {
-        id: 'major',
+        id: 'Major',
         name: 'Major',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
     },
     // Minor
     NatualMinor: {
-        id: 'natualMinor',
+        id: 'NatualMinor',
         name: 'Natual Minor',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.m7]
     },
     HarmonicMinor: {
-        id: 'harmonicMinor',
+        id: 'HarmonicMinor',
         name: 'Harmonic Minor',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.M7]
     },
     // Pentatonic
     MajorPentatonic: {
-        id: 'majorPentatonic',
+        id: 'MajorPentatonic',
         name: 'Major Pentatonic',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P5, INTERVAL.M6]
     },
     MinorPentatonic: {
-        id: 'minorPentatonic',
+        id: 'MinorPentatonic',
         name: 'Minor Pentatonic',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m7]
     },
     // Chomatic
     Chromatic: {
-        id: 'chromatic',
+        id: 'Chromatic',
         name: 'Chromatic',
         intervals: [INTERVAL.P1, INTERVAL.m2, INTERVAL.M2, INTERVAL.m3, INTERVAL.M3, INTERVAL.P4, INTERVAL.A4, INTERVAL.P5, INTERVAL.m6, INTERVAL.M6, INTERVAL.m7, INTERVAL.M7]
     }
@@ -434,37 +434,37 @@ export const SCALE: { [id: string]: ConceptDefinition } = {
 
 export const MODE: { [id: string]: ConceptDefinition } = {
     Ionian: {
-        id: 'ionian',
+        id: 'Ionian',
         name: 'Ionian',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
     },
     Dorian: {
-        id: 'dorian',
+        id: 'Dorian',
         name: 'Dorian',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.m7]
     },
     Phrygian: {
-        id: 'phrygian',
+        id: 'Phrygian',
         name: 'Phrygian',
         intervals: [INTERVAL.P1, INTERVAL.m2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.m7]
     },
     Lydian: {
-        id: 'lydian',
+        id: 'Lydian',
         name: 'Lydian',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.A4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7]
     },
     Mixolydian: {
-        id: 'mixolydian',
+        id: 'Mixolydian',
         name: 'Mixolydian',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.m7]
     },
     Aeolian: {
-        id: 'aeolian',
+        id: 'Aeolian',
         name: 'Aeolian',
         intervals: [INTERVAL.P1, INTERVAL.M2, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m6, INTERVAL.m7]
     },
     Locrian: {
-        id: 'locrian',
+        id: 'Locrian',
         name: 'Locrian',
         intervals: [INTERVAL.P1, INTERVAL.m2, INTERVAL.m3, INTERVAL.P4, INTERVAL.d5, INTERVAL.m6, INTERVAL.m7]
     }
@@ -489,21 +489,21 @@ export const ROMAN_NUMERAL: { [id: string]: ConceptDefinition } = {
     IV: {
         id: 'IV',
         name: 'IV',
-        intervals: [INTERVAL.P4, INTERVAL.M6, Object.assign({ octaveOffset: 1 }, { ...INTERVAL.P1 })]
+        intervals: [INTERVAL.P4, INTERVAL.M6, Object.assign({ octaveOffset: 1 }, INTERVAL.P1)]
     },
     V: {
         id: 'V',
         name: 'V',
-        intervals: [INTERVAL.P5, INTERVAL.M7, Object.assign({ octaveOffset: 1 }, { ...INTERVAL.M2 })]
+        intervals: [INTERVAL.P5, INTERVAL.M7, Object.assign({ octaveOffset: 1 }, INTERVAL.M2)]
     },
     vi: {
         id: 'vi',
         name: 'vi',
-        intervals: [INTERVAL.M6, Object.assign({ octaveOffset: 1 }, { ...INTERVAL.P1 }), Object.assign({ octaveOffset: 1 }, { ...INTERVAL.M3 })]
+        intervals: [INTERVAL.M6, Object.assign({ octaveOffset: 1 }, INTERVAL.P1), Object.assign({ octaveOffset: 1 }, INTERVAL.M3)]
     },
     vii: {
         id: 'vii',
         name: 'vii',
-        intervals: [INTERVAL.M7, Object.assign({ octaveOffset: 1 }, { ...INTERVAL.M2 }), Object.assign({ octaveOffset: 1 }, { ...INTERVAL.P4 })]
+        intervals: [INTERVAL.M7, Object.assign({ octaveOffset: 1 }, INTERVAL.M2), Object.assign({ octaveOffset: 1 }, INTERVAL.P4)]
     }
 };
