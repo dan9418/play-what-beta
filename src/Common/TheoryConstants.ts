@@ -144,12 +144,12 @@ export const INTERVAL: { [id: string]: Interval } = {
 
 export const MAJOR_SCALE: Interval[] = [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7];
 
-export const CALIBRATION_NOTE: PhysicalNote = {
+export const CALIBRATION_NOTE = {
     frequency: 440,
-    noteIndex: 9,
-    pitchClass: 9,
-    noteOctave: 4
+    noteIndex: 9
 }
+
+export const CALIBRATION_CONSTANT = Math.pow(2, 1/12);
 
 /***** Key Center *****/
 

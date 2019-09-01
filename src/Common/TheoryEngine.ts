@@ -1,5 +1,5 @@
 import { Interval, CompleteNote, Tonic, Accidental } from "./TheoryTypes";
-import { INTERVAL, TONIC, CALIBRATION_NOTE, NOTE_LABEL } from "./TheoryConstants";
+import { INTERVAL, TONIC, CALIBRATION_NOTE, NOTE_LABEL, CALIBRATION_CONSTANT } from "./TheoryConstants";
 import { Utils } from "./Utils";
 
 export class TheoryEngine {
@@ -14,7 +14,7 @@ export class TheoryEngine {
         intervals.push.apply(intervals, intervals.splice(0, inversion));
     }
 
-   static parseIntervals = (tonic: Tonic, accidental: Accidental, octave: number, intervals: Interval[], chordInversion = 0): CompleteNote[] => {
+    static parseIntervals = (tonic: Tonic, accidental: Accidental, octave: number, intervals: Interval[], chordInversion = 0): CompleteNote[] => {
 
         // Copy intervals
         let parsedIntervals = [];
@@ -102,7 +102,7 @@ export class TheoryEngine {
 
     static getAccidentalOffset = (noteDegree: number, pitchClass: number, accidental: Accidental): number => {
         let offset = pitchClass - Object.values(TONIC)[noteDegree - 1].index;
-        if(offset < 0 && accidental.offset > 0) offset = offset + 12;
+        if (offset < 0 && accidental.offset > 0) offset = offset + 12;
         else if (offset > 0 && accidental.offset < 0) offset = offset - 12;
         return offset;
     }
@@ -119,20 +119,7 @@ export class TheoryEngine {
     }
 
     static getFrequency = (noteIndex) => {
-        let f = 440;
-        let distA4 = noteIndex - CALIBRATION_NOTE.noteIndex;
-        if (distA4 < 0) {
-            let dist = Math.abs(distA4);
-            for (let i = 0; i < dist; i++) {
-                f = f / Math.pow(2, 1 / 12);
-            }
-        }
-        else {
-            for (let i = 0; i < distA4; i++) {
-                f = f * Math.pow(2, 1 / 12);
-            }
-        }
-        return Math.round(f);
+        return CALIBRATION_NOTE.frequency * Math.pow(CALIBRATION_CONSTANT, noteIndex - CALIBRATION_NOTE.noteIndex);
     }
 
     static getAccidentalString = (offset) => {
@@ -169,7 +156,7 @@ export class TheoryEngine {
             case NOTE_LABEL.Octave:
                 return note.noteOctave;
             case NOTE_LABEL.Frequency:
-                return note.frequency;
+                return Math.round(note.frequency);
             default:
                 return '';
         }

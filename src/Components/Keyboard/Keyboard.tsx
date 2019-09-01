@@ -5,6 +5,7 @@ import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Keyboard.css";
 import { ViewerProps } from "../withNotes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
+import { Utils } from "../../Common/Utils";
 
 export interface KeyboardProps extends ViewerProps {
     filterOctave?: boolean;
@@ -26,7 +27,7 @@ const BLACK_KEY_INDICES: number[] = [0, 2, 4, 5, 7, 9, 11];
 function getKeyboardKeys(config: KeyboardProps) {
     let keys = [];
     for (let i = config.keyLow; i <= config.keyHigh; i++) {
-        let type = BLACK_KEY_INDICES.includes(i % 12) ? KeyboardKeyType.White : KeyboardKeyType.Black;
+        let type = BLACK_KEY_INDICES.includes(Utils.modulo(i, 12)) ? KeyboardKeyType.White : KeyboardKeyType.Black;
         keys.push(
             <KeyboardKey
                 key={i}
