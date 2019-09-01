@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import { CompleteNote } from "../../Common/TheoryTypes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";

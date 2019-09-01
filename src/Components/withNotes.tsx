@@ -1,6 +1,6 @@
 import { Tonic, Accidental, Interval, CompleteNote } from "../Common/TheoryTypes";
 import { TONIC, ACCIDENTAL } from "../Common/TheoryConstants";
-import React = require("react");
+import * as React from "react";
 import { TheoryEngine } from "../Common/TheoryEngine";
 
 /* Viewer Config */

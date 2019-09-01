@@ -1,5 +1,5 @@
 import { FretboardStringConfig, FretboardString } from "./FretboardString";
-import React = require("react");
+import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
 import { ViewerProps } from "../withNotes";

@@ -24,7 +24,8 @@ var config = {
         use: ['style-loader', 'css-loader'],
       }
     ]
-  }
+  },
+  /*externals: { 'react': 'commonjs react' }*/
 };
 
 module.exports = config;
