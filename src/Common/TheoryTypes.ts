@@ -23,7 +23,7 @@ export interface Interval {
     octaveOffset?: number;
 }
 
-export interface ConceptDefinition {
+export interface ConceptPreset {
     id: string;
     name: string;
     intervals: Interval[];

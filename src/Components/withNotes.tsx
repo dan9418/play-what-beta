@@ -1,11 +1,15 @@
 import { Tonic, Accidental, Interval, CompleteNote } from "../Common/TheoryTypes";
-import { NOTE_LABEL, TONIC, ACCIDENTAL } from "../Common/TheoryConstants";
+import { TONIC, ACCIDENTAL } from "../Common/TheoryConstants";
 import React = require("react");
 import { TheoryEngine } from "../Common/TheoryEngine";
+
+/* Viewer Config */
 
 export interface ViewerProps {
     notes: CompleteNote[];
 }
+
+/* Key Center Config */
 
 export interface KeyCenter {
     tonic?: Tonic;
@@ -13,16 +17,18 @@ export interface KeyCenter {
     octave?: number;
 }
 
-export interface Concept {
-    intervals?: Interval[];
-    chordInversion?: number;
-}
-
 export const DEFAULT_KEY_CENTER = {
     tonic: TONIC.C,
     accidental: ACCIDENTAL.Natural,
     octave: 4,
 };
+
+/* Concept Config */
+
+export interface Concept {
+    intervals?: Interval[];
+    chordInversion?: number;
+}
 
 export const DEFAULT_CONCEPT = {
     intervals: [],
@@ -44,5 +50,5 @@ export function withNotes(Viewer, concept: Concept, keyCenter: KeyCenter) {
             {...props}
             notes={notes}
         />;
-    }
+    };
 }

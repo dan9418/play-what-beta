@@ -1,4 +1,4 @@
-import { Tonic, Accidental, Interval, PhysicalNote, ConceptDefinition } from "./TheoryTypes";
+import { Tonic, Accidental, Interval, PhysicalNote, ConceptPreset } from "./TheoryTypes";
 
 /***** General *****/
 
@@ -218,7 +218,7 @@ export const ACCIDENTAL: { [id: string]: Accidental } = {
 
 /***** Concepts *****/
 
-export const INTERVAL_PAIR: { [id: string]: ConceptDefinition } = {
+export const INTERVAL_PAIR: { [id: string]: ConceptPreset } = {
     P1: {
         id: INTERVAL.P1.id,
         name: INTERVAL.P1.name,
@@ -311,7 +311,7 @@ export const INTERVAL_PAIR: { [id: string]: ConceptDefinition } = {
     }
 };
 
-export const CHORD: { [id: string]: ConceptDefinition } = {
+export const CHORD: { [id: string]: ConceptPreset } = {
     // Major
     Maj: {
         id: 'Maj',
@@ -395,7 +395,7 @@ export const CHORD: { [id: string]: ConceptDefinition } = {
     },
 };
 
-export const SCALE: { [id: string]: ConceptDefinition } = {
+export const SCALE: { [id: string]: ConceptPreset } = {
     // Major
     Major: {
         id: 'Major',
@@ -432,7 +432,7 @@ export const SCALE: { [id: string]: ConceptDefinition } = {
     }
 };
 
-export const MODE: { [id: string]: ConceptDefinition } = {
+export const MODE: { [id: string]: ConceptPreset } = {
     Ionian: {
         id: 'Ionian',
         name: 'Ionian',
@@ -470,7 +470,7 @@ export const MODE: { [id: string]: ConceptDefinition } = {
     }
 };
 
-export const ROMAN_NUMERAL: { [id: string]: ConceptDefinition } = {
+export const ROMAN_NUMERAL: { [id: string]: ConceptPreset } = {
     I: {
         id: 'I',
         name: 'I',

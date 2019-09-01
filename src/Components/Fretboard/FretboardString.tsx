@@ -10,7 +10,7 @@ export interface FretboardStringConfig {
     unfilteredIntervals?: Interval[];
 }
 
-export interface FretboardStringProps {
+interface FretboardStringProps {
     tuning: number;
     filterOctave: boolean;
     notes: CompleteNote[];
@@ -33,8 +33,10 @@ function getFrets(props: FretboardStringProps) {
 }
 
 export function FretboardString(props: FretboardStringProps) {
-    return <div className='fretboard-string'>
-        {getFrets(props)}
-        <div className='fretboard-fret-string' />
-    </div>;
+    return (
+        <div className='fretboard-string'>
+            {getFrets(props)}
+            <div className='fretboard-fret-string' />
+        </div>
+    );
 }

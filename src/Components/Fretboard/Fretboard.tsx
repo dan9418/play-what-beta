@@ -10,7 +10,7 @@ export interface FretboardProps extends ViewerProps {
     fretLabel?: NOTE_LABEL;
     fretLow?: number;
     fretHigh?: number;
-    showFretNumbers?: boolean,
+    showFretNumbers?: boolean;
     showDots?: boolean;
     strings?: FretboardStringConfig[];
 };
