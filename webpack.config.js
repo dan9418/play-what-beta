@@ -1,6 +1,6 @@
 var path = require('path');
 var config = {
-  mode: 'development',
+  mode: 'production',
   entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
