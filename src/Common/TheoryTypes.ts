@@ -34,15 +34,12 @@ export interface ConceptPreset {
 export interface PhysicalNote {
     noteIndex: number;
     noteOctave: number;
-    pitchClass: number;
     frequency: number;
 }
 
 export interface FunctionalNote {
     interval: Interval;
-    noteDegree: number;
     pitchClass: number;
-    accidentalOffset: number;
     name: string;
 }
 

@@ -50,14 +50,9 @@ export class TheoryEngine {
         let frequency = TheoryEngine.getFrequency(noteIndex);
 
         return {
-            // Inputs
             interval: interval,
-            // Functional properties
-            noteDegree: noteDegree,
             pitchClass: pitchClass,
-            accidentalOffset: accidentalOffset,
             name: name,
-            // Physical properties
             noteOctave: noteOctave,
             noteIndex: noteIndex,
             frequency: frequency
@@ -67,15 +62,11 @@ export class TheoryEngine {
 
     static getNonfunctionalNote = (noteIndex): CompleteNote => {
         return {
-            // Physical properties
             noteIndex: noteIndex,
             noteOctave: TheoryEngine.getPhysicalNoteOctave(noteIndex),
             pitchClass: TheoryEngine.getRelativePotision(noteIndex),
             frequency: TheoryEngine.getFrequency(noteIndex),
-            // Empty functional properties
             interval: null,
-            noteDegree: null,
-            accidentalOffset: 0,
             name: '',
         }
     }
