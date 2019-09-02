@@ -1,23 +1,23 @@
 {
-  "name": "play-what-alpha",
+  "name": "play-what-beta",
   "version": "1.0.0",
   "description": "",
-  "main": "build/play-what-alpha.js",
+  "main": "build/play-what-beta.js",
   "scripts": {
     "test": "jest",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dan9418/play-what-alpha.git"
+    "url": "git+https://github.com/dan9418/play-what-beta.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dan9418/play-what-alpha/issues"
+    "url": "https://github.com/dan9418/play-what-beta/issues"
   },
-  "homepage": "https://github.com/dan9418/play-what-alpha#readme",
+  "homepage": "https://github.com/dan9418/play-what-beta#readme",
   "peerDependencies": {
     "react": "^16.8.6"
   },

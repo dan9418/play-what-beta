@@ -4,7 +4,7 @@ var config = {
   entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'play-what-alpha.js',
+    filename: 'play-what-beta.js',
     libraryTarget: "commonjs2"
   },
   resolve: {
