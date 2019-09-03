@@ -2,6 +2,7 @@ import { Tonic, Accidental, Interval, CompleteNote } from "../Common/TheoryTypes
 import { TONIC, ACCIDENTAL } from "../Common/TheoryConstants";
 import * as React from "react";
 import { TheoryEngine } from "../Common/TheoryEngine";
+import { ErrorBoundary } from "../Common/ErrorBoundary";
 
 /* Viewer Config */
 
@@ -46,9 +47,10 @@ export function withNotes(Viewer, concept: Concept, keyCenter: KeyCenter) {
             conceptConfig.intervals,
             conceptConfig.chordInversion
         );
-        return <Viewer
-            {...props}
-            notes={notes}
-        />;
+        return (
+            <ErrorBoundary>
+                <Viewer {...props} notes={notes} />
+            </ErrorBoundary>
+        );
     };
 }
