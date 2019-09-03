@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import { FretboardFret } from "./FretboardFret";
-import { Interval, CompleteNote } from "../../Common/TheoryTypes";
+import { Interval, Note } from "../../Common/TheoryTypes";
 import "./Fretboard.css";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
@@ -13,7 +13,7 @@ export interface FretboardStringConfig {
 interface FretboardStringProps {
     tuning: number;
     filterOctave: boolean;
-    notes: CompleteNote[];
+    notes: Note[];
     fretLabel: NOTE_LABEL;
     fretLow: number;
     fretHigh: number;

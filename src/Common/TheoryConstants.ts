@@ -1,14 +1,14 @@
-import { Tonic, Accidental, Interval, PhysicalNote, ConceptPreset } from "./TheoryTypes";
+import { Tonic, Accidental, Interval, ConceptPreset } from "./TheoryTypes";
 
 /***** General *****/
 
 export enum NOTE_LABEL {
     None,
     Name,
+    Degree,
     Interval,
-    PitchClass,
     NoteIndex,
-    RelativeDegree,
+    PitchClass,
     Octave,
     Frequency
 }
@@ -157,44 +157,44 @@ export const TONIC: { [id: string]: Tonic } = {
     C: {
         id: 'C',
         name: 'C',
-        value: 1,
-        index: 0
+        degreeInC: 1,
+        pitchClass: 0
     },
     D: {
         id: 'D',
         name: 'D',
-        value: 2,
-        index: 2
+        degreeInC: 2,
+        pitchClass: 2
     },
     E: {
         id: 'E',
         name: 'E',
-        value: 3,
-        index: 4
+        degreeInC: 3,
+        pitchClass: 4
     },
     F: {
         id: 'F',
         name: 'F',
-        value: 4,
-        index: 5
+        degreeInC: 4,
+        pitchClass: 5
     },
     G: {
         id: 'G',
         name: 'G',
-        value: 5,
-        index: 7
+        degreeInC: 5,
+        pitchClass: 7
     },
     A: {
         id: 'A',
         name: 'A',
-        value: 6,
-        index: 9
+        degreeInC: 6,
+        pitchClass: 9
     },
     B: {
         id: 'B',
         name: 'B',
-        value: 7,
-        index: 11
+        degreeInC: 7,
+        pitchClass: 11
     }
 };
 
@@ -349,10 +349,10 @@ export const CHORD: { [id: string]: ConceptPreset } = {
         name: 'Minor-Major 7th',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P5, INTERVAL.M7]
     },
-    // DoMinant
+    // Dominant
     Dom7: {
         id: 'Dom7',
-        name: 'DoMinant 7th',
+        name: 'Dominant 7th',
         intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5, INTERVAL.m7]
     },
     // Augmented
@@ -424,7 +424,7 @@ export const SCALE: { [id: string]: ConceptPreset } = {
         name: 'Minor Pentatonic',
         intervals: [INTERVAL.P1, INTERVAL.m3, INTERVAL.P4, INTERVAL.P5, INTERVAL.m7]
     },
-    // Chomatic
+    // Chromatic
     Chromatic: {
         id: 'Chromatic',
         name: 'Chromatic',

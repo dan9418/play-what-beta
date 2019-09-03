@@ -1,4 +1,4 @@
-import { Tonic, Accidental, Interval, CompleteNote } from "../Common/TheoryTypes";
+import { Tonic, Accidental, Interval, Note } from "../Common/TheoryTypes";
 import { TONIC, ACCIDENTAL } from "../Common/TheoryConstants";
 import * as React from "react";
 import { TheoryEngine } from "../Common/TheoryEngine";
@@ -7,7 +7,7 @@ import { ErrorBoundary } from "../Common/ErrorBoundary";
 /* Viewer Config */
 
 export interface ViewerProps {
-    notes: CompleteNote[];
+    notes: Note[];
 }
 
 /* Key Center Config */

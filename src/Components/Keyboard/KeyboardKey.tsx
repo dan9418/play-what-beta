@@ -1,6 +1,6 @@
 import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { CompleteNote } from "../../Common/TheoryTypes";
+import { Note } from "../../Common/TheoryTypes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
 
 export enum KeyboardKeyType {
@@ -10,7 +10,7 @@ export enum KeyboardKeyType {
 
 export interface KeyboardKeyProps {
     type: KeyboardKeyType;
-    note: CompleteNote;
+    note: Note;
     keyLabel: NOTE_LABEL;
 }
 

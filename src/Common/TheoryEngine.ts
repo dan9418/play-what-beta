@@ -1,4 +1,4 @@
-import { Interval, CompleteNote, Tonic, Accidental } from "./TheoryTypes";
+import { Interval, Note, Tonic, Accidental } from "./TheoryTypes";
 import { INTERVAL, TONIC, CALIBRATION_NOTE, NOTE_LABEL, CALIBRATION_CONSTANT } from "./TheoryConstants";
 import { Utils } from "./Utils";
 
@@ -14,7 +14,7 @@ export class TheoryEngine {
         intervals.push.apply(intervals, intervals.splice(0, inversion));
     }
 
-    static parseIntervals = (tonic: Tonic, accidental: Accidental, octave: number, intervals: Interval[], chordInversion = 0): CompleteNote[] => {
+    static parseIntervals = (tonic: Tonic, accidental: Accidental, octave: number, intervals: Interval[], chordInversion = 0): Note[] => {
 
         // Copy intervals
         let parsedIntervals = [];
@@ -37,7 +37,7 @@ export class TheoryEngine {
         return notes;
     }
 
-    static getFunctionalNote = (tonic: Tonic, accidental: Accidental, tonicOctave: number, interval: Interval): CompleteNote => {
+    static getFunctionalNote = (tonic: Tonic, accidental: Accidental, tonicOctave: number, interval: Interval): Note => {
         // Calculate functional properties
         let noteDegree = TheoryEngine.getNoteDegree(tonic, interval);
         let pitchClass = TheoryEngine.getPitchClass(tonic, accidental, interval);
@@ -60,7 +60,7 @@ export class TheoryEngine {
 
     }
 
-    static getNonfunctionalNote = (noteIndex): CompleteNote => {
+    static getNonfunctionalNote = (noteIndex): Note => {
         return {
             noteIndex: noteIndex,
             noteOctave: TheoryEngine.getPhysicalNoteOctave(noteIndex),
@@ -72,15 +72,15 @@ export class TheoryEngine {
     }
 
     static getNoteDegree = (tonic: Tonic, interval: Interval): number => {
-        return Utils.moduloSum(tonic.value, interval.degree, 7, 1);
+        return Utils.moduloSum(tonic.degreeInC, interval.degree, 7, 1);
     }
 
     static getPitchClass = (tonic: Tonic, accidental: Accidental, interval: Interval): number => {
-        return Utils.moduloSum(Object.values(TONIC)[tonic.value - 1].index + accidental.offset, interval.semitones, 12, 0);
+        return Utils.moduloSum(tonic.pitchClass + accidental.offset, interval.semitones, 12, 0);
     }
 
     static getFunctionalNoteOctave = (tonic: Tonic, accidental: Accidental, tonicOctave: number, interval: Interval): number => {
-        return tonicOctave + Math.floor((tonic.index + accidental.offset + interval.semitones) / 12) + interval.octaveOffset;
+        return tonicOctave + Math.floor((tonic.pitchClass + accidental.offset + interval.semitones) / 12) + interval.octaveOffset;
     }
 
     static getPhysicalNoteOctave = (noteIndex: number): number => {
@@ -92,14 +92,18 @@ export class TheoryEngine {
     }
 
     static getAccidentalOffset = (noteDegree: number, pitchClass: number, accidental: Accidental): number => {
-        let offset = pitchClass - Object.values(TONIC)[noteDegree - 1].index;
+        let offset = pitchClass - TheoryEngine.getTonicByDegree(noteDegree).pitchClass;
         if (offset < 0 && accidental.offset > 0) offset = offset + 12;
         else if (offset > 0 && accidental.offset < 0) offset = offset - 12;
         return offset;
     }
 
     static getNoteName = (noteDegree: number, accidentalOffset: number): string => {
-        return Object.values(TONIC)[noteDegree - 1].name + TheoryEngine.getAccidentalString(accidentalOffset);
+        return TheoryEngine.getTonicByDegree(noteDegree).name + TheoryEngine.getAccidentalString(accidentalOffset);
+    }
+
+    static getTonicByDegree = (degree: number): Tonic => {
+        return Object.values(TONIC)[degree - 1];
     }
 
     static getRelativePotision = (noteIndex) => {
@@ -130,20 +134,20 @@ export class TheoryEngine {
         }
     };
 
-    static getNoteLabel = (note: CompleteNote, labelId: NOTE_LABEL): string | number => {
+    static getNoteLabel = (note: Note, labelId: NOTE_LABEL): string | number => {
         switch (labelId) {
             case NOTE_LABEL.None:
                 return '';
             case NOTE_LABEL.Name:
                 return note.name;
+            case NOTE_LABEL.Degree:
+                return note.interval !== null ? note.interval.degree : '';
             case NOTE_LABEL.Interval:
-                return note.interval.id;
+                return note.interval !== null ? note.interval.id : '';
             case NOTE_LABEL.PitchClass:
                 return note.pitchClass;
             case NOTE_LABEL.NoteIndex:
                 return note.noteIndex;
-            case NOTE_LABEL.RelativeDegree:
-                return note.interval.degree;
             case NOTE_LABEL.Octave:
                 return note.noteOctave;
             case NOTE_LABEL.Frequency:
@@ -153,7 +157,7 @@ export class TheoryEngine {
         }
     }
 
-    static isNoteValid = (note: CompleteNote, noteIndex: number, filterOctave: boolean): boolean => {
+    static isNoteValid = (note: Note, noteIndex: number, filterOctave: boolean): boolean => {
         if (filterOctave) {
             return note.noteIndex === noteIndex;
         }
@@ -164,7 +168,7 @@ export class TheoryEngine {
         }
     }
 
-    static getNote = (notes: CompleteNote[], noteIndex, filterOctave: boolean): CompleteNote => {
+    static getNote = (notes: Note[], noteIndex, filterOctave: boolean): Note => {
         let note = notes.find((note) => {
             return TheoryEngine.isNoteValid(note, noteIndex, filterOctave)
         }) || null;
@@ -173,7 +177,7 @@ export class TheoryEngine {
         return note;
     }
 
-    static filterNotes = (notes: CompleteNote[], unfilteredIntervals: Interval[]): CompleteNote[] => {
+    static filterNotes = (notes: Note[], unfilteredIntervals: Interval[]): Note[] => {
         let result = notes.filter((note) => {
             return 'undefined' !== typeof unfilteredIntervals.find((interval) => {
                 return interval.id === note.interval.id;

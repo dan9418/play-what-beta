@@ -3,8 +3,8 @@
 export interface Tonic {
     id: string;
     name: string;
-    value: number;
-    index: number;
+    degreeInC: number;
+    pitchClass: number;
 }
 
 export interface Accidental {
@@ -29,18 +29,13 @@ export interface ConceptPreset {
     intervals: Interval[];
 }
 
-/***** Note Type *****/
+/***** Note *****/
 
-export interface PhysicalNote {
+export interface Note {
+    name: string;
+    interval: Interval;
     noteIndex: number;
     noteOctave: number;
+    pitchClass: number;
     frequency: number;
 }
-
-export interface FunctionalNote {
-    interval: Interval;
-    pitchClass: number;
-    name: string;
-}
-
-export interface CompleteNote extends PhysicalNote, FunctionalNote { }

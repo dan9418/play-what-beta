@@ -1,12 +1,12 @@
 import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
-import { CompleteNote } from "../../Common/TheoryTypes";
+import { Note } from "../../Common/TheoryTypes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
 import "./Fretboard.css";
 
 interface FretboardFretProps {
     fretNumber: number;
-    note: CompleteNote;
+    note: Note;
     fretLabel: NOTE_LABEL;
 }
 
