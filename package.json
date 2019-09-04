@@ -1,6 +1,6 @@
 {
   "name": "play-what-beta",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Play What is a configurable, extensible music theory visualization tool and React component library.",
   "main": "build/play-what-beta.js",
   "scripts": {
