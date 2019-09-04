@@ -25,7 +25,7 @@ var config = {
       }
     ]
   },
-  /*externals: { 'react': 'commonjs react' }*/
+  externals: { 'react': 'commonjs react' }
 };
 
 module.exports = config;
