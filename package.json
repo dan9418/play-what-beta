@@ -1,6 +1,6 @@
 {
   "name": "play-what-beta",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Play What is a configurable, extensible music theory visualization tool and React component library.",
   "main": "build/play-what-beta.js",
   "scripts": {
@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/dan9418/play-what-beta.git"
   },
-  "keywords": ["react", "music theory"],
+  "keywords": [
+    "react",
+    "music theory"
+  ],
   "author": "Dan Bednarczyk",
   "license": "ISC",
   "bugs": {
@@ -22,20 +25,19 @@
     "react": "^16.8.6"
   },
   "dependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/react": "^16.8.23",
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
-    "react": "^16.8.6",
-    "webpack": "^4.35.2"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.18",
     "@types/node": "^12.6.8",
+    "@types/react": "^16.9.2",
+    "babel-cli": "^6.26.0",
     "babel-jest": "^24.9.0",
+    "babel-preset-react-app": "^3.1.2",
     "css-loader": "^3.0.0",
     "jest": "^24.9.0",
     "source-map-loader": "^0.2.4",
@@ -43,6 +45,7 @@
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.2",
+    "webpack": "^4.39.3",
     "webpack-cli": "^3.3.5"
   }
 }
