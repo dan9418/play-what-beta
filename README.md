@@ -1,16 +1,16 @@
 # Play What?
 
-*Play What* is a configurable, extensible music theory visualization tool and React component library.
+*Play What* is a React component library and framework for visualizing music theory concepts. It provides a simple API for configuring viewer components and creating your own.
 
-For interactive documentation and demos, see my [sample project site](https://dan9418.github.io/play-what-sample/).
+For interactive documentation and examples, see my [sample project site](https://dan9418.github.io/play-what-sample/).
 
 ## Features
 
-- Built-in presets for Chords, Scales, Modes, and Roman Numerals
-    - Including chordal inversions
-- Easy transposition of any concept to any key and/or octave
-- Highly configurable viewer components to visualize these concepts
-    - Including a keyboard, fretboard, and a simple API for creating custom viewers
+-Presets for Chords, Scales, Modes, and Roman Numerals
+-Easy transposition of any concept to any key and/or octave
+-Configurable viewer components to visualize these concepts
+-Built-in viewers for keyboards and fretboards
+-A simple API for creating custom viewers
 
 ## Motivation
 
