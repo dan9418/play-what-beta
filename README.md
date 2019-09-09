@@ -6,11 +6,11 @@ For interactive documentation and examples, see my [sample project site](https:/
 
 ## Features
 
--Presets for Chords, Scales, Modes, and Roman Numerals
--Easy transposition of any concept to any key and/or octave
--Configurable viewer components to visualize these concepts
--Built-in viewers for keyboards and fretboards
--A simple API for creating custom viewers
+- Presets for Chords, Scales, Modes, and Roman Numerals
+- Easy transposition of any concept to any key and/or octave
+- Configurable viewer components to visualize these concepts
+- Built-in viewers for keyboards and fretboards
+- A simple API for creating custom viewers
 
 ## Motivation
 
