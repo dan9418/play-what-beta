@@ -1,14 +1,22 @@
 /* Fretboard */
 
 .fretboard {
-	display: inline-block;
+	/*display: inline-block;
 	margin: auto;
     font-size: 12px;
-	/*box-shadow: 1px 1px 5px #888888;*/
+	box-shadow: 1px 1px 5px #888888;
 	position: relative;
 	margin: 20px;
 	text-align: center;
-	font-family: sans-serif;
+	font-family: sans-serif;*/
+	display: inline-block;
+    font-size: 12px;
+    margin: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    display: inline-grid;
+    grid-template-columns: repeat(13, auto);
+    width: 75%;
 }
 
 /* FretboardString */
@@ -22,19 +30,35 @@
 /* FretboardFret */
 
 .fretboard-fret {
-	display: inline-block;
+	/*display: inline-block;
 	position: relative;
 	height: 20px;
-	width: 30px;
+	width: 30px;*/
 	border-right: 2px solid darkgrey;
+	position: relative;
+}
+
+/*.fretboard-fret::before {
+	content: "";
+	display: block;
+	height: 0;
+	width: 0;
+	padding-bottom: calc(2/3 * 100%);
+}*/
+
+.fretboard-fret-string {
+	background-color: black;
+	height: 1px;
+	margin-top: calc(.5 * 2/3 * 100%);
+	margin-bottom: calc(.5 * 2/3 * 100%);
 }
 
 .fretboard-fret-open {
-	border-right: 3px solid grey;
+	/*border-right: 3px solid grey;*/
 }
 
 .fretboard-fret-label {
-	display: inline-block;
+	/*display: inline-block;
     z-index: 10;
     position: absolute;
     left: 1px;
@@ -42,53 +66,57 @@
     height: 18px;
     line-height: 18px;
 	width: 28px;
-	border-radius: 5px;
+	border-radius: 5px;*/
+	/* display: inline-block; */
+    /* z-index: 10; */
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    border-radius: 5px;
 }
 
-.fretboard-fret-string {
+.fretboard-fret-label div {
+	line-height: 0;
+    position: absolute;
+    height: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin-top: calc(.5 * 2/3 * 100%);
+    margin-bottom: calc(.5 * 2/3 * 100%);
+}
+
+/*.fretboard-fret-string {
 	position: absolute;
     top: 10px;
     left: 0px;
     height: 1px;
     background-color: grey;
     width: 100%;
-}
+}*/
 
 
 /* Fret Numbers */
 
-.fret-numbers-container {
-	position: absolute;
-    display: inline-block;
-    top: -16px;
-    left: 0px;
-    height: 16px;
-}
-
 .fret-number {
-    width: 30px;
 	color: grey;
-	display: inline-block;
 	margin: 1px;
-	font-size: 12px;
 }
 
 /* Fret Dots */
 
-.dots-container {
-	position: absolute;
-    display: inline-block;
-    bottom: -16px;
-    left: 0px;
-    height: 16px;
-}
-
 .fretboard-fret-dots {
-    width: 30px;
 	color: grey;
-	display: inline-block;
 	margin: 1px;
 	font-size: 16px;
+}
+
+.fretboard-fret-dots div, .fret-number div {
+	
 }
 
 /* Colors */
