@@ -4,13 +4,13 @@ import { Note } from "../../Common/TheoryTypes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
 import "./Fretboard.css";
 
-interface FretboardFretProps {
+interface FretProps {
     fretNumber: number;
     note: Note;
     fretLabel: NOTE_LABEL;
 }
 
-export function FretboardFret(props: FretboardFretProps) {
+export function Fret(props: FretProps) {
     let colorClass = (props.note.interval !== null) ? `degree-${props.note.interval.degree}` : '';
     let classes = ['fretboard-fret', 'wood'];
     let labelClasses = [colorClass, 'fretboard-fret-label']

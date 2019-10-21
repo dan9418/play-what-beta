@@ -1,11 +1,10 @@
-import { FretboardStringConfig, FretboardString } from "./FretboardString";
 import * as React from "react";
 import { TheoryEngine } from "../../Common/TheoryEngine";
 import "./Fretboard.css";
 import { ViewerProps } from "../withNotes";
 import { NOTE_LABEL } from "../../Common/TheoryConstants";
-import { FretboardFret } from "./FretboardFret";
-import { Note } from "../../Common/TheoryTypes";
+import { Fret } from "./Fret";
+import { Note, Interval } from "../../Common/TheoryTypes";
 
 export interface FretboardProps extends ViewerProps {
     filterOctave?: boolean;
@@ -35,12 +34,18 @@ export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     ]
 }
 
-const DOTTED_FRET_INDICES: number[] = [3, 5, 7, 9];
+export interface FretboardStringConfig {
+    tuning: number
+    unfilteredIntervals?: Interval[];
+}
+
+const DOTTED_FRET_INDICES: boolean[] = [true, false, false, true, false, true, false, true, false, true, false, false];
 
 function getDotsForFret(fretNumber: number): string {
-    if (fretNumber === 0)
+    let mod = fretNumber % 12;
+    if (mod === 0)
         return '• •';
-    else if (DOTTED_FRET_INDICES.includes(fretNumber))
+    else if (DOTTED_FRET_INDICES[mod])
         return '•';
     return '';
 }
@@ -59,7 +64,7 @@ function getFrets(config: FretboardProps, notes: Note[]) {
     for (let i = 0; i < config.strings.length; i++) {
         // Get frets for string
         for (let j = config.fretLow; j <= config.fretHigh; j++) {
-            frets.push(<FretboardFret
+            frets.push(<Fret
                 key={`s${i}f${j}`}
                 fretNumber={j}
                 note={TheoryEngine.getNote(notes, config.strings[i].tuning + j, config.filterOctave)}
@@ -71,7 +76,7 @@ function getFrets(config: FretboardProps, notes: Note[]) {
     if (config.showFretNumbers) {
         for (let i = config.fretLow; i <= config.fretHigh; i++) {
             frets.push(<div className='fretboard-fret-dots' key={`d${i}`}>
-                <div>{getDotsForFret(i % 12)}</div>
+                <div>{getDotsForFret(i)}</div>
             </div>);
         }
     }
