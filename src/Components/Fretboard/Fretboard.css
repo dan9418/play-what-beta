@@ -26,7 +26,7 @@
 }
 
 .fretboard-fret-string {
-	background-color: black;
+	background-color: grey;
 	height: 1px;
 	margin-top: calc(.5 * 2/3 * 100%);
 	margin-bottom: calc(.5 * 2/3 * 100%);
