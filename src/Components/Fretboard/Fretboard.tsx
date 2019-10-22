@@ -86,7 +86,11 @@ function getFrets(config: FretboardProps, notes: Note[]) {
 export function Fretboard(props: FretboardProps) {
     let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
     return (
-        <div className='fretboard'>
+        <div className='fretboard'
+            style={{
+                gridTemplateColumns: `repeat(${config.fretHigh - config.fretLow + 1}, 1fr)`
+            }}
+        >
             {getFrets(config, props.notes)}
         </div>
     );

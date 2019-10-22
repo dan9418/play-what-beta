@@ -1,12 +1,33 @@
+/*.test-key {
+	background: green;
+	display: inline-block;
+	height: 0;
+}
+
+.test-key-black {
+	background: black;
+	position: relative;
+    left: -50%;
+}
+
+.test-key-white {
+	background: white;
+}
+
+.test-key-black-container {
+	display: inline-block;
+	width: 0;
+}*/
+
 /* Keyboard */
 
 .keyboard {
 	display: inline-block;
     font-size: 12px;
-	/*box-shadow: 2px 2px 5px #888888;*/
 	margin: 20px;
 	text-align: center;
 	font-family: sans-serif;
+	width: 75%;
 }
 
 /* KeyboardKey */
@@ -15,10 +36,9 @@
 
 .keyboard-key-container {
 	display: inline-block;
-	height: 100px;
 }
 
-.keyboard-key-container-black {
+.keyboard-key-container.black {
 	width: 0px;
 }
 
@@ -31,16 +51,16 @@
 	position: relative;
 }
 
-.keyboard-key-container-white .keyboard-key {
-	height: 100px;
-	width: 25px;
+.keyboard-key-container.white .keyboard-key {
+	/*height: 100px;
+	width: 25px;*/
 }
 
-.keyboard-key-container-black .keyboard-key {
-	height: 70px;
+.keyboard-key-container.black .keyboard-key {
+	/*height: 70px;
 	width: 12px;
+	left: -6px;*/
 	position: relative;
-	left: -6px;
 	z-index: 10;
 }
 
