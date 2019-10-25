@@ -19,7 +19,7 @@ export function Fret(props: FretProps) {
 
     return (
         <div className={classes.join(' ')}>
-            <div className='fretboard-fret-string'></div>
+            {<div className='fretboard-fret-string'></div>}
             <div className={labelClasses.join(' ')}><div>{TheoryEngine.getNoteLabel(props.note, props.fretLabel)}</div></div>
         </div>
     );

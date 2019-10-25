@@ -23,13 +23,23 @@
 .fretboard-fret {
 	border-right: 2px solid darkgrey;
 	position: relative;
+	display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fretboard-fret::before {
+	content: "";
+	display: block;
+	height: 0;
+	width: 0;
+	margin-top: calc(2/3 * 100%);
 }
 
 .fretboard-fret-string {
 	background-color: grey;
 	height: 1px;
-	margin-top: calc(.5 * 2/3 * 100%);
-	margin-bottom: calc(.5 * 2/3 * 100%);
+	width: 100%;
 }
 
 .fretboard-fret-open {
@@ -38,39 +48,34 @@
 
 .fretboard-fret-label {
     position: absolute;
-    top: 1px;
-    bottom: 1px;
-    left: 1px;
-    right: 1px;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
     border-radius: 5px;
-}
-
-.fretboard-fret-label div {
-	line-height: 0;
-    position: absolute;
-    height: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    margin-top: calc(.5 * 2/3 * 100%);
-    margin-bottom: calc(.5 * 2/3 * 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Fret Numbers */
 
 .fret-number {
 	color: grey;
-	margin: 1px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Fret Dots */
 
 .fretboard-fret-dots {
 	color: grey;
-	margin: 1px;
 	font-size: 16px;
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	white-space: nowrap;
 }
 
 .fretboard-fret-dots div, .fret-number div {

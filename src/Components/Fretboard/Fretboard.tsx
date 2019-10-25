@@ -83,12 +83,29 @@ function getFrets(config: FretboardProps, notes: Note[]) {
     return frets;
 }
 
+function getFretRatios(numFrets) {
+    let ratios = [];
+    for (let i = 1; i <= numFrets; i++) {
+        if (i <= 1) {
+            ratios.push(10);
+        }
+        else {
+            // 0.9438743 ~ (1/2)^1/12
+            ratios.push(ratios[i - 2] * 0.9438743);
+        }
+    }
+    console.log(ratios);
+    console.log(ratios.map((num) => { return num + 'fr' }).join(' '));
+    return ratios;
+}
+
 export function Fretboard(props: FretboardProps) {
     let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
     return (
         <div className='fretboard'
             style={{
-                gridTemplateColumns: `repeat(${config.fretHigh - config.fretLow + 1}, 1fr)`
+                gridTemplateColumns: getFretRatios(config.fretHigh - config.fretLow + 1).map((num) => { return num + 'fr' }).join(' '),
+                gridTemplateRows: `repeat(${config.strings.length + 2}, 1fr)`
             }}
         >
             {getFrets(config, props.notes)}
