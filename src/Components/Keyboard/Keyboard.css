@@ -3,21 +3,25 @@
 .keyboard {
 	display: inline-block;
     font-size: 12px;
-	margin: 20px;
 	text-align: center;
 	font-family: sans-serif;
-	width: 75%;
+	width: 100%;
+	min-width: 100px;
+	max-width: 400px;
+	margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* KeyboardKey */
 
 /* Container */
 
-.keyboard-key-container {
+.white-key-container {
 	display: inline-block;
 }
 
-.keyboard-key-container.black {
+.black-key-container {
+	display: inline-block;
 	width: 0px;
 }
 
@@ -26,18 +30,31 @@
 .keyboard-key {
 	display: inline-block;
 	vertical-align: top;
-	box-shadow:inset 0px 0px 0px 1px black;
 	position: relative;
 	display: inline-flex;
     justify-content: center;
 }
 
-.keyboard-key-container.white .keyboard-key {
-
+.white {
+	background-color: white;
+    color: black;
 }
 
-.keyboard-key-container.black .keyboard-key {
+.white-key {
+	
+    box-shadow: 0 0 2px 0px black inset;
+    border-radius: 0 0 5% 5%;
+}
+
+.black {
+	background-color: black;
+	color: white;
+}
+
+.black-key {
 	z-index: 10;
+	box-shadow: 0 -3px 3px 3px #666 inset;
+    border-radius: 0 0 10% 10%;
 }
 
 /* Label */
@@ -46,25 +63,13 @@
 	
 }
 
-.keyboard-key-container.white .keyboard-key .keyboard-key-label {
+.white-key .keyboard-key-label {
 	position: absolute;
     bottom: 5%;
 }
 
-.keyboard-key-container.black .keyboard-key-label {
+.black-key .keyboard-key-label {
 	bottom: 105%;
 	position: absolute;
-	color: black;
-}
-
-/* Colors */
-
-.black {
-	background-color: black;
-	color: white;
-}
-
-.white {
-	background-color: white;
 	color: black;
 }

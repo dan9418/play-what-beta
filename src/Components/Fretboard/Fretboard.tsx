@@ -34,32 +34,15 @@ export const DEFAULT_FRETBOARD_PROPS: FretboardProps = {
     ]
 }
 
+export const FRET_SIZE_RATIO = Math.pow((1 / 2), (1 / 12));
+
 export interface FretboardStringConfig {
     tuning: number
     unfilteredIntervals?: Interval[];
 }
 
-const DOTTED_FRET_INDICES: boolean[] = [true, false, false, true, false, true, false, true, false, true, false, false];
-
-function getDotsForFret(fretNumber: number): string {
-    let mod = fretNumber % 12;
-    if (mod === 0)
-        return '• •';
-    else if (DOTTED_FRET_INDICES[mod])
-        return '•';
-    return '';
-}
-
 function getFrets(config: FretboardProps, notes: Note[]) {
     let frets = [];
-    // Get fret numbers
-    if (config.showFretNumbers) {
-        for (let i = config.fretLow; i <= config.fretHigh; i++) {
-            frets.push(<div className='fret-number' key={`n${i}`}>
-                <div>{i}</div>
-            </div>);
-        }
-    }
     // Get strings
     for (let i = 0; i < config.strings.length; i++) {
         // Get frets for string
@@ -67,17 +50,11 @@ function getFrets(config: FretboardProps, notes: Note[]) {
             frets.push(<Fret
                 key={`s${i}f${j}`}
                 fretNumber={j}
+                showFretNumber={config.showFretNumbers && i === 0}
+                showFretDots={config.showDots && i === config.strings.length - 1}
                 note={TheoryEngine.getNote(notes, config.strings[i].tuning + j, config.filterOctave)}
                 fretLabel={config.fretLabel}
             />)
-        }
-    }
-    // Get fret dots
-    if (config.showFretNumbers) {
-        for (let i = config.fretLow; i <= config.fretHigh; i++) {
-            frets.push(<div className='fretboard-fret-dots' key={`d${i}`}>
-                <div>{getDotsForFret(i)}</div>
-            </div>);
         }
     }
     return frets;
@@ -87,25 +64,23 @@ function getFretRatios(numFrets) {
     let ratios = [];
     for (let i = 1; i <= numFrets; i++) {
         if (i <= 1) {
-            ratios.push(10);
+            ratios.push(1);
         }
         else {
-            // 0.9438743 ~ (1/2)^1/12
-            ratios.push(ratios[i - 2] * 0.9438743);
+            ratios.push(ratios[i - 2] * FRET_SIZE_RATIO);
         }
     }
-    console.log(ratios);
-    console.log(ratios.map((num) => { return num + 'fr' }).join(' '));
     return ratios;
 }
 
 export function Fretboard(props: FretboardProps) {
     let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
+    let fretRatioStyle = getFretRatios(config.fretHigh - config.fretLow + 1).map((num) => { return num + 'fr' }).join(' ');
     return (
         <div className='fretboard'
             style={{
-                gridTemplateColumns: getFretRatios(config.fretHigh - config.fretLow + 1).map((num) => { return num + 'fr' }).join(' '),
-                gridTemplateRows: `repeat(${config.strings.length + 2}, 1fr)`
+                gridTemplateColumns: fretRatioStyle,
+                gridTemplateRows: `repeat(${config.strings.length}, 1fr)`
             }}
         >
             {getFrets(config, props.notes)}

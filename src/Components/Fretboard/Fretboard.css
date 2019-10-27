@@ -3,11 +3,15 @@
 .fretboard {
 	display: inline-block;
     font-size: 12px;
-    margin: 20px;
     text-align: center;
     font-family: sans-serif;
     display: inline-grid;
-    width: 75%;
+	width: 100%;
+	min-width: 100px;
+	max-width: 400px;
+	background-image: radial-gradient(ellipse, #E8DBB8 0%, #D0B27C 100%);
+	margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* FretboardString */
@@ -33,7 +37,7 @@
 	display: block;
 	height: 0;
 	width: 0;
-	margin-top: calc(2/3 * 100%);
+	margin-top: calc(1/2 * 100%);
 }
 
 .fretboard-fret-string {
@@ -48,43 +52,28 @@
 
 .fretboard-fret-label {
     position: absolute;
-    top: 5%;
-    bottom: 5%;
-    left: 5%;
-    right: 5%;
-    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+	align-items: center;
 }
 
 /* Fret Numbers */
 
 .fret-number {
 	color: grey;
-	display: flex;
-    justify-content: center;
-    align-items: center;
+	position: absolute;
+	bottom: 105%;
 }
 
 /* Fret Dots */
 
-.fretboard-fret-dots {
+.fret-dots {
 	color: grey;
 	font-size: 16px;
-	display: flex;
-    justify-content: center;
-	align-items: center;
+	position: absolute;
+	top: 100%;
 	white-space: nowrap;
-}
-
-.fretboard-fret-dots div, .fret-number div {
-	
-}
-
-/* Colors */
-
-.wood {
-	background-color: burlywood;
-	color: black;
 }
