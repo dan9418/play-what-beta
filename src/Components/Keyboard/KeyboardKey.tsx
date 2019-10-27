@@ -24,28 +24,9 @@ export interface KeyboardKeyProps {
 
 export function KeyboardKey(props: KeyboardKeyProps) {
     let keyColor = (props.type === KeyboardKeyType.White) ? 'white' : 'black';
+    let scaleStyles = getScaleStyles(props.type, props.scale);
     let classes = ['keyboard-key', `${keyColor}-key`];
-
-    // Apply key scale styles
-    let scaleStyles = (props.type === KeyboardKeyType.White) ?
-        {
-            width: props.scale + 'px',
-            height: KEY__DIMS.WhW_WhH * props.scale + 'px'
-        }
-        :
-        {
-            width: KEY__DIMS.WhW_BlW * props.scale + 'px',
-            height: KEY__DIMS.WhW_BlH * props.scale + 'px',
-            right: .5 * KEY__DIMS.WhW_BlW * props.scale + 'px'
-        };
-
-    // Apply interval degree, if applicable
-    if (props.note.interval !== null) {
-        classes.push(`degree-${props.note.interval.degree}`);
-    }
-    else {
-        classes.push(keyColor);
-    }
+    classes.push((props.note.interval !== null) ? `degree-${props.note.interval.degree}` : keyColor);
 
     return (
         <div className={`${keyColor}-key-container`}>
@@ -54,4 +35,25 @@ export function KeyboardKey(props: KeyboardKeyProps) {
             </div>
         </div>
     );
+}
+
+function getScaleStyles(keyType: KeyboardKeyType, scale: number) {
+    switch (keyType) {
+        case KeyboardKeyType.White:
+            return {
+                width: scale + 'px',
+                height: KEY__DIMS.WhW_WhH * scale + 'px'
+            };
+        case KeyboardKeyType.Black:
+            return {
+                width: KEY__DIMS.WhW_BlW * scale + 'px',
+                height: KEY__DIMS.WhW_BlH * scale + 'px',
+                right: .5 * KEY__DIMS.WhW_BlW * scale + 'px'
+            };
+        default:
+            return {
+                width: '0px',
+                height: '0px'
+            }
+    }
 }

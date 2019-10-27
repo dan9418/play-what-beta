@@ -19,7 +19,7 @@ export function Fret(props: FretProps) {
     let classes = ['fretboard-fret', 'wood'];
     let labelClasses = [colorClass, 'fretboard-fret-label']
     if (props.fretNumber === 0)
-        classes.push('fretboard-fret-open');
+        classes.push('open');
 
     return (
         <div className={classes.join(' ')}>

@@ -76,13 +76,12 @@ function getFretRatios(numFrets) {
 export function Fretboard(props: FretboardProps) {
     let config = Object.assign({}, DEFAULT_FRETBOARD_PROPS, props);
     let fretRatioStyle = getFretRatios(config.fretHigh - config.fretLow + 1).map((num) => { return num + 'fr' }).join(' ');
+    let fretboardScaleStyles = {
+        gridTemplateColumns: fretRatioStyle,
+        gridTemplateRows: `repeat(${config.strings.length}, 1fr)`
+    };
     return (
-        <div className='fretboard'
-            style={{
-                gridTemplateColumns: fretRatioStyle,
-                gridTemplateRows: `repeat(${config.strings.length}, 1fr)`
-            }}
-        >
+        <div className='fretboard' style={fretboardScaleStyles}>
             {getFrets(config, props.notes)}
         </div>
     );
