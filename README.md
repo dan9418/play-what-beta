@@ -1,6 +1,8 @@
 # Play What?
 
-*Play What* (beta) is a React component library for visualizing music theory concepts. It provides a simple API for configuring viewer components and creating your own.
+*Play What* is a React component library for visualizing music theory concepts. It provides a simple API for configuring built-in viewer components and creating your own.
+
+This beta version is subject to major changes as I finalize the architecture and features for the first major release.
 
 For interactive documentation and examples, see my [sample project site](https://dan9418.github.io/play-what-sample/).
 
@@ -20,9 +22,3 @@ My primary goals for developing this project were to...
 - Complete a substantial project demonstrating good design and best practices for my portfolio
 - Learn complex music theory concepts
 - Create a useful, open-source tool that is highly configurable and extensible
-
-## Hire Me
-
-If you like what you see, feel free to contact me! I am currently relocating to the west coast and searching for a web dev job.
-
-My resume and contact information can be found on my [personal website](http://danbednarczyk.com/).
