@@ -13,6 +13,6 @@ For interactive documentation on this beta version, see the [sample project site
 The final version will be published as two packages:
 
 - A pure JS library for music theory utilities
-- An official library of React comonents for consuming the core package
+- An official library of React components for consuming the core package
 
 I expect to formally release V1 in Spring 2020.
