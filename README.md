@@ -1,24 +1,18 @@
-# Play What?
+# NOTE
 
-*Play What* is a React component library for visualizing music theory concepts. It provides a simple API for configuring built-in viewer components and creating your own.
+This repo contains early beta code for the the Play What library. Active development has moved to the [play-what](https://github.com/dan9418/play-what) and [play-what-react-viewers](https://github.com/dan9418/play-what-react-viewers) repos.
 
-This beta version is subject to major changes as I finalize the architecture and features for the first major release.
+## Play What?
 
-For interactive documentation and examples, see my [sample project site](https://dan9418.github.io/play-what-sample/).
+*Play What* is a music theory toolkit for JavaScript. It provides tools for music theory computations and React components for visualization.
 
-## Features
+For interactive documentation on this beta version, see the [sample project site](https://dan9418.github.io/play-what-sample/).
 
-- Presets for Chords, Scales, Modes, and Roman Numerals
-- Easy transposition of any concept to any key and/or octave
-- Configurable viewer components to visualize these concepts
-- Built-in viewers for keyboards and fretboards
-- A simple API for creating custom viewers
+## Future of this project
 
-## Motivation
+The final version will be published as two packages:
 
-My primary goals for developing this project were to...
+- A pure JS library for music theory utilities
+- An official library of React comonents for consuming the core package
 
-- Learn the ReactJS framework
-- Complete a substantial project demonstrating good design and best practices for my portfolio
-- Learn complex music theory concepts
-- Create a useful, open-source tool that is highly configurable and extensible
+I expect to formally release V1 in Spring 2020.
